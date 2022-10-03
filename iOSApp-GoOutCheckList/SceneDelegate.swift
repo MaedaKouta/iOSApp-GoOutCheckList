@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //  self.window?.rootViewController = viewController
 
         /* 初期画面をNavigationControllerにしたい場合 */
-         let navigationController = UINavigationController(rootViewController: CategoryListViewController())
+         let navigationController = UINavigationController(rootViewController: CategoryTableViewController())
          self.window?.rootViewController = navigationController
     }
 
