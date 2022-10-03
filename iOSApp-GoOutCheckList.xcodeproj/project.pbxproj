@@ -113,10 +113,11 @@
 		87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */ = {
 			isa = PBXGroup;
 			children = (
+				87B41BA428EAC387009F1046 /* Models */,
+				87B41BA528EAC38E009F1046 /* View */,
+				87B41BA628EAC394009F1046 /* ViewModel */,
 				87B41B2028EAA1C1009F1046 /* AppDelegate.swift */,
 				87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */,
-				87B41B2428EAA1C1009F1046 /* ViewController.swift */,
-				87B41B2628EAA1C1009F1046 /* Main.storyboard */,
 				87B41B2928EAA1C2009F1046 /* Assets.xcassets */,
 				87B41B2B28EAA1C2009F1046 /* LaunchScreen.storyboard */,
 				87B41B2E28EAA1C2009F1046 /* Info.plist */,
@@ -139,6 +140,29 @@
 				87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */,
 			);
 			path = "iOSApp-GoOutCheckListUITests";
+			sourceTree = "<group>";
+		};
+		87B41BA428EAC387009F1046 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87B41BA528EAC38E009F1046 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87B41B2628EAA1C1009F1046 /* Main.storyboard */,
+				87B41B2428EAA1C1009F1046 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87B41BA628EAC394009F1046 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
