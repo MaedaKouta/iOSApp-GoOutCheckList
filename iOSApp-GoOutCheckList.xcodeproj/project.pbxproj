@@ -16,6 +16,13 @@
 		87B41B3828EAA1C2009F1046 /* iOSApp_GoOutCheckListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B3728EAA1C2009F1046 /* iOSApp_GoOutCheckListTests.swift */; };
 		87B41B4228EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */; };
 		87B41B4428EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */; };
+		87B41B8E28EABC7B009F1046 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B8D28EABC7B009F1046 /* RxCocoa */; };
+		87B41B9028EABC7B009F1046 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B8F28EABC7B009F1046 /* RxRelay */; };
+		87B41B9228EABC7B009F1046 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9128EABC7B009F1046 /* RxSwift */; };
+		87B41B9528EABC94009F1046 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9428EABC94009F1046 /* PKHUD */; };
+		87B41B9D28EABD2A009F1046 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9C28EABD2A009F1046 /* Lottie */; };
+		87B41BA028EABD8C009F1046 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9F28EABD8C009F1046 /* Realm */; };
+		87B41BA228EABD8C009F1046 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41BA128EABD8C009F1046 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B41BA028EABD8C009F1046 /* Realm in Frameworks */,
+				87B41B9D28EABD2A009F1046 /* Lottie in Frameworks */,
+				87B41BA228EABD8C009F1046 /* RealmSwift in Frameworks */,
+				87B41B9228EABC7B009F1046 /* RxSwift in Frameworks */,
+				87B41B9528EABC94009F1046 /* PKHUD in Frameworks */,
+				87B41B9028EABC7B009F1046 /* RxRelay in Frameworks */,
+				87B41B8E28EABC7B009F1046 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +157,15 @@
 			dependencies = (
 			);
 			name = "iOSApp-GoOutCheckList";
+			packageProductDependencies = (
+				87B41B8D28EABC7B009F1046 /* RxCocoa */,
+				87B41B8F28EABC7B009F1046 /* RxRelay */,
+				87B41B9128EABC7B009F1046 /* RxSwift */,
+				87B41B9428EABC94009F1046 /* PKHUD */,
+				87B41B9C28EABD2A009F1046 /* Lottie */,
+				87B41B9F28EABD8C009F1046 /* Realm */,
+				87B41BA128EABD8C009F1046 /* RealmSwift */,
+			);
 			productName = "iOSApp-GoOutCheckList";
 			productReference = 87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +238,12 @@
 				Base,
 			);
 			mainGroup = 87B41B1428EAA1C1009F1046;
+			packageReferences = (
+				87B41B8C28EABC7B009F1046 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				87B41B9328EABC94009F1046 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				87B41B9B28EABD2A009F1046 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				87B41B9E28EABD8C009F1046 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 87B41B1E28EAA1C1009F1046 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -602,6 +631,79 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		87B41B8C28EABC7B009F1046 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		87B41B9328EABC94009F1046 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		87B41B9B28EABD2A009F1046 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		87B41B9E28EABD8C009F1046 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		87B41B8D28EABC7B009F1046 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B41B8C28EABC7B009F1046 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		87B41B8F28EABC7B009F1046 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B41B8C28EABC7B009F1046 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		87B41B9128EABC7B009F1046 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B41B8C28EABC7B009F1046 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		87B41B9428EABC94009F1046 /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B41B9328EABC94009F1046 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
+		87B41B9C28EABD2A009F1046 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B41B9B28EABD2A009F1046 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		87B41B9F28EABD8C009F1046 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B41B9E28EABD8C009F1046 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		87B41BA128EABD8C009F1046 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B41B9E28EABD8C009F1046 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 87B41B1528EAA1C1009F1046 /* Project object */;
 }
