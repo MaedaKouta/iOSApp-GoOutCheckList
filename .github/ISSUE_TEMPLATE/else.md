@@ -1,5 +1,5 @@
 ---
-name: その他
+name: Else
 about: その他の種のissueがある場合はここに記載
 title: ''
 labels: ''
