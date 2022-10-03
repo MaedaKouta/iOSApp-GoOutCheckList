@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
 		87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */; };
-		87B41B2528EAA1C1009F1046 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2428EAA1C1009F1046 /* ViewController.swift */; };
-		87B41B2828EAA1C1009F1046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2628EAA1C1009F1046 /* Main.storyboard */; };
 		87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
 		87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2B28EAA1C2009F1046 /* LaunchScreen.storyboard */; };
 		87B41B3828EAA1C2009F1046 /* iOSApp_GoOutCheckListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B3728EAA1C2009F1046 /* iOSApp_GoOutCheckListTests.swift */; };
@@ -23,6 +21,9 @@
 		87B41B9D28EABD2A009F1046 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9C28EABD2A009F1046 /* Lottie */; };
 		87B41BA028EABD8C009F1046 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9F28EABD8C009F1046 /* Realm */; };
 		87B41BA228EABD8C009F1046 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41BA128EABD8C009F1046 /* RealmSwift */; };
+		87B41BAD28EAC572009F1046 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAB28EAC572009F1046 /* CategoryListViewController.swift */; };
+		87B41BAE28EAC572009F1046 /* CategoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B41BAC28EAC572009F1046 /* CategoryListViewController.xib */; };
+		87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAF28EAC58C009F1046 /* CategoryListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +47,6 @@
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B2028EAA1C1009F1046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		87B41B2428EAA1C1009F1046 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		87B41B2728EAA1C1009F1046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87B41B2928EAA1C2009F1046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87B41B2C28EAA1C2009F1046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87B41B2E28EAA1C2009F1046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +55,9 @@
 		87B41B3D28EAA1C2009F1046 /* iOSApp-GoOutCheckListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOSApp-GoOutCheckListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITests.swift; sourceTree = "<group>"; };
 		87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		87B41BAB28EAC572009F1046 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		87B41BAC28EAC572009F1046 /* CategoryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListViewController.xib; sourceTree = "<group>"; };
+		87B41BAF28EAC58C009F1046 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +115,11 @@
 		87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */ = {
 			isa = PBXGroup;
 			children = (
+				87B41BA428EAC387009F1046 /* Models */,
+				87B41BA528EAC38E009F1046 /* View */,
+				87B41BA628EAC394009F1046 /* ViewModel */,
 				87B41B2028EAA1C1009F1046 /* AppDelegate.swift */,
 				87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */,
-				87B41B2428EAA1C1009F1046 /* ViewController.swift */,
-				87B41B2628EAA1C1009F1046 /* Main.storyboard */,
 				87B41B2928EAA1C2009F1046 /* Assets.xcassets */,
 				87B41B2B28EAA1C2009F1046 /* LaunchScreen.storyboard */,
 				87B41B2E28EAA1C2009F1046 /* Info.plist */,
@@ -139,6 +142,30 @@
 				87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */,
 			);
 			path = "iOSApp-GoOutCheckListUITests";
+			sourceTree = "<group>";
+		};
+		87B41BA428EAC387009F1046 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87B41BA528EAC38E009F1046 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87B41BAB28EAC572009F1046 /* CategoryListViewController.swift */,
+				87B41BAC28EAC572009F1046 /* CategoryListViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87B41BA628EAC394009F1046 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				87B41BAF28EAC58C009F1046 /* CategoryListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
+				87B41BAE28EAC572009F1046 /* CategoryListViewController.xib in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
-				87B41B2828EAA1C1009F1046 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,9 +314,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B41B2528EAA1C1009F1046 /* ViewController.swift in Sources */,
+				87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
+				87B41BAD28EAC572009F1046 /* CategoryListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,14 +354,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		87B41B2628EAA1C1009F1046 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87B41B2728EAA1C1009F1046 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		87B41B2B28EAA1C2009F1046 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -395,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -449,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -470,10 +490,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOSApp-GoOutCheckList/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,10 +519,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOSApp-GoOutCheckList/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
