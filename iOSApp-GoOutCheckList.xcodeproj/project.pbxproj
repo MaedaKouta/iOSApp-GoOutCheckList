@@ -11,6 +11,7 @@
 		8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
+		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
 		87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */; };
 		87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
+		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B2028EAA1C1009F1046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			path = CategoryListView;
 			sourceTree = "<group>";
 		};
+		87A2663128EB27AC0091C282 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		87B41B1428EAA1C1009F1046 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 				87B41BA428EAC387009F1046 /* Models */,
 				87B41BA528EAC38E009F1046 /* View */,
 				87B41BA628EAC394009F1046 /* ViewModel */,
+				87A2663128EB27AC0091C282 /* Source */,
 				87B41B2028EAA1C1009F1046 /* AppDelegate.swift */,
 				87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */,
 				87B41B2928EAA1C2009F1046 /* Assets.xcassets */,
@@ -331,6 +342,7 @@
 			files = (
 				8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */,
+				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,

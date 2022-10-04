@@ -6,30 +6,32 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import RxRelay
 
 class CategoryTableViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    private lazy var categoryTableViewModel = CategoryTableViewModel()
+    private let disposeBag = DisposeBag()
+    private var categoryDataSource = CategoryDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        setupBindings()
+    }
 
-        tableView.delegate = self
-        tableView.dataSource = self
+    // MARK: TableView
+    private func setupBindings() {
+        categoryTableViewModel.dataObservable
+            .bind(to: tableView.rx.items(dataSource: categoryDataSource))
+            .disposed(by: disposeBag)
+    }
+
+    private func setupTableView() {
         tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
-    }
-}
-
-extension CategoryTableViewController: UITableViewDelegate, UITableViewDataSource {
-
-    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
-        cell.textLabel?.text = "Label"
-        return cell
     }
 
 }
