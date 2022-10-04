@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */; };
+		8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */; };
+		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
+		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
+		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
 		87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */; };
 		87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
@@ -21,8 +26,6 @@
 		87B41B9D28EABD2A009F1046 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9C28EABD2A009F1046 /* Lottie */; };
 		87B41BA028EABD8C009F1046 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9F28EABD8C009F1046 /* Realm */; };
 		87B41BA228EABD8C009F1046 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41BA128EABD8C009F1046 /* RealmSwift */; };
-		87B41BAD28EAC572009F1046 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAB28EAC572009F1046 /* CategoryListViewController.swift */; };
-		87B41BAE28EAC572009F1046 /* CategoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B41BAC28EAC572009F1046 /* CategoryListViewController.xib */; };
 		87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAF28EAC58C009F1046 /* CategoryListViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
+		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B2028EAA1C1009F1046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,8 +63,6 @@
 		87B41B3D28EAA1C2009F1046 /* iOSApp-GoOutCheckListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOSApp-GoOutCheckListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITests.swift; sourceTree = "<group>"; };
 		87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		87B41BAB28EAC572009F1046 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
-		87B41BAC28EAC572009F1046 /* CategoryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListViewController.xib; sourceTree = "<group>"; };
 		87B41BAF28EAC58C009F1046 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +98,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8772349B28EB120C0050A791 /* CategoryListView */ = {
+			isa = PBXGroup;
+			children = (
+				87A2662B28EB14270091C282 /* CategoryTableViewController.swift */,
+				87A2662C28EB14270091C282 /* CategoryTableViewController.xib */,
+				8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */,
+				8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */,
+			);
+			path = CategoryListView;
+			sourceTree = "<group>";
+		};
+		87A2663128EB27AC0091C282 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		87B41B1428EAA1C1009F1046 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +143,7 @@
 				87B41BA428EAC387009F1046 /* Models */,
 				87B41BA528EAC38E009F1046 /* View */,
 				87B41BA628EAC394009F1046 /* ViewModel */,
+				87A2663128EB27AC0091C282 /* Source */,
 				87B41B2028EAA1C1009F1046 /* AppDelegate.swift */,
 				87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */,
 				87B41B2928EAA1C2009F1046 /* Assets.xcassets */,
@@ -154,8 +180,7 @@
 		87B41BA528EAC38E009F1046 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				87B41BAB28EAC572009F1046 /* CategoryListViewController.swift */,
-				87B41BAC28EAC572009F1046 /* CategoryListViewController.xib */,
+				8772349B28EB120C0050A791 /* CategoryListView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,8 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
-				87B41BAE28EAC572009F1046 /* CategoryListViewController.xib in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
+				87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */,
+				8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,10 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */,
+				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
-				87B41BAD28EAC572009F1046 /* CategoryListViewController.swift in Sources */,
+				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
