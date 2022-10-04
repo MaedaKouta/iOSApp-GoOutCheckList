@@ -21,8 +21,8 @@ protocol CategoryTableViewModelOutputs {
 
 class CategoryTableViewModel {
 
-    lazy var dataObservable = BehaviorRelay<[String]>(value: categoryList)
     var categoryList: [String] = ["初期値"]
+    lazy var dataObservable = BehaviorRelay<[String]>(value: categoryList)
     private let disposeBag = DisposeBag()
 
     init() {
