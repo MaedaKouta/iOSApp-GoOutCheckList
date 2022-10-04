@@ -13,9 +13,14 @@ import RxRelay
 class CategoryTableViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    private lazy var categoryTableViewModel = CategoryTableViewModel()
+    @IBOutlet private weak var addCategoryButton: UIButton!
+
     private let disposeBag = DisposeBag()
     private var categoryDataSource = CategoryDataSource()
+
+    private lazy var categoryTableViewModel = CategoryTableViewModel(
+        addCategoryButtonObservable: addCategoryButton.rx.tap.asObservable()
+    )
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +30,7 @@ class CategoryTableViewController: UIViewController {
 
     // MARK: TableView
     private func setupBindings() {
-        categoryTableViewModel.dataObservable
+        categoryTableViewModel.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
     }
