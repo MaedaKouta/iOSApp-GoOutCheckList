@@ -26,6 +26,20 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         return cell
     }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            item.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        case .insert, .none:
+            break
+        @unknown default:
+            break
+        }
+    }
+
     func tableView(_ tableView: UITableView, observedEvent: Event<[String]>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
@@ -35,3 +49,4 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
     }
 
 }
+
