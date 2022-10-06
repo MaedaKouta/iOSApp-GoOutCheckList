@@ -28,11 +28,19 @@ class CategoryTableViewController: UIViewController {
         setupBindings()
     }
 
+
+
     // MARK: TableView
     private func setupBindings() {
         categoryTableViewModel.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
+
+        // セルが削除されたときに、ViewModelにも反映させる処理
+        tableView.rx.itemDeleted
+            .subscribe(onNext: { indexPath in
+                self.categoryTableViewModel.categoryList.remove(at: indexPath.row)
+            }).disposed(by: disposeBag)
     }
 
     private func setupTableView() {

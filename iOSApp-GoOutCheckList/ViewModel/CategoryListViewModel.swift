@@ -47,7 +47,6 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         // カテゴリ追加ボタンが押されたときの処理
         addCategoryButtonObservable.asObservable()
             .subscribe(onNext: { _ in
-                print("tapサれたよ")
                 self.categoryList.append(contentsOf: ["追加"])
                 self.categoryDataBehaviorRelay.accept(self.categoryList)
             }).disposed(by: disposeBag)

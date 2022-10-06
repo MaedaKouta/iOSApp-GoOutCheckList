@@ -14,6 +14,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
 
     typealias Element = [String]
     var item: [String] = []
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
@@ -26,12 +27,37 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         return cell
     }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            item.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        case .insert, .none:
+            break
+        @unknown default:
+            break
+        }
+    }
+
     func tableView(_ tableView: UITableView, observedEvent: Event<[String]>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
             tableView.reloadData()
+
+            print("呼ばれてる！")
+            //print(observedEvent.element)
+            //itemArray.remove(at: indexPath.row)
+            //let indexPaths = [indexPath]
+            //tableView.deleteRows(at: indexPaths, with: .automatic)
         }
         .on(observedEvent)
     }
 
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+
 }
+
