@@ -14,7 +14,6 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
 
     typealias Element = [String]
     var item: [String] = []
-    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
@@ -45,19 +44,9 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         Binder(self) { dataSource, element in
             dataSource.item = element
             tableView.reloadData()
-
-            print("呼ばれてる！")
-            //print(observedEvent.element)
-            //itemArray.remove(at: indexPath.row)
-            //let indexPaths = [indexPath]
-            //tableView.deleteRows(at: indexPaths, with: .automatic)
         }
         .on(observedEvent)
     }
-
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
 
 }
 

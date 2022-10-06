@@ -28,8 +28,6 @@ class CategoryTableViewController: UIViewController {
         setupBindings()
     }
 
-
-
     // MARK: TableView
     private func setupBindings() {
         categoryTableViewModel.categoryDataBehaviorRelay
