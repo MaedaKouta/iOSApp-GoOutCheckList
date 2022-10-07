@@ -32,6 +32,7 @@
 		87B41BA028EABD8C009F1046 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41B9F28EABD8C009F1046 /* Realm */; };
 		87B41BA228EABD8C009F1046 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87B41BA128EABD8C009F1046 /* RealmSwift */; };
 		87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAF28EAC58C009F1046 /* CategoryListViewModel.swift */; };
+		87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITests.swift; sourceTree = "<group>"; };
 		87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87B41BAF28EAC58C009F1046 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				87B41B3728EAA1C2009F1046 /* iOSApp_GoOutCheckListTests.swift */,
+				87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */,
 			);
 			path = "iOSApp-GoOutCheckListTests";
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B41B3828EAA1C2009F1046 /* iOSApp_GoOutCheckListTests.swift in Sources */,
+				87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
