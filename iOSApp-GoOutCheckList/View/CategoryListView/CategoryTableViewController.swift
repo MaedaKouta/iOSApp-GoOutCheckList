@@ -19,7 +19,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private let disposeBag = DisposeBag()
     private var categoryDataSource = CategoryDataSource()
-
     private lazy var categoryTableViewModel = CategoryTableViewModel()
 
     override func viewDidLoad() {
@@ -29,7 +28,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         setupFloatingPanel()
     }
 
-    @IBAction func didTapAddCcategoryButton(_ sender: Any) {
+    @IBAction private func didTapAddCcategoryButton(_ sender: Any) {
         let view = RegisterCategoryDetailViewController()
         fpc.set(contentViewController: view)
         self.present(fpc, animated: true, completion: nil)
@@ -46,8 +45,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.outputs.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
-
-        
     }
 
     private func setupTableView() {
