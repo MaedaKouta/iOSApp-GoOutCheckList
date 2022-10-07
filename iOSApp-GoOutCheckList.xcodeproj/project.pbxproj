@@ -12,6 +12,11 @@
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
 		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
+		87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */; };
+		87A2664028EE60490091C282 /* RegisterCategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */; };
+		87A2664328EFAB950091C282 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 87A2664228EFAB950091C282 /* FloatingPanel */; };
+		87A2664628EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */; };
+		87A2664928EFC2F80091C282 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664828EFC2F80091C282 /* File.swift */; };
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
 		87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */; };
 		87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
@@ -52,6 +57,10 @@
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
 		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
+		87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryDetailViewController.swift; sourceTree = "<group>"; };
+		87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCategoryDetailViewController.xib; sourceTree = "<group>"; };
+		87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryDetailFloatingPanelLayout.swift; sourceTree = "<group>"; };
+		87A2664828EFC2F80091C282 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B2028EAA1C1009F1046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B41BA028EABD8C009F1046 /* Realm in Frameworks */,
+				87A2664328EFAB950091C282 /* FloatingPanel in Frameworks */,
 				87B41B9D28EABD2A009F1046 /* Lottie in Frameworks */,
 				87B41BA228EABD8C009F1046 /* RealmSwift in Frameworks */,
 				87B41B9228EABC7B009F1046 /* RxSwift in Frameworks */,
@@ -117,6 +127,24 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		87A2663C28EE60120091C282 /* RegisterCategoryDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */,
+				87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */,
+				87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */,
+			);
+			path = RegisterCategoryDetailView;
+			sourceTree = "<group>";
+		};
+		87A2664728EFC2E30091C282 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				87A2664828EFC2F80091C282 /* File.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		87B41B1428EAA1C1009F1046 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +172,7 @@
 				87B41BA528EAC38E009F1046 /* View */,
 				87B41BA628EAC394009F1046 /* ViewModel */,
 				87A2663128EB27AC0091C282 /* Source */,
+				87A2664728EFC2E30091C282 /* Extentions */,
 				87B41B2028EAA1C1009F1046 /* AppDelegate.swift */,
 				87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */,
 				87B41B2928EAA1C2009F1046 /* Assets.xcassets */,
@@ -181,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				8772349B28EB120C0050A791 /* CategoryListView */,
+				87A2663C28EE60120091C282 /* RegisterCategoryDetailView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +247,7 @@
 				87B41B9C28EABD2A009F1046 /* Lottie */,
 				87B41B9F28EABD8C009F1046 /* Realm */,
 				87B41BA128EABD8C009F1046 /* RealmSwift */,
+				87A2664228EFAB950091C282 /* FloatingPanel */,
 			);
 			productName = "iOSApp-GoOutCheckList";
 			productReference = 87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */;
@@ -295,6 +326,7 @@
 				87B41B9328EABC94009F1046 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				87B41B9B28EABD2A009F1046 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				87B41B9E28EABD8C009F1046 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				87A2664128EFAB940091C282 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = 87B41B1E28EAA1C1009F1046 /* Products */;
 			projectDirPath = "";
@@ -316,6 +348,7 @@
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
 				87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */,
 				8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */,
+				87A2664028EE60490091C282 /* RegisterCategoryDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +375,12 @@
 			files = (
 				8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */,
+				87A2664628EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift in Sources */,
 				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
+				87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */,
+				87A2664928EFC2F80091C282 /* File.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,6 +719,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		87A2664128EFAB940091C282 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		87B41B8C28EABC7B009F1046 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -718,6 +762,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		87A2664228EFAB950091C282 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87A2664128EFAB940091C282 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
 		87B41B8D28EABC7B009F1046 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87B41B8C28EABC7B009F1046 /* XCRemoteSwiftPackageReference "RxSwift" */;
