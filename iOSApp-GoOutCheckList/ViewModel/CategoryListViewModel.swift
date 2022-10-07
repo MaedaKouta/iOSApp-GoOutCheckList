@@ -49,7 +49,6 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     }
 
     private func setupBindings() {
-
         // Notificationの連携
         NotificationCenter.default.addObserver(
             self,
