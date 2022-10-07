@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 import RxCocoa
 import RxSwift
 import RxRelay
@@ -17,6 +16,7 @@ public protocol LostCheckTableViewModelInputs {
 
 // MARK: - OutputsProtocol
 public protocol LostCheckTableViewModelOutputs {
+    var LostCheckDataBehaviorRelay: BehaviorRelay<[String]> { get }
 }
 
 public protocol LostCheckTableViewModelType {
@@ -26,6 +26,15 @@ public protocol LostCheckTableViewModelType {
 
 class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModelOutputs, LostCheckTableViewModelType {
 
+    // MARK: - Outputs
+    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[String]>(value: checkList)
     public var inputs: LostCheckTableViewModelInputs { return self }
     public var outputs: LostCheckTableViewModelOutputs { return self }
+
+    var checkList: [String] = ["初期値"]
+    private let disposeBag = DisposeBag()
+
+    init() {
+        LostCheckDataBehaviorRelay.accept(checkList)
+    }
 }
