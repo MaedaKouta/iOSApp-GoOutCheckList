@@ -7,6 +7,7 @@ target 'iOSApp-GoOutCheckList' do
         pod 'RxSwift'
 	pod 'RxCocoa'
         pod 'RxRelay'
+        pod 'RxDataSources'
         pod 'PKHUD'
         pod 'lottie-ios'
         pod 'RealmSwift'
