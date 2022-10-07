@@ -21,6 +21,7 @@ class LostCheckTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupBindings()
     }
 
     private func setupTableView() {

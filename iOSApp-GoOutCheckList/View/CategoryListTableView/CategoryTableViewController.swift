@@ -45,7 +45,9 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         // セルがタップされたときに、次の画面へ遷移させる処理
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
-                print(indexPath.row)
+                self.tableView.deselectRow(at: indexPath, animated: true)
+                let lostCheckTableVC = LostCheckTableViewController()
+                self.navigationController?.pushViewController(lostCheckTableVC, animated: true)
             })
             .disposed(by: disposeBag)
 
