@@ -13,12 +13,12 @@ import FloatingPanel
 
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addCategoryButton: UIButton!
     private var fpc: FloatingPanelController!
 
     private let disposeBag = DisposeBag()
-    private var categoryDataSource = CategoryDataSource()
+    var categoryDataSource = CategoryDataSource()
     private lazy var categoryTableViewModel = CategoryTableViewModel()
 
     override func viewDidLoad() {
