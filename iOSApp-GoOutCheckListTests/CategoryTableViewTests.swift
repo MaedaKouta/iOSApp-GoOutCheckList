@@ -6,12 +6,13 @@
 //
 
 import XCTest
-@testable import CategoryTableViewController
+@testable import iOSApp_GoOutCheckList
 
 final class CategoryTableViewTests: XCTestCase {
 
+    let vc = CategoryTableViewController()
     func test_tableViewが表示されること() {
+        XCTAssertNotNil(vc.categoryDataSource.item)
     }
-
 
 }

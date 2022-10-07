@@ -13,7 +13,7 @@ target 'iOSApp-GoOutCheckList' do
         pod 'RealmSwift'
         pod 'FloatingPanel'
 
-  # Pods for iOSApp-GoOutCheckList-XCTest
+  # Pods for iOSApp-GoOutCheckList
 
   target 'iOSApp-GoOutCheckListTests' do
     inherit! :search_paths
