@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		79F73167C6E95E0ECB2577CF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F2EE2FA35DEB7B6849AA69 /* Pods_iOSApp_GoOutCheckListUITests.framework */; };
-		8766154028F0126F00F0A8C1 /* LostCheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766153E28F0126F00F0A8C1 /* LostCheckListViewController.swift */; };
-		8766154128F0126F00F0A8C1 /* LostCheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766153E28F0126F00F0A8C1 /* LostCheckListViewController.swift */; };
-		8766154228F0126F00F0A8C1 /* LostCheckListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766153F28F0126F00F0A8C1 /* LostCheckListViewController.xib */; };
-		8766154328F0126F00F0A8C1 /* LostCheckListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766153F28F0126F00F0A8C1 /* LostCheckListViewController.xib */; };
 		8766154528F012C300F0A8C1 /* LostCheckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154428F012C300F0A8C1 /* LostCheckListViewModel.swift */; };
+		8766154828F0141200F0A8C1 /* LostCheckListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154628F0141200F0A8C1 /* LostCheckListTableViewController.swift */; };
+		8766154928F0141200F0A8C1 /* LostCheckListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766154728F0141200F0A8C1 /* LostCheckListTableViewController.xib */; };
 		8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */; };
 		8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
@@ -55,9 +53,9 @@
 /* Begin PBXFileReference section */
 		3556AEDF41E75EDCD0CB8BD4 /* Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69F2EE2FA35DEB7B6849AA69 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8766153E28F0126F00F0A8C1 /* LostCheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckListViewController.swift; sourceTree = "<group>"; };
-		8766153F28F0126F00F0A8C1 /* LostCheckListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LostCheckListViewController.xib; sourceTree = "<group>"; };
 		8766154428F012C300F0A8C1 /* LostCheckListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckListViewModel.swift; sourceTree = "<group>"; };
+		8766154628F0141200F0A8C1 /* LostCheckListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckListTableViewController.swift; sourceTree = "<group>"; };
+		8766154728F0141200F0A8C1 /* LostCheckListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LostCheckListTableViewController.xib; sourceTree = "<group>"; };
 		8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -127,16 +125,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8766153D28F011AF00F0A8C1 /* LostCheckListView */ = {
+		8766153D28F011AF00F0A8C1 /* LostCheckListTableView */ = {
 			isa = PBXGroup;
 			children = (
-				8766153E28F0126F00F0A8C1 /* LostCheckListViewController.swift */,
-				8766153F28F0126F00F0A8C1 /* LostCheckListViewController.xib */,
+				8766154628F0141200F0A8C1 /* LostCheckListTableViewController.swift */,
+				8766154728F0141200F0A8C1 /* LostCheckListTableViewController.xib */,
 			);
-			path = LostCheckListView;
+			path = LostCheckListTableView;
 			sourceTree = "<group>";
 		};
-		8772349B28EB120C0050A791 /* CategoryListView */ = {
+		8772349B28EB120C0050A791 /* CategoryListTableView */ = {
 			isa = PBXGroup;
 			children = (
 				87A2662B28EB14270091C282 /* CategoryTableViewController.swift */,
@@ -144,7 +142,7 @@
 				8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */,
 				8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */,
 			);
-			path = CategoryListView;
+			path = CategoryListTableView;
 			sourceTree = "<group>";
 		};
 		87A2663128EB27AC0091C282 /* Source */ = {
@@ -240,9 +238,9 @@
 		87B41BA528EAC38E009F1046 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8772349B28EB120C0050A791 /* CategoryListView */,
+				8772349B28EB120C0050A791 /* CategoryListTableView */,
 				87A2663C28EE60120091C282 /* RegisterCategoryDetailView */,
-				8766153D28F011AF00F0A8C1 /* LostCheckListView */,
+				8766153D28F011AF00F0A8C1 /* LostCheckListTableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -379,8 +377,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8766154928F0141200F0A8C1 /* LostCheckListTableViewController.xib in Resources */,
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
-				8766154228F0126F00F0A8C1 /* LostCheckListViewController.xib in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
 				87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */,
 				8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */,
@@ -392,7 +390,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8766154328F0126F00F0A8C1 /* LostCheckListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,13 +531,13 @@
 				8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */,
 				87A2664628EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift in Sources */,
+				8766154828F0141200F0A8C1 /* LostCheckListTableViewController.swift in Sources */,
 				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */,
 				87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
-				8766154028F0126F00F0A8C1 /* LostCheckListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +545,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8766154128F0126F00F0A8C1 /* LostCheckListViewController.swift in Sources */,
 				87B41B3828EAA1C2009F1046 /* iOSApp_GoOutCheckListTests.swift in Sources */,
 				87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */,
 			);

@@ -12,20 +12,20 @@ import RxSwift
 import RxRelay
 
 // MARK: - InputsProtocol
-public protocol LostCheckListViewModelInputs {
+public protocol LostCheckListTableViewModelInputs {
 }
 
 // MARK: - OutputsProtocol
-public protocol LostCheckListViewModelOutputs {
+public protocol LostCheckListTableViewModelOutputs {
 }
 
-public protocol LostCheckListViewModelType {
-  var inputs: LostCheckListViewModelInputs { get }
-  var outputs: LostCheckListViewModelOutputs { get }
+public protocol LostCheckListTableViewModelType {
+  var inputs: LostCheckListTableViewModelInputs { get }
+  var outputs: LostCheckListTableViewModelOutputs { get }
 }
 
-class LostCheckListViewModel: LostCheckListViewModelInputs, LostCheckListViewModelOutputs, LostCheckListViewModelType {
+class LostCheckListViewModel: LostCheckListTableViewModelInputs, LostCheckListTableViewModelOutputs, LostCheckListTableViewModelType {
 
-    public var inputs: LostCheckListViewModelInputs { return self }
-    public var outputs: LostCheckListViewModelOutputs { return self }
+    public var inputs: LostCheckListTableViewModelInputs { return self }
+    public var outputs: LostCheckListTableViewModelOutputs { return self }
 }
