@@ -11,6 +11,8 @@
 		8766154528F012C300F0A8C1 /* LostCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154428F012C300F0A8C1 /* LostCheckViewModel.swift */; };
 		8766155028F0153D00F0A8C1 /* LostCheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154E28F0153D00F0A8C1 /* LostCheckTableViewController.swift */; };
 		8766155128F0153D00F0A8C1 /* LostCheckTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766154F28F0153D00F0A8C1 /* LostCheckTableViewController.xib */; };
+		8766155428F015B800F0A8C1 /* LostCheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155228F015B800F0A8C1 /* LostCheckTableViewCell.swift */; };
+		8766155528F015B800F0A8C1 /* LostCheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766155328F015B800F0A8C1 /* LostCheckTableViewCell.xib */; };
 		8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */; };
 		8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
@@ -56,6 +58,8 @@
 		8766154428F012C300F0A8C1 /* LostCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckViewModel.swift; sourceTree = "<group>"; };
 		8766154E28F0153D00F0A8C1 /* LostCheckTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckTableViewController.swift; sourceTree = "<group>"; };
 		8766154F28F0153D00F0A8C1 /* LostCheckTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LostCheckTableViewController.xib; sourceTree = "<group>"; };
+		8766155228F015B800F0A8C1 /* LostCheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckTableViewCell.swift; sourceTree = "<group>"; };
+		8766155328F015B800F0A8C1 /* LostCheckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LostCheckTableViewCell.xib; sourceTree = "<group>"; };
 		8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			children = (
 				8766154E28F0153D00F0A8C1 /* LostCheckTableViewController.swift */,
 				8766154F28F0153D00F0A8C1 /* LostCheckTableViewController.xib */,
+				8766155228F015B800F0A8C1 /* LostCheckTableViewCell.swift */,
+				8766155328F015B800F0A8C1 /* LostCheckTableViewCell.xib */,
 			);
 			path = LostCheckListTableView;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8766155528F015B800F0A8C1 /* LostCheckTableViewCell.xib in Resources */,
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
 				8766155128F0153D00F0A8C1 /* LostCheckTableViewController.xib in Resources */,
@@ -537,6 +544,7 @@
 				8766155028F0153D00F0A8C1 /* LostCheckTableViewController.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */,
 				87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */,
+				8766155428F015B800F0A8C1 /* LostCheckTableViewCell.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
