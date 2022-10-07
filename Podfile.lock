@@ -1,0 +1,54 @@
+PODS:
+  - FloatingPanel (2.5.4)
+  - lottie-ios (3.3.0)
+  - PKHUD (5.3.0)
+  - Realm (10.28.1):
+    - Realm/Headers (= 10.28.1)
+  - Realm/Headers (10.28.1)
+  - RealmSwift (10.28.1):
+    - Realm (= 10.28.1)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
+
+DEPENDENCIES:
+  - FloatingPanel
+  - lottie-ios
+  - PKHUD
+  - RealmSwift
+  - RxCocoa
+  - RxRelay
+  - RxSwift
+  - RxTest
+
+SPEC REPOS:
+  trunk:
+    - FloatingPanel
+    - lottie-ios
+    - PKHUD
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - RxTest
+
+SPEC CHECKSUMS:
+  FloatingPanel: 387377aa46a9b088e5f8f5f2a8d2c00c61e67298
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  Realm: f4674e0e7ee537f67a78d79bd8319bc777d61d06
+  RealmSwift: 0e0e4786685c4442bf56d3831dfefb5fa05d6fd6
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
+
+PODFILE CHECKSUM: 70b1d2c8c21a1593490ca92b91ce25b7d3a550f5
+
+COCOAPODS: 1.11.3
