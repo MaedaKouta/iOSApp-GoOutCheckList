@@ -9,6 +9,9 @@ import UIKit
 
 class RegisterCategoryDetailViewController: UIViewController {
 
+    @IBOutlet private weak var categoryNameTextField: UITextField!
+    @IBOutlet private weak var registerButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

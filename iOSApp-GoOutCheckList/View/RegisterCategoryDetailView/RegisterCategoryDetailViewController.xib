@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterCategoryDetailViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
+                <outlet property="categoryNameTextField" destination="3mK-bz-NzS" id="pgx-Ig-06Y"/>
+                <outlet property="registerButton" destination="kFw-jQ-wsf" id="xPt-8u-zxK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

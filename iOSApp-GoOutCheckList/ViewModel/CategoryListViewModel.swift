@@ -15,22 +15,30 @@ struct CategoryItem {
 }
 
 // MARK: - InputsProtocol
-protocol CategoryTableViewModelInputs {
+public protocol CategoryTableViewModelInputs {
     var addCategoryButtonObservable: Observable <Void> { get }
 }
 
 // MARK: - OutputsProtocol
-protocol CategoryTableViewModelOutputs {
+public protocol CategoryTableViewModelOutputs {
     var categoryDataBehaviorRelay: BehaviorRelay<[String]> { get }
 }
 
-class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewModelOutputs {
+public protocol CategoryTableViewModelType {
+  var inputs: CategoryTableViewModelInputs { get }
+  var outputs: CategoryTableViewModelOutputs { get }
+}
+
+class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewModelOutputs, CategoryTableViewModelType {
 
     // MARK: - Inputs
     var addCategoryButtonObservable: Observable<Void>
 
     // MARK: - Outputs
     lazy var categoryDataBehaviorRelay = BehaviorRelay<[String]>(value: categoryList)
+
+    public var inputs: CategoryTableViewModelInputs { return self }
+    public var outputs: CategoryTableViewModelOutputs { return self }
 
     var categoryList: [String] = ["初期値"]
     private let disposeBag = DisposeBag()
