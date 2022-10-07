@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "floatingpanel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scenee/FloatingPanel",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c47fc3d1d5329f72f9da6d4082217f0beb53af4b"
+      }
+    },
+    {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-ios",
