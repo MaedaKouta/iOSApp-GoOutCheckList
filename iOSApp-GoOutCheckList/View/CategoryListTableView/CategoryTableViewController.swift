@@ -42,6 +42,13 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
                 self.categoryTableViewModel.categoryList.remove(at: indexPath.row)
             }).disposed(by: disposeBag)
 
+        // セルがタップされたときに、次の画面へ遷移させる処理
+        tableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                print(indexPath.row)
+            })
+            .disposed(by: disposeBag)
+
         categoryTableViewModel.outputs.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
