@@ -16,7 +16,6 @@ struct CategoryItem {
 
 // MARK: - InputsProtocol
 public protocol CategoryTableViewModelInputs {
-    var addCategoryButtonObservable: Observable <Void> { get }
 }
 
 // MARK: - OutputsProtocol
@@ -32,10 +31,10 @@ public protocol CategoryTableViewModelType {
 class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewModelOutputs, CategoryTableViewModelType {
 
     // MARK: - Inputs
-    var addCategoryButtonObservable: Observable<Void>
+
 
     // MARK: - Outputs
-    lazy var categoryDataBehaviorRelay = BehaviorRelay<[String]>(value: categoryList)
+    public lazy var categoryDataBehaviorRelay = BehaviorRelay<[String]>(value: categoryList)
 
     public var inputs: CategoryTableViewModelInputs { return self }
     public var outputs: CategoryTableViewModelOutputs { return self }
@@ -43,8 +42,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     var categoryList: [String] = ["初期値"]
     private let disposeBag = DisposeBag()
 
-    init(addCategoryButtonObservable: Observable<Void>) {
-        self.addCategoryButtonObservable = addCategoryButtonObservable
+    init() {
         categoryDataBehaviorRelay.accept(categoryList)
 
         setupBindings()
@@ -52,12 +50,25 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
     private func setupBindings() {
 
-        // カテゴリ追加ボタンが押されたときの処理
-        addCategoryButtonObservable.asObservable()
-            .subscribe(onNext: { _ in
-                self.categoryList.append(contentsOf: ["追加"])
-                self.categoryDataBehaviorRelay.accept(self.categoryList)
-            }).disposed(by: disposeBag)
+        // Notificationの連携
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(fromRegisteCategoryViewCall(notification:)),
+            name: NSNotification.Name.CategoryViewFromRegisterViewNotification,
+            object: nil)
+    }
+
+    /*
+     RegisterCategoryDetailViewControllerから呼ばれる通知
+        遷移先（RegisterCategoryDetailViewController）で登録したCategoryItemを
+        遷移元（CategoryTableViewController）に値渡しするために、Notificationが有効だった。
+        参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
+     */
+    @objc func fromRegisteCategoryViewCall(notification: Notification) {
+        if let categoryItem = notification.object as? CategoryItem {
+            self.categoryList.append(contentsOf: [categoryItem.name])
+            self.categoryDataBehaviorRelay.accept(self.categoryList)
+        }
     }
 
 }

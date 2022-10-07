@@ -31,6 +31,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="＋"/>
+                    <connections>
+                        <action selector="didTapAddCcategoryButton:" destination="-1" eventType="touchUpInside" id="hgL-7b-hQz"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

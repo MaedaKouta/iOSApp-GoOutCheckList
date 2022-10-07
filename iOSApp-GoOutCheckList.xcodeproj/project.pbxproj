@@ -16,6 +16,7 @@
 		87A2664028EE60490091C282 /* RegisterCategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */; };
 		87A2664328EFAB950091C282 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 87A2664228EFAB950091C282 /* FloatingPanel */; };
 		87A2664628EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */; };
+		87A2664928EFC2F80091C282 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664828EFC2F80091C282 /* File.swift */; };
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
 		87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */; };
 		87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryDetailViewController.swift; sourceTree = "<group>"; };
 		87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCategoryDetailViewController.xib; sourceTree = "<group>"; };
 		87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryDetailFloatingPanelLayout.swift; sourceTree = "<group>"; };
+		87A2664828EFC2F80091C282 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B2028EAA1C1009F1046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 			path = RegisterCategoryDetailView;
 			sourceTree = "<group>";
 		};
+		87A2664728EFC2E30091C282 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				87A2664828EFC2F80091C282 /* File.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		87B41B1428EAA1C1009F1046 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 				87B41BA528EAC38E009F1046 /* View */,
 				87B41BA628EAC394009F1046 /* ViewModel */,
 				87A2663128EB27AC0091C282 /* Source */,
+				87A2664728EFC2E30091C282 /* Extentions */,
 				87B41B2028EAA1C1009F1046 /* AppDelegate.swift */,
 				87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */,
 				87B41B2928EAA1C2009F1046 /* Assets.xcassets */,
@@ -369,6 +380,7 @@
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */,
+				87A2664928EFC2F80091C282 /* File.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

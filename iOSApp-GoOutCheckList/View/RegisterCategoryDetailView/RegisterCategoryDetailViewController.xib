@@ -32,6 +32,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="登録！"/>
+                    <connections>
+                        <action selector="didTapRegisterButton:" destination="-1" eventType="touchUpInside" id="FYk-Tx-ybP"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
