@@ -15,11 +15,12 @@ import RealmSwift
 // MARK: - InputsProtocol
 public protocol LostCheckTableViewModelInputs {
     var tableViewItemDeletedObservable: Observable<IndexPath> { get }
+    var categoryItemObject: CategoryItem { get }
 }
 
 // MARK: - OutputsProtocol
 public protocol LostCheckTableViewModelOutputs {
-    var LostCheckDataBehaviorRelay: BehaviorRelay<[CheckItem]> { get }
+    var LostCheckDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
 }
 
 public protocol LostCheckTableViewModelType {
@@ -31,9 +32,10 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
 
     // MARK: - Inputs
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
+    internal var categoryItemObject: CategoryItem
 
     // MARK: - Outputs
-    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[CheckItem]>(value: realm.objects(CheckItem.self).toArray())
+    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryItemObject.checkItems)
 
     public var inputs: LostCheckTableViewModelInputs { return self }
     public var outputs: LostCheckTableViewModelOutputs { return self }
@@ -41,10 +43,12 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     private let realm = try! Realm()
     private let disposeBag = DisposeBag()
 
-    init(tableViewItemDeletedObservable: Observable<IndexPath>) {
+    init(tableViewItemDeletedObservable: Observable<IndexPath>,
+         categoryItemObject: CategoryItem) {
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
-        LostCheckDataBehaviorRelay.accept(realm.objects(CheckItem.self).toArray())
+        self.categoryItemObject = categoryItemObject
 
+        LostCheckDataBehaviorRelay.accept(categoryItemObject.checkItems)
         setupBindings()
         setupNotifications()
     }
@@ -52,11 +56,6 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     private func setupBindings() {
         tableViewItemDeletedObservable.asObservable()
             .subscribe(onNext: { indexPath in
-                let objects = self.realm.objects(CheckItem.self).toArray()
-                let object = objects[indexPath.row]
-                try! self.realm.write {
-                    self.realm.delete(object)
-                }
             }).disposed(by: disposeBag)
     }
 
@@ -78,8 +77,8 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     @objc func fromRegisteCheckElementViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
             try! realm.write {
-              realm.add(checkItem)
-              self.LostCheckDataBehaviorRelay.accept(realm.objects(CheckItem.self).toArray())
+                self.categoryItemObject.checkItems.append(checkItem)
+                self.LostCheckDataBehaviorRelay.accept(categoryItemObject.checkItems)
             }
         }
     }

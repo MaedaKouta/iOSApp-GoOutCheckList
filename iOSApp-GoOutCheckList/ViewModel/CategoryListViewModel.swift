@@ -78,8 +78,8 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     @objc func fromRegisteCategoryViewCall(notification: Notification) {
         if let categoryItem = notification.object as? CategoryItem {
             try! realm.write {
-              realm.add(categoryItem)
-              self.categoryDataBehaviorRelay.accept(realm.objects(CategoryItem.self).toArray())
+                realm.add(categoryItem)
+                self.categoryDataBehaviorRelay.accept(realm.objects(CategoryItem.self).toArray())
             }
         }
     }

@@ -17,6 +17,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addCategoryButton: UIButton!
     private var fpc: FloatingPanelController!
+    private let realm = try! Realm()
 
     private let disposeBag = DisposeBag()
     var categoryDataSource = CategoryDataSource()
@@ -43,8 +44,10 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         // セルがタップされたときに、次の画面へ遷移させる処理
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
+                let objects = self.realm.objects(CategoryItem.self).toArray()
+                let object = objects[indexPath.row]
                 self.tableView.deselectRow(at: indexPath, animated: true)
-                let lostCheckTableVC = LostCheckTableViewController()
+                let lostCheckTableVC = LostCheckTableViewController(categoryItemObject: object)
                 self.navigationController?.pushViewController(lostCheckTableVC, animated: true)
             })
             .disposed(by: disposeBag)

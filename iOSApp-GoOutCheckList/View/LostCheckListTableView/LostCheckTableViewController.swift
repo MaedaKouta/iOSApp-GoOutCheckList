@@ -15,12 +15,23 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
 
     @IBOutlet private weak var tableView: UITableView!
     private var fpc: FloatingPanelController!
+    private var categoryItemObject: CategoryItem
 
     private var lostCheckDataSource = LostCheckDataSource()
     private lazy var lostCheckViewModel = LostCheckViewModel(
-        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
+        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
+        categoryItemObject: categoryItemObject
     )
     private let disposeBag = DisposeBag()
+
+    init(categoryItemObject: CategoryItem) {
+        self.categoryItemObject = categoryItemObject
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
