@@ -10,17 +10,13 @@ import RxCocoa
 import RxSwift
 import RxRelay
 
-struct CategoryItem {
-    var name: String
-}
-
 // MARK: - InputsProtocol
 public protocol CategoryTableViewModelInputs {
 }
 
 // MARK: - OutputsProtocol
 public protocol CategoryTableViewModelOutputs {
-    var categoryDataBehaviorRelay: BehaviorRelay<[String]> { get }
+    var categoryDataBehaviorRelay: BehaviorRelay<[CategoryItem]> { get }
 }
 
 public protocol CategoryTableViewModelType {
@@ -34,12 +30,12 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
 
     // MARK: - Outputs
-    public lazy var categoryDataBehaviorRelay = BehaviorRelay<[String]>(value: categoryList)
+    public lazy var categoryDataBehaviorRelay = BehaviorRelay<[CategoryItem]>(value: categoryList)
 
     public var inputs: CategoryTableViewModelInputs { return self }
     public var outputs: CategoryTableViewModelOutputs { return self }
 
-    var categoryList: [String] = ["初期値"]
+    var categoryList: [CategoryItem] = [.init(name: "初期値")]
     private let disposeBag = DisposeBag()
 
     init() {
@@ -65,7 +61,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
      */
     @objc func fromRegisteCategoryViewCall(notification: Notification) {
         if let categoryItem = notification.object as? CategoryItem {
-            self.categoryList.append(contentsOf: [categoryItem.name])
+            self.categoryList.append(contentsOf: [categoryItem])
             self.categoryDataBehaviorRelay.accept(self.categoryList)
         }
     }
