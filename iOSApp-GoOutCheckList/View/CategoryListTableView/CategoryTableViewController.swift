@@ -10,6 +10,8 @@ import RxCocoa
 import RxSwift
 import RxRelay
 import FloatingPanel
+import RealmSwift
+import RxRealm
 
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
@@ -19,10 +21,14 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private let disposeBag = DisposeBag()
     var categoryDataSource = CategoryDataSource()
-    private lazy var categoryTableViewModel = CategoryTableViewModel()
+    private lazy var categoryTableViewModel = CategoryTableViewModel(
+        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
+    )
+    private let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         setupTableView()
         setupBindings()
         setupFloatingPanel()
@@ -36,12 +42,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: TableView
     private func setupBindings() {
-        // セルが削除されたときに、ViewModelにも反映させる処理
-        tableView.rx.itemDeleted
-            .subscribe(onNext: { indexPath in
-                self.categoryTableViewModel.categoryList.remove(at: indexPath.row)
-            }).disposed(by: disposeBag)
-
         // セルがタップされたときに、次の画面へ遷移させる処理
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
