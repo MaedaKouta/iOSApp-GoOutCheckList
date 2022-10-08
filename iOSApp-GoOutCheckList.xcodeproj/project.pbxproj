@@ -156,7 +156,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		8766153D28F011AF00F0A8C1 /* LostCheckListTableView */ = {
+		8766153D28F011AF00F0A8C1 /* LostCheckTableView */ = {
 			isa = PBXGroup;
 			children = (
 				8766154E28F0153D00F0A8C1 /* LostCheckTableViewController.swift */,
@@ -164,10 +164,10 @@
 				8766155228F015B800F0A8C1 /* LostCheckTableViewCell.swift */,
 				8766155328F015B800F0A8C1 /* LostCheckTableViewCell.xib */,
 			);
-			path = LostCheckListTableView;
+			path = LostCheckTableView;
 			sourceTree = "<group>";
 		};
-		8772349B28EB120C0050A791 /* CategoryListTableView */ = {
+		8772349B28EB120C0050A791 /* CategoryTableView */ = {
 			isa = PBXGroup;
 			children = (
 				87A2662B28EB14270091C282 /* CategoryTableViewController.swift */,
@@ -175,7 +175,7 @@
 				8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */,
 				8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */,
 			);
-			path = CategoryListTableView;
+			path = CategoryTableView;
 			sourceTree = "<group>";
 		};
 		87A2663128EB27AC0091C282 /* Source */ = {
@@ -273,9 +273,9 @@
 		87B41BA528EAC38E009F1046 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8772349B28EB120C0050A791 /* CategoryListTableView */,
+				8772349B28EB120C0050A791 /* CategoryTableView */,
 				87A2663C28EE60120091C282 /* RegisterCategoryDetailView */,
-				8766153D28F011AF00F0A8C1 /* LostCheckListTableView */,
+				8766153D28F011AF00F0A8C1 /* LostCheckTableView */,
 				8743CC1328F0F34D0082C27C /* RegisterCheckElementView */,
 				8743CC1828F0F8380082C27C /* Helpers */,
 			);

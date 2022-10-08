@@ -13,17 +13,22 @@ import FloatingPanel
 
 class LostCheckTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
+    // MARK: Actions
     @IBOutlet private weak var tableView: UITableView!
-    private var fpc: FloatingPanelController!
-    private var categoryItemObject: CategoryItem
 
+    // MARK: Propaties
     private var lostCheckDataSource = LostCheckDataSource()
     private lazy var lostCheckViewModel = LostCheckViewModel(
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
         categoryItemObject: categoryItemObject
     )
     private let disposeBag = DisposeBag()
+    private var categoryItemObject: CategoryItem
 
+    // MARK: Libraries
+    private var fpc: FloatingPanelController!
+
+    // MARK: - Initialize
     init(categoryItemObject: CategoryItem) {
         self.categoryItemObject = categoryItemObject
         super.init(nibName: nil, bundle: nil)
@@ -42,12 +47,14 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
         setupFloatingPanel()
     }
 
+    // MARK: - Actions
     @IBAction func didTapAddElementButton(_ sender: Any) {
         let view = RegisterCheckElementViewController()
         fpc.set(contentViewController: view)
         self.present(fpc, animated: true, completion: nil)
     }
 
+    // MARK: - Setups
     private func setupTableView() {
         tableView.register(UINib(nibName: "LostCheckTableViewCell", bundle: nil), forCellReuseIdentifier: "LostCheckTableViewCell")
     }
