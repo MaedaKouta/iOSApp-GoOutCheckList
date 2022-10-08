@@ -10,10 +10,6 @@ import RxCocoa
 import RxSwift
 import RxRelay
 
-struct CategoryItem {
-    var name: String
-}
-
 // MARK: - InputsProtocol
 public protocol CategoryTableViewModelInputs {
 }

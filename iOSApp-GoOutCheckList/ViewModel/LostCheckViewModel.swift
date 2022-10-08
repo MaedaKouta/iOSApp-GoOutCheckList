@@ -36,5 +36,28 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
 
     init() {
         LostCheckDataBehaviorRelay.accept(checkList)
+        setupBindings()
+    }
+
+    private func setupBindings() {
+        // Notificationの連携
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(fromRegisteCheckElementViewCall(notification:)),
+            name: NSNotification.Name.LostCheckViewFromRegisterViewNotification,
+            object: nil)
+    }
+
+    /*
+     RegisterCategoryDetailViewControllerから呼ばれる通知
+        遷移先（RegisterCategoryDetailViewController）で登録したCategoryItemを
+        遷移元（CategoryTableViewController）に値渡しするために、Notificationが有効だった。
+        参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
+     */
+    @objc func fromRegisteCheckElementViewCall(notification: Notification) {
+        if let checkItem = notification.object as? CheckItem {
+            self.checkList.append(contentsOf: [checkItem.name])
+            self.LostCheckDataBehaviorRelay.accept(self.checkList)
+        }
     }
 }
