@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CheckItem {
+public struct CheckItem {
     var name: String
     var isDone: Bool
 }

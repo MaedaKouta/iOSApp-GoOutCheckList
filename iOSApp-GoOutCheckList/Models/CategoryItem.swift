@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct CategoryItem {
+public struct CategoryItem {
     var name: String
 }

@@ -16,7 +16,7 @@ public protocol LostCheckTableViewModelInputs {
 
 // MARK: - OutputsProtocol
 public protocol LostCheckTableViewModelOutputs {
-    var LostCheckDataBehaviorRelay: BehaviorRelay<[String]> { get }
+    var LostCheckDataBehaviorRelay: BehaviorRelay<[CheckItem]> { get }
 }
 
 public protocol LostCheckTableViewModelType {
@@ -27,11 +27,11 @@ public protocol LostCheckTableViewModelType {
 class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModelOutputs, LostCheckTableViewModelType {
 
     // MARK: - Outputs
-    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[String]>(value: checkList)
+    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[CheckItem]>(value: checkList)
     public var inputs: LostCheckTableViewModelInputs { return self }
     public var outputs: LostCheckTableViewModelOutputs { return self }
 
-    var checkList: [String] = ["初期値"]
+    var checkList: [CheckItem] = [.init(name: "初期値", isDone: false)]
     private let disposeBag = DisposeBag()
 
     init() {
@@ -56,7 +56,7 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
      */
     @objc func fromRegisteCheckElementViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
-            self.checkList.append(contentsOf: [checkItem.name])
+            self.checkList.append(contentsOf: [checkItem])
             self.LostCheckDataBehaviorRelay.accept(self.checkList)
         }
     }

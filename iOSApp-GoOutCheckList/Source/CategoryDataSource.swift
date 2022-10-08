@@ -12,8 +12,8 @@ import UIKit
 
 class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
-    typealias Element = [String]
-    var item: [String] = []
+    typealias Element = [CategoryItem]
+    var item: [CategoryItem] = []
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
@@ -22,7 +22,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath)
         let element = item[indexPath.row]
-        cell.textLabel?.text = element
+        cell.textLabel?.text = element.name
         return cell
     }
 
@@ -40,7 +40,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
     }
 
-    func tableView(_ tableView: UITableView, observedEvent: Event<[String]>) {
+    func tableView(_ tableView: UITableView, observedEvent: Event<[CategoryItem]>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
             tableView.reloadData()
