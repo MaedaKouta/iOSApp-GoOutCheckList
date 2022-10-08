@@ -31,7 +31,7 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     public var inputs: LostCheckTableViewModelInputs { return self }
     public var outputs: LostCheckTableViewModelOutputs { return self }
 
-    var checkList: [CheckItem] = [.init(name: "初期値", isDone: false)]
+    var checkList: [CheckItem] = []
     private let disposeBag = DisposeBag()
 
     init() {

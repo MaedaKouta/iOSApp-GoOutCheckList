@@ -13,7 +13,8 @@ class RegisterCheckElementViewController: UIViewController {
 
     @IBAction private func didTapRegisterButton(_ sender: Any) {
         guard let text = elementNameTextField.text else { return }
-        let checkItem: CheckItem = .init(name: text, isDone: false)
+        let checkItem: CheckItem = CheckItem()
+        checkItem.name = text
 
         NotificationCenter.default.post(
             name: Notification.Name.LostCheckViewFromRegisterViewNotification,

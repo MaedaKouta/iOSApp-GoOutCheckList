@@ -11,8 +11,8 @@ import XCTest
 final class CategoryTableViewTests: XCTestCase {
 
     let vc = CategoryTableViewController()
-    func test_tableViewが表示されること() {
-        XCTAssertNotNil(vc.categoryDataSource.item)
-    }
+//    func test_tableViewが表示されること() {
+//        XCTAssertNotNil(vc.categoryDataSource.item)
+//    }
 
 }
