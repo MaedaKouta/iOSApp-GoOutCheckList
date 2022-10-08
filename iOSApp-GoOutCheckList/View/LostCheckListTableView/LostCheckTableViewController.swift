@@ -35,6 +35,8 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = categoryItemObject.name
+
         setupTableView()
         setupBindings()
         setupFloatingPanel()

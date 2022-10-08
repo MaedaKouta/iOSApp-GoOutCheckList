@@ -28,6 +28,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        navigationItem.title = "カテゴリー"
+
         setupTableView()
         setupBindings()
         setupFloatingPanel()
