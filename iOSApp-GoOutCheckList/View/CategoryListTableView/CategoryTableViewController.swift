@@ -11,7 +11,6 @@ import RxSwift
 import RxRelay
 import FloatingPanel
 import RealmSwift
-import RxRealm
 
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
@@ -24,7 +23,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
     )
-    private let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()

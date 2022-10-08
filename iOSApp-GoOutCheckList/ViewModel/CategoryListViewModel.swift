@@ -38,8 +38,8 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     public var inputs: CategoryTableViewModelInputs { return self }
     public var outputs: CategoryTableViewModelOutputs { return self }
 
-    private let disposeBag = DisposeBag()
     private let realm = try! Realm()
+    private let disposeBag = DisposeBag()
 
     init(tableViewItemDeletedObservable: Observable<IndexPath>) {
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
@@ -59,7 +59,6 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
                 }
             }).disposed(by: disposeBag)
     }
-
 
     // MARK: Notification
     /*

@@ -9,6 +9,8 @@ import Foundation
 import RxCocoa
 import RxSwift
 import RxRelay
+import RxRealm
+import RealmSwift
 
 // MARK: - InputsProtocol
 public protocol LostCheckTableViewModelInputs {
@@ -31,17 +33,17 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
 
     // MARK: - Outputs
-    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[CheckItem]>(value: checkList)
+    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[CheckItem]>(value: realm.objects(CheckItem.self).toArray())
 
     public var inputs: LostCheckTableViewModelInputs { return self }
     public var outputs: LostCheckTableViewModelOutputs { return self }
 
-    var checkList: [CheckItem] = []
+    private let realm = try! Realm()
     private let disposeBag = DisposeBag()
 
     init(tableViewItemDeletedObservable: Observable<IndexPath>) {
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
-        LostCheckDataBehaviorRelay.accept(checkList)
+        LostCheckDataBehaviorRelay.accept(realm.objects(CheckItem.self).toArray())
 
         setupBindings()
         setupNotifications()
@@ -50,11 +52,11 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     private func setupBindings() {
         tableViewItemDeletedObservable.asObservable()
             .subscribe(onNext: { indexPath in
-                //let objects = self.realm.objects(CategoryItem.self).toArray()
-                //let object = objects[indexPath.row]
-                //try! self.realm.write {
-                    //self.realm.delete(object)
-                //}
+                let objects = self.realm.objects(CheckItem.self).toArray()
+                let object = objects[indexPath.row]
+                try! self.realm.write {
+                    self.realm.delete(object)
+                }
             }).disposed(by: disposeBag)
     }
 
@@ -75,8 +77,10 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
 
     @objc func fromRegisteCheckElementViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
-            self.checkList.append(contentsOf: [checkItem])
-            self.LostCheckDataBehaviorRelay.accept(self.checkList)
+            try! realm.write {
+              realm.add(checkItem)
+              self.LostCheckDataBehaviorRelay.accept(realm.objects(CheckItem.self).toArray())
+            }
         }
     }
 }
