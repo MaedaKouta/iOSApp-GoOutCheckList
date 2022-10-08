@@ -9,4 +9,5 @@ import Foundation
 
 extension NSNotification.Name {
     static var CategoryViewFromRegisterViewNotification = NSNotification.Name(rawValue: "CategoryViewFromRegisterViewNotification")
+    static var LostCheckViewFromRegisterViewNotification = NSNotification.Name(rawValue: "LostCheckViewFromRegisterViewNotification")
 }
