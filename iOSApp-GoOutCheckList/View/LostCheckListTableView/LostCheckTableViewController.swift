@@ -41,6 +41,13 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
         lostCheckViewModel.outputs.LostCheckDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: lostCheckDataSource))
             .disposed(by: disposeBag)
+
+        // セルがタップされたときに、灰色を消す
+        tableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func setupFloatingPanel() {
