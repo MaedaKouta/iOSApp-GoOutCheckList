@@ -9,7 +9,8 @@ import UIKit
 
 class RegisterCheckElementViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet private weak var elementNameTextField: UITextField!
+
+    @IBAction private func didTapRegisterButton(_ sender: Any) {
     }
 }
