@@ -24,6 +24,9 @@ class LostCheckTableViewController: UIViewController {
         setupBindings()
     }
 
+    @IBAction func didTapAddElementButton(_ sender: Any) {
+    }
+
     private func setupTableView() {
         tableView.register(UINib(nibName: "LostCheckTableViewCell", bundle: nil), forCellReuseIdentifier: "LostCheckTableViewCell")
     }
