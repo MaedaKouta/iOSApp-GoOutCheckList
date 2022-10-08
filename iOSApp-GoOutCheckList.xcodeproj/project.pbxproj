@@ -23,7 +23,7 @@
 		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
 		87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */; };
 		87A2664028EE60490091C282 /* RegisterCategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */; };
-		87A2664628EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */; };
+		87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */; };
 		87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664828EFC2F80091C282 /* NSNotification.swift */; };
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
 		87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */; };
@@ -73,7 +73,7 @@
 		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
 		87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryDetailViewController.swift; sourceTree = "<group>"; };
 		87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCategoryDetailViewController.xib; sourceTree = "<group>"; };
-		87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryDetailFloatingPanelLayout.swift; sourceTree = "<group>"; };
+		87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelLayout.swift; sourceTree = "<group>"; };
 		87A2664828EFC2F80091C282 /* NSNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotification.swift; sourceTree = "<group>"; };
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B2028EAA1C1009F1046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +144,14 @@
 			path = RegisterCheckElementView;
 			sourceTree = "<group>";
 		};
+		8743CC1828F0F8380082C27C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8766153D28F011AF00F0A8C1 /* LostCheckListTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +186,6 @@
 		87A2663C28EE60120091C282 /* RegisterCategoryDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				87A2664528EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift */,
 				87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */,
 				87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */,
 			);
@@ -264,6 +271,7 @@
 				87A2663C28EE60120091C282 /* RegisterCategoryDetailView */,
 				8766153D28F011AF00F0A8C1 /* LostCheckListTableView */,
 				8743CC1328F0F34D0082C27C /* RegisterCheckElementView */,
+				8743CC1828F0F8380082C27C /* Helpers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -556,7 +564,7 @@
 				8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryListViewModel.swift in Sources */,
 				8766155728F016B600F0A8C1 /* LostCheckDataSource.swift in Sources */,
-				87A2664628EFB47C0091C282 /* RegisterCategoryDetailFloatingPanelLayout.swift in Sources */,
+				87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */,
 				8743CC1628F0F3D50082C27C /* RegisterCheckElementViewController.swift in Sources */,
 				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
