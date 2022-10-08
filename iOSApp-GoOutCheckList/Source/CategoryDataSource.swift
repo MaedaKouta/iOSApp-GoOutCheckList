@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 import UIKit
 
+/*
+ CategoryTableViewControllerから呼ばれ、TableViewを管理するクラス
+ RxSwiftでTableViewを監視するために必要
+ */
 class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
     typealias Element = [CategoryItem]

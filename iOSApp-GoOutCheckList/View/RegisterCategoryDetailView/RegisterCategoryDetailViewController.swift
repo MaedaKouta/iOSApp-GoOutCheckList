@@ -19,7 +19,8 @@ class RegisterCategoryDetailViewController: UIViewController {
     @IBAction private func didTapRegisterButton(_ sender: Any) {
 
         guard let text = categoryNameTextField.text else { return }
-        let categoryItem: CategoryItem = .init(name: text)
+        let categoryItem = CategoryItem()
+        categoryItem.name = text
 
         NotificationCenter.default.post(
             name: Notification.Name.CategoryViewFromRegisterViewNotification,

@@ -9,38 +9,57 @@ import Foundation
 import RxCocoa
 import RxSwift
 import RxRelay
+import RxRealm
+import RealmSwift
 
-// MARK: - InputsProtocol
+// MARK: - Protocol
+// MARK: Inputs
 public protocol LostCheckTableViewModelInputs {
+    var tableViewItemDeletedObservable: Observable<IndexPath> { get }
+    var categoryItemObject: CategoryItem { get }
 }
 
-// MARK: - OutputsProtocol
+// MARK: Outputs
 public protocol LostCheckTableViewModelOutputs {
-    var LostCheckDataBehaviorRelay: BehaviorRelay<[CheckItem]> { get }
+    var LostCheckDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
 }
 
+// MARK: InputOutputType
 public protocol LostCheckTableViewModelType {
   var inputs: LostCheckTableViewModelInputs { get }
   var outputs: LostCheckTableViewModelOutputs { get }
 }
 
+// MARK: - ViewModel
 class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModelOutputs, LostCheckTableViewModelType {
 
-    // MARK: - Outputs
-    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[CheckItem]>(value: checkList)
+    // MARK: Inputs
+    internal var tableViewItemDeletedObservable: Observable<IndexPath>
+    internal var categoryItemObject: CategoryItem
+
+    // MARK: Outputs
+    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryItemObject.checkItems)
+
+    // MARK: InputOutputTypes
     public var inputs: LostCheckTableViewModelInputs { return self }
     public var outputs: LostCheckTableViewModelOutputs { return self }
 
-    var checkList: [CheckItem] = [.init(name: "初期値", isDone: false)]
+    // MARK: Libraries&Propaties
+    private let realm = try! Realm()
     private let disposeBag = DisposeBag()
 
-    init() {
-        LostCheckDataBehaviorRelay.accept(checkList)
-        setupBindings()
+    // MARK: - Initialize
+    init(tableViewItemDeletedObservable: Observable<IndexPath>,
+         categoryItemObject: CategoryItem) {
+        self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
+        self.categoryItemObject = categoryItemObject
+
+        LostCheckDataBehaviorRelay.accept(categoryItemObject.checkItems)
+        setupNotifications()
     }
 
-    private func setupBindings() {
-        // Notificationの連携
+    // MARK: - Setups
+    private func setupNotifications() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(fromRegisteCheckElementViewCall(notification:)),
@@ -48,6 +67,7 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
             object: nil)
     }
 
+    // MARK: - Functions
     /*
      RegisterCategoryDetailViewControllerから呼ばれる通知
         遷移先（RegisterCategoryDetailViewController）で登録したCategoryItemを
@@ -56,8 +76,10 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
      */
     @objc func fromRegisteCheckElementViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
-            self.checkList.append(contentsOf: [checkItem])
-            self.LostCheckDataBehaviorRelay.accept(self.checkList)
+            try! realm.write {
+                self.categoryItemObject.checkItems.append(checkItem)
+                self.LostCheckDataBehaviorRelay.accept(categoryItemObject.checkItems)
+            }
         }
     }
 }
