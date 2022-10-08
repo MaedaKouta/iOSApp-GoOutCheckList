@@ -11,6 +11,7 @@ target 'iOSApp-GoOutCheckList' do
         pod 'PKHUD'
         pod 'lottie-ios'
         pod 'RealmSwift'
+        pod "RxRealm"
         pod 'FloatingPanel'
 
   # Pods for iOSApp-GoOutCheckList

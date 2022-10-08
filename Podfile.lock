@@ -1,7 +1,7 @@
 PODS:
   - Differentiator (5.0.0)
   - FloatingPanel (2.5.4)
-  - lottie-ios (3.4.3)
+  - lottie-ios (3.4.4)
   - PKHUD (5.3.0)
   - Realm (10.31.0):
     - Realm/Headers (= 10.31.0)
@@ -15,6 +15,11 @@ PODS:
     - Differentiator (~> 5.0)
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
+  - RxRealm (5.0.4):
+    - Realm (~> 10.21)
+    - RealmSwift (~> 10.21)
+    - RxCocoa (~> 6.1)
+    - RxSwift (~> 6.1)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
@@ -28,6 +33,7 @@ DEPENDENCIES:
   - RealmSwift
   - RxCocoa
   - RxDataSources
+  - RxRealm
   - RxRelay
   - RxSwift
   - RxTest
@@ -42,6 +48,7 @@ SPEC REPOS:
     - RealmSwift
     - RxCocoa
     - RxDataSources
+    - RxRealm
     - RxRelay
     - RxSwift
     - RxTest
@@ -49,16 +56,17 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   FloatingPanel: 387377aa46a9b088e5f8f5f2a8d2c00c61e67298
-  lottie-ios: 9ae750cdc7820fecbd3c2f0cfc493038208fcdc4
+  lottie-ios: 8f97d3271e155c2d688875c29cd3c74908aef5f8
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   Realm: 10df7d86e1ca09d9948fdce2faa3fc623fb092c6
   RealmSwift: aecc52389574be4d451bf6cb1b08824eaa17dad0
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxRealm: 666c8785327fe2fff972a3093b35dc7055c1ca38
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
 
-PODFILE CHECKSUM: 54b4260acf826c12c60f91acbbaef2152c995fec
+PODFILE CHECKSUM: 2024ed81fac176fd3b7574c4194cbbc4f829c812
 
 COCOAPODS: 1.11.3
