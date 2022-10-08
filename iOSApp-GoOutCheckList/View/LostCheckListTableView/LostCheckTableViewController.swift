@@ -16,8 +16,10 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var tableView: UITableView!
     private var fpc: FloatingPanelController!
 
-    var lostCheckDataSource = LostCheckDataSource()
-    private lazy var lostCheckViewModel = LostCheckViewModel()
+    private var lostCheckDataSource = LostCheckDataSource()
+    private lazy var lostCheckViewModel = LostCheckViewModel(
+        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
+    )
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {

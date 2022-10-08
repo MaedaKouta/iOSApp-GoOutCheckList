@@ -12,6 +12,7 @@ import RxRelay
 
 // MARK: - InputsProtocol
 public protocol LostCheckTableViewModelInputs {
+    var tableViewItemDeletedObservable: Observable<IndexPath> { get }
 }
 
 // MARK: - OutputsProtocol
@@ -26,21 +27,45 @@ public protocol LostCheckTableViewModelType {
 
 class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModelOutputs, LostCheckTableViewModelType {
 
+    // MARK: - Inputs
+    internal var tableViewItemDeletedObservable: Observable<IndexPath>
+
     // MARK: - Outputs
     public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<[CheckItem]>(value: checkList)
+
     public var inputs: LostCheckTableViewModelInputs { return self }
     public var outputs: LostCheckTableViewModelOutputs { return self }
 
     var checkList: [CheckItem] = []
     private let disposeBag = DisposeBag()
 
-    init() {
+    init(tableViewItemDeletedObservable: Observable<IndexPath>) {
+        self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
         LostCheckDataBehaviorRelay.accept(checkList)
+
         setupBindings()
+        setupNotifications()
     }
 
     private func setupBindings() {
-        // Notificationの連携
+        tableViewItemDeletedObservable.asObservable()
+            .subscribe(onNext: { indexPath in
+                //let objects = self.realm.objects(CategoryItem.self).toArray()
+                //let object = objects[indexPath.row]
+                //try! self.realm.write {
+                    //self.realm.delete(object)
+                //}
+            }).disposed(by: disposeBag)
+    }
+
+    // MARK: Notification
+    /*
+     RegisterCategoryDetailViewControllerから呼ばれる通知
+        遷移先（RegisterCategoryDetailViewController）で登録したCategoryItemを
+        遷移元（CategoryTableViewController）に値渡しするために、Notificationが有効だった。
+        参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
+     */
+    private func setupNotifications() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(fromRegisteCheckElementViewCall(notification:)),
@@ -48,12 +73,6 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
             object: nil)
     }
 
-    /*
-     RegisterCategoryDetailViewControllerから呼ばれる通知
-        遷移先（RegisterCategoryDetailViewController）で登録したCategoryItemを
-        遷移元（CategoryTableViewController）に値渡しするために、Notificationが有効だった。
-        参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
-     */
     @objc func fromRegisteCheckElementViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
             self.checkList.append(contentsOf: [checkItem])
