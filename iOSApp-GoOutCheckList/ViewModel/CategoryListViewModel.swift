@@ -35,7 +35,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     public var inputs: CategoryTableViewModelInputs { return self }
     public var outputs: CategoryTableViewModelOutputs { return self }
 
-    var categoryList: [CategoryItem] = [.init(name: "初期値")]
+    var categoryList: [CategoryItem] = [CategoryItem()]
     private let disposeBag = DisposeBag()
 
     init() {
