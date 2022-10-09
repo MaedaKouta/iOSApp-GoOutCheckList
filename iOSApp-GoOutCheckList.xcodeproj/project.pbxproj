@@ -17,7 +17,7 @@
 		8766155128F0153D00F0A8C1 /* CheckItemTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766154F28F0153D00F0A8C1 /* CheckItemTableViewController.xib */; };
 		8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */; };
 		8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */; };
-		8766155728F016B600F0A8C1 /* LostCheckDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* LostCheckDataSource.swift */; };
+		8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
 		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
@@ -69,7 +69,7 @@
 		8766154F28F0153D00F0A8C1 /* CheckItemTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemTableViewController.xib; sourceTree = "<group>"; };
 		8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewCell.swift; sourceTree = "<group>"; };
 		8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemTableViewCell.xib; sourceTree = "<group>"; };
-		8766155628F016B600F0A8C1 /* LostCheckDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckDataSource.swift; sourceTree = "<group>"; };
+		8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemDataSource.swift; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
 		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
@@ -178,13 +178,13 @@
 			path = CategoryTableView;
 			sourceTree = "<group>";
 		};
-		87A2663128EB27AC0091C282 /* Source */ = {
+		87A2663128EB27AC0091C282 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
 				87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */,
-				8766155628F016B600F0A8C1 /* LostCheckDataSource.swift */,
+				8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */,
 			);
-			path = Source;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		87A2663C28EE60120091C282 /* RegisterCategoryView */ = {
@@ -230,9 +230,9 @@
 			isa = PBXGroup;
 			children = (
 				87B41BA428EAC387009F1046 /* Models */,
+				87A2663128EB27AC0091C282 /* DataSource */,
 				87B41BA528EAC38E009F1046 /* View */,
 				87B41BA628EAC394009F1046 /* ViewModel */,
-				87A2663128EB27AC0091C282 /* Source */,
 				87A2664728EFC2E30091C282 /* Extentions */,
 				87B41B2028EAA1C1009F1046 /* AppDelegate.swift */,
 				87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */,
@@ -568,7 +568,7 @@
 			files = (
 				8766154528F012C300F0A8C1 /* CheckItemTableViewModel.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */,
-				8766155728F016B600F0A8C1 /* LostCheckDataSource.swift in Sources */,
+				8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */,
 				87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */,
 				8743CC1628F0F3D50082C27C /* RegisterCheckElementViewController.swift in Sources */,
 				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,

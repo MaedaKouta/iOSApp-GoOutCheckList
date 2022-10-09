@@ -15,7 +15,7 @@ import RealmSwift
  RxSwiftでTableViewを監視するために必要
  RealmのデータでList<CheckItem>を使う必要があるため、ArrayではなくListが中心のコード
  */
-class LostCheckDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
     typealias Element = List<CheckItem>
     var item = List<CheckItem>()

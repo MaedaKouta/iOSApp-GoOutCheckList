@@ -17,7 +17,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Propaties
-    private var lostCheckDataSource = LostCheckDataSource()
+    private var lostCheckDataSource = CheckItemDataSource()
     private lazy var lostCheckViewModel = CheckItemViewModel(
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
         categoryItemObject: categoryItemObject
