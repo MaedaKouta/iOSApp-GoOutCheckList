@@ -43,7 +43,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // 画面遷移
     //（画面遷移に関わるためViewに書く必要がある）
     @IBAction private func didTapAddCcategoryButton(_ sender: Any) {
-        let view = RegisterCategoryDetailViewController()
+        let view = RegisterCategoryViewController()
         fpc.set(contentViewController: view)
         self.present(fpc, animated: true, completion: nil)
     }
@@ -54,11 +54,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         //（画面遷移に関わるためViewに書く必要がある）
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
-                let objects = self.realm.objects(CategoryItem.self).toArray()
+                let objects = self.realm.objects(Category.self).toArray()
                 let object = objects[indexPath.row]
                 self.tableView.deselectRow(at: indexPath, animated: true)
-                let lostCheckTableVC = LostCheckTableViewController(categoryItemObject: object)
-                self.navigationController?.pushViewController(lostCheckTableVC, animated: true)
+                let checkItemTableVC = CheckItemTableViewController(categoryItemObject: object)
+                self.navigationController?.pushViewController(checkItemTableVC, animated: true)
             })
             .disposed(by: disposeBag)
 

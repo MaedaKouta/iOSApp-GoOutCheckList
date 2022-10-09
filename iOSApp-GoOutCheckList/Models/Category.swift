@@ -8,7 +8,7 @@
 import RealmSwift
 import Foundation
 
-public class CategoryItem: Object {
+public class Category: Object {
 
     @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var name: String = ""

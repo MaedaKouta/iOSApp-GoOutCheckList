@@ -11,11 +11,11 @@ import UIKit
 import RealmSwift
 
 /*
- LostCheckTableViewControllerから呼ばれ、TableViewを管理するクラス
+ CheckItemTableViewControllerから呼ばれ、TableViewを管理するクラス
  RxSwiftでTableViewを監視するために必要
  RealmのデータでList<CheckItem>を使う必要があるため、ArrayではなくListが中心のコード
  */
-class LostCheckDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
     typealias Element = List<CheckItem>
     var item = List<CheckItem>()
@@ -26,7 +26,7 @@ class LostCheckDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LostCheckTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckItemTableViewCell", for: indexPath)
         let element = item[indexPath.row]
         cell.textLabel?.text = element.name
         return cell

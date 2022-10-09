@@ -11,25 +11,25 @@ import RxSwift
 import RxRelay
 import FloatingPanel
 
-class LostCheckTableViewController: UIViewController, FloatingPanelControllerDelegate {
+class CheckItemTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
     // MARK: Actions
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: Propaties
-    private var lostCheckDataSource = LostCheckDataSource()
-    private lazy var lostCheckViewModel = LostCheckViewModel(
+    private var lostCheckDataSource = CheckItemDataSource()
+    private lazy var lostCheckViewModel = CheckItemViewModel(
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
         categoryItemObject: categoryItemObject
     )
     private let disposeBag = DisposeBag()
-    private var categoryItemObject: CategoryItem
+    private var categoryItemObject: Category
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
 
     // MARK: - Initialize
-    init(categoryItemObject: CategoryItem) {
+    init(categoryItemObject: Category) {
         self.categoryItemObject = categoryItemObject
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,14 +49,14 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: - Actions
     @IBAction func didTapAddElementButton(_ sender: Any) {
-        let view = RegisterCheckElementViewController()
+        let view = RegisterCheckItemViewController()
         fpc.set(contentViewController: view)
         self.present(fpc, animated: true, completion: nil)
     }
 
     // MARK: - Setups
     private func setupTableView() {
-        tableView.register(UINib(nibName: "LostCheckTableViewCell", bundle: nil), forCellReuseIdentifier: "LostCheckTableViewCell")
+        tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
     }
 
     private func setupBindings() {

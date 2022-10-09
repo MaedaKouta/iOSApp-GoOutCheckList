@@ -16,8 +16,8 @@ import UIKit
  */
 class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
-    typealias Element = [CategoryItem]
-    var item: [CategoryItem] = []
+    typealias Element = [Category]
+    var item: [Category] = []
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
@@ -44,7 +44,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
     }
 
-    func tableView(_ tableView: UITableView, observedEvent: Event<[CategoryItem]>) {
+    func tableView(_ tableView: UITableView, observedEvent: Event<[Category]>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
             tableView.reloadData()

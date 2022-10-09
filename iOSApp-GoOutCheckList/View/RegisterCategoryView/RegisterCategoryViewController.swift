@@ -7,19 +7,19 @@
 
 import UIKit
 
-class RegisterCategoryDetailViewController: UIViewController {
+class RegisterCategoryViewController: UIViewController {
 
     @IBOutlet private weak var categoryNameTextField: UITextField!
     @IBOutlet private weak var registerButton: UIButton!
 
     /*
-     ボタンタップでCategoryListViewModelへ通知を送る。
+     ボタンタップでCategoryTableViewModelへ通知を送る。
      遷移元のtableViewへ反映させるために必要。
     */
     @IBAction private func didTapRegisterButton(_ sender: Any) {
 
         guard let text = categoryNameTextField.text else { return }
-        let categoryItem = CategoryItem()
+        let categoryItem = Category()
         categoryItem.name = text
 
         NotificationCenter.default.post(

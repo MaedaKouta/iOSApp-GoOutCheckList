@@ -14,35 +14,35 @@ import RealmSwift
 
 // MARK: - Protocol
 // MARK: Inputs
-public protocol LostCheckTableViewModelInputs {
+public protocol CheckItemViewModelInputs {
     var tableViewItemDeletedObservable: Observable<IndexPath> { get }
-    var categoryItemObject: CategoryItem { get }
+    var categoryItemObject: Category { get }
 }
 
 // MARK: Outputs
-public protocol LostCheckTableViewModelOutputs {
+public protocol CheckItemViewModelOutputs {
     var LostCheckDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
 }
 
 // MARK: InputOutputType
-public protocol LostCheckTableViewModelType {
-  var inputs: LostCheckTableViewModelInputs { get }
-  var outputs: LostCheckTableViewModelOutputs { get }
+public protocol CheckItemViewModelType {
+  var inputs: CheckItemViewModelInputs { get }
+  var outputs: CheckItemViewModelOutputs { get }
 }
 
 // MARK: - ViewModel
-class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModelOutputs, LostCheckTableViewModelType {
+class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, CheckItemViewModelType {
 
     // MARK: Inputs
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
-    internal var categoryItemObject: CategoryItem
+    internal var categoryItemObject: Category
 
     // MARK: Outputs
     public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryItemObject.checkItems)
 
     // MARK: InputOutputTypes
-    public var inputs: LostCheckTableViewModelInputs { return self }
-    public var outputs: LostCheckTableViewModelOutputs { return self }
+    public var inputs: CheckItemViewModelInputs { return self }
+    public var outputs: CheckItemViewModelOutputs { return self }
 
     // MARK: Libraries&Propaties
     private let realm = try! Realm()
@@ -50,7 +50,7 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
 
     // MARK: - Initialize
     init(tableViewItemDeletedObservable: Observable<IndexPath>,
-         categoryItemObject: CategoryItem) {
+         categoryItemObject: Category) {
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
         self.categoryItemObject = categoryItemObject
 
@@ -62,19 +62,19 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     private func setupNotifications() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(fromRegisteCheckElementViewCall(notification:)),
-            name: NSNotification.Name.LostCheckViewFromRegisterViewNotification,
+            selector: #selector(fromRegisteCheckItemViewCall(notification:)),
+            name: NSNotification.Name.CheckItemViewFromRegisterViewNotification,
             object: nil)
     }
 
     // MARK: - Functions
     /*
-     RegisterCategoryDetailViewControllerから呼ばれる通知
-        遷移先（RegisterCategoryDetailViewController）で登録したCategoryItemを
-        遷移元（CategoryTableViewController）に値渡しするために、Notificationが有効だった。
+     RegisterCheckItemViewControllerから呼ばれる通知
+        遷移先（RegisterCheckItemViewController）で登録したCategoryItemを
+        遷移元（CheckItemTableViewController）に値渡しするために、Notificationが有効だった。
         参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
-    @objc func fromRegisteCheckElementViewCall(notification: Notification) {
+    @objc func fromRegisteCheckItemViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
             try! realm.write {
                 self.categoryItemObject.checkItems.append(checkItem)
