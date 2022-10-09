@@ -12,7 +12,7 @@
 		8743CC1728F0F3D50082C27C /* RegisterCheckElementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8743CC1528F0F3D50082C27C /* RegisterCheckElementViewController.xib */; };
 		8743CC1A28F0F8F20082C27C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
 		8743CC1C28F0F92E0082C27C /* CheckItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1B28F0F92E0082C27C /* CheckItem.swift */; };
-		8766154528F012C300F0A8C1 /* LostCheckTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154428F012C300F0A8C1 /* LostCheckTableViewModel.swift */; };
+		8766154528F012C300F0A8C1 /* CheckItemTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */; };
 		8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154E28F0153D00F0A8C1 /* CheckItemTableViewController.swift */; };
 		8766155128F0153D00F0A8C1 /* CheckItemTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766154F28F0153D00F0A8C1 /* CheckItemTableViewController.xib */; };
 		8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */; };
@@ -64,7 +64,7 @@
 		8743CC1528F0F3D50082C27C /* RegisterCheckElementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCheckElementViewController.xib; sourceTree = "<group>"; };
 		8743CC1928F0F8F20082C27C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8743CC1B28F0F92E0082C27C /* CheckItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItem.swift; sourceTree = "<group>"; };
-		8766154428F012C300F0A8C1 /* LostCheckTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckTableViewModel.swift; sourceTree = "<group>"; };
+		8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewModel.swift; sourceTree = "<group>"; };
 		8766154E28F0153D00F0A8C1 /* CheckItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewController.swift; sourceTree = "<group>"; };
 		8766154F28F0153D00F0A8C1 /* CheckItemTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemTableViewController.xib; sourceTree = "<group>"; };
 		8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */,
-				8766154428F012C300F0A8C1 /* LostCheckTableViewModel.swift */,
+				8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -566,7 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8766154528F012C300F0A8C1 /* LostCheckTableViewModel.swift in Sources */,
+				8766154528F012C300F0A8C1 /* CheckItemTableViewModel.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */,
 				8766155728F016B600F0A8C1 /* LostCheckDataSource.swift in Sources */,
 				87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */,

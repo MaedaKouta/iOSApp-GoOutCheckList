@@ -14,24 +14,24 @@ import RealmSwift
 
 // MARK: - Protocol
 // MARK: Inputs
-public protocol LostCheckTableViewModelInputs {
+public protocol CheckItemViewModelInputs {
     var tableViewItemDeletedObservable: Observable<IndexPath> { get }
     var categoryItemObject: Category { get }
 }
 
 // MARK: Outputs
-public protocol LostCheckTableViewModelOutputs {
+public protocol CheckItemViewModelOutputs {
     var LostCheckDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
 }
 
 // MARK: InputOutputType
-public protocol LostCheckTableViewModelType {
-  var inputs: LostCheckTableViewModelInputs { get }
-  var outputs: LostCheckTableViewModelOutputs { get }
+public protocol CheckItemViewModelType {
+  var inputs: CheckItemViewModelInputs { get }
+  var outputs: CheckItemViewModelOutputs { get }
 }
 
 // MARK: - ViewModel
-class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModelOutputs, LostCheckTableViewModelType {
+class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, CheckItemViewModelType {
 
     // MARK: Inputs
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
@@ -41,8 +41,8 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
     public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryItemObject.checkItems)
 
     // MARK: InputOutputTypes
-    public var inputs: LostCheckTableViewModelInputs { return self }
-    public var outputs: LostCheckTableViewModelOutputs { return self }
+    public var inputs: CheckItemViewModelInputs { return self }
+    public var outputs: CheckItemViewModelOutputs { return self }
 
     // MARK: Libraries&Propaties
     private let realm = try! Realm()
