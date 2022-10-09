@@ -24,9 +24,9 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
         let element = item[indexPath.row]
-        cell.textLabel?.text = element.name
+        cell.configure(image: UIImage(data: element.imageData), name: element.name)
         return cell
     }
 
