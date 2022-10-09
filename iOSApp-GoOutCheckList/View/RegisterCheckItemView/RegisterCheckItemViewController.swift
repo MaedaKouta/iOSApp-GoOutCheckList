@@ -9,7 +9,7 @@ import UIKit
 
 class RegisterCheckItemViewController: UIViewController {
 
-    @IBOutlet private weak var elementNameTextField: UITextField!
+    @IBOutlet private weak var itemNameTextField: UITextField!
 
     /*
      登録ボタンが押された際に、前の画面のViewModel（CategoryTableViewModel）に値追加の通知を行う
@@ -17,11 +17,11 @@ class RegisterCheckItemViewController: UIViewController {
      前画面に戻る遷移を行う
      */
     @IBAction private func didTapRegisterButton(_ sender: Any) {
-        guard let text = elementNameTextField.text else { return }
+        guard let text = itemNameTextField.text else { return }
         let checkItem: CheckItem = CheckItem()
         checkItem.name = text
         NotificationCenter.default.post(
-            name: Notification.Name.LostCheckViewFromRegisterViewNotification,
+            name: Notification.Name.CheckItemViewFromRegisterViewNotification,
             object: checkItem
         )
 

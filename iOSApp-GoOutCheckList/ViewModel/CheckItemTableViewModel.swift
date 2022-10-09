@@ -62,8 +62,8 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     private func setupNotifications() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(fromRegisteCheckElementViewCall(notification:)),
-            name: NSNotification.Name.LostCheckViewFromRegisterViewNotification,
+            selector: #selector(fromRegisteCheckItemViewCall(notification:)),
+            name: NSNotification.Name.CheckItemViewFromRegisterViewNotification,
             object: nil)
     }
 
@@ -74,7 +74,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
         遷移元（CheckItemTableViewController）に値渡しするために、Notificationが有効だった。
         参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
-    @objc func fromRegisteCheckElementViewCall(notification: Notification) {
+    @objc func fromRegisteCheckItemViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
             try! realm.write {
                 self.categoryItemObject.checkItems.append(checkItem)

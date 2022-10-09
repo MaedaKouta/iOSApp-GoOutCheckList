@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterCheckElementViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
-                <outlet property="elementNameTextField" destination="m6Q-qR-Fxf" id="9ST-yk-qh3"/>
+                <outlet property="itemNameTextField" destination="m6Q-qR-Fxf" id="wB2-cl-sJm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +26,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="登録"/>
                     <connections>
-                        <action selector="didTapRegisterButton:" destination="-1" eventType="touchUpInside" id="fSJ-44-vBg"/>
+                        <action selector="didTapRegisterButton:" destination="-1" eventType="touchUpInside" id="UhT-Ig-3Tn"/>
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6Q-qR-Fxf">

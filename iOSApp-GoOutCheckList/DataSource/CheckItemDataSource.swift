@@ -26,7 +26,7 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LostCheckTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckItemTableViewCell", for: indexPath)
         let element = item[indexPath.row]
         cell.textLabel?.text = element.name
         return cell

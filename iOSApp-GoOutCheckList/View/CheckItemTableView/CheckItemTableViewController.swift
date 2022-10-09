@@ -14,7 +14,7 @@ import FloatingPanel
 class CheckItemTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
     // MARK: Actions
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: Propaties
     private var lostCheckDataSource = CheckItemDataSource()
@@ -49,7 +49,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: - Actions
     @IBAction func didTapAddElementButton(_ sender: Any) {
-        let view = RegisterCheckElementViewController()
+        let view = RegisterCheckItemViewController()
         fpc.set(contentViewController: view)
         self.present(fpc, animated: true, completion: nil)
     }
