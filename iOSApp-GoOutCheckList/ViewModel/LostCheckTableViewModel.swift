@@ -16,7 +16,7 @@ import RealmSwift
 // MARK: Inputs
 public protocol LostCheckTableViewModelInputs {
     var tableViewItemDeletedObservable: Observable<IndexPath> { get }
-    var categoryItemObject: CategoryItem { get }
+    var categoryItemObject: Category { get }
 }
 
 // MARK: Outputs
@@ -35,7 +35,7 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
 
     // MARK: Inputs
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
-    internal var categoryItemObject: CategoryItem
+    internal var categoryItemObject: Category
 
     // MARK: Outputs
     public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryItemObject.checkItems)
@@ -50,7 +50,7 @@ class LostCheckViewModel: LostCheckTableViewModelInputs, LostCheckTableViewModel
 
     // MARK: - Initialize
     init(tableViewItemDeletedObservable: Observable<IndexPath>,
-         categoryItemObject: CategoryItem) {
+         categoryItemObject: Category) {
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
         self.categoryItemObject = categoryItemObject
 

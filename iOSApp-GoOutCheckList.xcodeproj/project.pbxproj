@@ -10,7 +10,7 @@
 		79F73167C6E95E0ECB2577CF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F2EE2FA35DEB7B6849AA69 /* Pods_iOSApp_GoOutCheckListUITests.framework */; };
 		8743CC1628F0F3D50082C27C /* RegisterCheckElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1428F0F3D50082C27C /* RegisterCheckElementViewController.swift */; };
 		8743CC1728F0F3D50082C27C /* RegisterCheckElementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8743CC1528F0F3D50082C27C /* RegisterCheckElementViewController.xib */; };
-		8743CC1A28F0F8F20082C27C /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* CategoryItem.swift */; };
+		8743CC1A28F0F8F20082C27C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
 		8743CC1C28F0F92E0082C27C /* CheckItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1B28F0F92E0082C27C /* CheckItem.swift */; };
 		8766154528F012C300F0A8C1 /* LostCheckTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154428F012C300F0A8C1 /* LostCheckTableViewModel.swift */; };
 		8766155028F0153D00F0A8C1 /* LostCheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154E28F0153D00F0A8C1 /* LostCheckTableViewController.swift */; };
@@ -18,13 +18,11 @@
 		8766155428F015B800F0A8C1 /* LostCheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155228F015B800F0A8C1 /* LostCheckTableViewCell.swift */; };
 		8766155528F015B800F0A8C1 /* LostCheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766155328F015B800F0A8C1 /* LostCheckTableViewCell.xib */; };
 		8766155728F016B600F0A8C1 /* LostCheckDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* LostCheckDataSource.swift */; };
-		8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */; };
-		8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
 		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
-		87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */; };
-		87A2664028EE60490091C282 /* RegisterCategoryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */; };
+		87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2663D28EE60490091C282 /* RegisterCategoryViewController.swift */; };
+		87A2664028EE60490091C282 /* RegisterCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2663E28EE60490091C282 /* RegisterCategoryViewController.xib */; };
 		87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */; };
 		87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664828EFC2F80091C282 /* NSNotification.swift */; };
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
@@ -35,6 +33,8 @@
 		87B41B4228EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */; };
 		87B41B4428EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */; };
 		87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */; };
+		87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */; };
+		87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */; };
 		87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */; };
 		F2C93797B916B0E3EBB5EF70 /* Pods_iOSApp_GoOutCheckListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */; };
 		F834723A44CA72B233D147D9 /* Pods_iOSApp_GoOutCheckList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */; };
@@ -62,7 +62,7 @@
 		69F2EE2FA35DEB7B6849AA69 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8743CC1428F0F3D50082C27C /* RegisterCheckElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCheckElementViewController.swift; sourceTree = "<group>"; };
 		8743CC1528F0F3D50082C27C /* RegisterCheckElementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCheckElementViewController.xib; sourceTree = "<group>"; };
-		8743CC1928F0F8F20082C27C /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		8743CC1928F0F8F20082C27C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8743CC1B28F0F92E0082C27C /* CheckItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItem.swift; sourceTree = "<group>"; };
 		8766154428F012C300F0A8C1 /* LostCheckTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckTableViewModel.swift; sourceTree = "<group>"; };
 		8766154E28F0153D00F0A8C1 /* LostCheckTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckTableViewController.swift; sourceTree = "<group>"; };
@@ -70,13 +70,11 @@
 		8766155228F015B800F0A8C1 /* LostCheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckTableViewCell.swift; sourceTree = "<group>"; };
 		8766155328F015B800F0A8C1 /* LostCheckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LostCheckTableViewCell.xib; sourceTree = "<group>"; };
 		8766155628F016B600F0A8C1 /* LostCheckDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostCheckDataSource.swift; sourceTree = "<group>"; };
-		8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
 		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
-		87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryDetailViewController.swift; sourceTree = "<group>"; };
-		87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCategoryDetailViewController.xib; sourceTree = "<group>"; };
+		87A2663D28EE60490091C282 /* RegisterCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryViewController.swift; sourceTree = "<group>"; };
+		87A2663E28EE60490091C282 /* RegisterCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCategoryViewController.xib; sourceTree = "<group>"; };
 		87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelLayout.swift; sourceTree = "<group>"; };
 		87A2664828EFC2F80091C282 /* NSNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotification.swift; sourceTree = "<group>"; };
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +89,8 @@
 		87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITests.swift; sourceTree = "<group>"; };
 		87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewModel.swift; sourceTree = "<group>"; };
+		87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
 		88F52D017C5797685D117751 /* Pods-iOSApp-GoOutCheckList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.release.xcconfig"; sourceTree = "<group>"; };
 		951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,8 +172,8 @@
 			children = (
 				87A2662B28EB14270091C282 /* CategoryTableViewController.swift */,
 				87A2662C28EB14270091C282 /* CategoryTableViewController.xib */,
-				8772349C28EB138B0050A791 /* CategoryTableViewCell.swift */,
-				8772349D28EB138B0050A791 /* CategoryTableViewCell.xib */,
+				87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */,
+				87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */,
 			);
 			path = CategoryTableView;
 			sourceTree = "<group>";
@@ -187,13 +187,13 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		87A2663C28EE60120091C282 /* RegisterCategoryDetailView */ = {
+		87A2663C28EE60120091C282 /* RegisterCategoryView */ = {
 			isa = PBXGroup;
 			children = (
-				87A2663D28EE60490091C282 /* RegisterCategoryDetailViewController.swift */,
-				87A2663E28EE60490091C282 /* RegisterCategoryDetailViewController.xib */,
+				87A2663D28EE60490091C282 /* RegisterCategoryViewController.swift */,
+				87A2663E28EE60490091C282 /* RegisterCategoryViewController.xib */,
 			);
-			path = RegisterCategoryDetailView;
+			path = RegisterCategoryView;
 			sourceTree = "<group>";
 		};
 		87A2664728EFC2E30091C282 /* Extentions */ = {
@@ -264,7 +264,7 @@
 		87B41BA428EAC387009F1046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8743CC1928F0F8F20082C27C /* CategoryItem.swift */,
+				8743CC1928F0F8F20082C27C /* Category.swift */,
 				8743CC1B28F0F92E0082C27C /* CheckItem.swift */,
 			);
 			path = Models;
@@ -274,7 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				8772349B28EB120C0050A791 /* CategoryTableView */,
-				87A2663C28EE60120091C282 /* RegisterCategoryDetailView */,
+				87A2663C28EE60120091C282 /* RegisterCategoryView */,
 				8766153D28F011AF00F0A8C1 /* LostCheckTableView */,
 				8743CC1328F0F34D0082C27C /* RegisterCheckElementView */,
 				8743CC1828F0F8380082C27C /* Helpers */,
@@ -417,11 +417,11 @@
 				8766155528F015B800F0A8C1 /* LostCheckTableViewCell.xib in Resources */,
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
+				87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */,
 				8743CC1728F0F3D50082C27C /* RegisterCheckElementViewController.xib in Resources */,
 				8766155128F0153D00F0A8C1 /* LostCheckTableViewController.xib in Resources */,
 				87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */,
-				8772349F28EB138B0050A791 /* CategoryTableViewCell.xib in Resources */,
-				87A2664028EE60490091C282 /* RegisterCategoryDetailViewController.xib in Resources */,
+				87A2664028EE60490091C282 /* RegisterCategoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,20 +567,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8766154528F012C300F0A8C1 /* LostCheckTableViewModel.swift in Sources */,
-				8772349E28EB138B0050A791 /* CategoryTableViewCell.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */,
 				8766155728F016B600F0A8C1 /* LostCheckDataSource.swift in Sources */,
 				87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */,
 				8743CC1628F0F3D50082C27C /* RegisterCheckElementViewController.swift in Sources */,
 				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
 				8743CC1C28F0F92E0082C27C /* CheckItem.swift in Sources */,
+				87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				8766155028F0153D00F0A8C1 /* LostCheckTableViewController.swift in Sources */,
-				87A2663F28EE60490091C282 /* RegisterCategoryDetailViewController.swift in Sources */,
+				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,
 				87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */,
 				8766155428F015B800F0A8C1 /* LostCheckTableViewCell.swift in Sources */,
-				8743CC1A28F0F8F20082C27C /* CategoryItem.swift in Sources */,
+				8743CC1A28F0F8F20082C27C /* Category.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterCategoryDetailViewController: UIViewController {
+class RegisterCategoryViewController: UIViewController {
 
     @IBOutlet private weak var categoryNameTextField: UITextField!
     @IBOutlet private weak var registerButton: UIButton!
@@ -19,7 +19,7 @@ class RegisterCategoryDetailViewController: UIViewController {
     @IBAction private func didTapRegisterButton(_ sender: Any) {
 
         guard let text = categoryNameTextField.text else { return }
-        let categoryItem = CategoryItem()
+        let categoryItem = Category()
         categoryItem.name = text
 
         NotificationCenter.default.post(

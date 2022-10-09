@@ -23,13 +23,13 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
         categoryItemObject: categoryItemObject
     )
     private let disposeBag = DisposeBag()
-    private var categoryItemObject: CategoryItem
+    private var categoryItemObject: Category
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
 
     // MARK: - Initialize
-    init(categoryItemObject: CategoryItem) {
+    init(categoryItemObject: Category) {
         self.categoryItemObject = categoryItemObject
         super.init(nibName: nil, bundle: nil)
     }

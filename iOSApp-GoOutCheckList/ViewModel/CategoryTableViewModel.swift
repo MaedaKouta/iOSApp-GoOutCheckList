@@ -20,7 +20,7 @@ public protocol CategoryTableViewModelInputs {
 
 // MARK: Outputs
 public protocol CategoryTableViewModelOutputs {
-    var categoryDataBehaviorRelay: BehaviorRelay<[CategoryItem]> { get }
+    var categoryDataBehaviorRelay: BehaviorRelay<[Category]> { get }
 }
 
 // MARK: InputOutputType
@@ -36,7 +36,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
 
     // MARK: Outputs
-    public lazy var categoryDataBehaviorRelay = BehaviorRelay<[CategoryItem]>(value: realm.objects(CategoryItem.self).toArray())
+    public lazy var categoryDataBehaviorRelay = BehaviorRelay<[Category]>(value: realm.objects(Category.self).toArray())
 
     // MARK: InputOutputType
     public var inputs: CategoryTableViewModelInputs { return self }
@@ -53,7 +53,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
      */
     init(tableViewItemDeletedObservable: Observable<IndexPath>) {
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
-        categoryDataBehaviorRelay.accept(realm.objects(CategoryItem.self).toArray())
+        categoryDataBehaviorRelay.accept(realm.objects(Category.self).toArray())
 
         setupBindings()
         setupNotifications()
@@ -64,7 +64,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         // tableViewが削除された際にRealmからも削除を行う
         tableViewItemDeletedObservable.asObservable()
             .subscribe(onNext: { indexPath in
-                let objects = self.realm.objects(CategoryItem.self).toArray()
+                let objects = self.realm.objects(Category.self).toArray()
                 let object = objects[indexPath.row]
                 try! self.realm.write {
                     self.realm.delete(object)
@@ -88,10 +88,10 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
     @objc func fromRegisteCategoryViewCall(notification: Notification) {
-        if let categoryItem = notification.object as? CategoryItem {
+        if let categoryItem = notification.object as? Category {
             try! realm.write {
                 realm.add(categoryItem)
-                self.categoryDataBehaviorRelay.accept(realm.objects(CategoryItem.self).toArray())
+                self.categoryDataBehaviorRelay.accept(realm.objects(Category.self).toArray())
             }
         }
     }
