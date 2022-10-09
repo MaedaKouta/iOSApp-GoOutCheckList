@@ -11,7 +11,7 @@ import UIKit
 import RealmSwift
 
 /*
- LostCheckTableViewControllerから呼ばれ、TableViewを管理するクラス
+ CheckItemTableViewControllerから呼ばれ、TableViewを管理するクラス
  RxSwiftでTableViewを監視するために必要
  RealmのデータでList<CheckItem>を使う必要があるため、ArrayではなくListが中心のコード
  */

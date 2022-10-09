@@ -13,7 +13,7 @@ class RegisterCategoryViewController: UIViewController {
     @IBOutlet private weak var registerButton: UIButton!
 
     /*
-     ボタンタップでCategoryListViewModelへ通知を送る。
+     ボタンタップでCategoryTableViewModelへ通知を送る。
      遷移元のtableViewへ反映させるために必要。
     */
     @IBAction private func didTapRegisterButton(_ sender: Any) {

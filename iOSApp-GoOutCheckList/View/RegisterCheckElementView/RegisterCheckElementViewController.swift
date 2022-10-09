@@ -12,7 +12,7 @@ class RegisterCheckElementViewController: UIViewController {
     @IBOutlet private weak var elementNameTextField: UITextField!
 
     /*
-     登録ボタンが押された際に、前の画面のViewModel（CategoryListViewModel）に値追加の通知を行う
+     登録ボタンが押された際に、前の画面のViewModel（CategoryTableViewModel）に値追加の通知を行う
      値変更の通知によって前画面のtableViewの要素が１つ増える
      前画面に戻る遷移を行う
      */
