@@ -16,12 +16,12 @@ import RealmSwift
 // MARK: Inputs
 public protocol CheckItemViewModelInputs {
     var tableViewItemDeletedObservable: Observable<IndexPath> { get }
-    var categoryItemObject: Category { get }
+    var categoryObject: Category { get }
 }
 
 // MARK: Outputs
 public protocol CheckItemViewModelOutputs {
-    var LostCheckDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
+    var CheckItemDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
 }
 
 // MARK: InputOutputType
@@ -35,10 +35,10 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: Inputs
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
-    internal var categoryItemObject: Category
+    internal var categoryObject: Category
 
     // MARK: Outputs
-    public lazy var LostCheckDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryItemObject.checkItems)
+    public lazy var CheckItemDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryObject.checkItems)
 
     // MARK: InputOutputTypes
     public var inputs: CheckItemViewModelInputs { return self }
@@ -50,11 +50,12 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: - Initialize
     init(tableViewItemDeletedObservable: Observable<IndexPath>,
-         categoryItemObject: Category) {
+         categoryObject: Category) {
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
-        self.categoryItemObject = categoryItemObject
+        self.categoryObject = categoryObject
 
-        LostCheckDataBehaviorRelay.accept(categoryItemObject.checkItems)
+        // TODO: ここがなくても動作するか必要か調べる
+        CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
         setupNotifications()
     }
 
@@ -77,8 +78,8 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     @objc func fromRegisteCheckItemViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
             try! realm.write {
-                self.categoryItemObject.checkItems.append(checkItem)
-                self.LostCheckDataBehaviorRelay.accept(categoryItemObject.checkItems)
+                self.categoryObject.checkItems.append(checkItem)
+                self.CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
             }
         }
     }

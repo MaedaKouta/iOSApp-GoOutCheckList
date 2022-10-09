@@ -18,6 +18,8 @@
 		8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */; };
 		8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */; };
 		8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */; };
+		8782387E28F280E300804538 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782387C28F280E200804538 /* ViewController.swift */; };
+		8782387F28F280E300804538 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8782387D28F280E200804538 /* ViewController.xib */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
 		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
@@ -70,6 +72,8 @@
 		8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewCell.swift; sourceTree = "<group>"; };
 		8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemTableViewCell.xib; sourceTree = "<group>"; };
 		8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemDataSource.swift; sourceTree = "<group>"; };
+		8782387C28F280E200804538 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8782387D28F280E200804538 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
 		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				8766153D28F011AF00F0A8C1 /* CheckItemTableView */,
 				8743CC1328F0F34D0082C27C /* RegisterCheckItemView */,
 				8743CC1828F0F8380082C27C /* Helpers */,
+				8782387C28F280E200804538 /* ViewController.swift */,
+				8782387D28F280E200804538 /* ViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */,
+				8782387F28F280E300804538 /* ViewController.xib in Resources */,
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
 				87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */,
@@ -575,6 +582,7 @@
 				8743CC1C28F0F92E0082C27C /* CheckItem.swift in Sources */,
 				87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
+				8782387E28F280E300804538 /* ViewController.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,
