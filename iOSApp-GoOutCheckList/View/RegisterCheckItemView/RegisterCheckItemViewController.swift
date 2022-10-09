@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterCheckElementViewController: UIViewController {
+class RegisterCheckItemViewController: UIViewController {
 
     @IBOutlet private weak var elementNameTextField: UITextField!
 
