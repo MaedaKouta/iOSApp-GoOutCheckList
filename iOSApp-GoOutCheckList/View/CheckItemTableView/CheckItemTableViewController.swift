@@ -17,10 +17,10 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: Propaties
-    private var lostCheckDataSource = CheckItemDataSource()
-    private lazy var lostCheckViewModel = CheckItemViewModel(
+    private var checkItemDataSource = CheckItemDataSource()
+    private lazy var checkItemViewModel = CheckItemViewModel(
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
-        categoryItemObject: categoryItemObject
+        categoryObject: categoryItemObject
     )
     private let disposeBag = DisposeBag()
     private var categoryItemObject: Category
@@ -60,14 +60,14 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func setupBindings() {
-        lostCheckViewModel.outputs.LostCheckDataBehaviorRelay
-            .bind(to: tableView.rx.items(dataSource: lostCheckDataSource))
+        checkItemViewModel.outputs.CheckItemDataBehaviorRelay
+            .bind(to: tableView.rx.items(dataSource: checkItemDataSource))
             .disposed(by: disposeBag)
 
         // セルがタップされたときに、灰色を消す
         tableView.rx.itemSelected
-            .subscribe(onNext: { indexPath in
-                self.tableView.deselectRow(at: indexPath, animated: true)
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
             })
             .disposed(by: disposeBag)
     }

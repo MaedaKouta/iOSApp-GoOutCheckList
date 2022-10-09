@@ -53,12 +53,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         // セルがタップされたときに、次の画面へ遷移させる処理
         //（画面遷移に関わるためViewに書く必要がある）
         tableView.rx.itemSelected
-            .subscribe(onNext: { indexPath in
-                let objects = self.realm.objects(Category.self).toArray()
-                let object = objects[indexPath.row]
-                self.tableView.deselectRow(at: indexPath, animated: true)
+            .subscribe(onNext: { [weak self] indexPath in
+                let objects = self?.realm.objects(Category.self).toArray()
+                guard let object = objects?[indexPath.row] else { return }
+                self?.tableView.deselectRow(at: indexPath, animated: true)
                 let checkItemTableVC = CheckItemTableViewController(categoryItemObject: object)
-                self.navigationController?.pushViewController(checkItemTableVC, animated: true)
+                self?.navigationController?.pushViewController(checkItemTableVC, animated: true)
             })
             .disposed(by: disposeBag)
 
