@@ -57,8 +57,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
                 let objects = self.realm.objects(Category.self).toArray()
                 let object = objects[indexPath.row]
                 self.tableView.deselectRow(at: indexPath, animated: true)
-                let lostCheckTableVC = LostCheckTableViewController(categoryItemObject: object)
-                self.navigationController?.pushViewController(lostCheckTableVC, animated: true)
+                let checkItemTableVC = CheckItemTableViewController(categoryItemObject: object)
+                self.navigationController?.pushViewController(checkItemTableVC, animated: true)
             })
             .disposed(by: disposeBag)
 

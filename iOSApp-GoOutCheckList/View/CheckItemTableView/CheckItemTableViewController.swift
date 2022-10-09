@@ -11,7 +11,7 @@ import RxSwift
 import RxRelay
 import FloatingPanel
 
-class LostCheckTableViewController: UIViewController, FloatingPanelControllerDelegate {
+class CheckItemTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
     // MARK: Actions
     @IBOutlet private weak var tableView: UITableView!
@@ -56,7 +56,7 @@ class LostCheckTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: - Setups
     private func setupTableView() {
-        tableView.register(UINib(nibName: "LostCheckTableViewCell", bundle: nil), forCellReuseIdentifier: "LostCheckTableViewCell")
+        tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
     }
 
     private func setupBindings() {

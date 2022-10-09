@@ -7,6 +7,6 @@
 
 import UIKit
 
-class LostCheckTableViewCell: UITableViewCell {
+class CheckItemTableViewCell: UITableViewCell {
 
 }
