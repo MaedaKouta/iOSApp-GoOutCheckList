@@ -18,8 +18,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
-    private lazy var checkItemViewModel = CheckItemViewModel(
-        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
+    private lazy var checkItemViewModel = CheckItemViewModel( tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
         categoryObject: categoryItemObject
     )
     private let disposeBag = DisposeBag()
@@ -64,12 +63,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             .bind(to: tableView.rx.items(dataSource: checkItemDataSource))
             .disposed(by: disposeBag)
 
-        // セルがタップされたときに、灰色を消す
-        tableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
+        // TODO: TableViewの再レンダリングにより、色が少しずつ薄くなる挙動にならない
+        checkItemViewModel.outputs.tableViewItemSeletedPublishRelay
+            .subscribe { [weak self] indexPath in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
-            })
-            .disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
+
     }
 
     private func setupFloatingPanel() {

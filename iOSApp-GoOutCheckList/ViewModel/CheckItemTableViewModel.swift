@@ -15,13 +15,14 @@ import RealmSwift
 // MARK: - Protocol
 // MARK: Inputs
 public protocol CheckItemViewModelInputs {
-    var tableViewItemDeletedObservable: Observable<IndexPath> { get }
+    var tableViewItemSeletedObservable: Observable<IndexPath> { get }
     var categoryObject: Category { get }
 }
 
 // MARK: Outputs
 public protocol CheckItemViewModelOutputs {
     var CheckItemDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
+    var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
 }
 
 // MARK: InputOutputType
@@ -34,11 +35,12 @@ public protocol CheckItemViewModelType {
 class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, CheckItemViewModelType {
 
     // MARK: Inputs
-    internal var tableViewItemDeletedObservable: Observable<IndexPath>
+    internal var tableViewItemSeletedObservable: Observable<IndexPath>
     internal var categoryObject: Category
 
     // MARK: Outputs
     public lazy var CheckItemDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryObject.checkItems)
+    public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
 
     // MARK: InputOutputTypes
     public var inputs: CheckItemViewModelInputs { return self }
@@ -49,17 +51,32 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     private let disposeBag = DisposeBag()
 
     // MARK: - Initialize
-    init(tableViewItemDeletedObservable: Observable<IndexPath>,
+    init(tableViewItemSeletedObservable: Observable<IndexPath>,
          categoryObject: Category) {
-        self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
+        self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
         self.categoryObject = categoryObject
 
         // TODO: ここがなくても動作するか必要か調べる
         CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
+        setupBindings()
         setupNotifications()
     }
 
     // MARK: - Setups
+    private func setupBindings() {
+        tableViewItemSeletedObservable.asObservable()
+            .subscribe { [weak self] indexPath in
+                try! self?.realm.write {
+                    self?.categoryObject.checkItems[indexPath.row].isDone.toggle()
+                }
+                guard let checkItems = self?.categoryObject.checkItems else {
+                    return
+                }
+                self?.CheckItemDataBehaviorRelay.accept(checkItems)
+                self?.tableViewItemSeletedPublishRelay.accept(indexPath)
+            }.disposed(by: disposeBag)
+    }
+
     private func setupNotifications() {
         NotificationCenter.default.addObserver(
             self,
