@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LostCheckTableViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
+                <outlet property="addItemButton" destination="y5M-da-d7V" id="GDx-Ld-MPQ"/>
                 <outlet property="tableView" destination="SXI-8M-3Lx" id="6M8-3v-KDo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,9 +31,6 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="+"/>
-                    <connections>
-                        <action selector="didTapAddElementButton:" destination="-1" eventType="touchUpInside" id="7YP-Bc-pb2"/>
-                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

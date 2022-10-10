@@ -9,27 +9,29 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxRelay
+import PKHUD
 import FloatingPanel
 
 class CheckItemTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addItemButton: UIButton!
 
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
-    private lazy var checkItemViewModel = CheckItemViewModel( tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
-        categoryObject: categoryItemObject
+    private lazy var checkItemViewModel = CheckItemViewModel( tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(), addItemButtonObservable: addItemButton.rx.tap.asObservable(),
+        categoryObject: categoryObject
     )
     private let disposeBag = DisposeBag()
-    private var categoryItemObject: Category
+    private var categoryObject: Category
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
 
     // MARK: - Initialize
     init(categoryItemObject: Category) {
-        self.categoryItemObject = categoryItemObject
+        self.categoryObject = categoryItemObject
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,19 +41,13 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = categoryItemObject.name
+        navigationItem.title = categoryObject.name
 
         setupTableView()
         setupBindings()
         setupFloatingPanel()
     }
 
-    // MARK: - Actions
-    @IBAction func didTapAddElementButton(_ sender: Any) {
-        let view = RegisterCheckItemViewController()
-        fpc.set(contentViewController: view)
-        self.present(fpc, animated: true, completion: nil)
-    }
 
     // MARK: - Setups
     private func setupTableView() {
@@ -59,6 +55,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func setupBindings() {
+
+        // TableViewのデータ連携
         checkItemViewModel.outputs.CheckItemDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: checkItemDataSource))
             .disposed(by: disposeBag)
@@ -67,6 +65,21 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         checkItemViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
+            }.disposed(by: disposeBag)
+
+        // 全てチェックされたらPKHUDを表示
+        checkItemViewModel.outputs.allItemSelectedPublishSubject
+            .subscribe{ [weak self] _ in
+                HUD.flash(.success, onView: self?.view, delay: 1.5)
+            }.disposed(by: disposeBag)
+
+        // 右下のItem追加ボタンでモーダル表示
+        checkItemViewModel.outputs.addItemButtonPublishRelay
+            .subscribe{ [weak self] _ in
+                guard let fpc = self?.fpc else { return }
+                let view = RegisterCheckItemViewController()
+                fpc.set(contentViewController: view)
+                self?.present(fpc, animated: true, completion: nil)
             }.disposed(by: disposeBag)
 
     }
