@@ -15,12 +15,14 @@ import RealmSwift
 // MARK: - Protocol
 // MARK: Inputs
 public protocol CategoryTableViewModelInputs {
+    var tableViewItemSeletedObservable: Observable<IndexPath> { get }
     var tableViewItemDeletedObservable: Observable<IndexPath> { get }
 }
 
 // MARK: Outputs
 public protocol CategoryTableViewModelOutputs {
     var categoryDataBehaviorRelay: BehaviorRelay<[Category]> { get }
+    var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
 }
 
 // MARK: InputOutputType
@@ -33,10 +35,12 @@ public protocol CategoryTableViewModelType {
 class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewModelOutputs, CategoryTableViewModelType {
 
     // MARK: Inputs
+    internal var tableViewItemSeletedObservable: Observable<IndexPath>
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
 
     // MARK: Outputs
     public lazy var categoryDataBehaviorRelay = BehaviorRelay<[Category]>(value: realm.objects(Category.self).toArray())
+    public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
 
     // MARK: InputOutputType
     public var inputs: CategoryTableViewModelInputs { return self }
@@ -51,7 +55,9 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
      categoryDataBehaviorRelayはCategoryTableViewの要素
      CategoryTableViewModelで初期値設定・管理をする
      */
-    init(tableViewItemDeletedObservable: Observable<IndexPath>) {
+    init(tableViewItemSeletedObservable: Observable<IndexPath>,
+         tableViewItemDeletedObservable: Observable<IndexPath>) {
+        self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
         categoryDataBehaviorRelay.accept(realm.objects(Category.self).toArray())
 
@@ -69,6 +75,11 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
                 try! self.realm.write {
                     self.realm.delete(object)
                 }
+            }).disposed(by: disposeBag)
+
+        tableViewItemSeletedObservable.asObservable()
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.tableViewItemSeletedPublishRelay.accept(indexPath)
             }).disposed(by: disposeBag)
     }
 
