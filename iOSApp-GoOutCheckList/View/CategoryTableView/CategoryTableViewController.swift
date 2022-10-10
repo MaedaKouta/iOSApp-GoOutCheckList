@@ -15,13 +15,14 @@ import RealmSwift
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
     // MARK: Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var addCategoryButton: UIButton!
 
     // MARK: Propaties
     private let disposeBag = DisposeBag()
     private var categoryDataSource = CategoryDataSource()
     private lazy var categoryTableViewModel = CategoryTableViewModel(
+        tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
     )
 
@@ -52,7 +53,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private func setupBindings() {
         // セルがタップされたときに、次の画面へ遷移させる処理
         //（画面遷移に関わるためViewに書く必要がある）
-        tableView.rx.itemSelected
+        categoryTableViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe(onNext: { [weak self] indexPath in
                 let objects = self?.realm.objects(Category.self).toArray()
                 guard let object = objects?[indexPath.row] else { return }
