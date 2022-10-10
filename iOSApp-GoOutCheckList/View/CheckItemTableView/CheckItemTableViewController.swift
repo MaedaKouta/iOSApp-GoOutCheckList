@@ -70,7 +70,10 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         // 全てチェックされたらPKHUDを表示
         checkItemViewModel.outputs.allItemSelectedPublishSubject
             .subscribe{ [weak self] _ in
-                HUD.flash(.success, onView: self?.view, delay: 1.5)
+                HUD.flash(.success, onView: self?.view, delay: 1.0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.navigationController?.popViewController(animated: true)
+                }
             }.disposed(by: disposeBag)
 
         // 右下のItem追加ボタンでモーダル表示

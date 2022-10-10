@@ -91,6 +91,9 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
                 if checkItems.allSatisfy({$0.isDone == true}) {
                     self?.allItemSelectedPublishSubject.accept(())
+                    try! self?.realm.write {
+                        self?.categoryObject.checkItems.forEach{ $0.isDone = false }
+                    }
                 }
 
             }.disposed(by: disposeBag)
