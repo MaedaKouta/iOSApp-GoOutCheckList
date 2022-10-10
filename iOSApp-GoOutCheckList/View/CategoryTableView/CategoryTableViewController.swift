@@ -23,7 +23,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private var categoryDataSource = CategoryDataSource()
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
-        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
+        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
+        addCategoryButtonObservable: addCategoryButton.rx.tap.asObservable()
     )
 
     // MARK: Libraries
@@ -38,15 +39,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         setupTableView()
         setupBindings()
         setupFloatingPanel()
-    }
-
-    // MARK: - Action
-    // 画面遷移
-    //（画面遷移に関わるためViewに書く必要がある）
-    @IBAction private func didTapAddCcategoryButton(_ sender: Any) {
-        let view = RegisterCategoryViewController()
-        fpc.set(contentViewController: view)
-        self.present(fpc, animated: true, completion: nil)
     }
 
     // MARK: - Setups
@@ -66,6 +58,14 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.outputs.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
+
+        categoryTableViewModel.outputs.addCategoryButtonPublishRelay
+            .subscribe(onNext: { [weak self] in
+                guard let fpc = self?.fpc else { return }
+                let view = RegisterCategoryViewController()
+                fpc.set(contentViewController: view)
+                self?.present(fpc, animated: true, completion: nil)
+            }).disposed(by: disposeBag)
     }
 
     private func setupTableView() {

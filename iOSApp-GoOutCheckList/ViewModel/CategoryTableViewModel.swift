@@ -17,12 +17,14 @@ import RealmSwift
 public protocol CategoryTableViewModelInputs {
     var tableViewItemSeletedObservable: Observable<IndexPath> { get }
     var tableViewItemDeletedObservable: Observable<IndexPath> { get }
+    var addCategoryButtonObservable: Observable<Void> { get }
 }
 
 // MARK: Outputs
 public protocol CategoryTableViewModelOutputs {
     var categoryDataBehaviorRelay: BehaviorRelay<[Category]> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
+    var addCategoryButtonPublishRelay: PublishRelay<Void> { get }
 }
 
 // MARK: InputOutputType
@@ -37,10 +39,12 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     // MARK: Inputs
     internal var tableViewItemSeletedObservable: Observable<IndexPath>
     internal var tableViewItemDeletedObservable: Observable<IndexPath>
+    internal var addCategoryButtonObservable: Observable<Void>
 
     // MARK: Outputs
     public lazy var categoryDataBehaviorRelay = BehaviorRelay<[Category]>(value: realm.objects(Category.self).toArray())
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
+    var addCategoryButtonPublishRelay = PublishRelay<Void>()
 
     // MARK: InputOutputType
     public var inputs: CategoryTableViewModelInputs { return self }
@@ -56,9 +60,12 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
      CategoryTableViewModelで初期値設定・管理をする
      */
     init(tableViewItemSeletedObservable: Observable<IndexPath>,
-         tableViewItemDeletedObservable: Observable<IndexPath>) {
+         tableViewItemDeletedObservable: Observable<IndexPath>,
+         addCategoryButtonObservable: Observable<Void>
+    ) {
         self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
         self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
+        self.addCategoryButtonObservable = addCategoryButtonObservable
         categoryDataBehaviorRelay.accept(realm.objects(Category.self).toArray())
 
         setupBindings()
@@ -79,7 +86,12 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
         tableViewItemSeletedObservable.asObservable()
             .subscribe(onNext: { [weak self] indexPath in
-                self?.tableViewItemSeletedPublishRelay.accept(indexPath)
+                self?.outputs.tableViewItemSeletedPublishRelay.accept(indexPath)
+            }).disposed(by: disposeBag)
+
+        addCategoryButtonObservable.asObservable()
+            .subscribe(onNext: { [weak self] in
+                self?.outputs.addCategoryButtonPublishRelay.accept(())
             }).disposed(by: disposeBag)
     }
 

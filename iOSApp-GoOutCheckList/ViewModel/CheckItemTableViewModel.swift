@@ -25,7 +25,7 @@ public protocol CheckItemViewModelOutputs {
     var CheckItemDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
     var addItemButtonPublishRelay: PublishRelay<Void> { get }
-    var allItemSelectedPublishSubject: PublishSubject<Void> { get }
+    var allItemSelectedPublishSubject: PublishRelay<Void> { get }
 }
 
 // MARK: InputOutputType
@@ -46,7 +46,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     public lazy var CheckItemDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryObject.checkItems)
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
     public var addItemButtonPublishRelay = PublishRelay<Void>()
-    public var allItemSelectedPublishSubject = PublishSubject<Void>()
+    public var allItemSelectedPublishSubject = PublishRelay<Void>()
 
     // MARK: InputOutputTypes
     public var inputs: CheckItemViewModelInputs { return self }
@@ -89,13 +89,10 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
                 self?.CheckItemDataBehaviorRelay.accept(checkItems)
                 self?.tableViewItemSeletedPublishRelay.accept(indexPath)
 
-                // ここに毎回すべてがクリアになったか判定する処理を書く
                 if checkItems.allSatisfy({$0.isDone == true}) {
-                    print("達成")
-                    self?.allItemSelectedPublishSubject.onNext(())
-                } else {
-                    print("全部達成できてない")
+                    self?.allItemSelectedPublishSubject.accept(())
                 }
+
             }.disposed(by: disposeBag)
 
     }
