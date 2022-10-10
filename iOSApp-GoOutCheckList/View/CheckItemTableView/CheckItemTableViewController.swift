@@ -9,6 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxRelay
+import PKHUD
 import FloatingPanel
 
 class CheckItemTableViewController: UIViewController, FloatingPanelControllerDelegate {
@@ -67,6 +68,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         checkItemViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
+            }.disposed(by: disposeBag)
+
+        checkItemViewModel.outputs.allItemSelectedPublishSubject
+            .subscribe{ [weak self] _ in
+                HUD.flash(.success, onView: self?.view, delay: 1.5)
             }.disposed(by: disposeBag)
 
     }

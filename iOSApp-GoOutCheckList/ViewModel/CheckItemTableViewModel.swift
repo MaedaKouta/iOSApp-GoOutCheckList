@@ -23,6 +23,7 @@ public protocol CheckItemViewModelInputs {
 public protocol CheckItemViewModelOutputs {
     var CheckItemDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
+    var allItemSelectedPublishSubject: PublishSubject<Void> { get }
 }
 
 // MARK: InputOutputType
@@ -41,6 +42,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     // MARK: Outputs
     public lazy var CheckItemDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryObject.checkItems)
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
+    public var allItemSelectedPublishSubject = PublishSubject<Void>()
 
     // MARK: InputOutputTypes
     public var inputs: CheckItemViewModelInputs { return self }
@@ -77,7 +79,8 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
                 // ここに毎回すべてがクリアになったか判定する処理を書く
                 if checkItems.allSatisfy({$0.isDone == true}) {
-                    print("全部達成できてる")
+                    print("達成")
+                    self?.allItemSelectedPublishSubject.onNext(())
                 } else {
                     print("全部達成できてない")
                 }
