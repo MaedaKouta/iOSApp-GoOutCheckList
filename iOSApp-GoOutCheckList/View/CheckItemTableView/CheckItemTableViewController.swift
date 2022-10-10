@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 import RxRelay
 import PKHUD
+import RealmSwift
 import FloatingPanel
 
 class CheckItemTableViewController: UIViewController, FloatingPanelControllerDelegate {
@@ -23,6 +24,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     private lazy var checkItemViewModel = CheckItemViewModel( tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(), addItemButtonObservable: addItemButton.rx.tap.asObservable(),
         categoryObject: categoryObject
     )
+    private let realm = try! Realm()
     private let disposeBag = DisposeBag()
     private var categoryObject: Category
 
@@ -70,7 +72,13 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         // 全てチェックされたらPKHUDを表示
         checkItemViewModel.outputs.allItemSelectedPublishSubject
             .subscribe{ [weak self] _ in
-                HUD.flash(.success, onView: self?.view, delay: 1.5)
+                HUD.flash(.success, onView: self?.view, delay: 1.0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.navigationController?.popViewController(animated: true)
+                    try! self?.realm.write {
+                        self?.categoryObject.checkItems.forEach{ $0.isDone = false }
+                    }
+                }
             }.disposed(by: disposeBag)
 
         // 右下のItem追加ボタンでモーダル表示
