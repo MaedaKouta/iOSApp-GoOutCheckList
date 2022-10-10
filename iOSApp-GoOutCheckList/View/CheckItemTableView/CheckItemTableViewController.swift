@@ -99,6 +99,10 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         let appearance = SurfaceAppearance()
         appearance.cornerRadius = 24.0
         fpc.surfaceView.appearance = appearance
+
+        fpc.isRemovalInteractionEnabled = true
+        fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
+        // fpc.surfaceView.grabberHandle.isHidden = true
     }
 
 }
