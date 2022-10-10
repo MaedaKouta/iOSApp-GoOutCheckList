@@ -74,7 +74,16 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
                 }
                 self?.CheckItemDataBehaviorRelay.accept(checkItems)
                 self?.tableViewItemSeletedPublishRelay.accept(indexPath)
+
+                // ここに毎回すべてがクリアになったか判定する処理を書く
+                if checkItems.allSatisfy({$0.isDone == true}) {
+                    print("全部達成できてる")
+                } else {
+                    print("全部達成できてない")
+                }
             }.disposed(by: disposeBag)
+
+
     }
 
     private func setupNotifications() {

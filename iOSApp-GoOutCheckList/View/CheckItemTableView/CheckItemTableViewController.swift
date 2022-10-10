@@ -19,17 +19,17 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
     private lazy var checkItemViewModel = CheckItemViewModel( tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
-        categoryObject: categoryItemObject
+        categoryObject: categoryObject
     )
     private let disposeBag = DisposeBag()
-    private var categoryItemObject: Category
+    private var categoryObject: Category
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
 
     // MARK: - Initialize
     init(categoryItemObject: Category) {
-        self.categoryItemObject = categoryItemObject
+        self.categoryObject = categoryItemObject
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,7 +39,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = categoryItemObject.name
+        navigationItem.title = categoryObject.name
 
         setupTableView()
         setupBindings()
