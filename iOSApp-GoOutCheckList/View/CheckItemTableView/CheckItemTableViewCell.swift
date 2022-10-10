@@ -22,12 +22,4 @@ class CheckItemTableViewCell: UITableViewCell {
         }
     }
 
-    func isDoneItem(isDone: Bool) {
-        if isDone {
-            checkImage.image = UIImage(systemName: "circle.fill")
-        } else {
-            checkImage.image = UIImage(systemName: "circle")
-        }
-    }
-
 }
