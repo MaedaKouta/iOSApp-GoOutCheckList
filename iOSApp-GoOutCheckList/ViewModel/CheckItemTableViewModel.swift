@@ -16,6 +16,7 @@ import RealmSwift
 // MARK: Inputs
 public protocol CheckItemViewModelInputs {
     var tableViewItemSeletedObservable: Observable<IndexPath> { get }
+    var addItemButtonObservable: Observable<Void> { get }
     var categoryObject: Category { get }
 }
 
@@ -23,6 +24,7 @@ public protocol CheckItemViewModelInputs {
 public protocol CheckItemViewModelOutputs {
     var CheckItemDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
+    var addItemButtonPublishRelay: PublishRelay<Void> { get }
     var allItemSelectedPublishSubject: PublishSubject<Void> { get }
 }
 
@@ -37,11 +39,13 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: Inputs
     internal var tableViewItemSeletedObservable: Observable<IndexPath>
+    internal var addItemButtonObservable: Observable<Void>
     internal var categoryObject: Category
 
     // MARK: Outputs
     public lazy var CheckItemDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryObject.checkItems)
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
+    public var addItemButtonPublishRelay = PublishRelay<Void>()
     public var allItemSelectedPublishSubject = PublishSubject<Void>()
 
     // MARK: InputOutputTypes
@@ -54,8 +58,10 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: - Initialize
     init(tableViewItemSeletedObservable: Observable<IndexPath>,
+         addItemButtonObservable: Observable<Void>,
          categoryObject: Category) {
         self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
+        self.addItemButtonObservable = addItemButtonObservable
         self.categoryObject = categoryObject
 
         // TODO: ここがなくても動作するか必要か調べる
@@ -66,6 +72,12 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: - Setups
     private func setupBindings() {
+
+        addItemButtonObservable.asObservable()
+            .subscribe(onNext: { [weak self] in
+                self?.addItemButtonPublishRelay.accept(())
+            }).disposed(by: disposeBag)
+
         tableViewItemSeletedObservable.asObservable()
             .subscribe { [weak self] indexPath in
                 try! self?.realm.write {
@@ -85,7 +97,6 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
                     print("全部達成できてない")
                 }
             }.disposed(by: disposeBag)
-
 
     }
 
