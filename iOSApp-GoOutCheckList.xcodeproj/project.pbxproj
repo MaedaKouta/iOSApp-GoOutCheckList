@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79F73167C6E95E0ECB2577CF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F2EE2FA35DEB7B6849AA69 /* Pods_iOSApp_GoOutCheckListUITests.framework */; };
 		8743CC1628F0F3D50082C27C /* RegisterCheckItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */; };
 		8743CC1728F0F3D50082C27C /* RegisterCheckItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */; };
 		8743CC1A28F0F8F20082C27C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
@@ -38,8 +37,9 @@
 		87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */; };
 		87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */; };
 		87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */; };
-		F2C93797B916B0E3EBB5EF70 /* Pods_iOSApp_GoOutCheckListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */; };
-		F834723A44CA72B233D147D9 /* Pods_iOSApp_GoOutCheckList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */; };
+		E6B9AF617A86399A182521FF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */; };
+		F2C93797B916B0E3EBB5EF70 /* Pods_iOSApp_GoOutCheckListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F834723A44CA72B233D147D9 /* Pods_iOSApp_GoOutCheckList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3556AEDF41E75EDCD0CB8BD4 /* Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		69F2EE2FA35DEB7B6849AA69 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCheckItemViewController.swift; sourceTree = "<group>"; };
 		8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCheckItemViewController.xib; sourceTree = "<group>"; };
 		8743CC1928F0F8F20082C27C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
 		88F52D017C5797685D117751 /* Pods-iOSApp-GoOutCheckList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.release.xcconfig"; sourceTree = "<group>"; };
 		951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC804F6D57454BBF63A43E0 /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB00ED0FAD7E5DCED4FD3B2A /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ADA8528B60CC60A49D46D6BC /* Pods-iOSApp-GoOutCheckListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListTests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListTests/Pods-iOSApp-GoOutCheckListTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7B7F83AA719D42AF15FD542 /* Pods-iOSApp-GoOutCheckListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListTests/Pods-iOSApp-GoOutCheckListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D419496B92DE86E296024D17 /* Pods-iOSApp-GoOutCheckList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F73167C6E95E0ECB2577CF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */,
+				E6B9AF617A86399A182521FF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +140,7 @@
 			children = (
 				DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */,
 				951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */,
-				69F2EE2FA35DEB7B6849AA69 /* Pods_iOSApp_GoOutCheckListUITests.framework */,
+				162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -306,6 +308,8 @@
 				ADA8528B60CC60A49D46D6BC /* Pods-iOSApp-GoOutCheckListTests.release.xcconfig */,
 				3556AEDF41E75EDCD0CB8BD4 /* Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig */,
 				E6F09ADA5B37089804CA2901 /* Pods-iOSApp-GoOutCheckListUITests.release.xcconfig */,
+				9FC804F6D57454BBF63A43E0 /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig */,
+				AB00ED0FAD7E5DCED4FD3B2A /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -340,7 +344,7 @@
 				87B41B2F28EAA1C2009F1046 /* Sources */,
 				87B41B3028EAA1C2009F1046 /* Frameworks */,
 				87B41B3128EAA1C2009F1046 /* Resources */,
-				A369434ECCDC28798A6E1A86 /* [CP] Embed Pods Frameworks */,
+				BF9DAF9F676E62E11042763E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -532,7 +536,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A369434ECCDC28798A6E1A86 /* [CP] Embed Pods Frameworks */ = {
+		BF9DAF9F676E62E11042763E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

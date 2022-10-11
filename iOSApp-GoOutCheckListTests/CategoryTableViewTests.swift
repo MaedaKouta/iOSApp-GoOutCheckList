@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import RealmSwift
 @testable import iOSApp_GoOutCheckList
 
 final class CategoryTableViewTests: XCTestCase {
