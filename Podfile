@@ -19,10 +19,13 @@ target 'iOSApp-GoOutCheckList' do
   target 'iOSApp-GoOutCheckListTests' do
     inherit! :search_paths
     # Pods for testing
+        pod 'RxTest'
   end
 
   target 'iOSApp-GoOutCheckListUITests' do
+    inherit! :search_paths
     # Pods for testing
+        pod 'RxTest'
   end
 
 end
