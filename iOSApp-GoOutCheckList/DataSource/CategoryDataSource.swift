@@ -44,6 +44,18 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // 並べ替える処理
+    }
+
     func tableView(_ tableView: UITableView, observedEvent: Event<[Category]>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
