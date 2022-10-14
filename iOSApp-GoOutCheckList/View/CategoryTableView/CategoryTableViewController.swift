@@ -15,7 +15,7 @@ import RealmSwift
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate {
 
     // MARK: Outlets
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addCategoryButton: UIButton!
 
     // MARK: Propaties
@@ -83,6 +83,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         // fpc.surfaceView.grabberHandle.isHidden = true
+    }
+
+    // MARK: - test
+    public func checkCategoryDataSource() -> CategoryDataSource {
+        return self.categoryDataSource
     }
 
 }

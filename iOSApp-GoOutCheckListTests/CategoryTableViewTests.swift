@@ -10,9 +10,26 @@ import XCTest
 
 final class CategoryTableViewTests: XCTestCase {
 
-    let vc = CategoryTableViewController()
-//    func test_tableViewが表示されること() {
-//        XCTAssertNotNil(vc.categoryDataSource.item)
-//    }
+    private var vc: CategoryTableViewController!
+    private var categoryDataSource: CategoryDataSource!
+    private var tableView: UITableView!
+
+    override func setUp() {
+        vc = CategoryTableViewController()
+        vc.loadView()
+        categoryDataSource = vc.checkCategoryDataSource()
+        tableView = vc.tableView
+    }
+
+    func test_tableViewが表示されること() {
+        XCTAssertTrue(vc.view.subviews.contains(tableView))
+    }
+
+    func test_unknownImageが自動で入っていること() {
+        let category = Category()
+        category.name = "テスト"
+        categoryDataSource.item.append(category)
+        XCTAssertNotNil(categoryDataSource.item.last?.imageData)
+    }
 
 }
