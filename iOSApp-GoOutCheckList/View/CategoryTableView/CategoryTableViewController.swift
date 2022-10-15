@@ -61,7 +61,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             })
             .disposed(by: disposeBag)
 
-        categoryTableViewModel.outputs.categoryDataBehaviorRelay
+        categoryTableViewModel.outputs.categoryDataPublishRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
 

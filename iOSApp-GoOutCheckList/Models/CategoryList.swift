@@ -14,6 +14,6 @@ import Foundation
 
 public class CategoryList: Object {
 
-    let list = List<Category>()
+    var list = List<Category>()
 
 }

@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import UIKit
+import RealmSwift
 
 /*
  CategoryTableViewControllerから呼ばれ、TableViewを管理するクラス
@@ -16,8 +17,9 @@ import UIKit
  */
 class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
-    typealias Element = [Category]
-    var item: [Category] = []
+    typealias Element = List<Category>
+    var item = List<Category>()
+    private let realm = try! Realm()
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
@@ -56,7 +58,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         // 並べ替える処理
     }
 
-    func tableView(_ tableView: UITableView, observedEvent: Event<[Category]>) {
+    func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<Category>>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
             tableView.reloadData()
