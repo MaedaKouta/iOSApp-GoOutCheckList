@@ -72,7 +72,6 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
             categoryListObjext = realm.objects(CategoryList.self).first?.list
             self.categoryDataBehaviorRelay
                 .accept(categoryListObjext!)
-            print("VMの初期値設定、acceptの送信")
         }
 
         setupBindings()
