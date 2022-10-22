@@ -61,7 +61,9 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             })
             .disposed(by: disposeBag)
 
-        categoryTableViewModel.outputs.categoryDataPublishRelay
+        print("VCから呼ばれる")
+        categoryTableViewModel.outputs.categoryDataBehaviorRelay
+            //.debug()
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
 
