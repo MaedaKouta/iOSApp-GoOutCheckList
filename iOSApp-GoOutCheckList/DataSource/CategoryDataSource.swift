@@ -36,6 +36,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         switch editingStyle {
         case .delete:
             try! self.realm.write {
+                realm.delete(item[indexPath.row].checkItems)
                 item.remove(at: indexPath.row)
             }
             tableView.beginUpdates()
