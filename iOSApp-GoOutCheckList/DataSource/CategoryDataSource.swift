@@ -35,7 +35,9 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            item.remove(at: indexPath.row)
+            try! self.realm.write {
+                item.remove(at: indexPath.row)
+            }
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
