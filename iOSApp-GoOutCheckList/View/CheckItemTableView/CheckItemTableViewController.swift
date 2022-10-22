@@ -18,6 +18,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addItemButton: UIButton!
+    private var editButton: UIBarButtonItem!
 
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
@@ -43,13 +44,17 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = categoryObject.name
 
+        setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
     }
 
+    // MARK: Actions
+    @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
+        tableView.isEditing.toggle()
+    }
 
     // MARK: - Setups
     private func setupTableView() {
@@ -103,6 +108,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         // fpc.surfaceView.grabberHandle.isHidden = true
+    }
+
+    private func setupNavigationbar() {
+        navigationItem.title = categoryObject.name
+        editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditButton(_:)))
+        self.navigationItem.rightBarButtonItem = editButton
     }
 
 }

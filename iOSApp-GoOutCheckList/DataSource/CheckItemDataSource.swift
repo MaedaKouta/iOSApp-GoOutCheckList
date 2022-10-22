@@ -48,6 +48,23 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
         }
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // 並べ替える処理
+        try! realm.write {
+            let tmp = item[sourceIndexPath.row]
+            item.remove(at: sourceIndexPath.row)
+            item.insert(tmp, at: destinationIndexPath.row)
+        }
+    }
+
     func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<CheckItem>>) {
         Binder(self) { dataSource, element in
             dataSource.item = element

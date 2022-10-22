@@ -17,6 +17,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addCategoryButton: UIButton!
+    private var editButton: UIBarButtonItem!
 
     // MARK: Propaties
     private let disposeBag = DisposeBag()
@@ -34,11 +35,16 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        navigationItem.title = "カテゴリー"
 
+        setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
+    }
+
+    // MARK: Actions
+    @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
+        tableView.isEditing.toggle()
     }
 
     // MARK: - Setups
@@ -55,7 +61,9 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             })
             .disposed(by: disposeBag)
 
+        print("VCから呼ばれる")
         categoryTableViewModel.outputs.categoryDataBehaviorRelay
+            //.debug()
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
 
@@ -83,6 +91,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         // fpc.surfaceView.grabberHandle.isHidden = true
+    }
+
+    private func setupNavigationbar() {
+        navigationItem.title = "カテゴリー"
+        editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditButton(_:)))
+        self.navigationItem.rightBarButtonItem = editButton
     }
 
     // MARK: - test
