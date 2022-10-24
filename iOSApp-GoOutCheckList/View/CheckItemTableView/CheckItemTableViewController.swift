@@ -82,6 +82,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     self?.navigationController?.popViewController(animated: true)
                     try! self?.realm.write {
                         self?.categoryObject.checkItems.forEach{ $0.isDone = false }
+
+                        let checkHistoryObject = CheckHistory()
+                        checkHistoryObject.date = Date()
+                        checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
+                        self?.realm.add(checkHistoryObject)
                     }
                 }
             }.disposed(by: disposeBag)
