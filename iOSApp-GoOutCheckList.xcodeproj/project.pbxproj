@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87202B7529091C950036692B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
 		8743CC1628F0F3D50082C27C /* RegisterCheckItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */; };
 		8743CC1728F0F3D50082C27C /* RegisterCheckItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */; };
 		8743CC1A28F0F8F20082C27C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
@@ -20,6 +21,7 @@
 		8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */; };
 		8782387E28F280E300804538 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782387C28F280E200804538 /* ViewController.swift */; };
 		8782387F28F280E300804538 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8782387D28F280E200804538 /* ViewController.xib */; };
+		8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
 		87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */; };
@@ -63,6 +65,7 @@
 /* Begin PBXFileReference section */
 		162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3556AEDF41E75EDCD0CB8BD4 /* Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		87202B7429091C950036692B /* CheckHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistory.swift; sourceTree = "<group>"; };
 		8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCheckItemViewController.swift; sourceTree = "<group>"; };
 		8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCheckItemViewController.xib; sourceTree = "<group>"; };
 		8743CC1928F0F8F20082C27C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemDataSource.swift; sourceTree = "<group>"; };
 		8782387C28F280E200804538 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8782387D28F280E200804538 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		8795B5C3290657F800AAF894 /* CheckHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryList.swift; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
 		87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				8757681528FA155000EB4E79 /* CategoryList.swift */,
 				8743CC1928F0F8F20082C27C /* Category.swift */,
 				8743CC1B28F0F92E0082C27C /* CheckItem.swift */,
+				8795B5C3290657F800AAF894 /* CheckHistoryList.swift */,
+				87202B7429091C950036692B /* CheckHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -593,11 +599,13 @@
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,
+				87202B7529091C950036692B /* CheckHistory.swift in Sources */,
 				87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */,
 				8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */,
 				8743CC1A28F0F8F20082C27C /* Category.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
 				8757681628FA155000EB4E79 /* CategoryList.swift in Sources */,
+				8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

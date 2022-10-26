@@ -28,6 +28,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     private let realm = try! Realm()
     private let disposeBag = DisposeBag()
     private var categoryObject: Category
+    private lazy var checkHistoryListObject = realm.objects(CheckHistoryList.self).first
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
@@ -82,6 +83,34 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     self?.navigationController?.popViewController(animated: true)
                     try! self?.realm.write {
                         self?.categoryObject.checkItems.forEach{ $0.isDone = false }
+
+                        let checkHistoryObject = CheckHistory()
+                        checkHistoryObject.date = Date()
+                        checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
+
+                        // リストがなければ、リストを作る（初期に作る必要が出てくる）
+                        if self?.checkHistoryListObject == nil {
+                            let checkHistoryList = CheckHistoryList()
+                            checkHistoryList.checkHistoryList.append(checkHistoryObject)
+                            self?.realm.add(checkHistoryList)
+                            self?.checkHistoryListObject = self?.realm.objects(CheckHistoryList.self).first
+                        } else {
+
+                            if 50 <= self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
+                                // 先頭のCheckHistoryを取得して、削除する
+                                let checkHistory = self?.realm.objects(CheckHistory.self)
+                                let id = self?.checkHistoryListObject!.checkHistoryList[0].id ?? ""
+                                let predicate = NSPredicate(format: "id == %@", id)
+                                let removeCheckHistory = checkHistory?.filter(predicate).first
+                                if let removeCheckHistory = removeCheckHistory {
+                                    self?.realm.delete(removeCheckHistory)
+                                }
+                                
+                            }
+
+                            self?.checkHistoryListObject!.checkHistoryList.append(checkHistoryObject)
+                        }
+
                     }
                 }
             }.disposed(by: disposeBag)
