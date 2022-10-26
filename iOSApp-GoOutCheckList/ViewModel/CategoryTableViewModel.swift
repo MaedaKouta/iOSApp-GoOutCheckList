@@ -125,8 +125,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
                     let categoryList = CategoryList()
                     categoryList.list.append(categoryItem)
                     self.realm.add(categoryList)
-                    self.categoryListObjext =
-                    self.realm.objects(CategoryList.self).first?.list
+                    self.categoryListObjext = self.realm.objects(CategoryList.self).first?.list
                 } else {
                     self.categoryListObjext!.append(categoryItem)
                 }

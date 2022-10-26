@@ -15,7 +15,7 @@ import RealmSwift
 
 public class CheckHistoryList: Object {
 
-    var checkItems = List<CheckHistory>()
+    var checkHistoryList = List<CheckHistory>()
 
 }
 

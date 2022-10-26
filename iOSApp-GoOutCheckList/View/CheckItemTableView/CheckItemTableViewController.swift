@@ -28,6 +28,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     private let realm = try! Realm()
     private let disposeBag = DisposeBag()
     private var categoryObject: Category
+    private lazy var checkHistoryListObject = realm.objects(CheckHistoryList.self).first
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
@@ -87,13 +88,15 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                         checkHistoryObject.date = Date()
                         checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
 
-                        let results = self?.realm.objects(CheckHistory.self)
-                        if 30 <= results?.count {
-                            self?.realm.delete(results[0])
+                        if self?.checkHistoryListObject == nil {
+                            let checkHistoryList = CheckHistoryList()
+                            checkHistoryList.checkHistoryList.append(checkHistoryObject)
+                            self?.realm.add(checkHistoryList)
+                            self?.checkHistoryListObject = self?.realm.objects(CheckHistoryList.self).first
+                        } else {
+                            self?.checkHistoryListObject!.checkHistoryList.append(checkHistoryObject)
                         }
-                        print(results)
 
-                        self?.realm.add(checkHistoryObject)
                     }
                 }
             }.disposed(by: disposeBag)
