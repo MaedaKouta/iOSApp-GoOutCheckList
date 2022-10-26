@@ -12,6 +12,9 @@
 		8743CC1728F0F3D50082C27C /* RegisterCheckItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */; };
 		8743CC1A28F0F8F20082C27C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
 		8743CC1C28F0F92E0082C27C /* CheckItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1B28F0F92E0082C27C /* CheckItem.swift */; };
+		874602CF2909F79A009D1D50 /* CheckHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874602CD2909F79A009D1D50 /* CheckHistoryViewController.swift */; };
+		874602D02909F79A009D1D50 /* CheckHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874602CE2909F79A009D1D50 /* CheckHistoryViewController.xib */; };
+		874602D22909F9F2009D1D50 /* CheckHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874602D12909F9F2009D1D50 /* CheckHistoryDataSource.swift */; };
 		8757681628FA155000EB4E79 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757681528FA155000EB4E79 /* CategoryList.swift */; };
 		8766154528F012C300F0A8C1 /* CheckItemTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */; };
 		8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154E28F0153D00F0A8C1 /* CheckItemTableViewController.swift */; };
@@ -70,6 +73,9 @@
 		8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCheckItemViewController.xib; sourceTree = "<group>"; };
 		8743CC1928F0F8F20082C27C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8743CC1B28F0F92E0082C27C /* CheckItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItem.swift; sourceTree = "<group>"; };
+		874602CD2909F79A009D1D50 /* CheckHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryViewController.swift; sourceTree = "<group>"; };
+		874602CE2909F79A009D1D50 /* CheckHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckHistoryViewController.xib; sourceTree = "<group>"; };
+		874602D12909F9F2009D1D50 /* CheckHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryDataSource.swift; sourceTree = "<group>"; };
 		8757681528FA155000EB4E79 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewModel.swift; sourceTree = "<group>"; };
 		8766154E28F0153D00F0A8C1 /* CheckItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +174,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		874602CC2909F75A009D1D50 /* CheckHistoryTableView */ = {
+			isa = PBXGroup;
+			children = (
+				874602CD2909F79A009D1D50 /* CheckHistoryViewController.swift */,
+				874602CE2909F79A009D1D50 /* CheckHistoryViewController.xib */,
+			);
+			path = CheckHistoryTableView;
+			sourceTree = "<group>";
+		};
 		8766153D28F011AF00F0A8C1 /* CheckItemTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +210,7 @@
 			children = (
 				87A2662F28EB1AD40091C282 /* CategoryDataSource.swift */,
 				8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */,
+				874602D12909F9F2009D1D50 /* CheckHistoryDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -292,6 +308,7 @@
 				87A2663C28EE60120091C282 /* RegisterCategoryView */,
 				8766153D28F011AF00F0A8C1 /* CheckItemTableView */,
 				8743CC1328F0F34D0082C27C /* RegisterCheckItemView */,
+				874602CC2909F75A009D1D50 /* CheckHistoryTableView */,
 				8743CC1828F0F8380082C27C /* Helpers */,
 				8782387C28F280E200804538 /* ViewController.swift */,
 				8782387D28F280E200804538 /* ViewController.xib */,
@@ -441,6 +458,7 @@
 				8743CC1728F0F3D50082C27C /* RegisterCheckItemViewController.xib in Resources */,
 				8766155128F0153D00F0A8C1 /* CheckItemTableViewController.xib in Resources */,
 				87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */,
+				874602D02909F79A009D1D50 /* CheckHistoryViewController.xib in Resources */,
 				87A2664028EE60490091C282 /* RegisterCategoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +607,8 @@
 				8766154528F012C300F0A8C1 /* CheckItemTableViewModel.swift in Sources */,
 				87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */,
 				8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */,
+				874602CF2909F79A009D1D50 /* CheckHistoryViewController.swift in Sources */,
+				874602D22909F9F2009D1D50 /* CheckHistoryDataSource.swift in Sources */,
 				87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */,
 				8743CC1628F0F3D50082C27C /* RegisterCheckItemViewController.swift in Sources */,
 				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
