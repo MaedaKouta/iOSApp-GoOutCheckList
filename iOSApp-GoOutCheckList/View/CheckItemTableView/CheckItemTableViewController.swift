@@ -95,8 +95,16 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                             self?.checkHistoryListObject = self?.realm.objects(CheckHistoryList.self).first
                         } else {
 
-                            if 50 <= self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
-                                self?.checkHistoryListObject!.checkHistoryList.remove(at: 0)
+                            if 5 <= self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
+                                // 先頭のCheckHistoryを取得して、削除する
+                                let checkHistory = self?.realm.objects(CheckHistory.self)
+                                let id = self?.checkHistoryListObject!.checkHistoryList[0].id ?? ""
+                                let predicate = NSPredicate(format: "id == %@", id)
+                                let removeCheckHistory = checkHistory?.filter(predicate).first
+                                if let removeCheckHistory = removeCheckHistory {
+                                    self?.realm.delete(removeCheckHistory)
+                                }
+                                
                             }
 
                             self?.checkHistoryListObject!.checkHistoryList.append(checkHistoryObject)
