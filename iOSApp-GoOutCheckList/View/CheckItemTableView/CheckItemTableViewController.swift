@@ -88,6 +88,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                         checkHistoryObject.date = Date()
                         checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
 
+                        // リストがなければ、リストを作る（初期に作る必要が出てくる）
                         if self?.checkHistoryListObject == nil {
                             let checkHistoryList = CheckHistoryList()
                             checkHistoryList.checkHistoryList.append(checkHistoryObject)
@@ -95,7 +96,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                             self?.checkHistoryListObject = self?.realm.objects(CheckHistoryList.self).first
                         } else {
 
-                            if 5 <= self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
+                            if 50 <= self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
                                 // 先頭のCheckHistoryを取得して、削除する
                                 let checkHistory = self?.realm.objects(CheckHistory.self)
                                 let id = self?.checkHistoryListObject!.checkHistoryList[0].id ?? ""
