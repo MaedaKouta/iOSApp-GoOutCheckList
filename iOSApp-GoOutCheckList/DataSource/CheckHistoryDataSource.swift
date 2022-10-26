@@ -17,8 +17,8 @@ import RealmSwift
  */
 class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
-    typealias Element = List<Category>
-    var item = List<Category>()
+    typealias Element = List<CheckHistory>
+    var item = List<CheckHistory>()
     private let realm = try! Realm()
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,13 +26,13 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckHistoryTableViewCell", for: indexPath) as! CheckHistoryTableViewCell
         let element = item[indexPath.row]
-        cell.configure(image: UIImage(data: element.imageData), name: element.name)
+        cell.textLabel?.text = element.categoryName
         return cell
     }
 
-    func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<Category>>) {
+    func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<CheckHistory>>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
             tableView.reloadData()

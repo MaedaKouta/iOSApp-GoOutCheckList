@@ -16,22 +16,18 @@ import FloatingPanel
 class CheckHistoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    private let disposeBag = DisposeBag()
+    private var categoryDataSource = CategoryDataSource()
+    private let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+        setupTableView()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "CheckHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckHistoryTableViewCell")
     }
-    */
 
 }
