@@ -18,6 +18,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addCategoryButton: UIButton!
     private var editButton: UIBarButtonItem!
+    private var historyButton: UIBarButtonItem!
 
     // MARK: Propaties
     private let disposeBag = DisposeBag()
@@ -45,6 +46,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // MARK: Actions
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         tableView.isEditing.toggle()
+    }
+
+    @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
+        let checkHistoryTableVC = CheckHistoryViewController()
+        self.navigationController?.pushViewController(checkHistoryTableVC, animated: true)
     }
 
     // MARK: - Setups
@@ -94,7 +100,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
         editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditButton(_:)))
-        self.navigationItem.rightBarButtonItem = editButton
+        historyButton = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(didTapHistoryButton(_:)))
+        self.navigationItem.rightBarButtonItems = [historyButton, editButton]
     }
 
     // MARK: - test

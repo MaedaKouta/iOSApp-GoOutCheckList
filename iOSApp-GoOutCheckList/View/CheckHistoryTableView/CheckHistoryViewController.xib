@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckHistoryViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="eco-cM-gSd" id="MV7-gT-xX4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
