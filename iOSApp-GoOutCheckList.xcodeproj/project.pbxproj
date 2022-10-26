@@ -15,6 +15,8 @@
 		874602CF2909F79A009D1D50 /* CheckHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874602CD2909F79A009D1D50 /* CheckHistoryViewController.swift */; };
 		874602D02909F79A009D1D50 /* CheckHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874602CE2909F79A009D1D50 /* CheckHistoryViewController.xib */; };
 		874602D22909F9F2009D1D50 /* CheckHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874602D12909F9F2009D1D50 /* CheckHistoryDataSource.swift */; };
+		874602D52909FB5B009D1D50 /* CheckHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874602D32909FB5B009D1D50 /* CheckHistoryTableViewCell.swift */; };
+		874602D62909FB5B009D1D50 /* CheckHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874602D42909FB5B009D1D50 /* CheckHistoryTableViewCell.xib */; };
 		8757681628FA155000EB4E79 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757681528FA155000EB4E79 /* CategoryList.swift */; };
 		8766154528F012C300F0A8C1 /* CheckItemTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */; };
 		8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766154E28F0153D00F0A8C1 /* CheckItemTableViewController.swift */; };
@@ -76,6 +78,8 @@
 		874602CD2909F79A009D1D50 /* CheckHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryViewController.swift; sourceTree = "<group>"; };
 		874602CE2909F79A009D1D50 /* CheckHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckHistoryViewController.xib; sourceTree = "<group>"; };
 		874602D12909F9F2009D1D50 /* CheckHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryDataSource.swift; sourceTree = "<group>"; };
+		874602D32909FB5B009D1D50 /* CheckHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		874602D42909FB5B009D1D50 /* CheckHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		8757681528FA155000EB4E79 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewModel.swift; sourceTree = "<group>"; };
 		8766154E28F0153D00F0A8C1 /* CheckItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 			children = (
 				874602CD2909F79A009D1D50 /* CheckHistoryViewController.swift */,
 				874602CE2909F79A009D1D50 /* CheckHistoryViewController.xib */,
+				874602D32909FB5B009D1D50 /* CheckHistoryTableViewCell.swift */,
+				874602D42909FB5B009D1D50 /* CheckHistoryTableViewCell.xib */,
 			);
 			path = CheckHistoryTableView;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */,
+				874602D62909FB5B009D1D50 /* CheckHistoryTableViewCell.xib in Resources */,
 				8782387F28F280E300804538 /* ViewController.xib in Resources */,
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
@@ -613,6 +620,7 @@
 				8743CC1628F0F3D50082C27C /* RegisterCheckItemViewController.swift in Sources */,
 				87A2663028EB1AD40091C282 /* CategoryDataSource.swift in Sources */,
 				8743CC1C28F0F92E0082C27C /* CheckItem.swift in Sources */,
+				874602D52909FB5B009D1D50 /* CheckHistoryTableViewCell.swift in Sources */,
 				87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				8782387E28F280E300804538 /* ViewController.swift in Sources */,
