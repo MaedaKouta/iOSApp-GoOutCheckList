@@ -86,6 +86,13 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                         let checkHistoryObject = CheckHistory()
                         checkHistoryObject.date = Date()
                         checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
+
+                        let results = self?.realm.objects(CheckHistory.self)
+                        if 30 <= results?.count {
+                            self?.realm.delete(results[0])
+                        }
+                        print(results)
+
                         self?.realm.add(checkHistoryObject)
                     }
                 }

@@ -2,22 +2,21 @@
 //  CheckHistory.swift
 //  iOSApp-GoOutCheckList
 //
-//  Created by 前田航汰 on 2022/10/24.
+//  Created by 前田航汰 on 2022/10/26.
 //
-/*
- チェックした履歴を保存しておく
- 外出時に、あれチェックしたかな？って振り返るために作成
- 過去30件までを保存しておく
- */
 
 import Foundation
 import RealmSwift
 
-public class CheckHistory: Object {
+class CheckHistory: Object {
+
+    @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var date: Date = Date()
     @objc dynamic var categoryName: String = ""
 
-    open var primaryKey: String {
-        return "date"
+    // idをプライマリキーに設定
+    public override static func primaryKey() -> String? {
+        return "id"
     }
+
 }
