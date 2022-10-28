@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruP-Bt-9VZ">
-                    <rect key="frame" x="158" y="557" width="75" height="35"/>
+                    <rect key="frame" x="158" y="523" width="75" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                     <connections>
@@ -31,14 +31,15 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリー名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mK-bz-NzS">
-                    <rect key="frame" x="64" y="34" width="263" height="34"/>
+                    <rect key="frame" x="64" y="81" width="263" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zbd-Ix-lxv">
-                    <rect key="frame" x="41" y="111" width="308" height="354"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zbd-Ix-lxv">
+                    <rect key="frame" x="41" y="158" width="308" height="273"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qsQ-Mp-iHc">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="auo-Hs-lQf">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -52,15 +53,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ruP-Bt-9VZ" secondAttribute="bottom" constant="252" id="Bbj-30-PzM"/>
                 <constraint firstItem="3mK-bz-NzS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="34" id="Lrg-W5-yVQ"/>
                 <constraint firstItem="ruP-Bt-9VZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="158" id="Ncw-hL-kPX"/>
-                <constraint firstItem="zbd-Ix-lxv" firstAttribute="top" secondItem="3mK-bz-NzS" secondAttribute="bottom" constant="43" id="R4Y-eG-ef5"/>
-                <constraint firstItem="ruP-Bt-9VZ" firstAttribute="top" secondItem="zbd-Ix-lxv" secondAttribute="bottom" constant="92" id="T6X-KK-bgQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ruP-Bt-9VZ" secondAttribute="trailing" constant="157" id="UB8-eY-Dmw"/>
                 <constraint firstItem="3mK-bz-NzS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="XyC-7a-jt7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3mK-bz-NzS" secondAttribute="trailing" constant="63" id="fJP-02-1te"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zbd-Ix-lxv" secondAttribute="trailing" constant="41" id="kL8-Yx-V9u"/>
-                <constraint firstItem="zbd-Ix-lxv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="yQK-UP-WlE"/>
             </constraints>
-            <point key="canvasLocation" x="140" y="20.616113744075829"/>
+            <point key="canvasLocation" x="146" y="21"/>
         </view>
     </objects>
     <resources>

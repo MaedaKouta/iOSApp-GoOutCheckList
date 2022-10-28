@@ -9,9 +9,14 @@ import UIKit
 
 class CategoryImageCollectionViewCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet private weak var categoryImage: UIImageView!
+
+    func configure(image: UIImage?) {
+        if image != nil {
+            self.categoryImage.image = image
+        } else {
+            self.categoryImage.image = UIImage(named: "unknownImage")
+        }
     }
 
 }
