@@ -19,6 +19,7 @@ class RegisterCategoryViewController: UIViewController {
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
 
     private var categoryImages: [CategoryImage] = [
+        CategoryImage(image: UIImage(named: "walk_small"), isSelected: true),
         CategoryImage(image: UIImage(named: "baby_small"), isSelected: false),
         CategoryImage(image: UIImage(named: "bath_small"), isSelected: false),
         CategoryImage(image: UIImage(named: "beer_small"), isSelected: false),
@@ -38,12 +39,11 @@ class RegisterCategoryViewController: UIViewController {
         CategoryImage(image: UIImage(named: "muscle_small"), isSelected: false),
         CategoryImage(image: UIImage(named: "notebook_small"), isSelected: false),
         CategoryImage(image: UIImage(named: "presentation_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "question_small"), isSelected: true),
         CategoryImage(image: UIImage(named: "sleepy_small"), isSelected: false),
         CategoryImage(image: UIImage(named: "textboard_small"), isSelected: false),
         CategoryImage(image: UIImage(named: "train_small"), isSelected: false),
         CategoryImage(image: UIImage(named: "truip_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "walk_small"), isSelected: false),
+        CategoryImage(image: UIImage(named: "question_small"), isSelected: false),
     ]
 
     override func viewDidLoad() {
