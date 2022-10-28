@@ -27,4 +27,5 @@ class RegisterCheckItemViewController: UIViewController {
 
         self.dismiss(animated: true, completion: nil)
     }
+
 }

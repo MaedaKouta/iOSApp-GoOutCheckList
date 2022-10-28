@@ -36,6 +36,8 @@
 		87A2664028EE60490091C282 /* RegisterCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2663E28EE60490091C282 /* RegisterCategoryViewController.xib */; };
 		87A2664628EFB47C0091C282 /* FloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */; };
 		87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2664828EFC2F80091C282 /* NSNotification.swift */; };
+		87B358B1290B9725006A28AE /* CategoryImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B358AF290B9725006A28AE /* CategoryImageCollectionViewCell.swift */; };
+		87B358B2290B9725006A28AE /* CategoryImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B358B0290B9725006A28AE /* CategoryImageCollectionViewCell.xib */; };
 		87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2028EAA1C1009F1046 /* AppDelegate.swift */; };
 		87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */; };
 		87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
@@ -101,6 +103,8 @@
 		87A2663E28EE60490091C282 /* RegisterCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCategoryViewController.xib; sourceTree = "<group>"; };
 		87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelLayout.swift; sourceTree = "<group>"; };
 		87A2664828EFC2F80091C282 /* NSNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotification.swift; sourceTree = "<group>"; };
+		87B358AF290B9725006A28AE /* CategoryImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		87B358B0290B9725006A28AE /* CategoryImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSApp-GoOutCheckList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B41B2028EAA1C1009F1046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B41B2228EAA1C1009F1046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 			children = (
 				87A2663D28EE60490091C282 /* RegisterCategoryViewController.swift */,
 				87A2663E28EE60490091C282 /* RegisterCategoryViewController.xib */,
+				87B358AF290B9725006A28AE /* CategoryImageCollectionViewCell.swift */,
+				87B358B0290B9725006A28AE /* CategoryImageCollectionViewCell.xib */,
 			);
 			path = RegisterCategoryView;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B358B2290B9725006A28AE /* CategoryImageCollectionViewCell.xib in Resources */,
 				8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */,
 				874602D62909FB5B009D1D50 /* CheckHistoryTableViewCell.xib in Resources */,
 				8782387F28F280E300804538 /* ViewController.xib in Resources */,
@@ -641,6 +648,7 @@
 				8743CC1A28F0F8F20082C27C /* Category.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
 				8757681628FA155000EB4E79 /* CategoryList.swift in Sources */,
+				87B358B1290B9725006A28AE /* CategoryImageCollectionViewCell.swift in Sources */,
 				8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
