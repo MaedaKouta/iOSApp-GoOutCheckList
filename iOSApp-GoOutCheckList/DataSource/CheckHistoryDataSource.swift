@@ -29,6 +29,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckHistoryTableViewCell", for: indexPath) as! CheckHistoryTableViewCell
         let element = item[indexPath.row]
         cell.textLabel?.text = element.categoryName
+        print(element.date)
         return cell
     }
 
