@@ -43,7 +43,35 @@ class CheckHistoryViewController: UIViewController {
         // TODO: TableViewの再レンダリングにより、色が少しずつ薄くなる挙動にならない
         checkHistoryViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
+                guard let indexPath = indexPath.element else {return}
+                var dateStringDetail = ""
+                var categoryName = ""
                 self?.tableView.deselectRow(at: indexPath, animated: true)
+
+                if let date = self?.checkHistoryDataSource.item[indexPath.row].date,
+                   let category = self?.checkHistoryDataSource.item[indexPath.row].categoryName {
+                    dateStringDetail = DateUtils.stringFromDate(date: date, format: "yyyy/MM/dd HH:mm:ss")
+                    categoryName = category
+                } else {
+                    dateStringDetail = "日付取得エラー"
+                    categoryName = "カテゴリー名取得エラー"
+                }
+
+                let alert: UIAlertController = UIAlertController(
+                    title: "履歴",
+                    message: """
+                    \(categoryName)
+                    \(dateStringDetail)
+                    """,
+                    preferredStyle:  UIAlertController.Style.alert
+                )
+
+                let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                        (action: UIAlertAction!) -> Void in
+                })
+                alert.addAction(defaultAction)
+                self?.present(alert, animated: true, completion: nil)
+
             }.disposed(by: disposeBag)
     }
 
