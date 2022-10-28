@@ -18,7 +18,7 @@ class CategoryTableViewCell: UITableViewCell {
         if image != nil {
             self.categoryImage.image = image
         } else {
-            self.categoryImage.image = UIImage(named: "unknownImage")
+            self.categoryImage.image = UIImage(named: "question_small")
         }
 
         setupLayout()

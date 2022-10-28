@@ -30,7 +30,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         let element = item[indexPath.row]
 
         // imageが空だったとき、はてな画像を挿入
-        var imageData: Data = (UIImage(named: "unknownImage")?.pngData())!
+        var imageData: Data = (UIImage(named: "question_small")?.pngData())!
         if let image = element.imageData {
             imageData = image
         }

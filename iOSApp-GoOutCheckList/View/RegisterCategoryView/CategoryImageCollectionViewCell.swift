@@ -23,9 +23,9 @@ class CategoryImageCollectionViewCell: UICollectionViewCell {
 
         self.isSelectedImage = isSelected
         if isSelectedImage == true {
-            self.backgroundColor = .black
+            self.categoryImage.layer.borderColor = UIColor.orange.cgColor
         } else {
-            self.backgroundColor = .none
+            self.categoryImage.layer.borderColor = CGColor.init(red: 90/256, green: 90/256, blue: 90/256, alpha: 1.0)
         }
     }
 
@@ -33,9 +33,9 @@ class CategoryImageCollectionViewCell: UICollectionViewCell {
 
         self.isSelectedImage = isSelected
         if isSelectedImage == true {
-            self.backgroundColor = .black
+            self.categoryImage.layer.borderColor = UIColor.red.cgColor
         } else {
-            self.backgroundColor = .none
+            self.categoryImage.layer.borderColor = CGColor.init(red: 90/256, green: 90/256, blue: 90/256, alpha: 1.0)
         }
     }
 
