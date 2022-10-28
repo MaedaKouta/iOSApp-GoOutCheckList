@@ -17,13 +17,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erk-97-xeD">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erk-97-xeD">
                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="erk-97-xeD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Psq-IT-mlM"/>
+                <constraint firstAttribute="bottom" secondItem="erk-97-xeD" secondAttribute="bottom" id="Rt1-tn-brV"/>
+                <constraint firstItem="erk-97-xeD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f3P-1S-0zN"/>
+                <constraint firstAttribute="trailing" secondItem="erk-97-xeD" secondAttribute="trailing" id="rXR-cr-KWc"/>
+            </constraints>
             <size key="customSize" width="62" height="45"/>
             <connections>
                 <outlet property="categoryImage" destination="erk-97-xeD" id="sTs-6c-bDc"/>

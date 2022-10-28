@@ -75,7 +75,6 @@ class RegisterCategoryViewController: UIViewController {
         CategoryImage(image: UIImage(named: "train"), isSelected: false),
     ]
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryImageCollectionView.dataSource = self
