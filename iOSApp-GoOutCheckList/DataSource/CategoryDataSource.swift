@@ -28,7 +28,14 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
         let element = item[indexPath.row]
-        cell.configure(image: UIImage(data: element.imageData), name: element.name)
+
+        // imageが空だったとき、はてな画像を挿入
+        var imageData: Data = (UIImage(named: "unknownImage")?.pngData())!
+        if let image = element.imageData {
+            imageData = image
+        }
+
+        cell.configure(image: UIImage(data: imageData), name: element.name)
         return cell
     }
 

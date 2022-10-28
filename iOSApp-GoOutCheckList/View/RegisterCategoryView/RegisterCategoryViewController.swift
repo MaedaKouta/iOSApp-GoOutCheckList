@@ -18,7 +18,7 @@ class RegisterCategoryViewController: UIViewController {
     @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
 
-    private var imageData: [CategoryImage] = [
+    private var categoryImages: [CategoryImage] = [
         CategoryImage(image: UIImage(named: "car"), isSelected: false),
         CategoryImage(image: UIImage(named: "train"), isSelected: false),
         CategoryImage(image: UIImage(named: "car"), isSelected: false),
@@ -91,7 +91,10 @@ class RegisterCategoryViewController: UIViewController {
 
         guard let text = categoryNameTextField.text else { return }
         let categoryItem = Category()
+        let image: CategoryImage? = categoryImages.filter{ $0.isSelected == true }.first
+
         categoryItem.name = text
+        categoryItem.imageData = image?.image?.pngData()
 
         NotificationCenter.default.post(
             name: Notification.Name.CategoryViewFromRegisterViewNotification,
@@ -114,33 +117,39 @@ extension RegisterCategoryViewController: UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageData.count
+        return categoryImages.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = categoryImageCollectionView
             .dequeueReusableCell(withReuseIdentifier: "CategoryImageCollectionViewCell", for: indexPath) as! CategoryImageCollectionViewCell
-        cell.configure(image: imageData[indexPath.row].image, isSelected: imageData[indexPath.row].isSelected)
+        cell.configure(image: categoryImages[indexPath.row].image, isSelected: categoryImages[indexPath.row].isSelected)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = categoryImageCollectionView.cellForItem(at: indexPath) as! CategoryImageCollectionViewCell
-        imageData[indexPath.row].isSelected.toggle()
-        cell.isSelectedImage(isSelected: imageData[indexPath.row].isSelected)
-        print("タップされたよ\(indexPath)")
+
+        // imageDataを全てfalseにする
+        self.categoryImages.indices.forEach { self.categoryImages[$0].isSelected = false }
+        // 選択されたimageDataをひっくり返す
+        categoryImages[indexPath.row].isSelected.toggle()
+        cell.isSelectedImage(isSelected: categoryImages[indexPath.row].isSelected)
+
+        categoryImageCollectionView.reloadData()
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true  // 変更
+        return true
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        return true  // 変更
+        return true
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
+
 }
