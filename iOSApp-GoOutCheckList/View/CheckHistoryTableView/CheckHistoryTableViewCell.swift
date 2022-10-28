@@ -9,15 +9,13 @@ import UIKit
 
 class CheckHistoryTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+
+    @IBOutlet private weak var dateTextLabel: UILabel!
+    @IBOutlet private weak var categoryTextLabel: UILabel!
+
+    func setConfigure(dateText: String, categoryText: String) {
+        dateTextLabel.text = dateText
+        categoryTextLabel.text = categoryText
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
