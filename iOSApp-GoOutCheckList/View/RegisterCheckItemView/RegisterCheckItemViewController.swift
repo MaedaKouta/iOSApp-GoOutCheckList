@@ -28,12 +28,4 @@ class RegisterCheckItemViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    /**
-     self.firstImage.layer.cornerRadius = 40
-     self.firstImage.layer.masksToBounds = true
-     //青にする(色)
-     self.firstImage.layer.borderColor = UIColor.blue.cgColor
-     //線の太さ(太さ)
-     self.firstImage.layer.borderWidth = 10
-     */
 }
