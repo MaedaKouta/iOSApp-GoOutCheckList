@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class CheckHistory: Object {
+public class CheckHistory: Object {
 
     @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var date: Date = Date()
