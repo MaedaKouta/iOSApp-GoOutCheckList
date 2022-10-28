@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DateUtils {
+public class DateUtils {
     class func dateFromString(string: String, format: String) -> Date {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
