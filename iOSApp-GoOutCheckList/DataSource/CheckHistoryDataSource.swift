@@ -28,10 +28,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckHistoryTableViewCell", for: indexPath) as! CheckHistoryTableViewCell
         let element = item[indexPath.row]
-
-        //let dateStringDetail = DateUtils.stringFromDate(date: element.date, format: "yyyy/MM/dd HH:mm:ss Z")
         let dateString = DateUtils.stringFromDate(date: element.date, format: "MM/dd HH:mm")
-
         cell.setConfigure(dateText: dateString, categoryText: element.categoryName)
 
         return cell
