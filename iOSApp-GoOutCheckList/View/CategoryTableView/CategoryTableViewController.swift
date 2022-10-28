@@ -100,9 +100,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
         editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditButton(_:)))
-        historyButton = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(didTapHistoryButton(_:)))
+
+        historyButton = UIBarButtonItem(image: UIImage(systemName: "clock.arrow.circlepath"), style: .plain, target: self, action: #selector(didTapHistoryButton(_:)))
         self.navigationItem.rightBarButtonItems = [historyButton, editButton]
     }
+
 
     // MARK: - test
     public func checkCategoryDataSource() -> CategoryDataSource {
