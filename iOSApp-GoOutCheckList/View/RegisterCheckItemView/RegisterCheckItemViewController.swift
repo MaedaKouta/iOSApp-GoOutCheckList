@@ -7,9 +7,18 @@
 
 import UIKit
 
-class RegisterCheckItemViewController: UIViewController {
+class RegisterCheckItemViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var itemNameTextField: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        itemNameTextField.delegate = self
+
+        let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
+        tapElseView.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapElseView)
+    }
 
     /*
      登録ボタンが押された際に、前の画面のViewModel（CategoryTableViewModel）に値追加の通知を行う
@@ -26,6 +35,15 @@ class RegisterCheckItemViewController: UIViewController {
         )
 
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @objc private func didTapElseView(_ sender: UIBarButtonItem) {
+        self.view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        itemNameTextField.resignFirstResponder()
+        return true
     }
 
 }
