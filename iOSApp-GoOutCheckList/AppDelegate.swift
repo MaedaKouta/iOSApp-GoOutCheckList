@@ -8,7 +8,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // 全体のNavigationBarの色をグレーにする
+        UINavigationBar.appearance().tintColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha:1)
+
         return true
     }
 

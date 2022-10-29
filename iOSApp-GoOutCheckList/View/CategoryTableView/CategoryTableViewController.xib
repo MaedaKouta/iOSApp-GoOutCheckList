@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryTableViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
-                <outlet property="addCategoryButton" destination="suE-21-o2I" id="6Yu-2P-j7N"/>
+                <outlet property="addCategoryButtonView" destination="PwV-oi-Wqn" id="6G7-EG-epM"/>
                 <outlet property="tableView" destination="2R2-BV-O0c" id="VIe-kH-IYC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,26 +21,38 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="CategoryTableViewController" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-BV-O0c">
-                    <rect key="frame" x="0.0" y="47" width="390" height="797"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoryTableViewController" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-BV-O0c">
+                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addCategoryButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suE-21-o2I">
-                    <rect key="frame" x="273" y="719" width="76" height="69"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="＋"/>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwV-oi-Wqn" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+                    <rect key="frame" x="275" y="713" width="75" height="75"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="tC8-S7-Zfh"/>
+                        <constraint firstAttribute="height" constant="75" id="zIw-GM-Lma"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="2R2-BV-O0c" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="GPs-H3-omb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PwV-oi-Wqn" secondAttribute="bottom" constant="22" id="a7p-3s-iKs"/>
+                <constraint firstItem="2R2-BV-O0c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bhc-y3-41I"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PwV-oi-Wqn" secondAttribute="trailing" constant="40" id="iFH-Dx-wMJ"/>
+                <constraint firstItem="2R2-BV-O0c" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lpm-9Y-uXV"/>
+                <constraint firstItem="2R2-BV-O0c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="s93-ru-czS"/>
+            </constraints>
             <point key="canvasLocation" x="140" y="20.616113744075829"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
