@@ -17,12 +17,31 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addCategoryButton: UIButton!
-    private var editButton: UIBarButtonItem!
-    private var historyButton: UIBarButtonItem!
+
+    // NavigationBarButtonを宣言
+    private lazy var editBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+
+    private lazy var historyBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "clock.arrow.circlepath", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+        button.addTarget(self, action: #selector(didTapHistoryButton(_:)), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+
+    }()
 
     // MARK: Propaties
     private let disposeBag = DisposeBag()
     private var categoryDataSource = CategoryDataSource()
+    private var isSelectedHistoryBarButton = false
+    private let navigationBarButtonSize: CGFloat = 22.5
+
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
@@ -45,7 +64,16 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Actions
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
+        // TODO: 値がからのときは編集ボタンを押せなくする
         tableView.isEditing.toggle()
+        
+        if isSelectedHistoryBarButton {
+            setEditBarButtonItemIcon(isSelected: isSelectedHistoryBarButton)
+        } else {
+            setEditBarButtonItemIcon(isSelected: isSelectedHistoryBarButton)
+        }
+        isSelectedHistoryBarButton.toggle()
+
     }
 
     @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
@@ -99,14 +127,36 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
-        editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditButton(_:)))
 
-        historyButton = UIBarButtonItem(image: UIImage(systemName: "clock.arrow.circlepath"), style: .plain, target: self, action: #selector(didTapHistoryButton(_:)))
-        self.navigationItem.rightBarButtonItems = [historyButton, editButton]
+        navigationItem.setRightBarButtonItems(
+                    [historyBarButtonItem, editBarButtonItem],
+                    animated: true)
     }
 
+    // MARK: Method
+    private func setEditBarButtonItemIcon(isSelected: Bool) {
+        if isSelected {
+            editBarButtonItem = {
+                let button = UIButton(type: .custom)
+                button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+                return UIBarButtonItem(customView: button)
+            }()
+        } else {
+            editBarButtonItem = {
+                let button = UIButton(type: .custom)
+                button.setImage(UIImage(systemName: "pencil.slash", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+                return UIBarButtonItem(customView: button)
+            }()
+        }
 
-    // MARK: - test
+        setupNavigationbar()
+    }
+
+    // MARK: - Test
     public func checkCategoryDataSource() -> CategoryDataSource {
         return self.categoryDataSource
     }
