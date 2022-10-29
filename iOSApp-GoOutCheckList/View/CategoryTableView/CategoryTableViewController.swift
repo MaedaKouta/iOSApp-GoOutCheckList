@@ -115,8 +115,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
         let checkHistoryTableVC = CheckHistoryViewController()
         self.navigationController?.pushViewController(checkHistoryTableVC, animated: true)
-
-
     }
 
     // TODO: 設定画面へのロジックを書く
