@@ -66,6 +66,10 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
 
+        let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
+        tapElseView.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapElseView)
+
         setupAddCategoryButton()
         setupNavigationbar()
         setupTableView()
@@ -75,10 +79,20 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Actions
     @objc private func didTapRegisterCategoryButton(_ sender: UIBarButtonItem) {
+        // カテゴリー追加時には編集モードをオフにする
+        isSelectedEditingBarButton = false
+        tableView.setEditing(isSelectedEditingBarButton, animated: true)
+
         guard let fpc = self.fpc else { return }
         let view = RegisterCategoryViewController()
         fpc.set(contentViewController: view)
         self.present(fpc, animated: true, completion: nil)
+    }
+
+    @objc private func didTapElseView(_ sender: UIBarButtonItem) {
+        // 画面の余白タッチ時に編集モードを終了する
+        isSelectedEditingBarButton = false
+        tableView.setEditing(isSelectedEditingBarButton, animated: true)
     }
 
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
