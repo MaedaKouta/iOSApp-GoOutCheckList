@@ -16,7 +16,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet private weak var addCategoryButton: UIButton!
+    @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
 
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
@@ -52,9 +52,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
-        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable(),
-        addCategoryButtonObservable: addCategoryButton.rx.tap.asObservable()
-    )
+        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
+        )
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
@@ -64,6 +63,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         super.viewDidLoad()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
+        addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
+
         setupAddCategoryButton()
         setupNavigationbar()
         setupTableView()
@@ -72,6 +73,13 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     // MARK: Actions
+    @objc private func didTapRegisterCategoryButton(_ sender: UIBarButtonItem) {
+        guard let fpc = self.fpc else { return }
+        let view = RegisterCategoryViewController()
+        fpc.set(contentViewController: view)
+        self.present(fpc, animated: true, completion: nil)
+    }
+
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         // TODO: 値がからのときは編集ボタンを押せなくする
         tableView.isEditing.toggle()
@@ -111,14 +119,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.outputs.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
-
-        categoryTableViewModel.outputs.addCategoryButtonPublishRelay
-            .subscribe(onNext: { [weak self] in
-                guard let fpc = self?.fpc else { return }
-                let view = RegisterCategoryViewController()
-                fpc.set(contentViewController: view)
-                self?.present(fpc, animated: true, completion: nil)
-            }).disposed(by: disposeBag)
     }
 
     private func setupTableView() {
@@ -174,17 +174,20 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     private func setupAddCategoryButton() {
-        addCategoryButton.backgroundColor = UIColor.white
-        addCategoryButton.setImage(UIImage(systemName: "plus"), for: .normal)
-        addCategoryButton.tintColor = .darkGray
-        addCategoryButton.contentHorizontalAlignment = .fill
-        addCategoryButton.contentVerticalAlignment = .fill
-        addCategoryButton.layer.cornerRadius = 37.5
-        addCategoryButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        addCategoryButton.layer.shadowColor = UIColor.black.cgColor
-        addCategoryButton.layer.shadowRadius = 10
-        addCategoryButton.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
-        addCategoryButton.layer.shadowOpacity = 0.35
+        let image = UIImageView(image: UIImage(systemName: "plus"))
+        image.frame = CGRect(x: 22, y: 22, width: 31, height: 31)
+
+        addCategoryButtonView.backgroundColor = UIColor.white
+        addCategoryButtonView.tintColor = .darkGray
+        addCategoryButtonView.addSubview(image)
+        addCategoryButtonView.layer.cornerRadius = 37.5
+        addCategoryButtonView.layer.shadowColor = UIColor.black.cgColor
+        addCategoryButtonView.layer.shadowRadius = 10
+        addCategoryButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        addCategoryButtonView.layer.shadowOpacity = 0.35
+
+
+
     }
 
     // MARK: - Test
@@ -192,4 +195,50 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         return self.categoryDataSource
     }
 
+}
+
+class TouchFeedbackView: UIView {
+    // タップ開始時の処理
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.touchStartAnimation()
+    }
+
+    // タップキャンセル時の処理
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        self.touchEndAnimation()
+    }
+
+    // タップ終了時の処理
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.touchEndAnimation()
+    }
+
+    // ビューを凹んだように見せるアニメーション
+    private func touchStartAnimation() {
+        UIView.animate(withDuration: 0.1,
+                       delay: 0.0,
+                       options: UIView.AnimationOptions.curveEaseIn,
+                       animations: {
+            // 少しだけビューを小さく縮めて、奥に行ったような「凹み」を演出する
+            self.transform = CGAffineTransform(scaleX: 0.90, y: 0.90)
+        },
+                       completion: nil
+        )
+    }
+
+    // 凹みを元に戻すアニメーション
+    private func touchEndAnimation() {
+        UIView.animate(withDuration: 0.1,
+                       delay: 0.0,
+                       options: UIView.AnimationOptions.curveEaseIn,
+                       animations: {
+            // 元の倍率に戻す
+            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        },
+                       completion: nil
+        )
+    }
 }
