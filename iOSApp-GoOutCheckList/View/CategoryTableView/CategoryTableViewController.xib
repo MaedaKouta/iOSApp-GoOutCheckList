@@ -25,16 +25,20 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="addCategoryButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suE-21-o2I">
-                    <rect key="frame" x="273" y="719" width="76" height="69"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="addCategoryButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suE-21-o2I">
+                    <rect key="frame" x="275" y="713" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="ho8-Xm-jB5"/>
+                        <constraint firstAttribute="width" constant="75" id="k8G-kT-quX"/>
+                    </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="＋"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="suE-21-o2I" secondAttribute="bottom" constant="22" id="2KR-18-0em"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="suE-21-o2I" secondAttribute="trailing" constant="40" id="F4T-sH-8x9"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="GPs-H3-omb"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bhc-y3-41I"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lpm-9Y-uXV"/>

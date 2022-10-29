@@ -56,6 +56,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         super.viewDidLoad()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
+        setupAddCategoryButton()
         setupNavigationbar()
         setupTableView()
         setupBindings()
@@ -156,6 +157,20 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         }
 
         setupNavigationbar()
+    }
+
+    private func setupAddCategoryButton() {
+        addCategoryButton.backgroundColor = UIColor.white
+        addCategoryButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addCategoryButton.tintColor = .darkGray
+        addCategoryButton.contentHorizontalAlignment = .fill
+        addCategoryButton.contentVerticalAlignment = .fill
+        addCategoryButton.layer.cornerRadius = 37.5
+        addCategoryButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        addCategoryButton.layer.shadowColor = UIColor.black.cgColor
+        addCategoryButton.layer.shadowRadius = 10
+        addCategoryButton.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        addCategoryButton.layer.shadowOpacity = 0.35
     }
 
     // MARK: - Test
