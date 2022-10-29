@@ -33,6 +33,14 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
         button.addTarget(self, action: #selector(didTapHistoryButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
+    }()
+
+    private lazy var settingBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+        button.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
 
     }()
 
@@ -80,6 +88,10 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
         let checkHistoryTableVC = CheckHistoryViewController()
         self.navigationController?.pushViewController(checkHistoryTableVC, animated: true)
+    }
+
+    // TODO: 設定画面へのロジックを書く
+    @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
     }
 
     // MARK: - Setups
@@ -130,10 +142,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
+        navigationItem.leftBarButtonItem = settingBarButtonItem
 
         navigationItem.setRightBarButtonItems(
                     [historyBarButtonItem, editBarButtonItem],
                     animated: true)
+
     }
 
     // MARK: Method
