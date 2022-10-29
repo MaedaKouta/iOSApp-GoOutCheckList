@@ -12,7 +12,7 @@ struct CategoryImage {
     var isSelected: Bool
 }
 
-class RegisterCategoryViewController: UIViewController {
+class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var categoryNameTextField: UITextField!
     @IBOutlet private weak var registerButton: UIButton!
@@ -50,6 +50,7 @@ class RegisterCategoryViewController: UIViewController {
         super.viewDidLoad()
         categoryImageCollectionView.dataSource = self
         categoryImageCollectionView.delegate = self
+        categoryNameTextField.delegate = self
         categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
 
         let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
@@ -80,6 +81,11 @@ class RegisterCategoryViewController: UIViewController {
 
     @objc private func didTapElseView(_ sender: UIBarButtonItem) {
         self.view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        categoryNameTextField.resignFirstResponder()
+        return true
     }
 
 }
