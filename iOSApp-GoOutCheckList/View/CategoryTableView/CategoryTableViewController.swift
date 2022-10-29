@@ -54,7 +54,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
         tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
-        )
+    )
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
@@ -77,11 +77,17 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         setupFloatingPanel()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        isSelectedEditingBarButton = false
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
+    }
+
     // MARK: Actions
     @objc private func didTapRegisterCategoryButton(_ sender: UIBarButtonItem) {
         // カテゴリー追加時には編集モードをオフにする
         isSelectedEditingBarButton = false
-        tableView.setEditing(isSelectedEditingBarButton, animated: true)
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
 
         guard let fpc = self.fpc else { return }
         let view = RegisterCategoryViewController()
@@ -92,26 +98,20 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @objc private func didTapElseView(_ sender: UIBarButtonItem) {
         // 画面の余白タッチ時に編集モードを終了する
         isSelectedEditingBarButton = false
-        tableView.setEditing(isSelectedEditingBarButton, animated: true)
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
     }
 
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         // TODO: 値がからのときは編集ボタンを押せなくする
         isSelectedEditingBarButton.toggle()
-        tableView.setEditing(isSelectedEditingBarButton, animated: true)
-        
-        if isSelectedHistoryBarButton {
-            setEditBarButtonItemIcon(isSelected: isSelectedHistoryBarButton)
-        } else {
-            setEditBarButtonItemIcon(isSelected: isSelectedHistoryBarButton)
-        }
-        isSelectedHistoryBarButton.toggle()
-
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
     }
 
     @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
         let checkHistoryTableVC = CheckHistoryViewController()
         self.navigationController?.pushViewController(checkHistoryTableVC, animated: true)
+
+
     }
 
     // TODO: 設定画面へのロジックを書く
@@ -124,6 +124,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         //（画面遷移に関わるためViewに書く必要がある）
         categoryTableViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe(onNext: { [weak self] indexPath in
+
                 let objects = self?.realm.objects(Category.self).toArray()
                 guard let object = objects?[indexPath.row] else { return }
                 self?.tableView.deselectRow(at: indexPath, animated: true)
@@ -160,8 +161,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         navigationItem.leftBarButtonItem = settingBarButtonItem
 
         navigationItem.setRightBarButtonItems(
-                    [historyBarButtonItem, editBarButtonItem],
-                    animated: true)
+            [historyBarButtonItem, editBarButtonItem],
+            animated: true)
 
     }
 
@@ -170,7 +171,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         if isSelected {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.setImage(UIImage(systemName: "pencil.slash", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
                 button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
                 button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
                 return UIBarButtonItem(customView: button)
@@ -178,13 +179,14 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         } else {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "pencil.slash", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
                 button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
                 button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
                 return UIBarButtonItem(customView: button)
             }()
         }
 
+        tableView.setEditing(isSelected, animated: true)
         setupNavigationbar()
     }
 
