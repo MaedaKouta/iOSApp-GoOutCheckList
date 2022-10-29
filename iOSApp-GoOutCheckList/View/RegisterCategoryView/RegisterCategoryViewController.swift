@@ -51,6 +51,10 @@ class RegisterCategoryViewController: UIViewController {
         categoryImageCollectionView.dataSource = self
         categoryImageCollectionView.delegate = self
         categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
+
+        let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
+        tapElseView.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapElseView)
     }
 
     /*
@@ -72,6 +76,10 @@ class RegisterCategoryViewController: UIViewController {
         )
 
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @objc private func didTapElseView(_ sender: UIBarButtonItem) {
+        self.view.endEditing(true)
     }
 
 }
