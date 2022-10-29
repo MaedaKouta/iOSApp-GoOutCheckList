@@ -48,6 +48,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private let disposeBag = DisposeBag()
     private var categoryDataSource = CategoryDataSource()
     private var isSelectedHistoryBarButton = false
+    private var isSelectedEditingBarButton = false
     private let navigationBarButtonSize: CGFloat = 22.5
 
     private lazy var categoryTableViewModel = CategoryTableViewModel(
@@ -82,7 +83,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         // TODO: 値がからのときは編集ボタンを押せなくする
-        tableView.isEditing.toggle()
+        isSelectedEditingBarButton.toggle()
+        tableView.setEditing(isSelectedEditingBarButton, animated: true)
         
         if isSelectedHistoryBarButton {
             setEditBarButtonItemIcon(isSelected: isSelectedHistoryBarButton)
@@ -137,7 +139,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
-        // fpc.surfaceView.grabberHandle.isHidden = true
     }
 
     private func setupNavigationbar() {
@@ -185,9 +186,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         addCategoryButtonView.layer.shadowRadius = 10
         addCategoryButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         addCategoryButtonView.layer.shadowOpacity = 0.35
-
-
-
     }
 
     // MARK: - Test
