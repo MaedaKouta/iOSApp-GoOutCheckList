@@ -160,6 +160,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Method
     private func setEditBarButtonItemIcon(isSelected: Bool) {
+
         if isSelected {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
