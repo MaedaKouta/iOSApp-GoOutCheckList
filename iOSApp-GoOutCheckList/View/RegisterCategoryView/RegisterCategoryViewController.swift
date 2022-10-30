@@ -165,7 +165,6 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
 }
 
-
 extension RegisterCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
