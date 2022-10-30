@@ -17,7 +17,8 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var categoryNameTextField: UITextField!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
-    var registerLabel: UILabel = UILabel()
+    @IBOutlet private weak var closeButton: UIButton!
+    private var registerLabel: UILabel = UILabel()
 
     private var categoryImages: [CategoryImage] = [
         CategoryImage(image: UIImage(named: "walk_small"), isSelected: true),
@@ -61,9 +62,14 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         tapElseView.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapElseView)
 
+
+        closeButton.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20))), for: .normal)
+        closeButton.tintColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha:1)
+
         setupRegisterButtonView()
     }
 
+    // MARK: Actions
     @IBAction func didChangedCategoryTextField(_ sender: Any) {
         guard let categoryNameText = categoryNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
         if categoryNameText.isEmpty {
@@ -77,9 +83,8 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
      ボタンタップでCategoryTableViewModelへ通知を送る。
      遷移元のtableViewへ反映させるために必要。
     */
-
     @objc private func didTapRegisterButtonView(_ sender: UIBarButtonItem) {
-        guard let text = categoryNameTextField.text else { return }
+        guard let text = categoryNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         let categoryItem = Category()
         let image: CategoryImage? = categoryImages.filter{ $0.isSelected == true }.first
         categoryItem.name = text
@@ -101,6 +106,11 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: Setups
     private func setupRegisterButtonView() {
         registerLabel.text = "登録"
         registerLabel.frame = CGRect(x: 0, y: 0, width: 160, height: 60)

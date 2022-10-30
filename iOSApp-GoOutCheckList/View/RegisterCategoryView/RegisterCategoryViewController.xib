@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="categoryImageCollectionView" destination="zbd-Ix-lxv" id="tBl-fV-gHQ"/>
                 <outlet property="categoryNameTextField" destination="3mK-bz-NzS" id="pgx-Ig-06Y"/>
+                <outlet property="closeButton" destination="STZ-PU-cFT" id="vdq-Nt-rak"/>
                 <outlet property="registerButtonView" destination="OH3-JD-oA3" id="CZU-YU-Cnr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -41,6 +42,17 @@
                         <constraint firstAttribute="width" constant="160" id="hQa-wB-ex5"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STZ-PU-cFT">
+                    <rect key="frame" x="345" y="67" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="F6z-gr-T9O"/>
+                        <constraint firstAttribute="width" constant="25" id="FBW-8J-qRh"/>
+                    </constraints>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="didTapCloseButton:" destination="-1" eventType="touchUpInside" id="20z-8N-nOh"/>
+                    </connections>
+                </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zbd-Ix-lxv">
                     <rect key="frame" x="62.666666666666657" y="289.66666666666669" width="265" height="265.00000000000006"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,6 +74,8 @@
                 <constraint firstItem="zbd-Ix-lxv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4i4-jV-W3h"/>
                 <constraint firstItem="zbd-Ix-lxv" firstAttribute="top" secondItem="3mK-bz-NzS" secondAttribute="bottom" constant="50" id="7cp-28-bL8"/>
                 <constraint firstItem="zbd-Ix-lxv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="IYT-fR-i92"/>
+                <constraint firstItem="STZ-PU-cFT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Tt8-QM-1sg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="STZ-PU-cFT" secondAttribute="trailing" constant="20" id="YJJ-wi-cMl"/>
                 <constraint firstItem="OH3-JD-oA3" firstAttribute="top" secondItem="zbd-Ix-lxv" secondAttribute="bottom" constant="75" id="ZSU-MV-Rqf"/>
                 <constraint firstItem="3mK-bz-NzS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bwx-Hs-slC"/>
                 <constraint firstItem="OH3-JD-oA3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="q5N-Jd-NZI"/>
