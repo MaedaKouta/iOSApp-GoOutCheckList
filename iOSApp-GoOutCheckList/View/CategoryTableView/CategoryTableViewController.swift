@@ -51,8 +51,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private let navigationBarButtonSize: CGFloat = 22.5
 
     private lazy var categoryTableViewModel = CategoryTableViewModel(
-        tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
-        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
+        tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable()
     )
 
     // MARK: Libraries

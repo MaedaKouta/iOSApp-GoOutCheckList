@@ -16,7 +16,6 @@ import RealmSwift
 // MARK: Inputs
 public protocol CategoryTableViewModelInputs {
     var tableViewItemSeletedObservable: Observable<IndexPath> { get }
-    var tableViewItemDeletedObservable: Observable<IndexPath> { get }
 }
 
 // MARK: Outputs
@@ -36,7 +35,6 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
     // MARK: Inputs
     internal var tableViewItemSeletedObservable: Observable<IndexPath>
-    internal var tableViewItemDeletedObservable: Observable<IndexPath>
 
     // MARK: Outputs
     public lazy var categoryDataBehaviorRelay = BehaviorRelay<List<Category>>(value: List<Category>())
@@ -56,11 +54,8 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
      categoryDataBehaviorRelayはCategoryTableViewの要素
      CategoryTableViewModelで初期値設定・管理をする
      */
-    init(tableViewItemSeletedObservable: Observable<IndexPath>,
-         tableViewItemDeletedObservable: Observable<IndexPath>
-    ) {
+    init(tableViewItemSeletedObservable: Observable<IndexPath>) {
         self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
-        self.tableViewItemDeletedObservable = tableViewItemDeletedObservable
 
         if self.categoryListObjext != nil {
             categoryListObjext = realm.objects(CategoryList.self).first?.list
@@ -74,15 +69,6 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
     // MARK: - Setups
     private func setupBindings() {
-        // tableViewが削除された際にRealmからも削除を行う
-        tableViewItemDeletedObservable.asObservable()
-            .subscribe(onNext: { indexPath in
-                let objects = self.realm.objects(Category.self).toArray()
-                let object = objects[indexPath.row]
-                try! self.realm.write {
-                    self.realm.delete(object)
-                }
-            }).disposed(by: disposeBag)
 
         tableViewItemSeletedObservable.asObservable()
             .subscribe(onNext: { [weak self] indexPath in
