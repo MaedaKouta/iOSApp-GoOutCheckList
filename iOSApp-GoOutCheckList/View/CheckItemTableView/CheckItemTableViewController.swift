@@ -83,6 +83,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             .subscribe { [weak self] indexPath in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
             }.disposed(by: disposeBag)
+
         // 全てチェックされたらPKHUDを表示
         checkItemViewModel.outputs.allItemSelectedPublishSubject
             .subscribe{ [weak self] _ in

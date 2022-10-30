@@ -117,8 +117,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe(onNext: { [weak self] indexPath in
 
-                let objects = self?.realm.objects(Category.self).toArray()
-                guard let object = objects?[indexPath.row] else { return }
+                let objects = self?.realm.objects(CategoryList.self)
+                guard let object = objects?.first?.list[indexPath.row] else { return }
                 self?.tableView.deselectRow(at: indexPath, animated: true)
                 let checkItemTableVC = CheckItemTableViewController(categoryItemObject: object)
                 self?.navigationController?.pushViewController(checkItemTableVC, animated: true)
