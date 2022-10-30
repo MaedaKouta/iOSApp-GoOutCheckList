@@ -31,6 +31,8 @@ class CheckHistoryViewController: UIViewController {
     }
 
     private func setupTableView() {
+        tableView.rowHeight = 50
+
         tableView.register(UINib(nibName: "CheckHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckHistoryTableViewCell")
     }
 

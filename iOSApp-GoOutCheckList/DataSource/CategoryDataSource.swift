@@ -25,14 +25,13 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         return item.count
     }
 
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
         let element = item[indexPath.row]
 
         // imageが空だったとき、はてな画像を挿入
         var imageData: Data = (UIImage(named: "question_small")?.pngData())!
-        if let image = element.imageData {
+        if let image = (UIImage(named: element.assetsImageName)?.pngData()) {
             imageData = image
         }
 

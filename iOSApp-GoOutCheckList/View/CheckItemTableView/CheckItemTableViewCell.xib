@@ -10,32 +10,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="CheckItemTableViewCell" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CheckItemTableViewCell" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="CheckItemTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="CheckItemTableViewCell" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0be-Dm-lpd">
-                        <rect key="frame" x="16" y="4" width="37" height="37"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0be-Dm-lpd">
+                        <rect key="frame" x="20" y="10" width="33" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="0be-Dm-lpd" secondAttribute="height" multiplier="1:1" id="DwI-lc-mMK"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yx-ss-irs">
-                        <rect key="frame" x="61" y="12" width="243" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yx-ss-irs">
+                        <rect key="frame" x="65" y="12" width="243" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="0be-Dm-lpd" secondAttribute="bottom" constant="10" id="3zH-0n-7qm"/>
+                    <constraint firstItem="0be-Dm-lpd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="QHb-Bc-UZy"/>
+                    <constraint firstAttribute="trailing" secondItem="9Yx-ss-irs" secondAttribute="trailing" constant="12" id="hMJ-M0-Zkc"/>
+                    <constraint firstItem="9Yx-ss-irs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="ltu-JF-N5u"/>
+                    <constraint firstItem="0be-Dm-lpd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="nuL-H5-ZgY"/>
+                    <constraint firstAttribute="bottom" secondItem="9Yx-ss-irs" secondAttribute="bottom" constant="12" id="nuc-dK-SLc"/>
+                    <constraint firstItem="9Yx-ss-irs" firstAttribute="leading" secondItem="0be-Dm-lpd" secondAttribute="trailing" constant="12" id="uXf-YA-XPO"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="checkImage" destination="0be-Dm-lpd" id="QvQ-0J-AUq"/>
                 <outlet property="itemNameLabel" destination="9Yx-ss-irs" id="GyB-tm-TZP"/>
             </connections>
-            <point key="canvasLocation" x="83" y="21"/>
+            <point key="canvasLocation" x="81.538461538461533" y="23.81516587677725"/>
         </tableViewCell>
     </objects>
 </document>

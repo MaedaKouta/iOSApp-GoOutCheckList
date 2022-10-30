@@ -1,10 +1,9 @@
 //
-//  LostCheckListViewModel.swift
-//  iOSApp-GoOutCheckList
+// LostCheckListViewModel.swift
+// iOSApp-GoOutCheckList
 //
-//  Created by 前田航汰 on 2022/10/07.
+// Created by 前田航汰 on 2022/10/07.
 //
-
 import Foundation
 import RxCocoa
 import RxSwift
@@ -16,7 +15,6 @@ import RealmSwift
 // MARK: Inputs
 public protocol CheckItemViewModelInputs {
     var tableViewItemSeletedObservable: Observable<IndexPath> { get }
-    var addItemButtonObservable: Observable<Void> { get }
     var categoryObject: Category { get }
 }
 
@@ -24,14 +22,13 @@ public protocol CheckItemViewModelInputs {
 public protocol CheckItemViewModelOutputs {
     var CheckItemDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
-    var addItemButtonPublishRelay: PublishRelay<Void> { get }
     var allItemSelectedPublishSubject: PublishRelay<Void> { get }
 }
 
 // MARK: InputOutputType
 public protocol CheckItemViewModelType {
-  var inputs: CheckItemViewModelInputs { get }
-  var outputs: CheckItemViewModelOutputs { get }
+    var inputs: CheckItemViewModelInputs { get }
+    var outputs: CheckItemViewModelOutputs { get }
 }
 
 // MARK: - ViewModel
@@ -39,13 +36,11 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: Inputs
     internal var tableViewItemSeletedObservable: Observable<IndexPath>
-    internal var addItemButtonObservable: Observable<Void>
     internal var categoryObject: Category
 
     // MARK: Outputs
     public lazy var CheckItemDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryObject.checkItems)
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
-    public var addItemButtonPublishRelay = PublishRelay<Void>()
     public var allItemSelectedPublishSubject = PublishRelay<Void>()
 
     // MARK: InputOutputTypes
@@ -58,12 +53,9 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: - Initialize
     init(tableViewItemSeletedObservable: Observable<IndexPath>,
-         addItemButtonObservable: Observable<Void>,
          categoryObject: Category) {
         self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
-        self.addItemButtonObservable = addItemButtonObservable
         self.categoryObject = categoryObject
-
         // TODO: ここがなくても動作するか必要か調べる
         CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
         setupBindings()
@@ -72,12 +64,6 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
 
     // MARK: - Setups
     private func setupBindings() {
-
-        addItemButtonObservable.asObservable()
-            .subscribe(onNext: { [weak self] in
-                self?.addItemButtonPublishRelay.accept(())
-            }).disposed(by: disposeBag)
-
         tableViewItemSeletedObservable.asObservable()
             .subscribe { [weak self] indexPath in
                 try! self?.realm.write {
@@ -88,13 +74,10 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
                 }
                 self?.CheckItemDataBehaviorRelay.accept(checkItems)
                 self?.tableViewItemSeletedPublishRelay.accept(indexPath)
-
                 if checkItems.allSatisfy({$0.isDone == true}) {
                     self?.allItemSelectedPublishSubject.accept(())
                 }
-
             }.disposed(by: disposeBag)
-
     }
 
     private func setupNotifications() {
@@ -108,9 +91,9 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     // MARK: - Functions
     /*
      RegisterCheckItemViewControllerから呼ばれる通知
-        遷移先（RegisterCheckItemViewController）で登録したCategoryItemを
-        遷移元（CheckItemTableViewController）に値渡しするために、Notificationが有効だった。
-        参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
+     遷移先（RegisterCheckItemViewController）で登録したCategoryItemを
+     遷移元（CheckItemTableViewController）に値渡しするために、Notificationが有効だった。
+     参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
     @objc func fromRegisteCheckItemViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
@@ -120,4 +103,5 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
             }
         }
     }
+
 }

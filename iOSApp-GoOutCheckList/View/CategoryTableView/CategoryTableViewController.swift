@@ -51,8 +51,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private let navigationBarButtonSize: CGFloat = 22.5
 
     private lazy var categoryTableViewModel = CategoryTableViewModel(
-        tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
-        tableViewItemDeletedObservable: tableView.rx.itemDeleted.asObservable()
+        tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable()
     )
 
     // MARK: Libraries
@@ -94,11 +93,10 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         // 値がからのときは編集ボタンを押せなくする
         if categoryDataSource.item.count != 0 {
             isSelectedEditingBarButton.toggle()
-            setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
         } else {
             isSelectedEditingBarButton = false
-            setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
         }
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
     }
 
     @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
@@ -117,11 +115,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe(onNext: { [weak self] indexPath in
 
-                let objects = self?.realm.objects(Category.self).toArray()
-                guard let object = objects?[indexPath.row] else { return }
+                let objects = self?.realm.objects(CategoryList.self)
+                guard let object = objects?.first?.list[indexPath.row] else { return }
                 self?.tableView.deselectRow(at: indexPath, animated: true)
                 let checkItemTableVC = CheckItemTableViewController(categoryItemObject: object)
                 self?.navigationController?.pushViewController(checkItemTableVC, animated: true)
+
             })
             .disposed(by: disposeBag)
 

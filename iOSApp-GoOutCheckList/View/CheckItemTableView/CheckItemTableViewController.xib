@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LostCheckTableViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
-                <outlet property="addItemButton" destination="y5M-da-d7V" id="GDx-Ld-MPQ"/>
+                <outlet property="addItemButtonView" destination="eeZ-Kc-M8V" id="o51-WC-7Na"/>
                 <outlet property="tableView" destination="SXI-8M-3Lx" id="6M8-3v-KDo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,26 +21,38 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-8M-3Lx">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-8M-3Lx">
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5M-da-d7V">
-                    <rect key="frame" x="231" y="563" width="87" height="80"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="+"/>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-Kc-M8V" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+                    <rect key="frame" x="280" y="685" width="75" height="75"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="np8-vw-pph"/>
+                        <constraint firstAttribute="width" constant="75" id="xEx-rA-HVK"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="SXI-8M-3Lx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2Aw-Fs-wrf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eeZ-Kc-M8V" secondAttribute="trailing" constant="35" id="56r-c1-bIz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eeZ-Kc-M8V" secondAttribute="bottom" constant="50" id="H3z-f9-8Lz"/>
+                <constraint firstItem="SXI-8M-3Lx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VS2-nK-knS"/>
+                <constraint firstItem="SXI-8M-3Lx" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="X0u-u1-nfd"/>
+                <constraint firstItem="SXI-8M-3Lx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dMz-Vb-FQp"/>
+            </constraints>
             <point key="canvasLocation" x="127.69230769230769" y="20.616113744075829"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
