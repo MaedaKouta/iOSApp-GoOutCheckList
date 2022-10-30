@@ -17,6 +17,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var categoryNameTextField: UITextField!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
+    var registerLabel: UILabel = UILabel()
 
 
     private var categoryImages: [CategoryImage] = [
@@ -52,6 +53,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         categoryImageCollectionView.dataSource = self
         categoryImageCollectionView.delegate = self
         categoryNameTextField.delegate = self
+        categoryNameTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
 
         registerButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButtonView(_:))))
@@ -92,23 +94,40 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func setupRegisterButtonView() {
-        let registerLabel: UILabel = UILabel()
         registerLabel.text = "登録"
-        registerLabel.frame = CGRect(x: 22, y: 0, width: 100, height: 30)
+        registerLabel.frame = CGRect(x: 0, y: 0, width: 160, height: 60)
         registerLabel.font =  UIFont.systemFont(ofSize: 25)
-
-        registerButtonView.backgroundColor = UIColor.white
-        registerButtonView.tintColor = .darkGray
+        registerLabel.textAlignment = .center
+        registerLabel.textColor = UIColor.red
         registerButtonView.addSubview(registerLabel)
-        registerButtonView.layer.cornerRadius = 37.5
-        registerButtonView.layer.shadowColor = UIColor.black.cgColor
-        registerButtonView.layer.shadowRadius = 10
-        registerButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
-        registerButtonView.layer.shadowOpacity = 0.35
 
+        isAvailableRegisterButton(isAvailable: false)
     }
 
+    private func isAvailableRegisterButton(isAvailable: Bool) {
+        if isAvailable {
+            registerLabel.textColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha:1)
+            registerButtonView.backgroundColor = UIColor.white
+            registerButtonView.tintColor = .darkGray
+            registerButtonView.layer.cornerRadius = 30.0
+            registerButtonView.layer.shadowColor = UIColor.black.cgColor
+            registerButtonView.layer.shadowRadius = 10
+            registerButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+            registerButtonView.layer.shadowOpacity = 0.35
+            registerButtonView.isUserInteractionEnabled = true
+        } else {
+            registerLabel.textColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha:1)
+            registerButtonView.backgroundColor = UIColor.white
+            registerButtonView.tintColor = .darkGray
+            registerButtonView.layer.cornerRadius = 30.0
+            registerButtonView.layer.shadowColor = UIColor.black.cgColor
+            registerButtonView.layer.shadowRadius = 10
+            registerButtonView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+            registerButtonView.layer.shadowOpacity = 0.15
+            registerButtonView.isUserInteractionEnabled = false
 
+        }
+    }
 }
 
 
