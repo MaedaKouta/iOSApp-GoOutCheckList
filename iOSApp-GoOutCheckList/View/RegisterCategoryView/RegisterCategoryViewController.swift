@@ -125,6 +125,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         categoryNameTextField.delegate = self
         categoryNameTextField.clearButtonMode = UITextField.ViewMode.whileEditing
 
+        categoryNameTextField.becomeFirstResponder()
         // 余白タッチでキーボード閉じる
         let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
         tapElseView.cancelsTouchesInView = false
