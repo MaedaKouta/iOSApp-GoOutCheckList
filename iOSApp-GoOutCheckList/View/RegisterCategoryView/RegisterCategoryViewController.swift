@@ -21,9 +21,9 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     private lazy var registerLabel: UILabel = {
         let label = UILabel()
         label.text = "登録"
-        label.textColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha:1)
-        label.frame = CGRect(x: 0, y: 0, width: 160, height: 60)
-        label.font =  UIFont.systemFont(ofSize: 25)
+        label.textColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+        label.frame = CGRect(x: 0, y: 0, width: 160, height: 50)
+        label.font =  UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         label.textColor = UIColor.red
         return label
@@ -134,26 +134,26 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
     private func setupCloseButton() {
         closeButton.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20))), for: .normal)
-        closeButton.tintColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha:1)
+        closeButton.tintColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
     }
 
     // MARK: Methods
     private func isAvailableRegisterButton(isAvailable: Bool) {
         if isAvailable {
-            registerLabel.textColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha:1)
+            registerLabel.textColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
             registerButtonView.backgroundColor = UIColor.white
             registerButtonView.tintColor = .darkGray
-            registerButtonView.layer.cornerRadius = 30.0
+            registerButtonView.layer.cornerRadius = 25.0
             registerButtonView.layer.shadowColor = UIColor.black.cgColor
             registerButtonView.layer.shadowRadius = 10
             registerButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
             registerButtonView.layer.shadowOpacity = 0.35
             registerButtonView.isUserInteractionEnabled = true
         } else {
-            registerLabel.textColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha:1)
+            registerLabel.textColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
             registerButtonView.backgroundColor = UIColor.white
             registerButtonView.tintColor = .darkGray
-            registerButtonView.layer.cornerRadius = 30.0
+            registerButtonView.layer.cornerRadius = 25.0
             registerButtonView.layer.shadowColor = UIColor.black.cgColor
             registerButtonView.layer.shadowRadius = 10
             registerButtonView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)

@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterCheckElementViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
+                <outlet property="closeButton" destination="PUJ-3z-g26" id="r6u-uE-0D1"/>
                 <outlet property="itemNameTextField" destination="m6Q-qR-Fxf" id="wB2-cl-sJm"/>
+                <outlet property="registerButtonView" destination="4QL-KC-23t" id="rjJ-BU-wpH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,30 +22,57 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXe-3o-2A1">
-                    <rect key="frame" x="166" y="555" width="59" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="登録"/>
-                    <connections>
-                        <action selector="didTapRegisterButton:" destination="-1" eventType="touchUpInside" id="UhT-Ig-3Tn"/>
-                    </connections>
-                </button>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アイテム名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6Q-qR-Fxf">
-                    <rect key="frame" x="88" y="109" width="214" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アイテム名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6Q-qR-Fxf">
+                    <rect key="frame" x="62.666666666666657" y="147" width="265" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="265" id="AhK-59-8jg"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="didChangedItemNameTextField:" destination="-1" eventType="editingChanged" id="KWA-tw-aIW"/>
+                    </connections>
                 </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QL-KC-23t" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+                    <rect key="frame" x="115" y="271" width="160" height="50"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="ObX-C0-86s"/>
+                        <constraint firstAttribute="height" constant="50" id="uCG-CZ-27U"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUJ-3z-g26">
+                    <rect key="frame" x="349" y="67" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="H4F-uQ-04r"/>
+                        <constraint firstAttribute="width" constant="25" id="ubB-1e-P2Z"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=""/>
+                    <connections>
+                        <action selector="didTapCloseButton:" destination="-1" eventType="touchUpInside" id="3k8-NN-4z3"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4QL-KC-23t" firstAttribute="top" secondItem="m6Q-qR-Fxf" secondAttribute="bottom" constant="90" id="Pim-f3-nrh"/>
+                <constraint firstItem="4QL-KC-23t" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="S7H-Bj-jqM"/>
+                <constraint firstItem="PUJ-3z-g26" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Zmf-AP-aZt"/>
+                <constraint firstItem="m6Q-qR-Fxf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bH0-LG-JDx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PUJ-3z-g26" secondAttribute="trailing" constant="20" id="dhH-FD-4Mt"/>
+                <constraint firstItem="m6Q-qR-Fxf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="pmN-kd-WC5"/>
+            </constraints>
             <point key="canvasLocation" x="140" y="20.616113744075829"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -35,10 +35,10 @@
                     </connections>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OH3-JD-oA3" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
-                    <rect key="frame" x="115" y="629.66666666666663" width="160" height="60"/>
+                    <rect key="frame" x="115" y="629.66666666666663" width="160" height="50"/>
                     <color key="backgroundColor" systemColor="systemPinkColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="14X-vZ-SG1"/>
+                        <constraint firstAttribute="height" constant="50" id="14X-vZ-SG1"/>
                         <constraint firstAttribute="width" constant="160" id="hQa-wB-ex5"/>
                     </constraints>
                 </view>
