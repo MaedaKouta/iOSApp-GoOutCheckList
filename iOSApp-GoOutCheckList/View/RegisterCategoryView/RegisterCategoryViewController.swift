@@ -15,8 +15,9 @@ struct CategoryImage {
 class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var categoryNameTextField: UITextField!
-    @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
+    @IBOutlet private weak var registerButtonView: TouchFeedbackView!
+
 
     private var categoryImages: [CategoryImage] = [
         CategoryImage(image: UIImage(named: "walk_small"), isSelected: true),
@@ -53,21 +54,24 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         categoryNameTextField.delegate = self
         categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
 
+        registerButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButtonView(_:))))
+
         let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
         tapElseView.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapElseView)
+
+        setupRegisterButtonView()
     }
 
     /*
      ボタンタップでCategoryTableViewModelへ通知を送る。
      遷移元のtableViewへ反映させるために必要。
     */
-    @IBAction private func didTapRegisterButton(_ sender: Any) {
 
+    @objc private func didTapRegisterButtonView(_ sender: UIBarButtonItem) {
         guard let text = categoryNameTextField.text else { return }
         let categoryItem = Category()
         let image: CategoryImage? = categoryImages.filter{ $0.isSelected == true }.first
-
         categoryItem.name = text
         categoryItem.imageData = image?.image?.pngData()
 
@@ -75,7 +79,6 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
             name: Notification.Name.CategoryViewFromRegisterViewNotification,
             object: categoryItem
         )
-
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -88,7 +91,26 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    private func setupRegisterButtonView() {
+        let registerLabel: UILabel = UILabel()
+        registerLabel.text = "登録"
+        registerLabel.frame = CGRect(x: 22, y: 0, width: 100, height: 30)
+        registerLabel.font =  UIFont.systemFont(ofSize: 25)
+
+        registerButtonView.backgroundColor = UIColor.white
+        registerButtonView.tintColor = .darkGray
+        registerButtonView.addSubview(registerLabel)
+        registerButtonView.layer.cornerRadius = 37.5
+        registerButtonView.layer.shadowColor = UIColor.black.cgColor
+        registerButtonView.layer.shadowRadius = 10
+        registerButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        registerButtonView.layer.shadowOpacity = 0.35
+
+    }
+
+
 }
+
 
 extension RegisterCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
