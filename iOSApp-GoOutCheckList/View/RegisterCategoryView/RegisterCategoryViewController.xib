@@ -29,6 +29,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="didChangedCategoryTextField:" destination="-1" eventType="editingChanged" id="j4Y-P1-7Me"/>
+                    </connections>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OH3-JD-oA3" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
                     <rect key="frame" x="115" y="629.66666666666663" width="160" height="60"/>

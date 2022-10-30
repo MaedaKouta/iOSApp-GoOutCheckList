@@ -19,7 +19,6 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     var registerLabel: UILabel = UILabel()
 
-
     private var categoryImages: [CategoryImage] = [
         CategoryImage(image: UIImage(named: "walk_small"), isSelected: true),
         CategoryImage(image: UIImage(named: "baby_small"), isSelected: false),
@@ -63,6 +62,15 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapElseView)
 
         setupRegisterButtonView()
+    }
+
+    @IBAction func didChangedCategoryTextField(_ sender: Any) {
+        guard let categoryNameText = categoryNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+        if categoryNameText.isEmpty {
+            isAvailableRegisterButton(isAvailable: false)
+        } else {
+            isAvailableRegisterButton(isAvailable: true)
+        }
     }
 
     /*
