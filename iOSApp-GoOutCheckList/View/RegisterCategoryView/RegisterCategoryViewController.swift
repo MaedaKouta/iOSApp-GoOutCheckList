@@ -12,11 +12,22 @@ struct CategoryImage {
     var isSelected: Bool
 }
 
-class RegisterCategoryViewController: UIViewController {
+class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var categoryNameTextField: UITextField!
-    @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
+    @IBOutlet private weak var registerButtonView: TouchFeedbackView!
+    @IBOutlet private weak var closeButton: UIButton!
+    private lazy var registerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "登録"
+        label.textColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+        label.frame = CGRect(x: 0, y: 0, width: 160, height: 50)
+        label.font =  UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .center
+        label.textColor = UIColor.red
+        return label
+    }()
 
     private var categoryImages: [CategoryImage] = [
         CategoryImage(image: UIImage(named: "walk_small"), isSelected: true),
@@ -48,21 +59,31 @@ class RegisterCategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryImageCollectionView.dataSource = self
-        categoryImageCollectionView.delegate = self
-        categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
+
+        setupCategoryImageCollectionView()
+        setupCategoryNameTextField()
+        setupCloseButton()
+        setupRegisterButtonView()
+    }
+
+    // MARK: Actions
+    @IBAction func didChangedCategoryTextField(_ sender: Any) {
+        guard let categoryNameText = categoryNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+        if categoryNameText.isEmpty {
+            isAvailableRegisterButton(isAvailable: false)
+        } else {
+            isAvailableRegisterButton(isAvailable: true)
+        }
     }
 
     /*
      ボタンタップでCategoryTableViewModelへ通知を送る。
      遷移元のtableViewへ反映させるために必要。
     */
-    @IBAction private func didTapRegisterButton(_ sender: Any) {
-
-        guard let text = categoryNameTextField.text else { return }
+    @objc private func didTapRegisterButtonView(_ sender: UIBarButtonItem) {
+        guard let text = categoryNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         let categoryItem = Category()
         let image: CategoryImage? = categoryImages.filter{ $0.isSelected == true }.first
-
         categoryItem.name = text
         categoryItem.imageData = image?.image?.pngData()
 
@@ -70,8 +91,76 @@ class RegisterCategoryViewController: UIViewController {
             name: Notification.Name.CategoryViewFromRegisterViewNotification,
             object: categoryItem
         )
-
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @objc private func didTapElseView(_ sender: UIBarButtonItem) {
+        self.view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        categoryNameTextField.resignFirstResponder()
+        return true
+    }
+
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: Setups
+    private func setupRegisterButtonView() {
+        registerButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButtonView(_:))))
+        registerButtonView.addSubview(registerLabel)
+
+        isAvailableRegisterButton(isAvailable: false)
+    }
+
+    private func setupCategoryImageCollectionView(){
+        categoryImageCollectionView.dataSource = self
+        categoryImageCollectionView.delegate = self
+        categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
+    }
+
+    private func setupCategoryNameTextField(){
+        categoryNameTextField.delegate = self
+        categoryNameTextField.clearButtonMode = UITextField.ViewMode.whileEditing
+
+        categoryNameTextField.becomeFirstResponder()
+        // 余白タッチでキーボード閉じる
+        let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
+        tapElseView.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapElseView)
+    }
+
+    private func setupCloseButton() {
+        closeButton.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20))), for: .normal)
+        closeButton.tintColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+    }
+
+    // MARK: Methods
+    private func isAvailableRegisterButton(isAvailable: Bool) {
+        if isAvailable {
+            registerLabel.textColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+            registerButtonView.backgroundColor = UIColor.white
+            registerButtonView.tintColor = .darkGray
+            registerButtonView.layer.cornerRadius = 25.0
+            registerButtonView.layer.shadowColor = UIColor.black.cgColor
+            registerButtonView.layer.shadowRadius = 10
+            registerButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+            registerButtonView.layer.shadowOpacity = 0.35
+            registerButtonView.isUserInteractionEnabled = true
+        } else {
+            registerLabel.textColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
+            registerButtonView.backgroundColor = UIColor.white
+            registerButtonView.tintColor = .darkGray
+            registerButtonView.layer.cornerRadius = 25.0
+            registerButtonView.layer.shadowColor = UIColor.black.cgColor
+            registerButtonView.layer.shadowRadius = 10
+            registerButtonView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+            registerButtonView.layer.shadowOpacity = 0.15
+            registerButtonView.isUserInteractionEnabled = false
+
+        }
     }
 
 }
@@ -99,14 +188,10 @@ extension RegisterCategoryViewController: UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = categoryImageCollectionView.cellForItem(at: indexPath) as! CategoryImageCollectionViewCell
-
         // imageDataを全てfalseにする
         self.categoryImages.indices.forEach { self.categoryImages[$0].isSelected = false }
         // 選択されたimageDataをひっくり返す
         categoryImages[indexPath.row].isSelected.toggle()
-        cell.isSelectedImage(isSelected: categoryImages[indexPath.row].isSelected)
-
         categoryImageCollectionView.reloadData()
     }
 
