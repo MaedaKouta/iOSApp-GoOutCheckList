@@ -95,12 +95,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         self.present(fpc, animated: true, completion: nil)
     }
 
-    @objc private func didTapElseView(_ sender: UIBarButtonItem) {
-        // 画面の余白タッチ時に編集モードを終了する
-        //isSelectedEditingBarButton = false
-        //setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
-    }
-
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         // 値がからのときは編集ボタンを押せなくする
         if categoryDataSource.item.count != 0 {
