@@ -1,8 +1,8 @@
 //
-//  LostCheckTableViewController.swift
-//  iOSApp-GoOutCheckList
+// LostCheckTableViewController.swift
+// iOSApp-GoOutCheckList
 //
-//  Created by 前田航汰 on 2022/10/07.
+// Created by 前田航汰 on 2022/10/07.
 //
 
 import UIKit
@@ -17,12 +17,13 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addItemButton: UIButton!
+    @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
     private var editButton: UIBarButtonItem!
 
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
-    private lazy var checkItemViewModel = CheckItemViewModel( tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(), addItemButtonObservable: addItemButton.rx.tap.asObservable(),
+    private lazy var checkItemViewModel = CheckItemViewModel(
+        tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
         categoryObject: categoryObject
     )
     private let realm = try! Realm()
@@ -38,23 +39,32 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         self.categoryObject = categoryItemObject
         super.init(nibName: nil, bundle: nil)
     }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
+        setupAddItemButton()
     }
 
     // MARK: Actions
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         tableView.isEditing.toggle()
+    }
+
+    @objc private func didTapRegisterItemButton(_ sender: UIBarButtonItem) {
+        // カテゴリー追加時には編集モードをオフにする
+        //isSelectedEditingBarButton = false
+        //setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
+        guard let fpc = self.fpc else { return }
+        let view = RegisterCheckItemViewController()
+        fpc.set(contentViewController: view)
+        self.present(fpc, animated: true, completion: nil)
     }
 
     // MARK: - Setups
@@ -63,7 +73,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func setupBindings() {
-
         // TableViewのデータ連携
         checkItemViewModel.outputs.CheckItemDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: checkItemDataSource))
@@ -74,7 +83,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             .subscribe { [weak self] indexPath in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
             }.disposed(by: disposeBag)
-
         // 全てチェックされたらPKHUDを表示
         checkItemViewModel.outputs.allItemSelectedPublishSubject
             .subscribe{ [weak self] _ in
@@ -83,11 +91,9 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     self?.navigationController?.popViewController(animated: true)
                     try! self?.realm.write {
                         self?.categoryObject.checkItems.forEach{ $0.isDone = false }
-
                         let checkHistoryObject = CheckHistory()
                         checkHistoryObject.date = Date()
                         checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
-
                         // リストがなければ、リストを作る（初期に作る必要が出てくる）
                         if self?.checkHistoryListObject == nil {
                             let checkHistoryList = CheckHistoryList()
@@ -95,7 +101,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                             self?.realm.add(checkHistoryList)
                             self?.checkHistoryListObject = self?.realm.objects(CheckHistoryList.self).first
                         } else {
-
                             if 50 <= self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
                                 // 先頭のCheckHistoryを取得して、削除する
                                 let checkHistory = self?.realm.objects(CheckHistory.self)
@@ -106,23 +111,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                                     self?.realm.delete(removeCheckHistory)
                                 }
                             }
-
                             self?.checkHistoryListObject?.checkHistoryList.insert(checkHistoryObject, at: 0)
                         }
-
                     }
                 }
             }.disposed(by: disposeBag)
-
-        // 右下のItem追加ボタンでモーダル表示
-        checkItemViewModel.outputs.addItemButtonPublishRelay
-            .subscribe{ [weak self] _ in
-                guard let fpc = self?.fpc else { return }
-                let view = RegisterCheckItemViewController()
-                fpc.set(contentViewController: view)
-                self?.present(fpc, animated: true, completion: nil)
-            }.disposed(by: disposeBag)
-
     }
 
     private func setupFloatingPanel() {
@@ -132,10 +125,23 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         let appearance = SurfaceAppearance()
         appearance.cornerRadius = 24.0
         fpc.surfaceView.appearance = appearance
-
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         // fpc.surfaceView.grabberHandle.isHidden = true
+    }
+
+    private func setupAddItemButton() {
+        addItemButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterItemButton(_:))))
+        let image = UIImageView(image: UIImage(systemName: "plus"))
+        image.frame = CGRect(x: 22, y: 22, width: 31, height: 31)
+        addItemButtonView.backgroundColor = UIColor.white
+        addItemButtonView.tintColor = .darkGray
+        addItemButtonView.addSubview(image)
+        addItemButtonView.layer.cornerRadius = 37.5
+        addItemButtonView.layer.shadowColor = UIColor.black.cgColor
+        addItemButtonView.layer.shadowRadius = 10
+        addItemButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        addItemButtonView.layer.shadowOpacity = 0.35
     }
 
     private func setupNavigationbar() {
