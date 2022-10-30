@@ -18,7 +18,14 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
-    private var editButton: UIBarButtonItem!
+    private lazy var editBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+
 
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
@@ -26,6 +33,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
         categoryObject: categoryObject
     )
+    private let navigationBarButtonSize: CGFloat = 22.5
+    private var isSelectedEditingBarButton = false
     private let realm = try! Realm()
     private let disposeBag = DisposeBag()
     private var categoryObject: Category
@@ -54,7 +63,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: Actions
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
-        tableView.isEditing.toggle()
+        if checkItemDataSource.item.count != 0 {
+            isSelectedEditingBarButton.toggle()
+        } else {
+            isSelectedEditingBarButton = false
+        }
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
     }
 
     @objc private func didTapRegisterItemButton(_ sender: UIBarButtonItem) {
@@ -147,8 +161,30 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     private func setupNavigationbar() {
         navigationItem.title = categoryObject.name
-        editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didTapEditButton(_:)))
-        self.navigationItem.rightBarButtonItem = editButton
+        self.navigationItem.rightBarButtonItem = editBarButtonItem
     }
 
+    // MARK: Method
+    private func setEditBarButtonItemIcon(isSelected: Bool) {
+        if isSelected {
+            editBarButtonItem = {
+                let button = UIButton(type: .custom)
+                button.setImage(UIImage(systemName: "pencil.slash", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+                return UIBarButtonItem(customView: button)
+            }()
+        } else {
+            editBarButtonItem = {
+                let button = UIButton(type: .custom)
+                button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+                return UIBarButtonItem(customView: button)
+            }()
+        }
+
+        tableView.setEditing(isSelected, animated: true)
+        setupNavigationbar()
+    }
 }

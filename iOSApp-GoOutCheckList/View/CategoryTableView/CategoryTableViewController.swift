@@ -93,11 +93,10 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         // 値がからのときは編集ボタンを押せなくする
         if categoryDataSource.item.count != 0 {
             isSelectedEditingBarButton.toggle()
-            setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
         } else {
             isSelectedEditingBarButton = false
-            setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
         }
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
     }
 
     @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
