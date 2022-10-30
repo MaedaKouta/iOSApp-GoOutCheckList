@@ -26,15 +26,19 @@ class CategoryImageCollectionViewCell: UICollectionViewCell {
         isSelectedImage(isSelected: isSelected)
     }
 
-    func isSelectedImage(isSelected: Bool) {
+    private func isSelectedImage(isSelected: Bool) {
         self.isSelectedImage = isSelected
-        if isSelectedImage == true {
-            self.categoryImage.layer.borderColor = selectLayerColor
-            self.categoryImage.alpha = CGFloat(1.0)
+
+        if isSelectedImage {
+            UIView.animate(withDuration: 0.25, delay: 0, animations: { [weak self]  in
+                self?.categoryImage.layer.borderColor = self?.selectLayerColor
+                self?.categoryImage.alpha = CGFloat(1.0)
+            })
         } else {
-            self.categoryImage.layer.borderColor = noneSelectLayerColor
+            self.categoryImage.layer.borderColor = self.noneSelectLayerColor
             self.categoryImage.alpha = CGFloat(0.55)
         }
+
     }
 
     private func setupLayout() {

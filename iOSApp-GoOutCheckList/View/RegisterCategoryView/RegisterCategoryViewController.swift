@@ -188,13 +188,13 @@ extension RegisterCategoryViewController: UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = categoryImageCollectionView.cellForItem(at: indexPath) as! CategoryImageCollectionViewCell
-
         // imageDataを全てfalseにする
         self.categoryImages.indices.forEach { self.categoryImages[$0].isSelected = false }
         // 選択されたimageDataをひっくり返す
         categoryImages[indexPath.row].isSelected.toggle()
-        cell.isSelectedImage(isSelected: categoryImages[indexPath.row].isSelected)
+
+        let cell = categoryImageCollectionView.cellForItem(at: indexPath) as! CategoryImageCollectionViewCell
+        //cell.isSelectedImage(isSelected: categoryImages[indexPath.row].isSelected)
 
         categoryImageCollectionView.reloadData()
     }
