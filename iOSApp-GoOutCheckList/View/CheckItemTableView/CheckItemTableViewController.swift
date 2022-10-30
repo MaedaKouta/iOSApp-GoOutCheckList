@@ -17,12 +17,13 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addItemButton: UIButton!
+    @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
     private var editButton: UIBarButtonItem!
 
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
-    private lazy var checkItemViewModel = CheckItemViewModel( tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(), addItemButtonObservable: addItemButton.rx.tap.asObservable(),
+    private lazy var checkItemViewModel = CheckItemViewModel(
+        tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable(),
         categoryObject: categoryObject
     )
     private let realm = try! Realm()
@@ -46,15 +47,29 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+
         setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
+        setupAddItemButton()
     }
 
     // MARK: Actions
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         tableView.isEditing.toggle()
+    }
+
+    @objc private func didTapRegisterItemButton(_ sender: UIBarButtonItem) {
+        // カテゴリー追加時には編集モードをオフにする
+        //isSelectedEditingBarButton = false
+        //setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
+
+        guard let fpc = self.fpc else { return }
+        let view = RegisterCheckItemViewController()
+        fpc.set(contentViewController: view)
+        self.present(fpc, animated: true, completion: nil)
     }
 
     // MARK: - Setups
@@ -113,16 +128,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     }
                 }
             }.disposed(by: disposeBag)
-
-        // 右下のItem追加ボタンでモーダル表示
-        checkItemViewModel.outputs.addItemButtonPublishRelay
-            .subscribe{ [weak self] _ in
-                guard let fpc = self?.fpc else { return }
-                let view = RegisterCheckItemViewController()
-                fpc.set(contentViewController: view)
-                self?.present(fpc, animated: true, completion: nil)
-            }.disposed(by: disposeBag)
-
     }
 
     private func setupFloatingPanel() {
@@ -136,6 +141,22 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         // fpc.surfaceView.grabberHandle.isHidden = true
+    }
+
+    private func setupAddItemButton() {
+        addItemButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterItemButton(_:))))
+
+        let image = UIImageView(image: UIImage(systemName: "plus"))
+        image.frame = CGRect(x: 22, y: 22, width: 31, height: 31)
+
+        addItemButtonView.backgroundColor = UIColor.white
+        addItemButtonView.tintColor = .darkGray
+        addItemButtonView.addSubview(image)
+        addItemButtonView.layer.cornerRadius = 37.5
+        addItemButtonView.layer.shadowColor = UIColor.black.cgColor
+        addItemButtonView.layer.shadowRadius = 10
+        addItemButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        addItemButtonView.layer.shadowOpacity = 0.35
     }
 
     private func setupNavigationbar() {
