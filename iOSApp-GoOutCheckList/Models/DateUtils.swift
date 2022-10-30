@@ -12,6 +12,7 @@ public class DateUtils {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
         formatter.dateFormat = format
+        formatter.locale = NSLocale.system
         return formatter.date(from: string)!
     }
 
@@ -19,6 +20,7 @@ public class DateUtils {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
         formatter.dateFormat = format
+        formatter.locale = NSLocale.system
         return formatter.string(from: date)
     }
 }
