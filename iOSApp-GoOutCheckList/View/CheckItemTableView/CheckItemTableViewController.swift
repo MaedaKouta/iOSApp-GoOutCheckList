@@ -75,10 +75,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         // カテゴリー追加時には編集モードをオフにする
         //isSelectedEditingBarButton = false
         //setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
-        guard let fpc = self.fpc else { return }
-        let view = RegisterCheckItemViewController()
-        fpc.set(contentViewController: view)
-        self.present(fpc, animated: true, completion: nil)
+//        guard let fpc = self.fpc else { return }
+//        let view = RegisterCheckItemViewController()
+//        fpc.set(contentViewController: view)
+//        self.present(fpc, animated: true, completion: nil)
+        tableView.reloadData()
     }
 
     // MARK: - Setups
@@ -109,6 +110,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                         let checkHistoryObject = CheckHistory()
                         checkHistoryObject.date = Date()
                         checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
+
                         // リストがなければ、リストを作る（初期に作る必要が出てくる）
                         if self?.checkHistoryListObject == nil {
                             let checkHistoryList = CheckHistoryList()

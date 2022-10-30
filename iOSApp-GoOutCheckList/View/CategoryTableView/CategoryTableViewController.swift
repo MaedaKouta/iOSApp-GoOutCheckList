@@ -120,6 +120,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
                 self?.tableView.deselectRow(at: indexPath, animated: true)
                 let checkItemTableVC = CheckItemTableViewController(categoryItemObject: object)
                 self?.navigationController?.pushViewController(checkItemTableVC, animated: true)
+
             })
             .disposed(by: disposeBag)
 
