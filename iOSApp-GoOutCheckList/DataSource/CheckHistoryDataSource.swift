@@ -25,11 +25,15 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         return item.count
     }
 
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return "履歴が30件表示されます"
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckHistoryTableViewCell", for: indexPath) as! CheckHistoryTableViewCell
         let element = item[indexPath.row]
         let dateString = DateUtils.stringFromDate(date: element.date, format: "MM/dd HH:mm")
-        cell.setConfigure(dateText: dateString, categoryText: element.categoryName, categoryImage: nil)
+        cell.setConfigure(dateText: dateString, categoryText: element.categoryName, categoryImage: UIImage(named: element.assetsImageName))
 
         return cell
     }

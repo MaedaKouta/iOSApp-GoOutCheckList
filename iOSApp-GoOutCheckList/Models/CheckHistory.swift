@@ -13,6 +13,7 @@ public class CheckHistory: Object {
     @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var date: Date = Date()
     @objc dynamic var categoryName: String = ""
+    @objc dynamic var assetsImageName: String = ""
 
     // idをプライマリキーに設定
     public override static func primaryKey() -> String? {
