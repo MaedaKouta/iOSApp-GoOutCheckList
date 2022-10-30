@@ -18,7 +18,16 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
-    private var registerLabel: UILabel = UILabel()
+    private lazy var registerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "登録"
+        label.textColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha:1)
+        label.frame = CGRect(x: 0, y: 0, width: 160, height: 60)
+        label.font =  UIFont.systemFont(ofSize: 25)
+        label.textAlignment = .center
+        label.textColor = UIColor.red
+        return label
+    }()
 
     private var categoryImages: [CategoryImage] = [
         CategoryImage(image: UIImage(named: "walk_small"), isSelected: true),
@@ -50,22 +59,10 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryImageCollectionView.dataSource = self
-        categoryImageCollectionView.delegate = self
-        categoryNameTextField.delegate = self
-        categoryNameTextField.clearButtonMode = UITextField.ViewMode.whileEditing
-        categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
 
-        registerButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButtonView(_:))))
-
-        let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
-        tapElseView.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapElseView)
-
-
-        closeButton.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20))), for: .normal)
-        closeButton.tintColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha:1)
-
+        setupCategoryImageCollectionView()
+        setupCategoryNameTextField()
+        setupCloseButton()
         setupRegisterButtonView()
     }
 
@@ -112,16 +109,34 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Setups
     private func setupRegisterButtonView() {
-        registerLabel.text = "登録"
-        registerLabel.frame = CGRect(x: 0, y: 0, width: 160, height: 60)
-        registerLabel.font =  UIFont.systemFont(ofSize: 25)
-        registerLabel.textAlignment = .center
-        registerLabel.textColor = UIColor.red
+        registerButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButtonView(_:))))
         registerButtonView.addSubview(registerLabel)
 
         isAvailableRegisterButton(isAvailable: false)
     }
 
+    private func setupCategoryImageCollectionView(){
+        categoryImageCollectionView.dataSource = self
+        categoryImageCollectionView.delegate = self
+        categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
+    }
+
+    private func setupCategoryNameTextField(){
+        categoryNameTextField.delegate = self
+        categoryNameTextField.clearButtonMode = UITextField.ViewMode.whileEditing
+
+        // 余白タッチでキーボード閉じる
+        let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))
+        tapElseView.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapElseView)
+    }
+
+    private func setupCloseButton() {
+        closeButton.setImage(UIImage(systemName: "x.circle.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20))), for: .normal)
+        closeButton.tintColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha:1)
+    }
+
+    // MARK: Methods
     private func isAvailableRegisterButton(isAvailable: Bool) {
         if isAvailable {
             registerLabel.textColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha:1)
@@ -146,6 +161,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
         }
     }
+
 }
 
 
