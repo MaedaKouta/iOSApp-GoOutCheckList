@@ -8,7 +8,7 @@
 import UIKit
 
 struct CategoryImage {
-    var image: UIImage?
+    var assetsImageName: String
     var isSelected: Bool
 }
 
@@ -30,31 +30,31 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     }()
 
     private var categoryImages: [CategoryImage] = [
-        CategoryImage(image: UIImage(named: "walk_small"), isSelected: true),
-        CategoryImage(image: UIImage(named: "baby_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "bath_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "beer_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "brain_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "building_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "car_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "cherry_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "cupple_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "deskwork_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "dog_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "forest_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "guitar_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "hammer_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "house_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "human_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "meeting_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "muscle_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "notebook_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "presentation_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "sleepy_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "textboard_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "train_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "truip_small"), isSelected: false),
-        CategoryImage(image: UIImage(named: "question_small"), isSelected: false),
+        CategoryImage(assetsImageName: "walk_small", isSelected: true),
+        CategoryImage(assetsImageName: "baby_small", isSelected: false),
+        CategoryImage(assetsImageName: "bath_small", isSelected: false),
+        CategoryImage(assetsImageName: "beer_small", isSelected: false),
+        CategoryImage(assetsImageName: "brain_small", isSelected: false),
+        CategoryImage(assetsImageName: "building_small", isSelected: false),
+        CategoryImage(assetsImageName: "car_small", isSelected: false),
+        CategoryImage(assetsImageName: "cherry_small", isSelected: false),
+        CategoryImage(assetsImageName: "cupple_small", isSelected: false),
+        CategoryImage(assetsImageName: "deskwork_small", isSelected: false),
+        CategoryImage(assetsImageName: "dog_small", isSelected: false),
+        CategoryImage(assetsImageName: "forest_small", isSelected: false),
+        CategoryImage(assetsImageName: "guitar_small", isSelected: false),
+        CategoryImage(assetsImageName: "hammer_small", isSelected: false),
+        CategoryImage(assetsImageName: "house_small", isSelected: false),
+        CategoryImage(assetsImageName: "human_small", isSelected: false),
+        CategoryImage(assetsImageName: "meeting_small", isSelected: false),
+        CategoryImage(assetsImageName: "muscle_small", isSelected: false),
+        CategoryImage(assetsImageName: "notebook_small", isSelected: false),
+        CategoryImage(assetsImageName: "presentation_small", isSelected: false),
+        CategoryImage(assetsImageName: "sleepy_small", isSelected: false),
+        CategoryImage(assetsImageName: "textboard_small", isSelected: false),
+        CategoryImage(assetsImageName: "train_small", isSelected: false),
+        CategoryImage(assetsImageName: "truip_small", isSelected: false),
+        CategoryImage(assetsImageName: "question_small", isSelected: false),
     ]
 
     override func viewDidLoad() {
@@ -85,7 +85,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         let categoryItem = Category()
         let image: CategoryImage? = categoryImages.filter{ $0.isSelected == true }.first
         categoryItem.name = text
-        categoryItem.imageData = image?.image?.pngData()
+        categoryItem.assetsImageName = image?.assetsImageName ?? "question_small"
 
         NotificationCenter.default.post(
             name: Notification.Name.CategoryViewFromRegisterViewNotification,
@@ -183,7 +183,7 @@ extension RegisterCategoryViewController: UICollectionViewDelegate, UICollection
 
         let cell = categoryImageCollectionView
             .dequeueReusableCell(withReuseIdentifier: "CategoryImageCollectionViewCell", for: indexPath) as! CategoryImageCollectionViewCell
-        cell.configure(image: categoryImages[indexPath.row].image, isSelected: categoryImages[indexPath.row].isSelected)
+        cell.configure(image: UIImage(named: categoryImages[indexPath.row].assetsImageName), isSelected: categoryImages[indexPath.row].isSelected)
         return cell
     }
 

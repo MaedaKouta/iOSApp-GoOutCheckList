@@ -29,7 +29,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckHistoryTableViewCell", for: indexPath) as! CheckHistoryTableViewCell
         let element = item[indexPath.row]
         let dateString = DateUtils.stringFromDate(date: element.date, format: "MM/dd HH:mm")
-        cell.setConfigure(dateText: dateString, categoryText: element.categoryName)
+        cell.setConfigure(dateText: dateString, categoryText: element.categoryName, categoryImage: nil)
 
         return cell
     }
