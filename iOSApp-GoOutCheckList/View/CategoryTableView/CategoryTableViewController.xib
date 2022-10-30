@@ -26,7 +26,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwV-oi-Wqn" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
-                    <rect key="frame" x="275" y="713" width="75" height="75"/>
+                    <rect key="frame" x="265" y="700" width="75" height="75"/>
                     <color key="backgroundColor" systemColor="systemPinkColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="tC8-S7-Zfh"/>
@@ -38,9 +38,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="GPs-H3-omb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PwV-oi-Wqn" secondAttribute="bottom" constant="22" id="a7p-3s-iKs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PwV-oi-Wqn" secondAttribute="bottom" constant="35" id="a7p-3s-iKs"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bhc-y3-41I"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PwV-oi-Wqn" secondAttribute="trailing" constant="40" id="iFH-Dx-wMJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PwV-oi-Wqn" secondAttribute="trailing" constant="50" id="iFH-Dx-wMJ"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lpm-9Y-uXV"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="s93-ru-czS"/>
             </constraints>
