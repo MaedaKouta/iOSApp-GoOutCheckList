@@ -25,10 +25,10 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webView?.uiDelegate = self
-        webView?.navigationDelegate = self
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
 
-        //HUD.show(.progress, onView: view)
+        HUD.show(.progress, onView: view)
         if let url = URL(string: presentUrl) {
             self.webView?.load(URLRequest(url: url))
         } else {
@@ -38,12 +38,12 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
 
     @IBAction func didTapBackButton(_ sender: Any) {
-        webView?.goBack()
+        webView.goBack()
 
     }
 
     @IBAction func didTapForwardButton(_ sender: Any) {
-        webView?.goForward()
+        webView.goForward()
     }
 
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
@@ -53,7 +53,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("読み込み完了")
-        //HUD.hide(animated: true)
+        HUD.hide(animated: true)
         judgeToolBarButton()
     }
 
@@ -79,8 +79,8 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         progressView = UIProgressView(frame: CGRect(x: 0.0, y: navigationBarH, width: self.view.frame.size.width, height: 0.0))
         navigationController?.navigationBar.addSubview(progressView)
         //変更を検知
-        webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
-        webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
 
 //    @IBAction func didTapExitButton(_ sender: Any) {

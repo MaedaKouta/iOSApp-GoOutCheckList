@@ -253,16 +253,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uEs-MT-agX">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEs-MT-agX">
                                 <rect key="frame" x="0.0" y="766" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jpu-fW-xsm"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="Item" id="tcE-c2-0Ld"/>
                                 </items>
                             </toolbar>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-ce-wDJ">
-                                <rect key="frame" x="0.0" y="77" width="352" height="524"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-ce-wDJ">
+                                <rect key="frame" x="0.0" y="47" width="390" height="719"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -272,6 +273,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XUF-dB-1VX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uEs-MT-agX" firstAttribute="leading" secondItem="XUF-dB-1VX" secondAttribute="leading" id="3hg-7I-Fhc"/>
+                            <constraint firstItem="JNr-ce-wDJ" firstAttribute="leading" secondItem="XUF-dB-1VX" secondAttribute="leading" id="HeO-Hd-aaS"/>
+                            <constraint firstItem="JNr-ce-wDJ" firstAttribute="top" secondItem="XUF-dB-1VX" secondAttribute="top" id="NUV-k7-YB9"/>
+                            <constraint firstItem="uEs-MT-agX" firstAttribute="top" secondItem="JNr-ce-wDJ" secondAttribute="bottom" id="fkK-7C-QPt"/>
+                            <constraint firstItem="uEs-MT-agX" firstAttribute="bottom" secondItem="XUF-dB-1VX" secondAttribute="bottom" id="h1K-xt-5X7"/>
+                            <constraint firstItem="JNr-ce-wDJ" firstAttribute="trailing" secondItem="XUF-dB-1VX" secondAttribute="trailing" id="nZi-1V-3Hz"/>
+                            <constraint firstItem="uEs-MT-agX" firstAttribute="trailing" secondItem="XUF-dB-1VX" secondAttribute="trailing" id="pJd-al-79M"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="webView" destination="JNr-ce-wDJ" id="kzv-kf-fPJ"/>
