@@ -12,10 +12,11 @@ class SettingTableViewController: UITableViewController {
 
     @IBOutlet private weak var versionLabel: UILabel!
 
-    private let reviewUrl = "https://apps.apple.com/jp/app/%E9%80%B2%E6%95%B0%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/id1581706168?mt=8&action=write-review"
+    private let reviewUrl = ""
     private let feedbackUrl = "https://forms.gle/dkDVq2x3QpDEYmPm6"
     private let privacyUrl = "https://tetoblog.org/base-conversion/privacy/"
     private let ruleUrl = "https://tetoblog.org/base-conversion/rule/"
+    private let twitterUrl = "https://twitter.com/kota_org"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +30,31 @@ class SettingTableViewController: UITableViewController {
         if indexPath == [0, 0] {
             // アプリをシェアする
             shareApp()
+
         } else if indexPath == [0, 1] {
             // フィードバックを送る
+            openSafari(urlString: feedbackUrl)
+
         } else if indexPath == [1, 0] {
             // プライバシーポリシー
+            openSafari(urlString: privacyUrl)
+
         } else if indexPath == [1, 1] {
             // 利用規約
+            openSafari(urlString: ruleUrl)
+
         } else if indexPath == [1, 2] {
             // ライセンス
+
         } else if indexPath == [2, 1] {
             // 開発者のアプリ
+
         } else if indexPath == [2, 2] {
             // 開発者のTwitter
+
         } else if indexPath == [3, 0] {
             // データの初期化
+
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -52,6 +64,19 @@ class SettingTableViewController: UITableViewController {
     // MARK: Setups
     private func setupNavigationbar() {
         navigationItem.title = "設定"
+    }
+
+    private func openSafari(urlString: String) {
+        let url = NSURL(string: urlString)
+        // 外部ブラウザ（Safari）で開く
+        if UIApplication.shared.canOpenURL(url! as URL){
+            UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+        }
+    }
+
+    private func openTwitter() {
+        guard let twitterUrl = URL(string: "twitter://") else { return }
+        UIApplication.shared.openURL(twitterUrl)
     }
 
     private func shareApp() {
