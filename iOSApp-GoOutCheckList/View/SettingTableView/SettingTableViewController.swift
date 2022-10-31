@@ -32,6 +32,8 @@ class SettingTableViewController: UITableViewController {
             // プライバシーポリシー
         } else if indexPath == [1, 1] {
             // 利用規約
+        } else if indexPath == [1, 2] {
+            // ライセンス
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
