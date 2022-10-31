@@ -105,8 +105,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
-        let settingVC = SettingViewController()
-        self.navigationController?.pushViewController(settingVC, animated: true)
+        let storyboard: UIStoryboard = UIStoryboard(name: "SettingStoryboard", bundle: nil)
+            if let settingVC = storyboard.instantiateInitialViewController() {
+                //self.present(settingVC, animated: true, completion: nil)
+                self.navigationController?.pushViewController(settingVC, animated: true)
+        }
     }
 
     // MARK: - Setups

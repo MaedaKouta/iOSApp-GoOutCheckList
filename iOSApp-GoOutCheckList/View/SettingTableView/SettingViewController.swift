@@ -8,20 +8,37 @@
 
 import UIKit
 
-class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+//struct SettingItem {
+//    let title: String
+//    let nextViewLink: String?
+//    let subTitle: String?
+//}
 
-    @IBOutlet weak var tableView: UITableView!
+class SettingViewController: UIViewController {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
 
-//    let tableViewSection = ["評価", "情報"]
-//    let reviewTableViewRow = ["アプリをレビューする", "アプリをシェアする", "お問い合わせ"]
-//    let infoTableViewRow = ["アプリをレビューする", "アプリをシェアする", "お問い合わせ"]
+//    let tableViewSectionTitle = ["評価", "情報"]
+//    let reviewTableViewRow: [SettingItem] = [
+//        SettingItem(title: "お問い合わせ", nextViewLink: "http://dfsfsd", subTitle: nil)
+//    ]
+//    let infoTableViewRow: [SettingItem] = [
+//        SettingItem(title: "プライバシーポリシー", nextViewLink: "http://dfsfsd", subTitle: nil),
+//        SettingItem(title: "利用規約", nextViewLink: "http://dfsfsd", subTitle: nil),
+//        SettingItem(title: "", nextViewLink: "http://dfsfsd", subTitle: nil)
+//    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "test")
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "test")
         setupNavigationbar()
     }
 
@@ -30,27 +47,6 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: Setups
     private func setupNavigationbar() {
         navigationItem.title = "設定"
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        5
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "test", for: indexPath)
-
-        print("adfas")
-        // セルに表示する値を設定する
-        cell.textLabel?.text = "aaa"
-        return cell
     }
 
 }
