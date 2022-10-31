@@ -245,27 +245,41 @@
             </objects>
             <point key="canvasLocation" x="-235.38461538461539" y="-105.21327014218009"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="NBR-n9-aNj">
+        <!--Web View Controller-->
+        <scene sceneID="Yks-Js-frH">
             <objects>
-                <viewController id="5u1-En-1jW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Q0w-U2-3Lm">
+                <viewController storyboardIdentifier="WebViewController" id="fTY-9S-Hz1" customClass="WebViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SZp-iU-DWB">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4g-sP-kuZ">
-                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uEs-MT-agX">
+                                <rect key="frame" x="0.0" y="766" width="390" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="tcE-c2-0Ld"/>
+                                </items>
+                            </toolbar>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-ce-wDJ">
+                                <rect key="frame" x="0.0" y="77" width="352" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="L4J-w1-aXw"/>
+                        <viewLayoutGuide key="safeArea" id="XUF-dB-1VX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="JNr-ce-wDJ" id="kzv-kf-fPJ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mi7-AY-JfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cif-lU-cRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010.7692307692307" y="-445.02369668246445"/>
+            <point key="canvasLocation" x="764.61538461538464" y="-343.3649289099526"/>
         </scene>
     </scenes>
     <resources>

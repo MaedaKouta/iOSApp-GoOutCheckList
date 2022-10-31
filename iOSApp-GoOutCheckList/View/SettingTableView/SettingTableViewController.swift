@@ -37,7 +37,7 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [1, 0] {
             // プライバシーポリシー
-            openSafari(urlString: privacyUrl)
+            prepareWebView(url: privacyUrl, title: "プライバシー")
 
         } else if indexPath == [1, 1] {
             // 利用規約
@@ -75,8 +75,14 @@ class SettingTableViewController: UITableViewController {
     }
 
     private func openTwitter() {
-        guard let twitterUrl = URL(string: "twitter://") else { return }
-        UIApplication.shared.openURL(twitterUrl)
+        //guard let twitterUrl = URL(string: "twitter://") else { return }
+        //UIApplication.shared.openURL(twitterUrl)
+    }
+
+    private func prepareWebView(url: String, title: String) {
+        let webVC = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        webVC.configure(presentUrl: url, navigationTitle: title)
+        self.navigationController?.pushViewController(webVC, animated: true)
     }
 
     private func shareApp() {

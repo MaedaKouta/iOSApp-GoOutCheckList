@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		87202B7529091C950036692B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
 		872CEEF6290FF308006340E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CEEF5290FF308006340E7 /* WebViewController.swift */; };
+		872CEEF8291006BA006340E7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872CEEF7291006BA006340E7 /* WebKit.framework */; };
 		8730C40E290CEC420020629C /* TouchFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730C40D290CEC420020629C /* TouchFeedbackView.swift */; };
 		8737AA82290FA66600CEB416 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */; };
 		8743CC1628F0F3D50082C27C /* RegisterCheckItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */; };
@@ -80,6 +81,7 @@
 		3556AEDF41E75EDCD0CB8BD4 /* Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		87202B7429091C950036692B /* CheckHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistory.swift; sourceTree = "<group>"; };
 		872CEEF5290FF308006340E7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		872CEEF7291006BA006340E7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8730C40D290CEC420020629C /* TouchFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFeedbackView.swift; sourceTree = "<group>"; };
 		8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCheckItemViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872CEEF8291006BA006340E7 /* WebKit.framework in Frameworks */,
 				F834723A44CA72B233D147D9 /* Pods_iOSApp_GoOutCheckList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +173,7 @@
 		19CC481A46BBF481C09D3E63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				872CEEF7291006BA006340E7 /* WebKit.framework */,
 				DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */,
 				951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */,
 				162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */,
@@ -356,8 +360,8 @@
 		87D53CDF290F68B1005E27D2 /* SettingTableView */ = {
 			isa = PBXGroup;
 			children = (
-				87C268D5290F6F50000319E5 /* SettingTableViewController.swift */,
 				8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */,
+				87C268D5290F6F50000319E5 /* SettingTableViewController.swift */,
 				872CEEF5290FF308006340E7 /* WebViewController.swift */,
 			);
 			path = SettingTableView;
