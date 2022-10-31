@@ -259,7 +259,17 @@
                                     <constraint firstAttribute="height" constant="44" id="jpu-fW-xsm"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Item" id="tcE-c2-0Ld"/>
+                                    <barButtonItem title="Item" image="chevron.left" catalog="system" id="tcE-c2-0Ld">
+                                        <connections>
+                                            <action selector="didTapBackButton:" destination="fTY-9S-Hz1" id="cvJ-FG-gaG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3Zn-Yi-uqO"/>
+                                    <barButtonItem title="Item" image="chevron.right" catalog="system" id="H6h-nu-oWv">
+                                        <connections>
+                                            <action selector="didTapForwardButton:" destination="fTY-9S-Hz1" id="CkT-UN-b45"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-ce-wDJ">
@@ -284,6 +294,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="tcE-c2-0Ld" id="JnU-7w-Fbt"/>
+                        <outlet property="forwardButton" destination="H6h-nu-oWv" id="yHD-AQ-8PB"/>
                         <outlet property="webView" destination="JNr-ce-wDJ" id="kzv-kf-fPJ"/>
                     </connections>
                 </viewController>
@@ -293,6 +305,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
