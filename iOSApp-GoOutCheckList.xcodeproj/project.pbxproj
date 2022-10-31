@@ -48,7 +48,7 @@
 		87B41B4228EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */; };
 		87B41B4428EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */; };
 		87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */; };
-		87C268D7290F6F50000319E5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C268D5290F6F50000319E5 /* SettingViewController.swift */; };
+		87C268D7290F6F50000319E5 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C268D5290F6F50000319E5 /* SettingTableViewController.swift */; };
 		87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */; };
 		87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */; };
 		87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */; };
@@ -122,7 +122,7 @@
 		87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITests.swift; sourceTree = "<group>"; };
 		87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewModel.swift; sourceTree = "<group>"; };
-		87C268D5290F6F50000319E5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		87C268D5290F6F50000319E5 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 		87D53CDF290F68B1005E27D2 /* SettingTableView */ = {
 			isa = PBXGroup;
 			children = (
-				87C268D5290F6F50000319E5 /* SettingViewController.swift */,
+				87C268D5290F6F50000319E5 /* SettingTableViewController.swift */,
 				8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */,
 			);
 			path = SettingTableView;
@@ -661,7 +661,7 @@
 				8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */,
 				8730C40E290CEC420020629C /* TouchFeedbackView.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,
-				87C268D7290F6F50000319E5 /* SettingViewController.swift in Sources */,
+				87C268D7290F6F50000319E5 /* SettingTableViewController.swift in Sources */,
 				87202B7529091C950036692B /* CheckHistory.swift in Sources */,
 				87A2664928EFC2F80091C282 /* NSNotification.swift in Sources */,
 				8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */,
