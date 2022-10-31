@@ -10,6 +10,8 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+    @IBOutlet private weak var versionLabel: UILabel!
+
     private let reviewUrl = "https://apps.apple.com/jp/app/%E9%80%B2%E6%95%B0%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/id1581706168?mt=8&action=write-review"
     private let feedbackUrl = "https://forms.gle/dkDVq2x3QpDEYmPm6"
     private let privacyUrl = "https://tetoblog.org/base-conversion/privacy/"
@@ -19,21 +21,28 @@ class SettingTableViewController: UITableViewController {
         super.viewDidLoad()
         setupNavigationbar()
 
-        let varsion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        versionLabel.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 
     // MARK: Actions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath == [0, 0] {
             // アプリをシェアする
+            shareApp()
         } else if indexPath == [0, 1] {
-            // お問い合わせ
+            // フィードバックを送る
         } else if indexPath == [1, 0] {
             // プライバシーポリシー
         } else if indexPath == [1, 1] {
             // 利用規約
         } else if indexPath == [1, 2] {
             // ライセンス
+        } else if indexPath == [2, 1] {
+            // 開発者のアプリ
+        } else if indexPath == [2, 2] {
+            // 開発者のTwitter
+        } else if indexPath == [3, 0] {
+            // データの初期化
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
