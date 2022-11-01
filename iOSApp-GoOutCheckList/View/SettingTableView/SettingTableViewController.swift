@@ -33,7 +33,9 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [0, 1] {
             // フィードバックを送る
-            openSafari(urlString: feedbackUrl)
+            let feedbackVC = self.storyboard?.instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
+            self.navigationController?.pushViewController(feedbackVC, animated: true)
+
 
         } else if indexPath == [1, 0] {
             // プライバシーポリシー
@@ -41,10 +43,12 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [1, 1] {
             // 利用規約
-            openSafari(urlString: ruleUrl)
+            prepareWebView(url: ruleUrl, title: "利用規約")
 
         } else if indexPath == [1, 2] {
             // ライセンス
+            let lisenceScrollVC = self.storyboard?.instantiateViewController(withIdentifier: "LisenceScrollViewController") as! LisenceScrollViewController
+            self.navigationController?.pushViewController(lisenceScrollVC, animated: true)
 
         } else if indexPath == [2, 1] {
             // 開発者のアプリ
