@@ -21,7 +21,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
@@ -186,7 +186,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         } else {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
                 button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
                 button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
                 return UIBarButtonItem(customView: button)
