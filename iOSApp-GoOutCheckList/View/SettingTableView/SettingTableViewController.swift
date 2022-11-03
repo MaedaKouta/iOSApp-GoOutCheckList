@@ -61,7 +61,7 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [3, 0] {
             // データの初期化
-
+            deleteDataAlert()
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -113,6 +113,28 @@ class SettingTableViewController: UITableViewController {
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
         self.present(activityVC, animated: true)
+    }
+
+    private func deleteDataAlert() {
+        let alert: UIAlertController = UIAlertController(
+            title: "データの削除",
+            message: """
+            データを完全に削除してよろしいですか？
+            この操作は取り消せません。
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+            print("削除ボタン押された")
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+                (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
