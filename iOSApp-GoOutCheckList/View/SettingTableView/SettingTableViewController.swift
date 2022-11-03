@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import RealmSwift
+import PKHUD
 
 class SettingTableViewController: UITableViewController {
 
@@ -130,7 +131,10 @@ class SettingTableViewController: UITableViewController {
 
         let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
-            print("削除ボタン押された")
+
+            HUD.flash(.progress, delay: 1.5) { _ in
+                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 1.0)
+            }
 
             let categoryListObject = self.realm.objects(CategoryList.self)
             let categoryObject = self.realm.objects(Category.self)
