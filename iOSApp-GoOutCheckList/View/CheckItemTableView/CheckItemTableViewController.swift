@@ -18,6 +18,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
+    @IBOutlet weak var nothingTableViewDataImageView: UIImageView!
+
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)

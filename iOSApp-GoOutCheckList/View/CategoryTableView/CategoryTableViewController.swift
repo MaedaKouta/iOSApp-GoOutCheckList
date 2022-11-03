@@ -17,7 +17,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
-
+    @IBOutlet weak private var nothingTableViewDataImageView: UIImageView!
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -62,6 +62,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         categoryTableViewModel.updateCategoryList()
+        displaynothingTableViewDataImage()
     }
 
     override func viewDidLoad() {
@@ -76,6 +77,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         setupTableView()
         setupBindings()
         setupFloatingPanel()
+
+        displaynothingTableViewDataImage()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -141,7 +144,13 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         categoryTableViewModel.outputs.addCategoryPublishRelay
             .subscribe{ [weak self] _ in
+                self?.displaynothingTableViewDataImage()
                 self?.tableView.reloadData()
+            }.disposed(by: disposeBag)
+
+        tableView.rx.itemDeleted.asObservable()
+            .subscribe{ [weak self] _ in
+                self?.displaynothingTableViewDataImage()
             }.disposed(by: disposeBag)
     }
 
@@ -173,6 +182,24 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     // MARK: Method
+    private func displaynothingTableViewDataImage() {
+        if categoryDataSource.item.isEmpty {
+            nothingTableViewDataImageView.image = UIImage(named: "question_small")
+
+            // アニメーション開始
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.75)
+            let transition = CATransition()
+            transition.type = CATransitionType.fade
+            nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
+            nothingTableViewDataImageView.isHidden = false
+            CATransaction.commit()
+
+        } else {
+            nothingTableViewDataImageView.isHidden = true
+        }
+    }
+
     private func setEditBarButtonItemIcon(isSelected: Bool) {
 
         if isSelected {
