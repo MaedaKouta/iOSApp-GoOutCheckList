@@ -26,7 +26,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         return UIBarButtonItem(customView: button)
     }()
 
-
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
     private lazy var checkItemViewModel = CheckItemViewModel(
@@ -83,6 +82,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: - Setups
     private func setupTableView() {
+        tableView.delegate = checkItemDataSource
         tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
     }
 
@@ -92,10 +92,14 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             .bind(to: tableView.rx.items(dataSource: checkItemDataSource))
             .disposed(by: disposeBag)
 
-        // TODO: TableViewの再レンダリングにより、色が少しずつ薄くなる挙動にならない
         checkItemViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
-                self?.tableView.deselectRow(at: indexPath, animated: true)
+                self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }.disposed(by: disposeBag)
+
+        checkItemViewModel.outputs.addItemPublishRelay
+            .subscribe { [weak self] _ in
+                self?.tableView.reloadData()
             }.disposed(by: disposeBag)
 
         // 全てチェックされたらPKHUDを表示

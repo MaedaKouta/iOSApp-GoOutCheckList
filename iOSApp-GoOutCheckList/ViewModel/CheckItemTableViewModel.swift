@@ -23,6 +23,7 @@ public protocol CheckItemViewModelOutputs {
     var CheckItemDataBehaviorRelay: BehaviorRelay<List<CheckItem>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
     var allItemSelectedPublishSubject: PublishRelay<Void> { get }
+    var addItemPublishRelay: PublishRelay<Void> { get }
 }
 
 // MARK: InputOutputType
@@ -42,6 +43,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     public lazy var CheckItemDataBehaviorRelay = BehaviorRelay<List<CheckItem>>(value: categoryObject.checkItems)
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
     public var allItemSelectedPublishSubject = PublishRelay<Void>()
+    public var addItemPublishRelay = PublishRelay<Void>()
 
     // MARK: InputOutputTypes
     public var inputs: CheckItemViewModelInputs { return self }
@@ -101,6 +103,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
                 self.categoryObject.checkItems.append(checkItem)
                 self.CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
             }
+            addItemPublishRelay.accept(())
         }
     }
 

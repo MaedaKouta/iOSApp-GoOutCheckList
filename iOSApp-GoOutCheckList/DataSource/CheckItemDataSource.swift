@@ -15,11 +15,16 @@ import RealmSwift
  RxSwiftでTableViewを監視するために必要
  RealmのデータでList<CheckItem>を使う必要があるため、ArrayではなくListが中心のコード
  */
-class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType, UITableViewDelegate {
 
     typealias Element = List<CheckItem>
     var item = List<CheckItem>()
     private let realm = try! Realm()
+
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        print("deselectRow1")
+//    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
@@ -68,7 +73,7 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
     func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<CheckItem>>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
-            tableView.reloadData()
+            //tableView.reloadData()
         }
         .on(observedEvent)
     }
