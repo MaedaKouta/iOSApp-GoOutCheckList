@@ -26,8 +26,15 @@ class CheckHistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupNavigationBar()
         setupTableView()
         setupBindings()
+    }
+
+    // MARK: Setups
+    private func setupNavigationBar() {
+        navigationItem.title = "履歴"
     }
 
     private func setupTableView() {

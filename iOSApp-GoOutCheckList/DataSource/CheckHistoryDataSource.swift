@@ -26,7 +26,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "履歴が30件表示されます"
+        return "履歴が50件表示されます"
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

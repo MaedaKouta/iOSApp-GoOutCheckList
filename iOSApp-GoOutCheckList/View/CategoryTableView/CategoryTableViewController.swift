@@ -104,8 +104,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         self.navigationController?.pushViewController(checkHistoryTableVC, animated: true)
     }
 
-    // TODO: 設定画面へのロジックを書く
     @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "SettingStoryboard", bundle: nil)
+            if let settingVC = storyboard.instantiateInitialViewController() {
+                //self.present(settingVC, animated: true, completion: nil)
+                self.navigationController?.pushViewController(settingVC, animated: true)
+        }
     }
 
     // MARK: - Setups
