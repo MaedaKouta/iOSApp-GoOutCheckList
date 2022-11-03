@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import RealmSwift
 
 class SettingTableViewController: UITableViewController {
 
@@ -18,6 +19,8 @@ class SettingTableViewController: UITableViewController {
     private let privacyUrl = "https://tetoblog.org/base-conversion/privacy/"
     private let ruleUrl = "https://tetoblog.org/base-conversion/rule/"
     private let twitterUrl = "https://twitter.com/kota_org"
+
+    private lazy var realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +131,35 @@ class SettingTableViewController: UITableViewController {
         let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
             print("削除ボタン押された")
+
+            let categoryListObject = self.realm.objects(CategoryList.self)
+            let categoryObject = self.realm.objects(Category.self)
+            let checkItemObject = self.realm.objects(CheckItem.self)
+            let checkHistoryListObject = self.realm.objects(CheckHistoryList.self)
+            let checkHistoryObject = self.realm.objects(CheckHistory.self)
+
+            try! self.realm.write {
+                if categoryListObject.count != 0 {
+                    self.realm.delete(categoryListObject)
+                }
+
+                if categoryObject.count != 0 {
+                    self.realm.delete(categoryObject)
+                }
+
+                if checkItemObject.count != 0 {
+                    self.realm.delete(checkItemObject)
+                }
+
+                if checkHistoryListObject.count != 0 {
+                    self.realm.delete(checkHistoryListObject)
+                }
+
+                if checkHistoryObject.count != 0 {
+                    self.realm.delete(checkHistoryObject)
+                }
+            }
+
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
                 (action: UIAlertAction!) -> Void in
