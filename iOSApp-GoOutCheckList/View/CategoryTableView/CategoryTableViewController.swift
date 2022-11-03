@@ -21,7 +21,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
@@ -49,6 +49,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private var isSelectedHistoryBarButton = false
     private var isSelectedEditingBarButton = false
     private let navigationBarButtonSize: CGFloat = 22.5
+    private let categoryListObject = try! Realm().objects(CategoryList.self)
 
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable()
@@ -58,8 +59,14 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private var fpc: FloatingPanelController!
     private let realm = try! Realm()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categoryTableViewModel.updateCategoryList()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
@@ -131,11 +138,15 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.outputs.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
+
+        categoryTableViewModel.outputs.addCategoryPublishRelay
+            .subscribe{ [weak self] _ in
+                self?.tableView.reloadData()
+            }.disposed(by: disposeBag)
     }
 
     private func setupTableView() {
         tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
-
         tableView.rowHeight = 50
     }
 
@@ -175,7 +186,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         } else {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
                 button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
                 button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
                 return UIBarButtonItem(customView: button)

@@ -99,7 +99,6 @@ class SettingTableViewController: UITableViewController {
     private func shareApp() {
         // TODO: 文字を考える
         let shareText = """
-        サブタイトル
         「タイトル」
 
         本文本文本文本文

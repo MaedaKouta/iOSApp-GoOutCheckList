@@ -20,12 +20,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
     }()
-
 
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
@@ -83,6 +82,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     // MARK: - Setups
     private func setupTableView() {
+        tableView.delegate = checkItemDataSource
         tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
     }
 
@@ -92,10 +92,14 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             .bind(to: tableView.rx.items(dataSource: checkItemDataSource))
             .disposed(by: disposeBag)
 
-        // TODO: TableViewの再レンダリングにより、色が少しずつ薄くなる挙動にならない
         checkItemViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
-                self?.tableView.deselectRow(at: indexPath, animated: true)
+                self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }.disposed(by: disposeBag)
+
+        checkItemViewModel.outputs.addItemPublishRelay
+            .subscribe { [weak self] _ in
+                self?.tableView.reloadData()
             }.disposed(by: disposeBag)
 
         // 全てチェックされたらPKHUDを表示
@@ -179,7 +183,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         } else {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
                 button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
                 button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
                 return UIBarButtonItem(customView: button)

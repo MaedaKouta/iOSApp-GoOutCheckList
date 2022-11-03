@@ -22,6 +22,7 @@ public protocol CategoryTableViewModelInputs {
 public protocol CategoryTableViewModelOutputs {
     var categoryDataBehaviorRelay: BehaviorRelay<List<Category>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
+    var addCategoryPublishRelay: PublishRelay<Void> { get }
 }
 
 // MARK: InputOutputType
@@ -37,8 +38,9 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     internal var tableViewItemSeletedObservable: Observable<IndexPath>
 
     // MARK: Outputs
-    public lazy var categoryDataBehaviorRelay = BehaviorRelay<List<Category>>(value: List<Category>())
+    public var categoryDataBehaviorRelay = BehaviorRelay<List<Category>>(value: List<Category>())
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
+    public var addCategoryPublishRelay = PublishRelay<Void>()
 
     // MARK: InputOutputType
     public var inputs: CategoryTableViewModelInputs { return self }
@@ -47,7 +49,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     // MARK: Libraries&Propaties
     private let realm = try! Realm()
     private let disposeBag = DisposeBag()
-    private lazy var categoryListObjext = realm.objects(CategoryList.self).first?.list
+    private var categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
 
     // MARK: - Initialize
     /*
@@ -65,6 +67,15 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
         setupBindings()
         setupNotifications()
+    }
+
+
+    // MARK: Updatas
+    func updateCategoryList() {
+        categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
+        self.categoryDataBehaviorRelay
+            .accept(categoryListObjext ?? List<Category>())
+        self.addCategoryPublishRelay.accept(())
     }
 
     // MARK: - Setups
@@ -93,6 +104,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
      */
     @objc func fromRegisteCategoryViewCall(notification: Notification) {
         if let categoryItem = notification.object as? Category {
+            categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
 
             // RealmのcategoryListObjextが空だった場合に追加もさせる
             try! self.realm.write() {
@@ -108,6 +120,8 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
                 self.categoryDataBehaviorRelay
                     .accept(categoryListObjext!)
             }
+
+            self.addCategoryPublishRelay.accept(())
 
         }
     }
