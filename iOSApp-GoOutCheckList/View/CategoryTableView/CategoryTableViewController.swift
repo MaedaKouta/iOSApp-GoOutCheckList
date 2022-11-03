@@ -49,6 +49,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private var isSelectedHistoryBarButton = false
     private var isSelectedEditingBarButton = false
     private let navigationBarButtonSize: CGFloat = 22.5
+    private let categoryListObject = try! Realm().objects(CategoryList.self)
 
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable()
@@ -58,8 +59,14 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private var fpc: FloatingPanelController!
     private let realm = try! Realm()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categoryTableViewModel.updateCategoryList()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
@@ -140,7 +147,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private func setupTableView() {
         tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
-
         tableView.rowHeight = 50
     }
 
