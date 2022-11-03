@@ -22,6 +22,7 @@ public protocol CategoryTableViewModelInputs {
 public protocol CategoryTableViewModelOutputs {
     var categoryDataBehaviorRelay: BehaviorRelay<List<Category>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
+    var addCategoryPublishRelay: PublishRelay<Void> { get }
 }
 
 // MARK: InputOutputType
@@ -39,6 +40,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     // MARK: Outputs
     public lazy var categoryDataBehaviorRelay = BehaviorRelay<List<Category>>(value: List<Category>())
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
+    public var addCategoryPublishRelay = PublishRelay<Void>()
 
     // MARK: InputOutputType
     public var inputs: CategoryTableViewModelInputs { return self }
@@ -108,6 +110,8 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
                 self.categoryDataBehaviorRelay
                     .accept(categoryListObjext!)
             }
+
+            self.addCategoryPublishRelay.accept(())
 
         }
     }

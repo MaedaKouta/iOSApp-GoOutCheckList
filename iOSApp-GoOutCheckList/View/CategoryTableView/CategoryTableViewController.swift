@@ -131,6 +131,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.outputs.categoryDataBehaviorRelay
             .bind(to: tableView.rx.items(dataSource: categoryDataSource))
             .disposed(by: disposeBag)
+
+        categoryTableViewModel.outputs.addCategoryPublishRelay
+            .subscribe{ [weak self] _ in
+                self?.tableView.reloadData()
+            }.disposed(by: disposeBag)
     }
 
     private func setupTableView() {

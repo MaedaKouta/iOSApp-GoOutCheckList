@@ -76,7 +76,6 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
     func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<Category>>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
-            tableView.reloadData()
         }
         .on(observedEvent)
     }
