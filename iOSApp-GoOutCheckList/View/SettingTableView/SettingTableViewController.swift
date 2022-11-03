@@ -61,6 +61,7 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [2, 1] {
             // 開発者のTwitter
+            openSafari(urlString: twitterUrl)
 
         } else if indexPath == [3, 0] {
             // データの初期化
