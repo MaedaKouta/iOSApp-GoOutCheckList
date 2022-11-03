@@ -34,6 +34,7 @@
 		8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */; };
 		8782387E28F280E300804538 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782387C28F280E200804538 /* ViewController.swift */; };
 		8782387F28F280E300804538 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8782387D28F280E200804538 /* ViewController.xib */; };
+		8784708029133CD5000E4DAD /* LisenceSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */; };
 		8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
@@ -108,6 +109,7 @@
 		8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemDataSource.swift; sourceTree = "<group>"; };
 		8782387C28F280E200804538 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8782387D28F280E200804538 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisenceSwiftUIView.swift; sourceTree = "<group>"; };
 		8795B5C3290657F800AAF894 /* CheckHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryList.swift; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				872CEEF5290FF308006340E7 /* WebViewController.swift */,
 				87068BAC291097AD00131206 /* LisenceScrollViewController.swift */,
 				87068BAE291097BF00131206 /* FeedBackViewController.swift */,
+				8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */,
 			);
 			path = SettingTableView;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */,
 				8743CC1A28F0F8F20082C27C /* Category.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
+				8784708029133CD5000E4DAD /* LisenceSwiftUIView.swift in Sources */,
 				8757681628FA155000EB4E79 /* CategoryList.swift in Sources */,
 				87B358B1290B9725006A28AE /* CategoryImageCollectionViewCell.swift in Sources */,
 				8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */,

@@ -9,21 +9,17 @@ import UIKit
 
 class LisenceScrollViewController: UIViewController {
 
+    let label = UILabel()
+    @IBOutlet weak var scrollView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
+        // スクリーンの横縦幅
+        let screenWidth:CGFloat = self.view.frame.width
+        let screenHeight:CGFloat = self.view.frame.height
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     
     }
-    */
 
 }

@@ -7,6 +7,7 @@
 
 
 import UIKit
+import SwiftUI
 
 class SettingTableViewController: UITableViewController {
 
@@ -50,10 +51,14 @@ class SettingTableViewController: UITableViewController {
             let lisenceScrollVC = self.storyboard?.instantiateViewController(withIdentifier: "LisenceScrollViewController") as! LisenceScrollViewController
             self.navigationController?.pushViewController(lisenceScrollVC, animated: true)
 
-        } else if indexPath == [2, 1] {
+        } else if indexPath == [2, 0] {
             // 開発者のアプリ
+            guard #available(iOS 13.0.0, *) else { return }
+            let vc = UIHostingController(rootView: LisenceSwiftUIView())
+            vc.navigationItem.title = "ライセンス"
+            self.navigationController?.pushViewController(vc, animated: true)
 
-        } else if indexPath == [2, 2] {
+        } else if indexPath == [2, 1] {
             // 開発者のTwitter
 
         } else if indexPath == [3, 0] {
