@@ -34,8 +34,7 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [0, 1] {
             // フィードバックを送る
-            let feedbackVC = self.storyboard?.instantiateViewController(withIdentifier: "FeedBackViewController") as! FeedBackViewController
-            self.navigationController?.pushViewController(feedbackVC, animated: true)
+            prepareWebView(url: feedbackUrl, title: "フィードバックを送る")
 
 
         } else if indexPath == [1, 0] {
@@ -57,9 +56,6 @@ class SettingTableViewController: UITableViewController {
             // バージョン
 
         } else if indexPath == [2, 0] {
-            // 開発者のアプリ
-
-        } else if indexPath == [2, 1] {
             // 開発者のTwitter
             openSafari(urlString: twitterUrl)
 

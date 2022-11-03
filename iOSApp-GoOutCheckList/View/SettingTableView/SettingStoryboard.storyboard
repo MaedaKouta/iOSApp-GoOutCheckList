@@ -169,7 +169,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="319.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開発者のアプリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXX-sK-ZVq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開発者のTwitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXX-sK-ZVq">
                                                     <rect key="frame" x="20" y="11.333333333333336" width="291.66666666666669" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -183,33 +183,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ifC-wc-oqo">
-                                        <rect key="frame" x="20" y="473.0000057220459" width="350" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ifC-wc-oqo" id="Z1R-se-6LC">
-                                            <rect key="frame" x="0.0" y="0.0" width="319.66666666666669" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開発者のTwitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdu-tu-7Jk">
-                                                    <rect key="frame" x="20" y="11.333333333333336" width="291.66666666666669" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Sdu-tu-7Jk" secondAttribute="trailing" id="Yoh-1F-7Ep"/>
-                                                <constraint firstItem="Sdu-tu-7Jk" firstAttribute="leading" secondItem="Z1R-se-6LC" secondAttribute="leadingMargin" id="fHI-0w-tUx"/>
-                                                <constraint firstItem="Sdu-tu-7Jk" firstAttribute="centerY" secondItem="Z1R-se-6LC" secondAttribute="centerY" id="hro-Ce-ujy"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="初期化" footerTitle="データが完全に削除され、全て空になります" id="zI6-xH-XG5">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kWw-Id-Vcd">
-                                        <rect key="frame" x="20" y="580.0000057220459" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="536.33333778381348" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kWw-Id-Vcd" id="1un-9a-KPi">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
@@ -244,35 +223,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USe-4R-Dkb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-235.38461538461539" y="-105.21327014218009"/>
-        </scene>
-        <!--Feed Back View Controller-->
-        <scene sceneID="35L-Pc-HpX">
-            <objects>
-                <viewController storyboardIdentifier="FeedBackViewController" id="VQc-uk-nlt" customClass="FeedBackViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lTF-mr-cGj">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sdh-kl-Ndc">
-                                <rect key="frame" x="104" y="134" width="182" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-mG-HDn">
-                                <rect key="frame" x="166" y="248" width="59" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="送信"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="eHo-xI-vt1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lCw-Qd-E9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="764.61538461538464" y="-85.308056872037909"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="Yks-Js-frH">
@@ -330,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cif-lU-cRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="778" y="-1035"/>
+            <point key="canvasLocation" x="725" y="-105"/>
         </scene>
     </scenes>
     <resources>
