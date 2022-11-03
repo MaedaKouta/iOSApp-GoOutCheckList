@@ -39,7 +39,7 @@ class CheckHistoryViewController: UIViewController {
 
     private func setupTableView() {
         tableView.rowHeight = 50
-
+        tableView.delegate = checkHistoryDataSource
         tableView.register(UINib(nibName: "CheckHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckHistoryTableViewCell")
     }
 
@@ -55,6 +55,7 @@ class CheckHistoryViewController: UIViewController {
                 guard let indexPath = indexPath.element else {return}
                 var dateStringDetail = ""
                 var categoryName = ""
+                
                 self?.tableView.deselectRow(at: indexPath, animated: true)
 
                 if let date = self?.checkHistoryDataSource.item[indexPath.row].date,
@@ -67,9 +68,8 @@ class CheckHistoryViewController: UIViewController {
                 }
 
                 let alert: UIAlertController = UIAlertController(
-                    title: "履歴",
+                    title: "\(categoryName)",
                     message: """
-                    \(categoryName)
                     \(dateStringDetail)
                     """,
                     preferredStyle:  UIAlertController.Style.alert
