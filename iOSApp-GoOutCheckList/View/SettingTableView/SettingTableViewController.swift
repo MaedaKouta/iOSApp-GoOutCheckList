@@ -48,15 +48,16 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [1, 2] {
             // ライセンス
-            let lisenceScrollVC = self.storyboard?.instantiateViewController(withIdentifier: "LisenceScrollViewController") as! LisenceScrollViewController
-            self.navigationController?.pushViewController(lisenceScrollVC, animated: true)
-
-        } else if indexPath == [2, 0] {
-            // 開発者のアプリ
             guard #available(iOS 13.0.0, *) else { return }
             let vc = UIHostingController(rootView: LisenceSwiftUIView())
             vc.navigationItem.title = "ライセンス"
             self.navigationController?.pushViewController(vc, animated: true)
+
+        } else if indexPath == [1, 3] {
+            // バージョン
+
+        } else if indexPath == [2, 0] {
+            // 開発者のアプリ
 
         } else if indexPath == [2, 1] {
             // 開発者のTwitter

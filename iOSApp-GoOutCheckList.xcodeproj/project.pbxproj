@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87068BAD291097AD00131206 /* LisenceScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87068BAC291097AD00131206 /* LisenceScrollViewController.swift */; };
 		87068BAF291097BF00131206 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87068BAE291097BF00131206 /* FeedBackViewController.swift */; };
 		87202B7529091C950036692B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
 		872CEEF6290FF308006340E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CEEF5290FF308006340E7 /* WebViewController.swift */; };
@@ -82,7 +81,6 @@
 /* Begin PBXFileReference section */
 		162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3556AEDF41E75EDCD0CB8BD4 /* Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		87068BAC291097AD00131206 /* LisenceScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisenceScrollViewController.swift; sourceTree = "<group>"; };
 		87068BAE291097BF00131206 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		87202B7429091C950036692B /* CheckHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistory.swift; sourceTree = "<group>"; };
 		872CEEF5290FF308006340E7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 				8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */,
 				87C268D5290F6F50000319E5 /* SettingTableViewController.swift */,
 				872CEEF5290FF308006340E7 /* WebViewController.swift */,
-				87068BAC291097AD00131206 /* LisenceScrollViewController.swift */,
 				87068BAE291097BF00131206 /* FeedBackViewController.swift */,
 				8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */,
 			);
@@ -669,7 +666,6 @@
 				8743CC1C28F0F92E0082C27C /* CheckItem.swift in Sources */,
 				874602D52909FB5B009D1D50 /* CheckHistoryTableViewCell.swift in Sources */,
 				87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */,
-				87068BAD291097AD00131206 /* LisenceScrollViewController.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
 				8761619C290B622700F81DE2 /* DateUtils.swift in Sources */,
 				8782387E28F280E300804538 /* ViewController.swift in Sources */,
