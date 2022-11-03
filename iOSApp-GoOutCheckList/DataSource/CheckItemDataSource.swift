@@ -73,7 +73,6 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
     func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<CheckItem>>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
-            //tableView.reloadData()
         }
         .on(observedEvent)
     }

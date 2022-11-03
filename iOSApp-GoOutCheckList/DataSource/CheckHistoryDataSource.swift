@@ -41,7 +41,6 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
     func tableView(_ tableView: UITableView, observedEvent: RxSwift.Event<RealmSwift.List<CheckHistory>>) {
         Binder(self) { dataSource, element in
             dataSource.item = element
-            tableView.reloadData()
         }
         .on(observedEvent)
     }
