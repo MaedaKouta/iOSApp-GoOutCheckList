@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LostCheckTableViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
                 <outlet property="addItemButtonView" destination="eeZ-Kc-M8V" id="o51-WC-7Na"/>
+                <outlet property="nothingTableViewDataImageView" destination="VL5-9Y-vX2" id="csC-P6-RFV"/>
+                <outlet property="nothingTableViewLabel" destination="SK5-a7-QOJ" id="JRB-Jg-tdE"/>
                 <outlet property="tableView" destination="SXI-8M-3Lx" id="6M8-3v-KDo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,16 +35,36 @@
                         <constraint firstAttribute="width" constant="75" id="xEx-rA-HVK"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VL5-9Y-vX2">
+                    <rect key="frame" x="50" y="227" width="290" height="290"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="VL5-9Y-vX2" secondAttribute="height" multiplier="1:1" id="fjA-Oq-slJ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SK5-a7-QOJ">
+                    <rect key="frame" x="20" y="517" width="350" height="36"/>
+                    <string key="text">チェックアイテムが空です...
+プラスボタンから追加しましょう</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2Aw-Fs-wrf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eeZ-Kc-M8V" secondAttribute="trailing" constant="35" id="56r-c1-bIz"/>
+                <constraint firstItem="VL5-9Y-vX2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="GJl-Vl-sf5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eeZ-Kc-M8V" secondAttribute="bottom" constant="50" id="H3z-f9-8Lz"/>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VS2-nK-knS"/>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="X0u-u1-nfd"/>
+                <constraint firstItem="SK5-a7-QOJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="caa-tu-BTW"/>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dMz-Vb-FQp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VL5-9Y-vX2" secondAttribute="trailing" constant="50" id="gSb-bZ-ppJ"/>
+                <constraint firstItem="VL5-9Y-vX2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="p7V-Pa-wy2"/>
+                <constraint firstItem="SK5-a7-QOJ" firstAttribute="top" secondItem="VL5-9Y-vX2" secondAttribute="bottom" id="tvg-76-fI2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SK5-a7-QOJ" secondAttribute="trailing" constant="20" id="zl9-hB-wGO"/>
             </constraints>
             <point key="canvasLocation" x="127.69230769230769" y="20.616113744075829"/>
         </view>

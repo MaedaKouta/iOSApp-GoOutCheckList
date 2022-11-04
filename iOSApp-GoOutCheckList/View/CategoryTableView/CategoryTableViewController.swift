@@ -63,7 +63,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         categoryTableViewModel.updateCategoryList()
-        displaynothingTableViewDataImage()
+        displaynothingTableViewData()
     }
 
     override func viewDidLoad() {
@@ -79,7 +79,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         setupBindings()
         setupFloatingPanel()
 
-        displaynothingTableViewDataImage()
+        displaynothingTableViewData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -145,13 +145,13 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         categoryTableViewModel.outputs.addCategoryPublishRelay
             .subscribe{ [weak self] _ in
-                self?.displaynothingTableViewDataImage()
+                self?.displaynothingTableViewData()
                 self?.tableView.reloadData()
             }.disposed(by: disposeBag)
 
         tableView.rx.itemDeleted.asObservable()
             .subscribe{ [weak self] _ in
-                self?.displaynothingTableViewDataImage()
+                self?.displaynothingTableViewData()
             }.disposed(by: disposeBag)
     }
 
@@ -183,7 +183,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     // MARK: Method
-    private func displaynothingTableViewDataImage() {
+    private func displaynothingTableViewData() {
         if categoryDataSource.item.isEmpty {
             nothingTableViewDataImageView.image = UIImage(named: "day_off")
 

@@ -18,7 +18,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
-    @IBOutlet weak var nothingTableViewDataImageView: UIImageView!
+    @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
+    @IBOutlet private weak var nothingTableViewLabel: UILabel!
 
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -194,5 +195,26 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
         tableView.setEditing(isSelected, animated: true)
         setupNavigationbar()
+    }
+
+    // MARK: Method
+    private func displaynothingTableViewData() {
+        if checkItemDataSource.item.isEmpty {
+            nothingTableViewDataImageView.image = UIImage(named: "day_off")
+
+            // アニメーション開始
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.75)
+            let transition = CATransition()
+            transition.type = CATransitionType.fade
+            nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
+            nothingTableViewDataImageView.isHidden = false
+            nothingTableViewLabel.isHidden = false
+            CATransaction.commit()
+
+        } else {
+            nothingTableViewDataImageView.isHidden = true
+            nothingTableViewLabel.isHidden = true
+        }
     }
 }
