@@ -35,29 +35,36 @@
                         <constraint firstAttribute="height" constant="75" id="zIw-GM-Lma"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqZ-5P-Pzb">
-                    <rect key="frame" x="33" y="526" width="341" height="61"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqZ-5P-Pzb">
+                    <rect key="frame" x="20" y="517" width="350" height="36"/>
                     <string key="text">カテゴリーが空です...
 プラスボタンから追加しましょう</string>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tau-JP-t0K">
-                    <rect key="frame" x="33" y="286" width="341" height="232"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tau-JP-t0K">
+                    <rect key="frame" x="50" y="227" width="290" height="290"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tau-JP-t0K" secondAttribute="height" multiplier="1:1" id="Nns-0V-nFj"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="PqZ-5P-Pzb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="0es-eX-Dp9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tau-JP-t0K" secondAttribute="trailing" constant="50" id="6TQ-F8-k7L"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="GPs-H3-omb"/>
+                <constraint firstItem="PqZ-5P-Pzb" firstAttribute="top" secondItem="tau-JP-t0K" secondAttribute="bottom" id="QUh-tE-ZDr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PqZ-5P-Pzb" secondAttribute="trailing" constant="20" id="Wsy-Mn-TQV"/>
+                <constraint firstItem="tau-JP-t0K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="Zwf-8j-lw4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PwV-oi-Wqn" secondAttribute="bottom" constant="35" id="a7p-3s-iKs"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bhc-y3-41I"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PwV-oi-Wqn" secondAttribute="trailing" constant="50" id="iFH-Dx-wMJ"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lpm-9Y-uXV"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="s93-ru-czS"/>
+                <constraint firstItem="tau-JP-t0K" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="ste-nn-YYG"/>
             </constraints>
             <point key="canvasLocation" x="140" y="20.616113744075829"/>
         </view>
