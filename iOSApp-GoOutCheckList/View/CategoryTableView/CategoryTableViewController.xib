@@ -27,14 +27,6 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwV-oi-Wqn" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
-                    <rect key="frame" x="265" y="700" width="75" height="75"/>
-                    <color key="backgroundColor" systemColor="systemPinkColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="tC8-S7-Zfh"/>
-                        <constraint firstAttribute="height" constant="75" id="zIw-GM-Lma"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqZ-5P-Pzb">
                     <rect key="frame" x="20" y="517" width="350" height="36"/>
                     <string key="text">カテゴリーが空です...
@@ -49,6 +41,14 @@
                         <constraint firstAttribute="width" secondItem="tau-JP-t0K" secondAttribute="height" multiplier="1:1" id="Nns-0V-nFj"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwV-oi-Wqn" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+                    <rect key="frame" x="265" y="700" width="75" height="75"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="tC8-S7-Zfh"/>
+                        <constraint firstAttribute="height" constant="75" id="zIw-GM-Lma"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
