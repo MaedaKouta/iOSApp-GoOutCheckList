@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="addCategoryButtonView" destination="PwV-oi-Wqn" id="6G7-EG-epM"/>
                 <outlet property="nothingTableViewDataImageView" destination="tau-JP-t0K" id="1VA-cw-xdS"/>
+                <outlet property="nothingTableViewLabel" destination="PqZ-5P-Pzb" id="8WQ-5A-wvx"/>
                 <outlet property="tableView" destination="2R2-BV-O0c" id="VIe-kH-IYC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,10 +27,6 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tau-JP-t0K">
-                    <rect key="frame" x="75" y="314" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwV-oi-Wqn" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
                     <rect key="frame" x="265" y="700" width="75" height="75"/>
                     <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -38,6 +35,19 @@
                         <constraint firstAttribute="height" constant="75" id="zIw-GM-Lma"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqZ-5P-Pzb">
+                    <rect key="frame" x="33" y="526" width="341" height="61"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <string key="text">カテゴリーが空です...
+プラスボタンから追加しましょう</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tau-JP-t0K">
+                    <rect key="frame" x="33" y="286" width="341" height="232"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -17,7 +17,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
-    @IBOutlet weak private var nothingTableViewDataImageView: UIImageView!
+    @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
+    @IBOutlet private weak var nothingTableViewLabel: UILabel!
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -184,7 +185,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // MARK: Method
     private func displaynothingTableViewDataImage() {
         if categoryDataSource.item.isEmpty {
-            nothingTableViewDataImageView.image = UIImage(named: "question_small")
+            nothingTableViewDataImageView.image = UIImage(named: "day_off")
 
             // アニメーション開始
             CATransaction.begin()
@@ -193,10 +194,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             transition.type = CATransitionType.fade
             nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
             nothingTableViewDataImageView.isHidden = false
+            nothingTableViewLabel.isHidden = false
             CATransaction.commit()
 
         } else {
             nothingTableViewDataImageView.isHidden = true
+            nothingTableViewLabel.isHidden = true
         }
     }
 
