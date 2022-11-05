@@ -74,6 +74,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
+        
 
         setupAddCategoryButton()
         setupNavigationbar()
