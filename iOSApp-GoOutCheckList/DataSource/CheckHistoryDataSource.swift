@@ -26,7 +26,27 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "履歴が50件表示されます"
+        if item.isEmpty {
+            return nil
+        } else {
+            return "履歴が50件表示されます"
+        }
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            try! self.realm.write {
+                item.remove(at: indexPath.row)
+            }
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        case .insert, .none:
+            break
+        @unknown default:
+            break
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
