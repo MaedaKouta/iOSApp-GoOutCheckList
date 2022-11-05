@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckHistoryViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
+                <outlet property="nothingTableViewDataImageView" destination="zSK-z2-fOt" id="QV7-xA-rzX"/>
+                <outlet property="nothingTableViewLabel" destination="8mc-dr-eKx" id="vpw-zu-AFf"/>
                 <outlet property="tableView" destination="eco-cM-gSd" id="MV7-gT-xX4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,14 +26,34 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSK-z2-fOt">
+                    <rect key="frame" x="50" y="227" width="290" height="290"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="zSK-z2-fOt" secondAttribute="height" multiplier="1:1" id="WxQ-FH-dGC"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mc-dr-eKx">
+                    <rect key="frame" x="20" y="517" width="350" height="36"/>
+                    <string key="text">履歴はありません...
+チェックを完了すると追加されます</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="zSK-z2-fOt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="2ih-aE-hHY"/>
                 <constraint firstItem="eco-cM-gSd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GQJ-xk-FEa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eco-cM-gSd" secondAttribute="bottom" id="H1p-un-nFc"/>
                 <constraint firstItem="eco-cM-gSd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="K2N-0U-XEW"/>
+                <constraint firstItem="8mc-dr-eKx" firstAttribute="top" secondItem="zSK-z2-fOt" secondAttribute="bottom" id="Sub-YW-nYy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zSK-z2-fOt" secondAttribute="trailing" constant="50" id="VPL-Qc-87J"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8mc-dr-eKx" secondAttribute="trailing" constant="20" id="aSF-Dg-3iE"/>
                 <constraint firstItem="eco-cM-gSd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cqf-Vu-LEL"/>
+                <constraint firstItem="zSK-z2-fOt" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="ite-6j-aWU"/>
+                <constraint firstItem="8mc-dr-eKx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rYg-FZ-qX8"/>
             </constraints>
             <point key="canvasLocation" x="140" y="0.0"/>
         </view>
