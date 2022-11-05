@@ -78,8 +78,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         setupTableView()
         setupBindings()
         setupFloatingPanel()
-
-        displaynothingTableViewData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {

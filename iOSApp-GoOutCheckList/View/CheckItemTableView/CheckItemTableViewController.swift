@@ -54,6 +54,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displaynothingTableViewData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationbar()
@@ -103,6 +108,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         checkItemViewModel.outputs.addItemPublishRelay
             .subscribe { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.displaynothingTableViewData()
             }.disposed(by: disposeBag)
 
         // 全てチェックされたらPKHUDを表示
@@ -140,6 +146,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     }
                 }
             }.disposed(by: disposeBag)
+
+        tableView.rx.itemDeleted.asObservable()
+            .subscribe{ [weak self] _ in
+                self?.displaynothingTableViewData()
+            }.disposed(by: disposeBag)
+
     }
 
     private func setupFloatingPanel() {
@@ -200,7 +212,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     // MARK: Method
     private func displaynothingTableViewData() {
         if checkItemDataSource.item.isEmpty {
-            nothingTableViewDataImageView.image = UIImage(named: "day_off")
+            nothingTableViewDataImageView.image = UIImage(named: "item_nothing")
 
             // アニメーション開始
             CATransaction.begin()
