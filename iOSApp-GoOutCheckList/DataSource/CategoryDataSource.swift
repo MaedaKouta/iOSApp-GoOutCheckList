@@ -48,46 +48,20 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive,
-                                        title: "削除") { [weak self] (action, view, completionHandler) in
-            try! self?.realm.write {
-                guard let checkItems = self?.item[indexPath.row].checkItems else {
-                    return
-                }
-                self?.realm.delete(checkItems)
-                self?.item.remove(at: indexPath.row)
-            }
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
+        let deleteAction = UIContextualAction(style: .normal,
+                                        title: "削除") {(action, view, completionHandler) in
+
+            NotificationCenter.default.post(name: .CategoryViewFromDataSourceDeleteNotification, object: nil, userInfo: ["indexPath": indexPath])
             completionHandler(true)
         }
         let overwriteAction = UIContextualAction(style: .normal,
                                         title: "編集") { (action, view, completionHandler) in
-            //self.showAlert(deleteIndexPath: indexPath)
             completionHandler(true)
         }
         deleteAction.backgroundColor = .red
         overwriteAction.backgroundColor = .systemGreen
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, overwriteAction])
         return configuration
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            try! self.realm.write {
-                realm.delete(item[indexPath.row].checkItems)
-                item.remove(at: indexPath.row)
-            }
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
-        case .insert, .none:
-            break
-        @unknown default:
-            break
-        }
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

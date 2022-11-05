@@ -12,7 +12,9 @@ import RxRelay
 import FloatingPanel
 import RealmSwift
 
-class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate {
+class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate, UITableViewDelegate {
+
+
 
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -73,6 +75,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
 
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CategoryViewFromDataSourceDeleteNotification, object: nil)
+
         setupAddCategoryButton()
         setupNavigationbar()
         setupTableView()
@@ -116,9 +120,15 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
         let storyboard: UIStoryboard = UIStoryboard(name: "SettingStoryboard", bundle: nil)
             if let settingVC = storyboard.instantiateInitialViewController() {
-                //self.present(settingVC, animated: true, completion: nil)
                 self.navigationController?.pushViewController(settingVC, animated: true)
         }
+    }
+
+    @objc private func selectedCellDelete(notification: NSNotification?) {
+        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+            return
+        }
+        cellDeletedAlert(indexPath: indexPath)
     }
 
     // MARK: - Setups
@@ -150,6 +160,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         tableView.rx.itemDeleted.asObservable()
             .subscribe{ [weak self] _ in
+                print("gere")
                 self?.displaynothingTableViewData()
                 self?.setEditBarButtonItemIcon(isSelected: false)
             }.disposed(by: disposeBag)
@@ -186,7 +197,20 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         } else {
             navigationItem.rightBarButtonItems?[1].isEnabled = true
         }
+    }
 
+    private func setupAddCategoryButton() {
+        let image = UIImageView(image: UIImage(systemName: "plus"))
+        image.frame = CGRect(x: 22, y: 22, width: 31, height: 31)
+
+        addCategoryButtonView.backgroundColor = UIColor.white
+        addCategoryButtonView.tintColor = .darkGray
+        addCategoryButtonView.addSubview(image)
+        addCategoryButtonView.layer.cornerRadius = 37.5
+        addCategoryButtonView.layer.shadowColor = UIColor.black.cgColor
+        addCategoryButtonView.layer.shadowRadius = 10
+        addCategoryButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        addCategoryButtonView.layer.shadowOpacity = 0.35
     }
 
     // MARK: Method
@@ -234,18 +258,35 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         setupNavigationbar()
     }
 
-    private func setupAddCategoryButton() {
-        let image = UIImageView(image: UIImage(systemName: "plus"))
-        image.frame = CGRect(x: 22, y: 22, width: 31, height: 31)
+    private func cellDeletedAlert(indexPath: IndexPath) {
+        let alert: UIAlertController = UIAlertController(
+            title: "",
+            message: """
+            \(categoryDataSource.item[indexPath.row].name)のカテゴリーを削除します。よろしいですか？
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
 
-        addCategoryButtonView.backgroundColor = UIColor.white
-        addCategoryButtonView.tintColor = .darkGray
-        addCategoryButtonView.addSubview(image)
-        addCategoryButtonView.layer.cornerRadius = 37.5
-        addCategoryButtonView.layer.shadowColor = UIColor.black.cgColor
-        addCategoryButtonView.layer.shadowRadius = 10
-        addCategoryButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
-        addCategoryButtonView.layer.shadowOpacity = 0.35
+        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+            try! self.realm.write {
+                self.realm.delete(self.categoryDataSource.item[indexPath.row].checkItems)
+                self.categoryDataSource.item.remove(at: indexPath.row)
+            }
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .top)
+            self.tableView.endUpdates()
+
+            self.displaynothingTableViewData()
+            self.setEditBarButtonItemIcon(isSelected: false)
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
     }
 
     // MARK: - Test
