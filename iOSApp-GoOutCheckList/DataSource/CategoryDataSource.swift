@@ -15,7 +15,7 @@ import RealmSwift
  CategoryTableViewControllerから呼ばれ、TableViewを管理するクラス
  RxSwiftでTableViewを監視するために必要
  */
-class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType, UITableViewDelegate {
 
     typealias Element = List<Category>
     var item = List<Category>()
@@ -37,6 +37,14 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
 
         cell.configure(image: UIImage(data: imageData), name: element.name)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
