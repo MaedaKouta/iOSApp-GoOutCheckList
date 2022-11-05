@@ -16,6 +16,10 @@ import FloatingPanel
 class CheckHistoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+
+    @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
+    @IBOutlet private weak var nothingTableViewLabel: UILabel!
+
     private let disposeBag = DisposeBag()
     private var checkHistoryDataSource = CheckHistoryDataSource()
     private let realm = try! Realm()
@@ -23,6 +27,11 @@ class CheckHistoryViewController: UIViewController {
     private lazy var checkHistoryViewModel = CheckHistoryViewModel(
         tableViewItemSelectedObservable: tableView.rx.itemSelected.asObservable()
     )
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displaynothingTableViewData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +85,38 @@ class CheckHistoryViewController: UIViewController {
                 )
 
                 let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                        (action: UIAlertAction!) -> Void in
+                    (action: UIAlertAction!) -> Void in
                 })
                 alert.addAction(defaultAction)
                 self?.present(alert, animated: true, completion: nil)
 
             }.disposed(by: disposeBag)
+
+        tableView.rx.itemDeleted.asObservable()
+            .subscribe{ [weak self] _ in
+                self?.displaynothingTableViewData()
+            }.disposed(by: disposeBag)
+    }
+
+    // MARK: Method
+    private func displaynothingTableViewData() {
+        if checkHistoryDataSource.item.isEmpty {
+            nothingTableViewDataImageView.image = UIImage(named: "well_done")
+
+            // アニメーション開始
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.75)
+            let transition = CATransition()
+            transition.type = CATransitionType.fade
+            nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
+            nothingTableViewDataImageView.isHidden = false
+            nothingTableViewLabel.isHidden = false
+            CATransaction.commit()
+
+        } else {
+            nothingTableViewDataImageView.isHidden = true
+            nothingTableViewLabel.isHidden = true
+        }
     }
 
 }

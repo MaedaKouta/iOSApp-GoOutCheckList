@@ -18,9 +18,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
+    @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
+    @IBOutlet private weak var nothingTableViewLabel: UILabel!
+
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
@@ -51,16 +54,38 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displaynothingTableViewData()
+        updateNavigationbar()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
         setupAddItemButton()
+        setupNotifications()
     }
 
     // MARK: Actions
+    @objc private func selectedCellDelete(notification: NSNotification?) {
+        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+            return
+        }
+        cellDeletedAlert(indexPath: indexPath)
+    }
+
+    @objc private func selectedCellOverwrite(notification: NSNotification?) {
+//        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+//            return
+//        }
+
+    }
+
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         if checkItemDataSource.item.count != 0 {
             isSelectedEditingBarButton.toggle()
@@ -81,6 +106,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     // MARK: - Setups
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CheckItemViewFromDataSourceDeleteNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellOverwrite(notification:)), name: .CheckItemViewFromDataSourceOverwriteNotification, object: nil)
+    }
+
     private func setupTableView() {
         tableView.delegate = checkItemDataSource
         tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
@@ -100,6 +131,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         checkItemViewModel.outputs.addItemPublishRelay
             .subscribe { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.displaynothingTableViewData()
+                self?.updateNavigationbar()
             }.disposed(by: disposeBag)
 
         // 全てチェックされたらPKHUDを表示
@@ -168,6 +201,16 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     private func setupNavigationbar() {
         navigationItem.title = categoryObject.name
         self.navigationItem.rightBarButtonItem = editBarButtonItem
+        updateNavigationbar()
+    }
+
+    private func updateNavigationbar() {
+        // アイテムが１つ以下だったら並べ替えボタンタップできなくする
+        if checkItemDataSource.item.isEmpty {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
     }
 
     // MARK: Method
@@ -175,7 +218,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         if isSelected {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "pencil.slash", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
                 button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
                 button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
                 return UIBarButtonItem(customView: button)
@@ -183,7 +226,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         } else {
             editBarButtonItem = {
                 let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
                 button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
                 button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
                 return UIBarButtonItem(customView: button)
@@ -193,4 +236,55 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         tableView.setEditing(isSelected, animated: true)
         setupNavigationbar()
     }
+
+    // MARK: Method
+    private func displaynothingTableViewData() {
+        if checkItemDataSource.item.isEmpty {
+            nothingTableViewDataImageView.image = UIImage(named: "item_nothing")
+
+            // アニメーション開始
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.75)
+            let transition = CATransition()
+            transition.type = CATransitionType.fade
+            nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
+            nothingTableViewDataImageView.isHidden = false
+            nothingTableViewLabel.isHidden = false
+            CATransaction.commit()
+
+        } else {
+            nothingTableViewDataImageView.isHidden = true
+            nothingTableViewLabel.isHidden = true
+        }
+    }
+
+    private func cellDeletedAlert(indexPath: IndexPath) {
+        let alert: UIAlertController = UIAlertController(
+            title: "",
+            message: """
+            \(checkItemDataSource.item[indexPath.row].name)のアイテムを削除します。よろしいですか？
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+            (action: UIAlertAction!) -> Void in
+            try! self.realm.write {
+                self.checkItemDataSource.item.remove(at: indexPath.row)
+            }
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .top)
+            self.tableView.endUpdates()
+
+            self.displaynothingTableViewData()
+            self.updateNavigationbar()
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }

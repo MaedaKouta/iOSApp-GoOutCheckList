@@ -23,6 +23,7 @@ public protocol CategoryTableViewModelOutputs {
     var categoryDataBehaviorRelay: BehaviorRelay<List<Category>> { get }
     var tableViewItemSeletedPublishRelay: PublishRelay<IndexPath> { get }
     var addCategoryPublishRelay: PublishRelay<Void> { get }
+    var isContainDataPublishRelay: PublishRelay<Bool> { get }
 }
 
 // MARK: InputOutputType
@@ -41,6 +42,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     public var categoryDataBehaviorRelay = BehaviorRelay<List<Category>>(value: List<Category>())
     public var tableViewItemSeletedPublishRelay = PublishRelay<IndexPath>()
     public var addCategoryPublishRelay = PublishRelay<Void>()
+    public var isContainDataPublishRelay = PublishRelay<Bool>()
 
     // MARK: InputOutputType
     public var inputs: CategoryTableViewModelInputs { return self }
@@ -80,7 +82,6 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
     // MARK: - Setups
     private func setupBindings() {
-
         tableViewItemSeletedObservable.asObservable()
             .subscribe(onNext: { [weak self] indexPath in
                 self?.outputs.tableViewItemSeletedPublishRelay.accept(indexPath)

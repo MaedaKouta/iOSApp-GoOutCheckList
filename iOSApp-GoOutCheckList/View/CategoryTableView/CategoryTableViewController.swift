@@ -12,16 +12,19 @@ import RxRelay
 import FloatingPanel
 import RealmSwift
 
-class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate {
+class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate, UITableViewDelegate {
+
+
 
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
-
+    @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
+    @IBOutlet private weak var nothingTableViewLabel: UILabel!
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
@@ -37,7 +40,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private lazy var settingBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "gearshape", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
         button.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
@@ -62,6 +65,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         categoryTableViewModel.updateCategoryList()
+        displaynothingTableViewData()
     }
 
     override func viewDidLoad() {
@@ -70,12 +74,14 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
+        
 
         setupAddCategoryButton()
         setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
+        setupNotifications()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -114,12 +120,31 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
         let storyboard: UIStoryboard = UIStoryboard(name: "SettingStoryboard", bundle: nil)
             if let settingVC = storyboard.instantiateInitialViewController() {
-                //self.present(settingVC, animated: true, completion: nil)
                 self.navigationController?.pushViewController(settingVC, animated: true)
         }
     }
 
+    @objc private func selectedCellDelete(notification: NSNotification?) {
+        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+            return
+        }
+        cellDeletedAlert(indexPath: indexPath)
+    }
+
+    @objc private func selectedCellOverwrite(notification: NSNotification?) {
+//        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+//            return
+//        }
+
+    }
+
     // MARK: - Setups
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CategoryViewFromDataSourceDeleteNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellOverwrite(notification:)), name: .CategoryViewFromDataSourceOverwriteNotification, object: nil)
+    }
+
     private func setupBindings() {
         // セルがタップされたときに、次の画面へ遷移させる処理
         //（画面遷移に関わるためViewに書く必要がある）
@@ -141,12 +166,22 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         categoryTableViewModel.outputs.addCategoryPublishRelay
             .subscribe{ [weak self] _ in
+                self?.displaynothingTableViewData()
                 self?.tableView.reloadData()
+                self?.setEditBarButtonItemIcon(isSelected: false)
+            }.disposed(by: disposeBag)
+
+        tableView.rx.itemDeleted.asObservable()
+            .subscribe{ [weak self] _ in
+                print("gere")
+                self?.displaynothingTableViewData()
+                self?.setEditBarButtonItemIcon(isSelected: false)
             }.disposed(by: disposeBag)
     }
 
     private func setupTableView() {
         tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
+        tableView.delegate = categoryDataSource
         tableView.rowHeight = 50
     }
 
@@ -165,36 +200,16 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
         navigationItem.leftBarButtonItem = settingBarButtonItem
-
         navigationItem.setRightBarButtonItems(
             [historyBarButtonItem, editBarButtonItem],
             animated: true)
 
-    }
-
-    // MARK: Method
-    private func setEditBarButtonItemIcon(isSelected: Bool) {
-
-        if isSelected {
-            editBarButtonItem = {
-                let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "pencil.slash", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
-                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
-                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
-                return UIBarButtonItem(customView: button)
-            }()
+        // カテゴリーが１つ以下だったら並べ替えボタンタップできなくする
+        if categoryDataSource.item.isEmpty {
+            navigationItem.rightBarButtonItems?[1].isEnabled = false
         } else {
-            editBarButtonItem = {
-                let button = UIButton(type: .custom)
-                button.setImage(UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
-                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
-                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
-                return UIBarButtonItem(customView: button)
-            }()
+            navigationItem.rightBarButtonItems?[1].isEnabled = true
         }
-
-        tableView.setEditing(isSelected, animated: true)
-        setupNavigationbar()
     }
 
     private func setupAddCategoryButton() {
@@ -209,6 +224,82 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         addCategoryButtonView.layer.shadowRadius = 10
         addCategoryButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         addCategoryButtonView.layer.shadowOpacity = 0.35
+    }
+
+    // MARK: Method
+    private func displaynothingTableViewData() {
+        if categoryDataSource.item.isEmpty {
+            nothingTableViewDataImageView.image = UIImage(named: "day_off")
+
+            // アニメーション開始
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.75)
+            let transition = CATransition()
+            transition.type = CATransitionType.fade
+            nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
+            nothingTableViewDataImageView.isHidden = false
+            nothingTableViewLabel.isHidden = false
+            CATransaction.commit()
+
+        } else {
+            nothingTableViewDataImageView.isHidden = true
+            nothingTableViewLabel.isHidden = true
+        }
+    }
+
+    private func setEditBarButtonItemIcon(isSelected: Bool) {
+
+        if isSelected {
+            editBarButtonItem = {
+                let button = UIButton(type: .custom)
+                button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+                return UIBarButtonItem(customView: button)
+            }()
+        } else {
+            editBarButtonItem = {
+                let button = UIButton(type: .custom)
+                button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+                button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+                button.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+                return UIBarButtonItem(customView: button)
+            }()
+        }
+
+        tableView.setEditing(isSelected, animated: true)
+        setupNavigationbar()
+    }
+
+    private func cellDeletedAlert(indexPath: IndexPath) {
+        let alert: UIAlertController = UIAlertController(
+            title: "",
+            message: """
+            \(categoryDataSource.item[indexPath.row].name)のカテゴリーを削除します。よろしいですか？
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+            try! self.realm.write {
+                self.realm.delete(self.categoryDataSource.item[indexPath.row].checkItems)
+                self.categoryDataSource.item.remove(at: indexPath.row)
+            }
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .top)
+            self.tableView.endUpdates()
+
+            self.displaynothingTableViewData()
+            self.setEditBarButtonItemIcon(isSelected: false)
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
     }
 
     // MARK: - Test

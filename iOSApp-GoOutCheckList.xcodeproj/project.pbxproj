@@ -52,6 +52,7 @@
 		87B41B4428EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */; };
 		87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */; };
 		87C268D7290F6F50000319E5 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C268D5290F6F50000319E5 /* SettingTableViewController.swift */; };
+		87C7CFE429162E1D00C4F451 /* DoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7CFE329162E1D00C4F451 /* DoneTextField.swift */; };
 		87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */; };
 		87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */; };
 		87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */; };
@@ -129,6 +130,7 @@
 		87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewModel.swift; sourceTree = "<group>"; };
 		87C268D5290F6F50000319E5 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		87C7CFE329162E1D00C4F451 /* DoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTextField.swift; sourceTree = "<group>"; };
 		87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				87A2664528EFB47C0091C282 /* FloatingPanelLayout.swift */,
 				8730C40D290CEC420020629C /* TouchFeedbackView.swift */,
+				87C7CFE329162E1D00C4F451 /* DoneTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				874602D8290A0068009D1D50 /* CheckHistoryTableViewModel.swift in Sources */,
 				8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */,
+				87C7CFE429162E1D00C4F451 /* DoneTextField.swift in Sources */,
 				8730C40E290CEC420020629C /* TouchFeedbackView.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,
 				87C268D7290F6F50000319E5 /* SettingTableViewController.swift in Sources */,

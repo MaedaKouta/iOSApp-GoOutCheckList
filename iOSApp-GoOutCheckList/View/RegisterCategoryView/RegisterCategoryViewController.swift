@@ -14,7 +14,7 @@ struct CategoryImage {
 
 class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet private weak var categoryNameTextField: UITextField!
+    @IBOutlet private weak var categoryNameTextField: DoneTextField!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
