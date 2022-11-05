@@ -21,11 +21,6 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
     var item = List<CheckItem>()
     private let realm = try! Realm()
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        print("deselectRow1")
-//    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
     }
@@ -35,6 +30,14 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
         let element = item[indexPath.row]
         cell.configure(name: element.name, isDone: element.isDone)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
