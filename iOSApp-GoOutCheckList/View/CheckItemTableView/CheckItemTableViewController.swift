@@ -170,13 +170,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     }
                 }
             }.disposed(by: disposeBag)
-
-        tableView.rx.itemDeleted.asObservable()
-            .subscribe{ [weak self] _ in
-                self?.displaynothingTableViewData()
-                self?.updateNavigationbar()
-            }.disposed(by: disposeBag)
-
     }
 
     private func setupFloatingPanel() {
@@ -284,6 +277,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             self.tableView.endUpdates()
 
             self.displaynothingTableViewData()
+            self.updateNavigationbar()
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
