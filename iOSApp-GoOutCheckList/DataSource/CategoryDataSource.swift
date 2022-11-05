@@ -56,6 +56,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
         let overwriteAction = UIContextualAction(style: .normal,
                                         title: "編集") { (action, view, completionHandler) in
+            NotificationCenter.default.post(name: .CategoryViewFromDataSourceOverwriteNotification, object: nil, userInfo: ["indexPath": indexPath])
             completionHandler(true)
         }
         deleteAction.backgroundColor = .red

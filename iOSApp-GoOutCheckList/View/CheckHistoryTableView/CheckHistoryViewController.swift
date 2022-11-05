@@ -85,7 +85,7 @@ class CheckHistoryViewController: UIViewController {
                 )
 
                 let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                        (action: UIAlertAction!) -> Void in
+                    (action: UIAlertAction!) -> Void in
                 })
                 alert.addAction(defaultAction)
                 self?.present(alert, animated: true, completion: nil)
@@ -99,24 +99,24 @@ class CheckHistoryViewController: UIViewController {
     }
 
     // MARK: Method
-        private func displaynothingTableViewData() {
-            if checkHistoryDataSource.item.isEmpty {
-                nothingTableViewDataImageView.image = UIImage(named: "well_done")
+    private func displaynothingTableViewData() {
+        if checkHistoryDataSource.item.isEmpty {
+            nothingTableViewDataImageView.image = UIImage(named: "well_done")
 
-                // アニメーション開始
-                CATransaction.begin()
-                CATransaction.setAnimationDuration(0.75)
-                let transition = CATransition()
-                transition.type = CATransitionType.fade
-                nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
-                nothingTableViewDataImageView.isHidden = false
-                nothingTableViewLabel.isHidden = false
-                CATransaction.commit()
+            // アニメーション開始
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.75)
+            let transition = CATransition()
+            transition.type = CATransitionType.fade
+            nothingTableViewDataImageView.layer.add(transition, forKey: kCATransition)
+            nothingTableViewDataImageView.isHidden = false
+            nothingTableViewLabel.isHidden = false
+            CATransaction.commit()
 
-            } else {
-                nothingTableViewDataImageView.isHidden = true
-                nothingTableViewLabel.isHidden = true
-            }
+        } else {
+            nothingTableViewDataImageView.isHidden = true
+            nothingTableViewLabel.isHidden = true
         }
+    }
 
 }

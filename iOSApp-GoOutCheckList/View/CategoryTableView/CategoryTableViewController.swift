@@ -75,13 +75,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
 
-        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CategoryViewFromDataSourceDeleteNotification, object: nil)
-
         setupAddCategoryButton()
         setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
+        setupNotifications()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -131,7 +130,20 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         cellDeletedAlert(indexPath: indexPath)
     }
 
+    @objc private func selectedCellOverwrite(notification: NSNotification?) {
+//        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+//            return
+//        }
+
+    }
+
     // MARK: - Setups
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CategoryViewFromDataSourceDeleteNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellOverwrite(notification:)), name: .CategoryViewFromDataSourceOverwriteNotification, object: nil)
+    }
+
     private func setupBindings() {
         // セルがタップされたときに、次の画面へ遷移させる処理
         //（画面遷移に関わるためViewに書く必要がある）

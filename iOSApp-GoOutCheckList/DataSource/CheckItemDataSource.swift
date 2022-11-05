@@ -40,20 +40,22 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
         return false
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            try! self.realm.write {
-                item.remove(at: indexPath.row)
-            }
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
-        case .insert, .none:
-            break
-        @unknown default:
-            break
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal,
+                                        title: "削除") {(action, view, completionHandler) in
+
+            NotificationCenter.default.post(name: .CheckItemViewFromDataSourceDeleteNotification, object: nil, userInfo: ["indexPath": indexPath])
+            completionHandler(true)
         }
+        let overwriteAction = UIContextualAction(style: .normal,
+                                        title: "編集") { (action, view, completionHandler) in
+            NotificationCenter.default.post(name: .CheckItemViewFromDataSourceOverwriteNotification, object: nil, userInfo: ["indexPath": indexPath])
+            completionHandler(true)
+        }
+        deleteAction.backgroundColor = .red
+        overwriteAction.backgroundColor = .systemGreen
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, overwriteAction])
+        return configuration
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

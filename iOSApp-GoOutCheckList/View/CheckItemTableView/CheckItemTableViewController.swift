@@ -62,14 +62,30 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
         setupAddItemButton()
+        setupNotifications()
     }
 
     // MARK: Actions
+    @objc private func selectedCellDelete(notification: NSNotification?) {
+        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+            return
+        }
+        cellDeletedAlert(indexPath: indexPath)
+    }
+
+    @objc private func selectedCellOverwrite(notification: NSNotification?) {
+//        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+//            return
+//        }
+
+    }
+
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
         if checkItemDataSource.item.count != 0 {
             isSelectedEditingBarButton.toggle()
@@ -90,6 +106,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     // MARK: - Setups
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CheckItemViewFromDataSourceDeleteNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCellOverwrite(notification:)), name: .CheckItemViewFromDataSourceOverwriteNotification, object: nil)
+    }
+
     private func setupTableView() {
         tableView.delegate = checkItemDataSource
         tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
@@ -242,4 +264,33 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             nothingTableViewLabel.isHidden = true
         }
     }
+
+    private func cellDeletedAlert(indexPath: IndexPath) {
+        let alert: UIAlertController = UIAlertController(
+            title: "",
+            message: """
+            \(checkItemDataSource.item[indexPath.row].name)のアイテムを削除します。よろしいですか？
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+            (action: UIAlertAction!) -> Void in
+            try! self.realm.write {
+                self.checkItemDataSource.item.remove(at: indexPath.row)
+            }
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .top)
+            self.tableView.endUpdates()
+
+            self.displaynothingTableViewData()
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
