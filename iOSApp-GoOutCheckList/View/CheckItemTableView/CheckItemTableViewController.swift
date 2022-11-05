@@ -57,6 +57,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         displaynothingTableViewData()
+        updateNavigationbar()
     }
 
     override func viewDidLoad() {
@@ -109,6 +110,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             .subscribe { [weak self] _ in
                 self?.tableView.reloadData()
                 self?.displaynothingTableViewData()
+                self?.updateNavigationbar()
             }.disposed(by: disposeBag)
 
         // 全てチェックされたらPKHUDを表示
@@ -150,6 +152,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         tableView.rx.itemDeleted.asObservable()
             .subscribe{ [weak self] _ in
                 self?.displaynothingTableViewData()
+                self?.updateNavigationbar()
             }.disposed(by: disposeBag)
 
     }
@@ -183,6 +186,16 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     private func setupNavigationbar() {
         navigationItem.title = categoryObject.name
         self.navigationItem.rightBarButtonItem = editBarButtonItem
+        updateNavigationbar()
+    }
+
+    private func updateNavigationbar() {
+        // アイテムが１つ以下だったら並べ替えボタンタップできなくする
+        if checkItemDataSource.item.count <= 1 {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
     }
 
     // MARK: Method

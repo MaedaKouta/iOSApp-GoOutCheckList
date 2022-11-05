@@ -186,6 +186,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         } else {
             navigationItem.rightBarButtonItems?[1].isEnabled = true
         }
+
     }
 
     // MARK: Method
