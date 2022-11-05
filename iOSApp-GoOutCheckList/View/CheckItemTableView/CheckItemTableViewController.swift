@@ -191,7 +191,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     private func updateNavigationbar() {
         // アイテムが１つ以下だったら並べ替えボタンタップできなくする
-        if checkItemDataSource.item.count <= 1 {
+        if checkItemDataSource.item.isEmpty {
             navigationItem.rightBarButtonItem?.isEnabled = false
         } else {
             navigationItem.rightBarButtonItem?.isEnabled = true

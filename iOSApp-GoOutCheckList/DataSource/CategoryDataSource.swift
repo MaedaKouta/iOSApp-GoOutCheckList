@@ -39,13 +39,39 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        return .none
-//    }
-//
-//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-//        return false
-//    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive,
+                                        title: "削除") { [weak self] (action, view, completionHandler) in
+            try! self?.realm.write {
+                guard let checkItems = self?.item[indexPath.row].checkItems else {
+                    return
+                }
+                self?.realm.delete(checkItems)
+                self?.item.remove(at: indexPath.row)
+            }
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            completionHandler(true)
+        }
+        let overwriteAction = UIContextualAction(style: .normal,
+                                        title: "編集") { (action, view, completionHandler) in
+            //self.showAlert(deleteIndexPath: indexPath)
+            completionHandler(true)
+        }
+        deleteAction.backgroundColor = .red
+        overwriteAction.backgroundColor = .systemGreen
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, overwriteAction])
+        return configuration
+    }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
@@ -87,6 +113,36 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
         .on(observedEvent)
     }
+
+//    func showAlert(deleteIndexPath indexPath: IndexPath) {
+//
+//        let alert: UIAlertController = UIAlertController(
+//            title: "警告",
+//            message: """
+//            \(item[indexPath.row].name)を削除します。
+//            この操作は取り消せません。
+//            """,
+//            preferredStyle:  UIAlertController.Style.alert
+//        )
+//
+//        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+//                (action: UIAlertAction!) -> Void in
+//            try! self.realm.write {
+//                realm.delete(item[indexPath.row].checkItems)
+//                item.remove(at: indexPath.row)
+//            }
+//            tableView.beginUpdates()
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            tableView.endUpdates()
+//        })
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
+//                (action: UIAlertAction!) -> Void in
+//        })
+//
+//        alert.addAction(okAction)
+//        alert.addAction(cancelAction)
+//        present(alert, animated: true, completion: nil)
+//    }
 
 }
 

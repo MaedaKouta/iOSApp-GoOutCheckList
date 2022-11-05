@@ -181,7 +181,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             animated: true)
 
         // カテゴリーが１つ以下だったら並べ替えボタンタップできなくする
-        if categoryDataSource.item.count <= 1 {
+        if categoryDataSource.item.isEmpty {
             navigationItem.rightBarButtonItems?[1].isEnabled = false
         } else {
             navigationItem.rightBarButtonItems?[1].isEnabled = true
