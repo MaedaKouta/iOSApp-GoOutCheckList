@@ -38,7 +38,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private lazy var settingBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "gearshape", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
         button.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
@@ -145,11 +145,13 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             .subscribe{ [weak self] _ in
                 self?.displaynothingTableViewData()
                 self?.tableView.reloadData()
+                self?.setEditBarButtonItemIcon(isSelected: false)
             }.disposed(by: disposeBag)
 
         tableView.rx.itemDeleted.asObservable()
             .subscribe{ [weak self] _ in
                 self?.displaynothingTableViewData()
+                self?.setEditBarButtonItemIcon(isSelected: false)
             }.disposed(by: disposeBag)
     }
 
@@ -174,11 +176,16 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
         navigationItem.leftBarButtonItem = settingBarButtonItem
-
         navigationItem.setRightBarButtonItems(
             [historyBarButtonItem, editBarButtonItem],
             animated: true)
 
+        // カテゴリーが１つ以下だったら並べ替えボタンタップできなくする
+        if categoryDataSource.item.count <= 1 {
+            navigationItem.rightBarButtonItems?[1].isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItems?[1].isEnabled = true
+        }
     }
 
     // MARK: Method
