@@ -14,6 +14,8 @@
 		8737AA82290FA66600CEB416 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */; };
 		873E87B0291B31AD001DFD8D /* CategoryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873E87AE291B31AD001DFD8D /* CategoryEditViewController.swift */; };
 		873E87B1291B31AD001DFD8D /* CategoryEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873E87AF291B31AD001DFD8D /* CategoryEditViewController.xib */; };
+		873E87B5291B31F1001DFD8D /* CheckItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873E87B3291B31F1001DFD8D /* CheckItemEditViewController.swift */; };
+		873E87B6291B31F1001DFD8D /* CheckItemEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873E87B4291B31F1001DFD8D /* CheckItemEditViewController.xib */; };
 		8743CC1628F0F3D50082C27C /* RegisterCheckItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */; };
 		8743CC1728F0F3D50082C27C /* RegisterCheckItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */; };
 		8743CC1A28F0F8F20082C27C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
@@ -90,6 +92,8 @@
 		8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		873E87AE291B31AD001DFD8D /* CategoryEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEditViewController.swift; sourceTree = "<group>"; };
 		873E87AF291B31AD001DFD8D /* CategoryEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryEditViewController.xib; sourceTree = "<group>"; };
+		873E87B3291B31F1001DFD8D /* CheckItemEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemEditViewController.swift; sourceTree = "<group>"; };
+		873E87B4291B31F1001DFD8D /* CheckItemEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemEditViewController.xib; sourceTree = "<group>"; };
 		8743CC1428F0F3D50082C27C /* RegisterCheckItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCheckItemViewController.swift; sourceTree = "<group>"; };
 		8743CC1528F0F3D50082C27C /* RegisterCheckItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCheckItemViewController.xib; sourceTree = "<group>"; };
 		8743CC1928F0F8F20082C27C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -196,6 +200,15 @@
 				873E87AF291B31AD001DFD8D /* CategoryEditViewController.xib */,
 			);
 			path = CategoryEditView;
+			sourceTree = "<group>";
+		};
+		873E87B2291B31CE001DFD8D /* CheckItemEditView */ = {
+			isa = PBXGroup;
+			children = (
+				873E87B3291B31F1001DFD8D /* CheckItemEditViewController.swift */,
+				873E87B4291B31F1001DFD8D /* CheckItemEditViewController.xib */,
+			);
+			path = CheckItemEditView;
 			sourceTree = "<group>";
 		};
 		8743CC1328F0F34D0082C27C /* RegisterCheckItemView */ = {
@@ -357,6 +370,7 @@
 				873E87AB291B316B001DFD8D /* CategoryEditView */,
 				8766153D28F011AF00F0A8C1 /* CheckItemTableView */,
 				8743CC1328F0F34D0082C27C /* RegisterCheckItemView */,
+				873E87B2291B31CE001DFD8D /* CheckItemEditView */,
 				874602CC2909F75A009D1D50 /* CheckHistoryTableView */,
 				87D53CDF290F68B1005E27D2 /* SettingTableView */,
 				8743CC1828F0F8380082C27C /* Helpers */,
@@ -522,6 +536,7 @@
 				87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */,
 				8743CC1728F0F3D50082C27C /* RegisterCheckItemViewController.xib in Resources */,
 				8766155128F0153D00F0A8C1 /* CheckItemTableViewController.xib in Resources */,
+				873E87B6291B31F1001DFD8D /* CheckItemEditViewController.xib in Resources */,
 				87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */,
 				874602D02909F79A009D1D50 /* CheckHistoryViewController.xib in Resources */,
 				873E87B1291B31AD001DFD8D /* CategoryEditViewController.xib in Resources */,
@@ -700,6 +715,7 @@
 				8784708029133CD5000E4DAD /* LisenceSwiftUIView.swift in Sources */,
 				873E87B0291B31AD001DFD8D /* CategoryEditViewController.swift in Sources */,
 				8757681628FA155000EB4E79 /* CategoryList.swift in Sources */,
+				873E87B5291B31F1001DFD8D /* CheckItemEditViewController.swift in Sources */,
 				87B358B1290B9725006A28AE /* CategoryImageCollectionViewCell.swift in Sources */,
 				8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */,
 			);
