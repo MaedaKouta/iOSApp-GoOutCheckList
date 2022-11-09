@@ -88,6 +88,12 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
             selector: #selector(fromRegisteCheckItemViewCall(notification:)),
             name: NSNotification.Name.CheckItemViewFromRegisterViewNotification,
             object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(fromEditViewCall(notification:)),
+            name: NSNotification.Name.CheckItemViewFromEditOverwriteNotification,
+            object: nil)
     }
 
     // MARK: - Functions
@@ -105,6 +111,18 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
             }
             addItemPublishRelay.accept(())
         }
+    }
+
+    @objc func fromEditViewCall(notification: Notification) {
+        guard let index = notification.userInfo!["index"] as? Int, let itemName = notification.userInfo!["itemName"] as? String else {
+            return
+        }
+
+        try! realm.write {
+            self.categoryObject.checkItems[index].name = itemName
+            self.CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
+        }
+        addItemPublishRelay.accept(())
     }
 
 }

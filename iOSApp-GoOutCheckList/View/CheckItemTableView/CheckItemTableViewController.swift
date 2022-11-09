@@ -80,10 +80,17 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     @objc private func selectedCellOverwrite(notification: NSNotification?) {
-//        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
-//            return
-//        }
+        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+            return
+        }
 
+        // カテゴリー追加時には編集モードをオフにする
+        isSelectedEditingBarButton = false
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
+        guard let fpc = self.fpc else { return }
+        let view = CheckItemEditViewController(itemName: checkItemDataSource.item[indexPath.row].name, index: indexPath.row)
+        fpc.set(contentViewController: view)
+        self.present(fpc, animated: true, completion: nil)
     }
 
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
