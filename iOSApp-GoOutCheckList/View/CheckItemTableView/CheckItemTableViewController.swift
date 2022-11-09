@@ -20,6 +20,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
     @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
+    private let feedbackGenerator = UINotificationFeedbackGenerator()
 
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -146,6 +147,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         checkItemViewModel.outputs.allItemSelectedPublishSubject
             .subscribe{ [weak self] _ in
                 HUD.flash(.success, onView: self?.view, delay: 1.0)
+                self?.feedbackGenerator.notificationOccurred(.success)
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self?.navigationController?.popViewController(animated: true)
                     try! self?.realm.write {
