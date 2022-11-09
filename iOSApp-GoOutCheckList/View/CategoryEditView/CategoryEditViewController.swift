@@ -109,8 +109,9 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
         categoryItem.assetsImageName = image?.assetsImageName ?? "question_small"
 
         NotificationCenter.default.post(
-            name: Notification.Name.CategoryViewFromRegisterViewNotification,
-            object: categoryItem
+            name: Notification.Name.CategoryViewFromEditOverwriteNotification,
+            object: categoryItem,
+            userInfo: ["index": index!]
         )
         self.dismiss(animated: true, completion: nil)
     }

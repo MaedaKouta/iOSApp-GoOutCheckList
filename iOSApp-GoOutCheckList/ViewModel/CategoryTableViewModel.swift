@@ -94,6 +94,12 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
             selector: #selector(fromRegisteCategoryViewCall(notification:)),
             name: NSNotification.Name.CategoryViewFromRegisterViewNotification,
             object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(fromEditViewCall(notification:)),
+            name: NSNotification.Name.CategoryViewFromEditOverwriteNotification,
+            object: nil)
     }
 
     // MARK: - Functions
@@ -125,6 +131,23 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
             self.addCategoryPublishRelay.accept(())
 
         }
+    }
+
+    @objc func fromEditViewCall(notification: Notification) {
+        guard let index = notification.userInfo!["index"] as? Int,
+              let categoryListObjext = try! Realm().objects(CategoryList.self).first?.list,
+              let categoryItem = notification.object as? Category else {
+            return
+        }
+
+        try! self.realm.write() {
+            self.categoryListObjext![index] = categoryItem
+            self.categoryDataBehaviorRelay
+                .accept(categoryListObjext)
+        }
+
+        self.addCategoryPublishRelay.accept(())
+
     }
 
 }
