@@ -33,6 +33,10 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         }
     }
 
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "削除"
+    }
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
