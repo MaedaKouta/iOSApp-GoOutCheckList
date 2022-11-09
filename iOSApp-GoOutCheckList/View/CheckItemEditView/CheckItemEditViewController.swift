@@ -77,7 +77,7 @@ class CheckItemEditViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func didTapCloseButton(_ sender: Any) {
+    @IBAction private func didTapCloseButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 

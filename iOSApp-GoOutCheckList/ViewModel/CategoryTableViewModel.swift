@@ -109,7 +109,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         遷移元（CategoryTableViewController）に値渡しするために、Notificationが有効だった
         参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
-    @objc func fromRegisteCategoryViewCall(notification: Notification) {
+    @objc private func fromRegisteCategoryViewCall(notification: Notification) {
         if let categoryItem = notification.object as? Category {
             categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
 
@@ -133,7 +133,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         }
     }
 
-    @objc func fromEditViewCall(notification: Notification) {
+    @objc private func fromEditViewCall(notification: Notification) {
         guard let index = notification.userInfo!["index"] as? Int,
               let categoryListObjext = try! Realm().objects(CategoryList.self).first?.list,
               let categoryItem = notification.object as? Category else {

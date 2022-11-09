@@ -110,7 +110,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
      遷移元（CheckItemTableViewController）に値渡しするために、Notificationが有効だった。
      参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
-    @objc func fromRegisteCheckItemViewCall(notification: Notification) {
+    @objc private func fromRegisteCheckItemViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
             try! realm.write {
                 self.categoryObject.checkItems.append(checkItem)
@@ -120,7 +120,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
         }
     }
 
-    @objc func fromEditViewCall(notification: Notification) {
+    @objc private func fromEditViewCall(notification: Notification) {
         guard let index = notification.userInfo!["index"] as? Int, let itemName = notification.userInfo!["itemName"] as? String else {
             return
         }
