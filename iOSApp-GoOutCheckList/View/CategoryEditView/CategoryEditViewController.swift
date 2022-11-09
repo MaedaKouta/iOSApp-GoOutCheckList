@@ -82,6 +82,14 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
     // MARK: Actions
     @IBAction func didChangedCategoryTextField(_ sender: Any) {
         guard let categoryNameText = categoryNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+
+        let selectedIndex = categoryImages.firstIndex(where: {$0.isSelected == true})
+
+        if (categoryNameText == oldCategoryName)&&(selectedIndex == oldIndex) {
+            isAvailableRegisterButton(isAvailable: false)
+            return
+        }
+
         if categoryNameText.isEmpty {
             isAvailableRegisterButton(isAvailable: false)
         } else {
@@ -178,7 +186,6 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
             registerButtonView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
             registerButtonView.layer.shadowOpacity = 0.15
             registerButtonView.isUserInteractionEnabled = false
-
         }
     }
 
@@ -212,6 +219,14 @@ extension CategoryEditViewController: UICollectionViewDelegate, UICollectionView
         // 選択されたimageDataをひっくり返す
         categoryImages[indexPath.row].isSelected.toggle()
         categoryImageCollectionView.reloadData()
+
+        guard let categoryNameText = categoryNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+        if (categoryNameText == oldCategoryName)&&(indexPath.row == oldIndex) {
+            isAvailableRegisterButton(isAvailable: false)
+        } else {
+            isAvailableRegisterButton(isAvailable: true)
+        }
+
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
