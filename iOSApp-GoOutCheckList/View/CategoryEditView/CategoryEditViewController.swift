@@ -13,6 +13,12 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
+
+    private let oldCategoryName: String!
+    private let oldCategoryImageName: String!
+    private var oldIndex: Int?
+    private let index: Int!
+
     private lazy var registerLabel: UILabel = {
         let label = UILabel()
         label.text = "登録"
@@ -24,8 +30,20 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
         return label
     }()
 
+    init(categoryName: String, categoryImageName: String, index: Int) {
+        self.oldCategoryName = categoryName
+        self.oldCategoryImageName = categoryImageName
+        self.index = index
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private var categoryImages: [CategoryImage] = [
-        CategoryImage(assetsImageName: "walk_small", isSelected: true),
+        CategoryImage(assetsImageName: "walk_small", isSelected: false),
         CategoryImage(assetsImageName: "baby_small", isSelected: false),
         CategoryImage(assetsImageName: "bath_small", isSelected: false),
         CategoryImage(assetsImageName: "beer_small", isSelected: false),
@@ -111,6 +129,12 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
     }
 
     private func setupCategoryImageCollectionView(){
+        // 全てをfalseにする
+        self.categoryImages.indices.forEach { self.categoryImages[$0].isSelected = false }
+        oldIndex = categoryImages.firstIndex(where: {$0.assetsImageName == oldCategoryImageName})
+        // 選択されたimageDataをひっくり返す
+        categoryImages[oldIndex ?? 0].isSelected.toggle()
+
         categoryImageCollectionView.dataSource = self
         categoryImageCollectionView.delegate = self
         categoryImageCollectionView.register(UINib(nibName: "CategoryImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryImageCollectionViewCell")
@@ -119,7 +143,7 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
     private func setupCategoryNameTextField(){
         categoryNameTextField.delegate = self
         categoryNameTextField.clearButtonMode = UITextField.ViewMode.whileEditing
-
+        categoryNameTextField.text = oldCategoryName
         categoryNameTextField.becomeFirstResponder()
         // 余白タッチでキーボード閉じる
         let tapElseView: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapElseView(_:)))

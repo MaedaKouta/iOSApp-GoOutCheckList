@@ -14,8 +14,6 @@ import RealmSwift
 
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate, UITableViewDelegate {
 
-
-
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
@@ -74,7 +72,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
-        
 
         setupAddCategoryButton()
         setupNavigationbar()
@@ -132,9 +129,18 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     @objc private func selectedCellOverwrite(notification: NSNotification?) {
-//        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
-//            return
-//        }
+        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+            return
+        }
+
+        // カテゴリー追加時には編集モードをオフにする
+        isSelectedEditingBarButton = false
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
+
+        guard let fpc = self.fpc else { return }
+        let view = CategoryEditViewController(categoryName: categoryDataSource.item[indexPath.row].name, categoryImageName: categoryDataSource.item[indexPath.row].assetsImageName, index: indexPath.row)
+        fpc.set(contentViewController: view)
+        self.present(fpc, animated: true, completion: nil)
 
     }
 
