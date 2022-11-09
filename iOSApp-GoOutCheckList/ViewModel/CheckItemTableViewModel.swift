@@ -58,10 +58,17 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
          categoryObject: Category) {
         self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
         self.categoryObject = categoryObject
-        // TODO: ここがなくても動作するか必要か調べる
         CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
         setupBindings()
         setupNotifications()
+    }
+
+    // MARK: Setter
+    func setDeletedItem() {
+        let checkItems = categoryObject.checkItems
+        if checkItems.allSatisfy({$0.isDone == true}) {
+            self.allItemSelectedPublishSubject.accept(())
+        }
     }
 
     // MARK: - Setups

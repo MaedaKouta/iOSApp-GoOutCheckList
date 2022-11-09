@@ -274,17 +274,18 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             preferredStyle:  UIAlertController.Style.alert
         )
 
-        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{ [weak self]
             (action: UIAlertAction!) -> Void in
-            try! self.realm.write {
-                self.checkItemDataSource.item.remove(at: indexPath.row)
+            try! self?.realm.write {
+                self?.checkItemDataSource.item.remove(at: indexPath.row)
             }
-            self.tableView.beginUpdates()
-            self.tableView.deleteRows(at: [indexPath], with: .top)
-            self.tableView.endUpdates()
+            self?.tableView.beginUpdates()
+            self?.tableView.deleteRows(at: [indexPath], with: .top)
+            self?.tableView.endUpdates()
 
-            self.displaynothingTableViewData()
-            self.updateNavigationbar()
+            self?.displaynothingTableViewData()
+            self?.updateNavigationbar()
+            self?.checkItemViewModel.setDeletedItem()
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
