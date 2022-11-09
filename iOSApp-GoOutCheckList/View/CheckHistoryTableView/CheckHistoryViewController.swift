@@ -23,6 +23,16 @@ class CheckHistoryViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var checkHistoryDataSource = CheckHistoryDataSource()
     private let realm = try! Realm()
+    private let navigationBarButtonSize: CGFloat = 22.5
+
+    // NavigationBarButtonを宣言
+    private lazy var settingBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "gearshape", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
+        button.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
 
     private lazy var checkHistoryViewModel = CheckHistoryViewModel(
         tableViewItemSelectedObservable: tableView.rx.itemSelected.asObservable()
@@ -41,9 +51,18 @@ class CheckHistoryViewController: UIViewController {
         setupBindings()
     }
 
+    // MARK: Actions
+    @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "SettingStoryboard", bundle: nil)
+            if let settingVC = storyboard.instantiateInitialViewController() {
+                self.navigationController?.pushViewController(settingVC, animated: true)
+        }
+    }
+
     // MARK: Setups
     private func setupNavigationBar() {
         navigationItem.title = "履歴"
+        navigationItem.leftBarButtonItem = settingBarButtonItem
     }
 
     private func setupTableView() {
