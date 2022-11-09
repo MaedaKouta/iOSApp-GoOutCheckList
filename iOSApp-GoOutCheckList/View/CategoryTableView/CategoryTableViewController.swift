@@ -28,14 +28,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         return UIBarButtonItem(customView: button)
     }()
 
-    private lazy var historyBarButtonItem: UIBarButtonItem = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "clock.arrow.circlepath", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
-        button.addTarget(self, action: #selector(didTapHistoryButton(_:)), for: .touchUpInside)
-        return UIBarButtonItem(customView: button)
-    }()
-
     private lazy var settingBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "gearshape", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
@@ -206,15 +198,13 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
         navigationItem.leftBarButtonItem = settingBarButtonItem
-        navigationItem.setRightBarButtonItems(
-            [historyBarButtonItem, editBarButtonItem],
-            animated: true)
+        navigationItem.rightBarButtonItem = editBarButtonItem
 
         // カテゴリーが１つ以下だったら並べ替えボタンタップできなくする
         if categoryDataSource.item.isEmpty {
-            navigationItem.rightBarButtonItems?[1].isEnabled = false
+            navigationItem.rightBarButtonItem?.isEnabled = false
         } else {
-            navigationItem.rightBarButtonItems?[1].isEnabled = true
+            navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }
 

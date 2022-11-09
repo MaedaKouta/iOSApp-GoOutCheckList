@@ -19,12 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           window.makeKeyAndVisible()
 
         /* 初期画面をViewControllerにしたい場合 */
-        //  let viewController = ViewController()
-        //  self.window?.rootViewController = viewController
+        let viewController = MainTabBarController()
+        self.window?.rootViewController = viewController
 
         /* 初期画面をNavigationControllerにしたい場合 */
-         let navigationController = UINavigationController(rootViewController: CategoryTableViewController())
-         self.window?.rootViewController = navigationController
+         //let navigationController = UINavigationController(rootViewController: MainTabBarController())
+         //self.window?.rootViewController = navigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
