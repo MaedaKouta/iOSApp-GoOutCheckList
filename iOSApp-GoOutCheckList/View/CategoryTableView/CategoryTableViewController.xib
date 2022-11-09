@@ -42,7 +42,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwV-oi-Wqn" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
-                    <rect key="frame" x="265" y="700" width="75" height="75"/>
+                    <rect key="frame" x="280" y="685" width="75" height="75"/>
                     <color key="backgroundColor" systemColor="systemPinkColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="tC8-S7-Zfh"/>
@@ -59,9 +59,9 @@
                 <constraint firstItem="PqZ-5P-Pzb" firstAttribute="top" secondItem="tau-JP-t0K" secondAttribute="bottom" id="QUh-tE-ZDr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PqZ-5P-Pzb" secondAttribute="trailing" constant="20" id="Wsy-Mn-TQV"/>
                 <constraint firstItem="tau-JP-t0K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="Zwf-8j-lw4"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PwV-oi-Wqn" secondAttribute="bottom" constant="35" id="a7p-3s-iKs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PwV-oi-Wqn" secondAttribute="bottom" constant="50" id="a7p-3s-iKs"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bhc-y3-41I"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PwV-oi-Wqn" secondAttribute="trailing" constant="50" id="iFH-Dx-wMJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PwV-oi-Wqn" secondAttribute="trailing" constant="35" id="iFH-Dx-wMJ"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lpm-9Y-uXV"/>
                 <constraint firstItem="2R2-BV-O0c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="s93-ru-czS"/>
                 <constraint firstItem="tau-JP-t0K" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="ste-nn-YYG"/>

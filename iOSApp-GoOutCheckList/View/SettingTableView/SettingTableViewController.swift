@@ -17,8 +17,8 @@ class SettingTableViewController: UITableViewController {
 
     private let reviewUrl = ""
     private let feedbackUrl = "https://forms.gle/dkDVq2x3QpDEYmPm6"
-    private let privacyUrl = "https://tetoblog.org/base-conversion/privacy/"
-    private let ruleUrl = "https://tetoblog.org/base-conversion/rule/"
+    private let privacyUrl = "https://local-tumbleweed-7ea.notion.site/407c8f689ad24676ae4fecb76abe39d9"
+    private let ruleUrl = "https://local-tumbleweed-7ea.notion.site/570ea223dce3463b9b42a3528b516603"
     private let twitterUrl = "https://twitter.com/kota_org"
 
     private lazy var realm = try! Realm()
@@ -97,11 +97,13 @@ class SettingTableViewController: UITableViewController {
     }
 
     private func shareApp() {
-        // TODO: 文字を考える
         let shareText = """
-        「タイトル」
+        「外出チェッカー」
 
-        本文本文本文本文
+        外出の際、忘れ物に不安ではですか？
+        病院・仕事・趣味などなど
+        用途に合わせた持ち物を登録しておくことで、
+        忘れ物を防止できます。
         """
 
         let activityItems = [shareText] as [Any]

@@ -62,7 +62,7 @@ class CheckHistoryViewController: UIViewController {
     // MARK: Setups
     private func setupNavigationBar() {
         navigationItem.title = "履歴"
-        navigationItem.leftBarButtonItem = settingBarButtonItem
+        navigationItem.rightBarButtonItem = settingBarButtonItem
     }
 
     private func setupTableView() {
