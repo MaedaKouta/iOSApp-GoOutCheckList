@@ -12,8 +12,6 @@ import PKHUD
 class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
     @IBOutlet weak var webView: WKWebView!
-    @IBOutlet private weak var backButton: UIBarButtonItem!
-    @IBOutlet private  weak var forwardButton: UIBarButtonItem!
     private var presentUrl = ""
     private var progressView = UIProgressView(progressViewStyle: .bar)
 
@@ -29,7 +27,6 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         } else {
             print("URLが取得できませんでした。")
         }
-        judgeToolBarButton()
     }
 
     @IBAction func didTapBackButton(_ sender: Any) {
@@ -42,27 +39,11 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         print("読み込み開始")
-        judgeToolBarButton()
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("読み込み完了")
         HUD.hide(animated: true)
-        judgeToolBarButton()
-    }
-
-    private func judgeToolBarButton() {
-        if webView.canGoBack {
-            backButton.isEnabled = true
-        } else {
-            backButton.isEnabled = false
-        }
-
-        if webView.canGoForward {
-            forwardButton.isEnabled = true
-        } else {
-            forwardButton.isEnabled = false
-        }
     }
 
     func configure(presentUrl: String, navigationTitle: String) {

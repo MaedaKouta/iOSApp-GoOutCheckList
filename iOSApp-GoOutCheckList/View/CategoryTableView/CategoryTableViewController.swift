@@ -28,14 +28,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         return UIBarButtonItem(customView: button)
     }()
 
-    private lazy var settingBarButtonItem: UIBarButtonItem = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "gearshape", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 25, height:25)
-        button.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
-        return UIBarButtonItem(customView: button)
-    }()
-
     // MARK: Propaties
     private let disposeBag = DisposeBag()
     private var categoryDataSource = CategoryDataSource()
@@ -104,13 +96,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @objc private func didTapHistoryButton(_ sender: UIBarButtonItem) {
         let checkHistoryTableVC = CheckHistoryViewController()
         self.navigationController?.pushViewController(checkHistoryTableVC, animated: true)
-    }
-
-    @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "SettingStoryboard", bundle: nil)
-            if let settingVC = storyboard.instantiateInitialViewController() {
-                self.navigationController?.pushViewController(settingVC, animated: true)
-        }
     }
 
     @objc private func selectedCellDelete(notification: NSNotification?) {
@@ -197,7 +182,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private func setupNavigationbar() {
         navigationItem.title = "カテゴリー"
-        navigationItem.leftBarButtonItem = settingBarButtonItem
         navigationItem.rightBarButtonItem = editBarButtonItem
 
         // カテゴリーが１つ以下だったら並べ替えボタンタップできなくする
