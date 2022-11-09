@@ -43,7 +43,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STZ-PU-cFT">
-                    <rect key="frame" x="345" y="67" width="25" height="25"/>
+                    <rect key="frame" x="345" y="20" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="F6z-gr-T9O"/>
                         <constraint firstAttribute="width" constant="25" id="FBW-8J-qRh"/>
@@ -71,6 +71,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="zbd-Ix-lxv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0BK-7S-Kg8"/>
                 <constraint firstItem="zbd-Ix-lxv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4i4-jV-W3h"/>
                 <constraint firstItem="zbd-Ix-lxv" firstAttribute="top" secondItem="3mK-bz-NzS" secondAttribute="bottom" constant="50" id="7cp-28-bL8"/>
                 <constraint firstItem="zbd-Ix-lxv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="IYT-fR-i92"/>
@@ -78,6 +79,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="STZ-PU-cFT" secondAttribute="trailing" constant="20" id="YJJ-wi-cMl"/>
                 <constraint firstItem="OH3-JD-oA3" firstAttribute="top" secondItem="zbd-Ix-lxv" secondAttribute="bottom" constant="75" id="ZSU-MV-Rqf"/>
                 <constraint firstItem="3mK-bz-NzS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bwx-Hs-slC"/>
+                <constraint firstItem="zbd-Ix-lxv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jUB-Zo-JJx"/>
                 <constraint firstItem="OH3-JD-oA3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="q5N-Jd-NZI"/>
             </constraints>
             <point key="canvasLocation" x="144.61538461538461" y="20.616113744075829"/>

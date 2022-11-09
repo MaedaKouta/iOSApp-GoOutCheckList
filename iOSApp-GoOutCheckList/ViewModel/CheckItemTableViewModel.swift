@@ -58,10 +58,17 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
          categoryObject: Category) {
         self.tableViewItemSeletedObservable = tableViewItemSeletedObservable
         self.categoryObject = categoryObject
-        // TODO: ここがなくても動作するか必要か調べる
         CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
         setupBindings()
         setupNotifications()
+    }
+
+    // MARK: Setter
+    func setDeletedItem() {
+        let checkItems = categoryObject.checkItems
+        if checkItems.allSatisfy({$0.isDone == true}) {
+            self.allItemSelectedPublishSubject.accept(())
+        }
     }
 
     // MARK: - Setups
@@ -88,6 +95,12 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
             selector: #selector(fromRegisteCheckItemViewCall(notification:)),
             name: NSNotification.Name.CheckItemViewFromRegisterViewNotification,
             object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(fromEditViewCall(notification:)),
+            name: NSNotification.Name.CheckItemViewFromEditOverwriteNotification,
+            object: nil)
     }
 
     // MARK: - Functions
@@ -97,7 +110,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
      遷移元（CheckItemTableViewController）に値渡しするために、Notificationが有効だった。
      参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
-    @objc func fromRegisteCheckItemViewCall(notification: Notification) {
+    @objc private func fromRegisteCheckItemViewCall(notification: Notification) {
         if let checkItem = notification.object as? CheckItem {
             try! realm.write {
                 self.categoryObject.checkItems.append(checkItem)
@@ -105,6 +118,18 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
             }
             addItemPublishRelay.accept(())
         }
+    }
+
+    @objc private func fromEditViewCall(notification: Notification) {
+        guard let index = notification.userInfo!["index"] as? Int, let itemName = notification.userInfo!["itemName"] as? String else {
+            return
+        }
+
+        try! realm.write {
+            self.categoryObject.checkItems[index].name = itemName
+            self.CheckItemDataBehaviorRelay.accept(categoryObject.checkItems)
+        }
+        addItemPublishRelay.accept(())
     }
 
 }

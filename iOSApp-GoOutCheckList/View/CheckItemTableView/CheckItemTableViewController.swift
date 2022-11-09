@@ -80,10 +80,17 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     @objc private func selectedCellOverwrite(notification: NSNotification?) {
-//        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
-//            return
-//        }
+        guard let indexPath = notification?.userInfo!["indexPath"] as? IndexPath else {
+            return
+        }
 
+        // カテゴリー追加時には編集モードをオフにする
+        isSelectedEditingBarButton = false
+        setEditBarButtonItemIcon(isSelected: isSelectedEditingBarButton)
+        guard let fpc = self.fpc else { return }
+        let view = CheckItemEditViewController(itemName: checkItemDataSource.item[indexPath.row].name, index: indexPath.row)
+        fpc.set(contentViewController: view)
+        self.present(fpc, animated: true, completion: nil)
     }
 
     @objc private func didTapEditButton(_ sender: UIBarButtonItem) {
@@ -267,17 +274,18 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             preferredStyle:  UIAlertController.Style.alert
         )
 
-        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+        let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{ [weak self]
             (action: UIAlertAction!) -> Void in
-            try! self.realm.write {
-                self.checkItemDataSource.item.remove(at: indexPath.row)
+            try! self?.realm.write {
+                self?.checkItemDataSource.item.remove(at: indexPath.row)
             }
-            self.tableView.beginUpdates()
-            self.tableView.deleteRows(at: [indexPath], with: .top)
-            self.tableView.endUpdates()
+            self?.tableView.beginUpdates()
+            self?.tableView.deleteRows(at: [indexPath], with: .top)
+            self?.tableView.endUpdates()
 
-            self.displaynothingTableViewData()
-            self.updateNavigationbar()
+            self?.displaynothingTableViewData()
+            self?.updateNavigationbar()
+            self?.checkItemViewModel.setDeletedItem()
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in

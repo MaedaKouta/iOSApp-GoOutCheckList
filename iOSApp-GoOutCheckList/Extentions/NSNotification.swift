@@ -14,4 +14,8 @@ extension NSNotification.Name {
     static var CategoryViewFromDataSourceOverwriteNotification = NSNotification.Name(rawValue: "CategoryViewFromDataSourceOverwriteNotification")
     static var CheckItemViewFromDataSourceDeleteNotification = NSNotification.Name(rawValue: "CheckItemViewFromDataSourceDeleteNotification")
     static var CheckItemViewFromDataSourceOverwriteNotification = NSNotification.Name(rawValue: "CheckItemViewFromDataSourceOverwriteNotification")
+
+    // データの上書き通知
+    static var CategoryViewFromEditOverwriteNotification = NSNotification.Name(rawValue: "CategoryViewFromEditOverwriteNotification")
+    static var CheckItemViewFromEditOverwriteNotification = NSNotification.Name(rawValue: "CheckItemViewFromEditOverwriteNotification")
 }

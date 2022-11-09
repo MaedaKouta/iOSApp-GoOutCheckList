@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryEditViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+            <connections>
+                <outlet property="categoryImageCollectionView" destination="EMP-2N-mr1" id="DVZ-Zj-eUk"/>
+                <outlet property="categoryNameTextField" destination="IMm-a4-AoK" id="fa0-Aq-Vb7"/>
+                <outlet property="closeButton" destination="eW1-iv-T6a" id="rZi-UX-bRJ"/>
+                <outlet property="registerButtonView" destination="TFO-DE-tny" id="Oqx-Z7-jxW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリー名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IMm-a4-AoK" customClass="DoneTextField" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+                    <rect key="frame" x="64" y="209.66666666666666" width="265" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="265" id="kSW-rl-gXY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="didChangedCategoryTextField:" destination="-1" eventType="editingChanged" id="YvC-1j-2Vg"/>
+                    </connections>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFO-DE-tny" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
+                    <rect key="frame" x="116.66666666666669" y="633.66666666666663" width="160" height="50"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Efr-JS-3eZ"/>
+                        <constraint firstAttribute="width" constant="160" id="q3F-I9-A5H"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EMP-2N-mr1">
+                    <rect key="frame" x="64" y="293.66666666666669" width="265" height="265.00000000000006"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="265" id="iKC-K3-IYB"/>
+                        <constraint firstAttribute="width" constant="265" id="wkv-Yq-vtD"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kWl-1y-FX7">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW1-iv-T6a">
+                    <rect key="frame" x="348" y="20" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="6PY-HB-xbI"/>
+                        <constraint firstAttribute="height" constant="25" id="q7o-E0-48q"/>
+                    </constraints>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="didTapCloseButton:" destination="-1" eventType="touchUpInside" id="jQU-Ib-gwF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eW1-iv-T6a" secondAttribute="trailing" constant="20" id="5Jr-3W-aDR"/>
+                <constraint firstItem="TFO-DE-tny" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9sR-B9-jyl"/>
+                <constraint firstItem="EMP-2N-mr1" firstAttribute="top" secondItem="IMm-a4-AoK" secondAttribute="bottom" constant="50" id="GqE-nM-eAY"/>
+                <constraint firstItem="TFO-DE-tny" firstAttribute="top" secondItem="EMP-2N-mr1" secondAttribute="bottom" constant="75" id="Ins-F9-NkN"/>
+                <constraint firstItem="EMP-2N-mr1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ccF-fS-CHF"/>
+                <constraint firstItem="IMm-a4-AoK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cx0-gy-MuW"/>
+                <constraint firstItem="eW1-iv-T6a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="tb0-jV-rNf"/>
+                <constraint firstItem="EMP-2N-mr1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="z7X-uT-YYC"/>
+            </constraints>
+            <point key="canvasLocation" x="6" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

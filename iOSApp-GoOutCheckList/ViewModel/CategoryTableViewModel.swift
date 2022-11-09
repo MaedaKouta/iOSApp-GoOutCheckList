@@ -94,6 +94,12 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
             selector: #selector(fromRegisteCategoryViewCall(notification:)),
             name: NSNotification.Name.CategoryViewFromRegisterViewNotification,
             object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(fromEditViewCall(notification:)),
+            name: NSNotification.Name.CategoryViewFromEditOverwriteNotification,
+            object: nil)
     }
 
     // MARK: - Functions
@@ -103,7 +109,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         遷移元（CategoryTableViewController）に値渡しするために、Notificationが有効だった
         参考：https://qiita.com/star__hoshi/items/41dff8231dd2219de9bd
      */
-    @objc func fromRegisteCategoryViewCall(notification: Notification) {
+    @objc private func fromRegisteCategoryViewCall(notification: Notification) {
         if let categoryItem = notification.object as? Category {
             categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
 
@@ -125,6 +131,23 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
             self.addCategoryPublishRelay.accept(())
 
         }
+    }
+
+    @objc private func fromEditViewCall(notification: Notification) {
+        guard let index = notification.userInfo!["index"] as? Int,
+              let categoryListObjext = try! Realm().objects(CategoryList.self).first?.list,
+              let categoryItem = notification.object as? Category else {
+            return
+        }
+
+        try! self.realm.write() {
+            self.categoryListObjext![index] = categoryItem
+            self.categoryDataBehaviorRelay
+                .accept(categoryListObjext)
+        }
+
+        self.addCategoryPublishRelay.accept(())
+
     }
 
 }
