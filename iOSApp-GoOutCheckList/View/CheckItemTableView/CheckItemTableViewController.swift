@@ -235,9 +235,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
         // allItemsが空ならprogressView表示させない
         if allItemsCount == 0 {
-            checkedProgressView.isHidden = true
+            checkedProgressView.setProgress(0.0, animated: true)
         } else {
-            checkedProgressView.isHidden = false
             checkedProgressView.setProgress(chekedRatio, animated: true)
         }
 
