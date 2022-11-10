@@ -77,7 +77,6 @@ class CheckHistoryViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: checkHistoryDataSource))
             .disposed(by: disposeBag)
 
-        // TODO: TableViewの再レンダリングにより、色が少しずつ薄くなる挙動にならない
         checkHistoryViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
                 guard let indexPath = indexPath.element else {return}
