@@ -13,10 +13,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+
         // ここから
-          let window = UIWindow(windowScene: scene as! UIWindowScene)
-          self.window = window
-          window.makeKeyAndVisible()
+        let window = UIWindow(windowScene: scene as! UIWindowScene)
+        self.window = window
+        window.makeKeyAndVisible()
+        window.tintColor = .black
 
         /* 初期画面をViewControllerにしたい場合 */
         let viewController = MainTabBarController()
