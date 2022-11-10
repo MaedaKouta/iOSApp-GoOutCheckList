@@ -66,9 +66,17 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     // MARK: Setter
     func setDeletedItem() {
         let checkItems = categoryObject.checkItems
+        CheckItemDataBehaviorRelay.accept(checkItems)
+
+        // 値が空なら何もしない
+        if checkItems.isEmpty {
+            return
+        }
+
         if checkItems.allSatisfy({$0.isDone == true}) {
             self.allItemSelectedPublishSubject.accept(())
         }
+
     }
 
     // MARK: - Setups

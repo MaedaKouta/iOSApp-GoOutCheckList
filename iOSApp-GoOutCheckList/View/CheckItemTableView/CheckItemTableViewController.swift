@@ -20,6 +20,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
     @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
+    @IBOutlet private weak var checkedProgressView: UIProgressView!
     private let feedbackGenerator = UINotificationFeedbackGenerator()
 
     private lazy var editBarButtonItem: UIBarButtonItem = {
@@ -59,6 +60,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         super.viewWillAppear(animated)
         displaynothingTableViewData()
         updateNavigationbar()
+        updateProgressView()
     }
 
     override func viewDidLoad() {
@@ -134,6 +136,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         checkItemViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
                 self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+                self?.updateProgressView()
             }.disposed(by: disposeBag)
 
         checkItemViewModel.outputs.addItemPublishRelay
@@ -141,6 +144,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                 self?.tableView.reloadData()
                 self?.displaynothingTableViewData()
                 self?.updateNavigationbar()
+                self?.updateProgressView()
             }.disposed(by: disposeBag)
 
         // 全てチェックされたらPKHUDを表示
@@ -214,6 +218,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         updateNavigationbar()
     }
 
+    // MARK: Updates
     private func updateNavigationbar() {
         // アイテムが１つ以下だったら並べ替えボタンタップできなくする
         if checkItemDataSource.item.isEmpty {
@@ -221,6 +226,21 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         } else {
             navigationItem.rightBarButtonItem?.isEnabled = true
         }
+    }
+
+    private func updateProgressView() {
+        let allItemsCount = checkItemDataSource.item.count
+        let chekedItemsCount = checkItemDataSource.item.filter{ $0.isDone }.count
+        let chekedRatio: Float = Float(chekedItemsCount)/Float(allItemsCount)
+
+        // allItemsが空ならprogressView表示させない
+        if allItemsCount == 0 {
+            checkedProgressView.isHidden = true
+        } else {
+            checkedProgressView.isHidden = false
+            checkedProgressView.setProgress(chekedRatio, animated: true)
+        }
+
     }
 
     // MARK: Method
@@ -289,6 +309,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             self?.displaynothingTableViewData()
             self?.updateNavigationbar()
             self?.checkItemViewModel.setDeletedItem()
+            self?.updateProgressView()
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
