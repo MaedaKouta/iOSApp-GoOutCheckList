@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LostCheckTableViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
                 <outlet property="addItemButtonView" destination="eeZ-Kc-M8V" id="o51-WC-7Na"/>
+                <outlet property="checkedProgressView" destination="tYZ-sT-6b4" id="OV8-Sj-mz1"/>
                 <outlet property="nothingTableViewDataImageView" destination="VL5-9Y-vX2" id="csC-P6-RFV"/>
                 <outlet property="nothingTableViewLabel" destination="SK5-a7-QOJ" id="JRB-Jg-tdE"/>
                 <outlet property="tableView" destination="SXI-8M-3Lx" id="6M8-3v-KDo"/>
@@ -26,6 +27,10 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-8M-3Lx">
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <progressView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="tYZ-sT-6b4">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="4"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </progressView>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-Kc-M8V" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
                     <rect key="frame" x="280" y="685" width="75" height="75"/>
