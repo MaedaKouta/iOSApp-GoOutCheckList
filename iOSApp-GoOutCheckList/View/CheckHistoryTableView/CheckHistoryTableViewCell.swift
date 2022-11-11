@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CheckHistoryTableViewCell: UITableViewCell {
 
@@ -14,12 +15,19 @@ class CheckHistoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var dateBackgroundView: UIView!
     @IBOutlet private weak var categoryImageView: UIImageView!
 
-    func setConfigure(dateText: String, categoryText: String, categoryImage: UIImage?) {
-        dateTextLabel.text = dateText
-        categoryTextLabel.text = categoryText
+    private let realm = try! Realm()
+    private let categoryObject = try! Realm().objects(Category.self)
 
-        if categoryImage != nil {
-            self.categoryImageView.image = categoryImage
+    func setConfigure(dateText: String, categoryId: String) {
+
+        let predicate = NSPredicate(format: "id == %@", categoryId)
+        let categoryObject = categoryObject.filter(predicate).first
+
+        dateTextLabel.text = dateText
+        categoryTextLabel.text = categoryObject?.name
+
+        if categoryObject?.assetsImageName != nil {
+            self.categoryImageView.image = UIImage(named: categoryObject!.assetsImageName)
         } else {
             self.categoryImageView.image = UIImage(named: "question_small")
         }

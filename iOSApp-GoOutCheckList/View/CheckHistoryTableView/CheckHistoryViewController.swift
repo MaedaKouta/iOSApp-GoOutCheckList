@@ -16,7 +16,6 @@ import FloatingPanel
 class CheckHistoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-
     @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
 
@@ -83,24 +82,39 @@ class CheckHistoryViewController: UIViewController {
         checkHistoryViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
                 guard let indexPath = indexPath.element else {return}
+                let id = self?.checkHistoryDataSource.item[indexPath.row].categoryID
                 var dateStringDetail = ""
                 var categoryName = ""
-                
+                var itemsText = ""
+
                 self?.tableView.deselectRow(at: indexPath, animated: true)
 
-                if let date = self?.checkHistoryDataSource.item[indexPath.row].date,
-                   let category = self?.checkHistoryDataSource.item[indexPath.row].categoryName {
-                    dateStringDetail = DateUtils.stringFromDate(date: date, format: "yyyy/MM/dd HH:mm:ss")
+                if let category = self?.findCategoryFromId(categoryId: id)?.name {
                     categoryName = category
                 } else {
-                    dateStringDetail = "日付取得エラー"
                     categoryName = "カテゴリー名取得エラー"
+                }
+
+                if let date = self?.checkHistoryDataSource.item[indexPath.row].date {
+                    dateStringDetail = DateUtils.stringFromDate(date: date, format: "yyyy/MM/dd HH:mm:ss")
+                } else {
+                    dateStringDetail = "日付取得エラー"
+                }
+
+                if let items = self?.checkHistoryDataSource.item[indexPath.row].checkItemList {
+                    for item in items {
+                        itemsText += "\n"
+                        itemsText += item.name
+                    }
+                } else {
+                    itemsText = "エラー：チェックアイテムの取得エラー"
                 }
 
                 let alert: UIAlertController = UIAlertController(
                     title: "\(categoryName)",
                     message: """
                     \(dateStringDetail)
+                    \(itemsText)
                     """,
                     preferredStyle:  UIAlertController.Style.alert
                 )
@@ -138,6 +152,19 @@ class CheckHistoryViewController: UIViewController {
             nothingTableViewDataImageView.isHidden = true
             nothingTableViewLabel.isHidden = true
         }
+    }
+
+    private func findCategoryFromId(categoryId: String?) -> Category? {
+
+        guard let categoryId = categoryId else {
+            return nil
+        }
+
+        let categoryObject = try! Realm().objects(Category.self)
+        let predicate = NSPredicate(format: "id == %@", categoryId)
+        let category = categoryObject.filter(predicate).first
+
+        return category
     }
 
 }

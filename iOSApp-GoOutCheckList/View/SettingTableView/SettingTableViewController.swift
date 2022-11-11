@@ -141,10 +141,6 @@ class SettingTableViewController: UITableViewController {
         let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
 
-            HUD.flash(.progress, delay: 0.4) { _ in
-                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.6)
-            }
-
             let categoryListObject = self.realm.objects(CategoryList.self)
             let categoryObject = self.realm.objects(Category.self)
             let checkItemObject = self.realm.objects(CheckItem.self)
@@ -170,6 +166,12 @@ class SettingTableViewController: UITableViewController {
 
                 if checkHistoryObject.count != 0 {
                     self.realm.delete(checkHistoryObject)
+                }
+            }
+
+            HUD.flash(.progress, delay: 0.4) { _ in
+                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.6) { _ in
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
 
