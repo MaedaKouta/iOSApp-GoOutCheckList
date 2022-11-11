@@ -40,7 +40,10 @@ class CheckHistoryViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        checkHistoryViewModel.updateCheckHistoryList()
         displaynothingTableViewData()
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
