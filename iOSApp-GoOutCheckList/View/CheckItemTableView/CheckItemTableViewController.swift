@@ -150,6 +150,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         // 全てチェックされたらPKHUDを表示
         checkItemViewModel.outputs.allItemSelectedPublishSubject
             .subscribe{ [weak self] _ in
+
+                guard let categoryObject = self?.categoryObject else {
+                    return
+                }
+
                 HUD.flash(.success, onView: self?.view, delay: 1.0)
                 self?.feedbackGenerator.notificationOccurred(.success)
 
@@ -157,10 +162,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     self?.navigationController?.popViewController(animated: true)
                     try! self?.realm.write {
                         self?.categoryObject.checkItems.forEach{ $0.isDone = false }
+
                         let checkHistoryObject = CheckHistory()
                         checkHistoryObject.date = Date()
-                        checkHistoryObject.categoryName = self?.categoryObject.name ?? ""
-                        checkHistoryObject.assetsImageName = self?.categoryObject.assetsImageName ?? "question_small"
+                        checkHistoryObject.categoryID = categoryObject.id
+                        checkHistoryObject.checkItemList = categoryObject.checkItems
 
                         // リストがなければ、リストを作る（初期に作る必要が出てくる）
                         if self?.checkHistoryListObject == nil {
