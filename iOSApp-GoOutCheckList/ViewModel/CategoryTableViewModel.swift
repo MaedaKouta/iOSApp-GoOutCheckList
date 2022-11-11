@@ -141,7 +141,8 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         }
 
         try! self.realm.write() {
-            self.categoryListObjext![index] = categoryItem
+            self.categoryListObjext![index].name = categoryItem.name
+            self.categoryListObjext![index].assetsImageName = categoryItem.assetsImageName
             self.categoryDataBehaviorRelay
                 .accept(categoryListObjext)
         }
