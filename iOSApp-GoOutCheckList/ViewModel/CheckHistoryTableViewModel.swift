@@ -73,4 +73,11 @@ class CheckHistoryViewModel: CheckHistoryViewModelInputs, CheckHistoryViewModelO
 
     }
 
+    // MARK: Updatas
+    func updateCheckHistoryList() {
+        checkHistoryListObject = try! Realm().objects(CheckHistoryList.self).first?.checkHistoryList
+        self.checkHistoryDataBehaviorRelay
+            .accept(checkHistoryListObject ?? List<CheckHistory>())
+    }
+
 }
