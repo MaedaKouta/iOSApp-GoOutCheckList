@@ -11,6 +11,9 @@ class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var categoryImage: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var latestHistoryTimeLabel: UILabel!
+    @IBOutlet private weak var checkedCountLabel: UILabel!
+    @IBOutlet private weak var checkedCountProgressView: UIProgressView!
 
     func configure(image: UIImage?, name: String) {
         self.nameLabel.text = name
@@ -27,7 +30,7 @@ class CategoryTableViewCell: UITableViewCell {
 
     private func setupLayout() {
         nameLabel.adjustsFontSizeToFitWidth = true
-        self.categoryImage.layer.cornerRadius = 10
+        self.categoryImage.layer.cornerRadius = 20
         self.categoryImage.layer.masksToBounds = true
         self.categoryImage.layer.borderColor = CGColor.init(red: 90/256, green: 90/256, blue: 90/256, alpha: 1.0)
         self.categoryImage.layer.borderWidth = 2
