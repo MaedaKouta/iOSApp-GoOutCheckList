@@ -43,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="３項目チェック済み/11項目" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gan-vg-VuR">
-                        <rect key="frame" x="76" y="45" width="229" height="11"/>
+                        <rect key="frame" x="192" y="45" width="113" height="11"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -58,15 +58,13 @@
                     <constraint firstAttribute="trailing" secondItem="Gan-vg-VuR" secondAttribute="trailing" constant="15" id="33u-IL-dzk"/>
                     <constraint firstItem="FHK-pK-PxO" firstAttribute="leading" secondItem="R2j-mo-goZ" secondAttribute="trailing" constant="15" id="6C3-Aa-4Qa"/>
                     <constraint firstItem="PJD-Jz-92G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="8gJ-U9-uXY"/>
-                    <constraint firstItem="Gan-vg-VuR" firstAttribute="leading" secondItem="PJD-Jz-92G" secondAttribute="trailing" constant="15" id="CfG-jW-UDe"/>
                     <constraint firstItem="FHK-pK-PxO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="IUL-Gw-CiU"/>
-                    <constraint firstItem="roL-02-wA1" firstAttribute="top" secondItem="Gan-vg-VuR" secondAttribute="bottom" constant="1" id="QKU-gF-FMN"/>
                     <constraint firstItem="R2j-mo-goZ" firstAttribute="leading" secondItem="PJD-Jz-92G" secondAttribute="trailing" constant="15" id="QQ7-aO-3Zv"/>
                     <constraint firstItem="roL-02-wA1" firstAttribute="leading" secondItem="PJD-Jz-92G" secondAttribute="trailing" constant="15" id="Qxd-I8-S0K"/>
+                    <constraint firstItem="roL-02-wA1" firstAttribute="top" secondItem="Gan-vg-VuR" secondAttribute="bottom" constant="1" id="YRi-Jc-Phx"/>
                     <constraint firstAttribute="bottom" secondItem="roL-02-wA1" secondAttribute="bottom" constant="15" id="lzR-x1-pur"/>
                     <constraint firstItem="R2j-mo-goZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="rB2-vC-X5K"/>
                     <constraint firstAttribute="bottom" secondItem="PJD-Jz-92G" secondAttribute="bottom" constant="15" id="taO-pw-EL8"/>
-                    <constraint firstItem="roL-02-wA1" firstAttribute="top" secondItem="Gan-vg-VuR" secondAttribute="bottom" constant="1" id="wNN-4V-RbD"/>
                     <constraint firstItem="PJD-Jz-92G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="xjM-CI-YiC"/>
                 </constraints>
             </tableViewCellContentView>

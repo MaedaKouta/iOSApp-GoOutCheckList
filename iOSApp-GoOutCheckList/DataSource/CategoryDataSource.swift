@@ -35,7 +35,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
             imageData = image
         }
 
-        cell.configure(image: UIImage(data: imageData), name: element.name)
+        cell.configure(category: item[indexPath.row])
         return cell
     }
 
@@ -88,36 +88,6 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
         .on(observedEvent)
     }
-
-//    func showAlert(deleteIndexPath indexPath: IndexPath) {
-//
-//        let alert: UIAlertController = UIAlertController(
-//            title: "警告",
-//            message: """
-//            \(item[indexPath.row].name)を削除します。
-//            この操作は取り消せません。
-//            """,
-//            preferredStyle:  UIAlertController.Style.alert
-//        )
-//
-//        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-//                (action: UIAlertAction!) -> Void in
-//            try! self.realm.write {
-//                realm.delete(item[indexPath.row].checkItems)
-//                item.remove(at: indexPath.row)
-//            }
-//            tableView.beginUpdates()
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//            tableView.endUpdates()
-//        })
-//        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
-//                (action: UIAlertAction!) -> Void in
-//        })
-//
-//        alert.addAction(okAction)
-//        alert.addAction(cancelAction)
-//        present(alert, animated: true, completion: nil)
-//    }
 
 }
 
