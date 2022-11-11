@@ -41,11 +41,11 @@ class CategoryTableViewCell: UITableViewCell {
         let chekedItemCount = category.checkItems.filter{$0.isDone == true}.count
         if chekedItemCount == 0 {
             checkedCountLabel.text = "\(allItemCount)項目"
-            checkedCountProgressView.setProgress(0.0, animated: true)
+            checkedCountProgressView.setProgress(0.0, animated: false)
         } else {
             let checkedRatio: Float = Float(chekedItemCount)/Float(allItemCount)
             checkedCountLabel.text = "\(chekedItemCount)項目チェック済み/\(allItemCount)項目"
-            checkedCountProgressView.setProgress(checkedRatio, animated: true)
+            checkedCountProgressView.setProgress(checkedRatio, animated: false)
         }
 
     }
