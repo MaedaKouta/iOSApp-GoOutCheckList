@@ -141,8 +141,8 @@ class SettingTableViewController: UITableViewController {
         let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
 
-            HUD.flash(.progress, delay: 1.5) { _ in
-                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 1.0)
+            HUD.flash(.progress, delay: 0.4) { _ in
+                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.6)
             }
 
             let categoryListObject = self.realm.objects(CategoryList.self)
