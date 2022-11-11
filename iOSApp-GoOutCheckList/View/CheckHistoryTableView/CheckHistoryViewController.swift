@@ -106,7 +106,6 @@ class CheckHistoryViewController: UIViewController {
                         itemsText += "\n"
                         itemsText += item.name
                     }
-                    print(itemsText)
                 } else {
                     itemsText = "エラー：チェックアイテムの取得エラー"
                 }

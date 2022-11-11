@@ -156,7 +156,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         tableView.rx.itemDeleted.asObservable()
             .subscribe{ [weak self] _ in
-                print("gere")
                 self?.displaynothingTableViewData()
                 self?.setEditBarButtonItemIcon(isSelected: false)
             }.disposed(by: disposeBag)
