@@ -255,19 +255,31 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             title: "",
             message: """
             \(categoryDataSource.item[indexPath.row].name)のカテゴリーを削除します。よろしいですか？
+            履歴も完全に削除されます。
             """,
             preferredStyle:  UIAlertController.Style.alert
         )
 
         let okAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
                 (action: UIAlertAction!) -> Void in
+
+            // 削除するCheckHistoryを複数取得
+            let categoryObject = try! Realm().objects(CheckHistory.self)
+            let predicate = NSPredicate(format: "categoryID == %@", self.categoryDataSource.item[indexPath.row].id)
+            let deleteCheckHistoryList = categoryObject.filter(predicate)
+
             try! self.realm.write {
+                self.realm.delete(deleteCheckHistoryList)
                 self.realm.delete(self.categoryDataSource.item[indexPath.row].checkItems)
                 self.categoryDataSource.item.remove(at: indexPath.row)
             }
             self.tableView.beginUpdates()
             self.tableView.deleteRows(at: [indexPath], with: .top)
             self.tableView.endUpdates()
+
+
+
+
 
             self.displaynothingTableViewData()
             self.setEditBarButtonItemIcon(isSelected: false)
