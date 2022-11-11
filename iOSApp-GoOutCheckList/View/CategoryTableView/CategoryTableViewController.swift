@@ -271,15 +271,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             try! self.realm.write {
                 self.realm.delete(deleteCheckHistoryList)
                 self.realm.delete(self.categoryDataSource.item[indexPath.row].checkItems)
-                self.categoryDataSource.item.remove(at: indexPath.row)
+                self.realm.delete(self.categoryDataSource.item[indexPath.row])
             }
             self.tableView.beginUpdates()
             self.tableView.deleteRows(at: [indexPath], with: .top)
             self.tableView.endUpdates()
-
-
-
-
 
             self.displaynothingTableViewData()
             self.setEditBarButtonItemIcon(isSelected: false)
