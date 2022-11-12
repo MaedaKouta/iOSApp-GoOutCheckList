@@ -280,7 +280,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             let allItemsCount = self.checkItemDataSource.item.count
             let chekedItemsCount = self.checkItemDataSource.item.filter{ $0.isDone }.count
             let chekedRatio: Float = Float(chekedItemsCount)/Float(allItemsCount)
-            print(chekedRatio)
 
             // allItemsが空ならprogressView表示させない
             if allItemsCount == 0 {
