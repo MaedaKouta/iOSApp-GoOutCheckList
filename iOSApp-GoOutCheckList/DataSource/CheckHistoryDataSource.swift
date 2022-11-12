@@ -29,7 +29,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         if item.isEmpty {
             return nil
         } else {
-            return "履歴が50件表示されます"
+            return "履歴が100件表示されます"
         }
     }
 
