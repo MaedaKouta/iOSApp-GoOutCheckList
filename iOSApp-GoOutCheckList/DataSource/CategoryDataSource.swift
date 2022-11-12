@@ -27,13 +27,6 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
-        let element = item[indexPath.row]
-
-        // imageが空だったとき、はてな画像を挿入
-        var imageData: Data = (UIImage(named: "question_small")?.pngData())!
-        if let image = (UIImage(named: element.assetsImageName)?.pngData()) {
-            imageData = image
-        }
 
         cell.configure(category: item[indexPath.row])
         return cell
@@ -60,7 +53,6 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
             completionHandler(true)
         }
         deleteAction.backgroundColor = .red
-        overwriteAction.backgroundColor = .systemGreen
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, overwriteAction])
         return configuration
     }

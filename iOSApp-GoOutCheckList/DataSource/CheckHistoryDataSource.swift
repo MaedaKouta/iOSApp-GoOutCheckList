@@ -65,7 +65,6 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         let element = item[indexPath.row]
 
         // categoryObjectからelement.idを探す
-
         let dateString = DateUtils.stringFromDate(date: element.date, format: "MM/dd HH:mm")
         cell.setConfigure(dateText: dateString, categoryId: element.categoryID)
 
