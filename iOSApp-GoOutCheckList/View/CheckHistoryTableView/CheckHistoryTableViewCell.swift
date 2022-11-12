@@ -71,6 +71,6 @@ class CheckHistoryTableViewCell: UITableViewCell {
         categoryImageView.layer.cornerRadius = 13
         categoryImageView.layer.masksToBounds = true
         categoryImageView.layer.borderColor = CGColor.init(red: 90/256, green: 90/256, blue: 90/256, alpha: 1.0)
-        categoryImageView.layer.borderWidth = 2
+        categoryImageView.layer.borderWidth = 1
     }
 }

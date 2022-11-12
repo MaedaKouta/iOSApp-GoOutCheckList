@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LostCheckTableViewController" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
             <connections>
                 <outlet property="addItemButtonView" destination="eeZ-Kc-M8V" id="o51-WC-7Na"/>
-                <outlet property="checkedProgressView" destination="tYZ-sT-6b4" id="OV8-Sj-mz1"/>
+                <outlet property="checkedProgressView" destination="FqI-Vf-9Cc" id="gQO-KY-f9P"/>
                 <outlet property="nothingTableViewDataImageView" destination="VL5-9Y-vX2" id="csC-P6-RFV"/>
                 <outlet property="nothingTableViewLabel" destination="SK5-a7-QOJ" id="JRB-Jg-tdE"/>
                 <outlet property="tableView" destination="SXI-8M-3Lx" id="6M8-3v-KDo"/>
@@ -24,13 +24,12 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FqI-Vf-9Cc">
+                    <rect key="frame" x="0.0" y="47" width="390" height="4"/>
+                </progressView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-8M-3Lx">
-                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                    <rect key="frame" x="0.0" y="51" width="390" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <progressView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="tYZ-sT-6b4">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="4"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </progressView>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-Kc-M8V" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
                     <rect key="frame" x="280" y="685" width="75" height="75"/>
@@ -60,12 +59,15 @@
             <constraints>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2Aw-Fs-wrf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eeZ-Kc-M8V" secondAttribute="trailing" constant="35" id="56r-c1-bIz"/>
+                <constraint firstItem="SXI-8M-3Lx" firstAttribute="top" secondItem="FqI-Vf-9Cc" secondAttribute="bottom" id="8id-fY-EIo"/>
+                <constraint firstItem="FqI-Vf-9Cc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FOA-Ci-n6w"/>
                 <constraint firstItem="VL5-9Y-vX2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="GJl-Vl-sf5"/>
+                <constraint firstItem="FqI-Vf-9Cc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GfM-LP-bKa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eeZ-Kc-M8V" secondAttribute="bottom" constant="50" id="H3z-f9-8Lz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FqI-Vf-9Cc" secondAttribute="trailing" id="IUb-as-72P"/>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VS2-nK-knS"/>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="X0u-u1-nfd"/>
                 <constraint firstItem="SK5-a7-QOJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="caa-tu-BTW"/>
-                <constraint firstItem="SXI-8M-3Lx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dMz-Vb-FQp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VL5-9Y-vX2" secondAttribute="trailing" constant="50" id="gSb-bZ-ppJ"/>
                 <constraint firstItem="VL5-9Y-vX2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="p7V-Pa-wy2"/>
                 <constraint firstItem="SK5-a7-QOJ" firstAttribute="top" secondItem="VL5-9Y-vX2" secondAttribute="bottom" id="tvg-76-fI2"/>

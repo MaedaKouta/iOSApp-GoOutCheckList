@@ -76,6 +76,26 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
         if checkItems.allSatisfy({$0.isDone == true}) {
             self.allItemSelectedPublishSubject.accept(())
         }
+    }
+
+    func setAllItemSelect() {
+        let checkItems = categoryObject.checkItems
+
+        for i in 0...checkItems.count - 1 {
+            // １つずつisDoneをtrueにしていき、全てtrueにさせる
+            if checkItems[i].isDone == false {
+                try! self.realm.write {
+                    checkItems[i].isDone = true
+                }
+
+                CheckItemDataBehaviorRelay.accept(checkItems)
+                tableViewItemSeletedPublishRelay.accept(IndexPath(row: i, section: 0))
+
+                if checkItems.allSatisfy({$0.isDone == true}) {
+                    allItemSelectedPublishSubject.accept(())
+                }
+            }
+        }
 
     }
 
