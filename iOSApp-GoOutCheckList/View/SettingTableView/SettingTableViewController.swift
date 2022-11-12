@@ -28,10 +28,10 @@ class SettingTableViewController: UITableViewController {
         super.viewDidLoad()
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
+
         // NavigationBarの背景色の設定
         appearance.backgroundColor = UIColor.white
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        //self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
         isDisplayHistoryNumberSwitch.setOn(UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber"), animated: false)
@@ -106,7 +106,9 @@ class SettingTableViewController: UITableViewController {
 
     // MARK: Setups
     private func setupNavigationbar() {
-        navigationItem.title = "設定"
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = "設定"
     }
 
     private func openSafari(urlString: String) {

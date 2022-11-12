@@ -46,6 +46,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        setupNavigationbar()
         categoryTableViewModel.updateCategoryList()
         displaynothingTableViewData()
         updateTabBarItem()
@@ -59,7 +61,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
 
         setupAddCategoryButton()
-        setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
@@ -181,6 +182,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     private func setupNavigationbar() {
+        self.parent?.navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = "カテゴリー"
         navigationItem.rightBarButtonItem = editBarButtonItem
 

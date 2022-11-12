@@ -40,6 +40,7 @@ class CheckHistoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        setupNavigationBar()
         checkHistoryViewModel.updateCheckHistoryList()
         displaynothingTableViewData()
         setupTabBarItem()
@@ -56,7 +57,6 @@ class CheckHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupNavigationBar()
         setupTableView()
         setupBindings()
     }
@@ -64,13 +64,18 @@ class CheckHistoryViewController: UIViewController {
     // MARK: Actions
     @objc private func didTapSettingButton(_ sender: UIBarButtonItem) {
         let storyboard: UIStoryboard = UIStoryboard(name: "SettingStoryboard", bundle: nil)
-            if let settingVC = storyboard.instantiateInitialViewController() {
-                self.navigationController?.pushViewController(settingVC, animated: true)
+
+        guard let nc: UINavigationController = storyboard.instantiateInitialViewController(), let settingVC = nc.topViewController as? SettingTableViewController  else {
+            return
         }
+
+        self.parent?.navigationController?.pushViewController(settingVC, animated: true)
+
     }
 
     // MARK: Setups
     private func setupNavigationBar() {
+        self.parent?.navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = "履歴"
         navigationItem.rightBarButtonItem = settingBarButtonItem
     }
