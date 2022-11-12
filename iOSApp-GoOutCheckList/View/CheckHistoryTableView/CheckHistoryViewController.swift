@@ -200,12 +200,17 @@ class CheckHistoryViewController: UIViewController {
 
         let noneWatchHistoryCount = checkHistoryObject.filter{$0.isWatched == false}.count
 
-        if noneWatchHistoryCount == 0 {
-            tabItem.badgeColor = UIColor.darkGray
-            tabItem.badgeValue = nil
+        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+            if noneWatchHistoryCount == 0 {
+                tabItem.badgeColor = UIColor.darkGray
+                tabItem.badgeValue = nil
+            } else {
+                tabItem.badgeColor = UIColor.darkGray
+                tabItem.badgeValue = "\(noneWatchHistoryCount)"
+            }
         } else {
             tabItem.badgeColor = UIColor.darkGray
-            tabItem.badgeValue = "\(noneWatchHistoryCount)"
+            tabItem.badgeValue = nil
         }
 
     }

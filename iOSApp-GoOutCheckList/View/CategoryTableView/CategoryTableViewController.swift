@@ -48,6 +48,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         super.viewWillAppear(animated)
         categoryTableViewModel.updateCategoryList()
         displaynothingTableViewData()
+        updateTabBarItem()
     }
 
     override func viewDidLoad() {
@@ -206,6 +207,19 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     // MARK: Method
+    private func updateTabBarItem() {
+        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+            let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
+            let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
+            if noneWatchHistoryCount == 0 {return}
+
+            if let tabItem = self.tabBarController?.tabBar.items?[1] {
+                tabItem.badgeColor = UIColor.darkGray
+                tabItem.badgeValue = "\(noneWatchHistoryCount)"
+            }
+        }
+    }
+
     private func displaynothingTableViewData() {
         if categoryDataSource.item.isEmpty {
             nothingTableViewDataImageView.image = UIImage(named: "day_off")

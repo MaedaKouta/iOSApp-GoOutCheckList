@@ -14,6 +14,7 @@ import PKHUD
 class SettingTableViewController: UITableViewController {
 
     @IBOutlet private weak var versionLabel: UILabel!
+    @IBOutlet private weak var isDisplayHistoryNumberSwitch: UISwitch!
 
     private let reviewUrl = ""
     private let feedbackUrl = "https://forms.gle/dkDVq2x3QpDEYmPm6"
@@ -33,9 +34,15 @@ class SettingTableViewController: UITableViewController {
         //self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
+        isDisplayHistoryNumberSwitch.setOn(UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber"), animated: false)
+
         setupNavigationbar()
 
         versionLabel.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+
+    @IBAction func isChangedDisplayHistoryNumberSwitch(_ sender: Any) {
+        UserDefaults.standard.set(isDisplayHistoryNumberSwitch.isOn, forKey: "isDisplayHistoryNumber")
     }
 
     // MARK: Actions
