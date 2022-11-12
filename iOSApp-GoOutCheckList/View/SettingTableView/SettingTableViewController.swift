@@ -24,6 +24,11 @@ class SettingTableViewController: UITableViewController {
 
     private lazy var realm = try! Realm()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationbar()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let appearance = UINavigationBarAppearance()
@@ -35,8 +40,6 @@ class SettingTableViewController: UITableViewController {
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
         isDisplayHistoryNumberSwitch.setOn(UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber"), animated: false)
-
-        setupNavigationbar()
 
         versionLabel.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
@@ -107,7 +110,6 @@ class SettingTableViewController: UITableViewController {
     // MARK: Setups
     private func setupNavigationbar() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "設定"
     }
 

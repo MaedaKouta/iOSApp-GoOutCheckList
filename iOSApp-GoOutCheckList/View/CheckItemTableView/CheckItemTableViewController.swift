@@ -139,7 +139,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             self?.checkItemViewModel.setAllItemSelect()
 
         })
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
         })
         alert.addAction(cancelAction)
