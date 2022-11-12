@@ -136,14 +136,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{ [weak self]
             (action: UIAlertAction!) -> Void in
 
-            try! self?.realm.write {
-                self?.checkItemDataSource.item.map{$0.isDone = true}
-                print(self?.checkItemDataSource.item)
-            }
-            self?.tableView.reloadData()
             self?.checkItemViewModel.setAllItemSelect()
-
-
 
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
@@ -280,15 +273,21 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func updateProgressView() {
-        let allItemsCount = checkItemDataSource.item.count
-        let chekedItemsCount = checkItemDataSource.item.filter{ $0.isDone }.count
-        let chekedRatio: Float = Float(chekedItemsCount)/Float(allItemsCount)
 
-        // allItemsが空ならprogressView表示させない
-        if allItemsCount == 0 {
-            checkedProgressView.setProgress(0.0, animated: true)
-        } else {
-            checkedProgressView.setProgress(chekedRatio, animated: true)
+        // メインスレッドで実行させないと、allItemCheckButtonの際のprogressViewアニメーションが激速になる
+        DispatchQueue.main.async {
+
+            let allItemsCount = self.checkItemDataSource.item.count
+            let chekedItemsCount = self.checkItemDataSource.item.filter{ $0.isDone }.count
+            let chekedRatio: Float = Float(chekedItemsCount)/Float(allItemsCount)
+            print(chekedRatio)
+
+            // allItemsが空ならprogressView表示させない
+            if allItemsCount == 0 {
+                self.checkedProgressView.setProgress(0.0, animated: true)
+            } else {
+                self.checkedProgressView.setProgress(chekedRatio, animated: true)
+            }
         }
 
     }
