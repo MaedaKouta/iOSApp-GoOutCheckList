@@ -48,6 +48,7 @@ class SettingTableViewController: UITableViewController {
             // 履歴の通知表示
         } else if indexPath == [0, 2] {
             // 履歴の一括削除
+            deleteHistoryDataAlert()
 
         } else if indexPath == [1, 0] {
             // ウィジェット表示カテゴリ
@@ -140,6 +141,45 @@ class SettingTableViewController: UITableViewController {
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
         self.present(activityVC, animated: true)
+    }
+
+    private func deleteHistoryDataAlert() {
+        let alert: UIAlertController = UIAlertController(
+            title: "履歴の削除",
+            message: """
+            履歴を完全に削除してよろしいですか？
+            この操作は取り消せません。
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+
+            let checkHistoryListObject = self.realm.objects(CheckHistoryList.self)
+            let checkHistoryObject = self.realm.objects(CheckHistory.self)
+
+            try! self.realm.write {
+                if checkHistoryListObject.count != 0 {
+                    self.realm.delete(checkHistoryListObject)
+                }
+
+                if checkHistoryObject.count != 0 {
+                    self.realm.delete(checkHistoryObject)
+                }
+            }
+
+            HUD.flash(.progress, delay: 0.2) { _ in
+                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.4)
+            }
+
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+                (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
     private func deleteDataAlert() {
