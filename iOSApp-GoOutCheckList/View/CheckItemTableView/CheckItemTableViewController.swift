@@ -155,7 +155,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         NotificationCenter.default.addObserver(self, selector: #selector(selectedCellOverwrite(notification:)), name: .CheckItemViewFromDataSourceOverwriteNotification, object: nil)
     }
 
-    private func setupTableView() {
+    private func setupTableView(){
+        tableView.rowHeight = 47.5
         tableView.delegate = checkItemDataSource
         tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
     }

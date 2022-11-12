@@ -51,12 +51,10 @@ class SettingTableViewController: UITableViewController {
     // MARK: Actions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if indexPath == [0, 0] {
-            // 履歴の保存件数
+         if indexPath == [0, 0] {
+            // 履歴の通知表示
 
         } else if indexPath == [0, 1] {
-            // 履歴の通知表示
-        } else if indexPath == [0, 2] {
             // 履歴の一括削除
             deleteHistoryDataAlert()
 
@@ -187,11 +185,11 @@ class SettingTableViewController: UITableViewController {
             }
 
         })
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
                 (action: UIAlertAction!) -> Void in
         })
-        alert.addAction(deleteAction)
         alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
         self.present(alert, animated: true, completion: nil)
     }
 
