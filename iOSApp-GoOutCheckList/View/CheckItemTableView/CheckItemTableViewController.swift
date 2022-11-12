@@ -188,7 +188,10 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                             self?.checkHistoryListObject?.checkHistoryList.insert(checkHistoryObject, at: 0)
                         }
                     }
+
+                    self?.updateTabBarItem()
                 }
+
             }.disposed(by: disposeBag)
     }
 
@@ -322,6 +325,17 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+
+    private func updateTabBarItem() {
+        let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
+        let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
+        if noneWatchHistoryCount == 0 {return}
+
+        if let tabItem = self.tabBarController?.tabBar.items?[1] {
+            tabItem.badgeColor = UIColor.darkGray
+            tabItem.badgeValue = "\(noneWatchHistoryCount)"
+        }
     }
 
 }

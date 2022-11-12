@@ -42,7 +42,15 @@ class CheckHistoryViewController: UIViewController {
 
         checkHistoryViewModel.updateCheckHistoryList()
         displaynothingTableViewData()
+        setupTabBarItem()
+
         tableView.reloadData()
+
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.updateTabBarItem()
     }
 
     override func viewDidLoad() {
@@ -71,6 +79,16 @@ class CheckHistoryViewController: UIViewController {
         tableView.rowHeight = 50
         tableView.delegate = checkHistoryDataSource
         tableView.register(UINib(nibName: "CheckHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckHistoryTableViewCell")
+    }
+
+    private func setupTabBarItem() {
+        guard let tabItem = self.tabBarController?.tabBar.items?[1] else {
+            return
+        }
+
+        tabItem.badgeColor = UIColor.darkGray
+        tabItem.badgeValue = nil
+
     }
 
     private func setupBindings() {
@@ -167,4 +185,28 @@ class CheckHistoryViewController: UIViewController {
         return category
     }
 
+    private func updateTabBarItem() {
+        guard let tabItem = self.tabBarController?.tabBar.items?[1] else {
+            return
+        }
+        let checkHistoryObject = realm.objects(CheckHistory.self)
+        let noneWatchedCheckHistoryObject = checkHistoryObject.filter{$0.isWatched==false}
+
+        try! self.realm.write() {
+            for checkHistory in noneWatchedCheckHistoryObject {
+                checkHistory.isWatched = true
+            }
+        }
+
+        let noneWatchHistoryCount = checkHistoryObject.filter{$0.isWatched == false}.count
+
+        if noneWatchHistoryCount == 0 {
+            tabItem.badgeColor = UIColor.darkGray
+            tabItem.badgeValue = nil
+        } else {
+            tabItem.badgeColor = UIColor.darkGray
+            tabItem.badgeValue = "\(noneWatchHistoryCount)"
+        }
+
+    }
 }
