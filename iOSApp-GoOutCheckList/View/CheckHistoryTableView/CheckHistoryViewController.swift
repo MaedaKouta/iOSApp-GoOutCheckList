@@ -42,13 +42,15 @@ class CheckHistoryViewController: UIViewController {
 
         checkHistoryViewModel.updateCheckHistoryList()
         displaynothingTableViewData()
+        setupTabBarItem()
 
-        UIView.animate(withDuration: 0.0) {
-            self.tableView.reloadData()
-        } completion: { _ in
-            self.updateTabBarItem()
-        }
+        tableView.reloadData()
 
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.updateTabBarItem()
     }
 
     override func viewDidLoad() {
@@ -77,6 +79,16 @@ class CheckHistoryViewController: UIViewController {
         tableView.rowHeight = 50
         tableView.delegate = checkHistoryDataSource
         tableView.register(UINib(nibName: "CheckHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckHistoryTableViewCell")
+    }
+
+    private func setupTabBarItem() {
+        guard let tabItem = self.tabBarController?.tabBar.items?[1] else {
+            return
+        }
+
+        tabItem.badgeColor = UIColor.darkGray
+        tabItem.badgeValue = nil
+
     }
 
     private func setupBindings() {
