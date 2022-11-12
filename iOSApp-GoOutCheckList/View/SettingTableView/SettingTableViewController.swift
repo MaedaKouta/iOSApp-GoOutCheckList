@@ -17,7 +17,7 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet private weak var isDisplayHistoryNumberSwitch: UISwitch!
 
     private let reviewUrl = ""
-    private let feedbackUrl = "https://forms.gle/dkDVq2x3QpDEYmPm6"
+    private let feedbackUrl = "https://forms.gle/3T3eNwuggnUvUd9t5"
     private let privacyUrl = "https://local-tumbleweed-7ea.notion.site/407c8f689ad24676ae4fecb76abe39d9"
     private let ruleUrl = "https://local-tumbleweed-7ea.notion.site/570ea223dce3463b9b42a3528b516603"
     private let twitterUrl = "https://twitter.com/kota_org"
@@ -66,9 +66,11 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [2, 1] {
             // アプリをシェアする
-            prepareWebView(url: feedbackUrl, title: "フィードバックを送る")
+            shareApp()
+
         } else if indexPath == [2, 2] {
             // フィードバックを送る
+            prepareWebView(url: feedbackUrl, title: "フィードバックを送る")
 
         } else if indexPath == [3, 0] {
             // プライバシーポリシー
