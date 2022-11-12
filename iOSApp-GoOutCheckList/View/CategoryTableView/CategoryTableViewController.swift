@@ -164,7 +164,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     private func setupTableView() {
         tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
         tableView.delegate = categoryDataSource
-        tableView.rowHeight = 50
+        tableView.rowHeight = 70
     }
 
     private func setupFloatingPanel() {

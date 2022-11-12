@@ -27,15 +27,8 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
-        let element = item[indexPath.row]
 
-        // imageが空だったとき、はてな画像を挿入
-        var imageData: Data = (UIImage(named: "question_small")?.pngData())!
-        if let image = (UIImage(named: element.assetsImageName)?.pngData()) {
-            imageData = image
-        }
-
-        cell.configure(image: UIImage(data: imageData), name: element.name)
+        cell.configure(category: item[indexPath.row])
         return cell
     }
 
@@ -60,7 +53,6 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
             completionHandler(true)
         }
         deleteAction.backgroundColor = .red
-        overwriteAction.backgroundColor = .systemGreen
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, overwriteAction])
         return configuration
     }
@@ -88,36 +80,6 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
         .on(observedEvent)
     }
-
-//    func showAlert(deleteIndexPath indexPath: IndexPath) {
-//
-//        let alert: UIAlertController = UIAlertController(
-//            title: "警告",
-//            message: """
-//            \(item[indexPath.row].name)を削除します。
-//            この操作は取り消せません。
-//            """,
-//            preferredStyle:  UIAlertController.Style.alert
-//        )
-//
-//        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-//                (action: UIAlertAction!) -> Void in
-//            try! self.realm.write {
-//                realm.delete(item[indexPath.row].checkItems)
-//                item.remove(at: indexPath.row)
-//            }
-//            tableView.beginUpdates()
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//            tableView.endUpdates()
-//        })
-//        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
-//                (action: UIAlertAction!) -> Void in
-//        })
-//
-//        alert.addAction(okAction)
-//        alert.addAction(cancelAction)
-//        present(alert, animated: true, completion: nil)
-//    }
 
 }
 

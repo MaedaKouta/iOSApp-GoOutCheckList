@@ -53,7 +53,6 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
             completionHandler(true)
         }
         deleteAction.backgroundColor = .red
-        overwriteAction.backgroundColor = .systemGreen
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, overwriteAction])
         return configuration
     }

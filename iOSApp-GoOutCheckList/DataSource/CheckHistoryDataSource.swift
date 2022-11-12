@@ -40,8 +40,15 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
+            let checkHistoryObject = try! Realm().objects(CheckHistory.self)
+            let predicate = NSPredicate(format: "id == %@", item[indexPath.row].id)
+            let deleteCheckHistory = checkHistoryObject.filter(predicate).first
+
             try! self.realm.write {
-                item.remove(at: indexPath.row)
+                guard let deleteCheckHistory = deleteCheckHistory else{
+                    return
+                }
+                realm.delete(deleteCheckHistory)
             }
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -58,7 +65,6 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         let element = item[indexPath.row]
 
         // categoryObjectからelement.idを探す
-
         let dateString = DateUtils.stringFromDate(date: element.date, format: "MM/dd HH:mm")
         cell.setConfigure(dateText: dateString, categoryId: element.categoryID)
 
