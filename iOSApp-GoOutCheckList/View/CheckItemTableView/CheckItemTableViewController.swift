@@ -31,6 +31,14 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         return UIBarButtonItem(customView: button)
     }()
 
+    private lazy var allCheckBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "text.badge.checkmark", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        button.addTarget(self, action: #selector(didTapAllCheckButton(_:)), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+
     // MARK: Propaties
     private var checkItemDataSource = CheckItemDataSource()
     private lazy var checkItemViewModel = CheckItemViewModel(
@@ -113,6 +121,38 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         let view = RegisterCheckItemViewController()
         fpc.set(contentViewController: view)
         self.present(fpc, animated: true, completion: nil)
+    }
+
+    @objc private func didTapAllCheckButton(_ sender: UIBarButtonItem) {
+        // 全てのアイテムを選択する
+        let alert: UIAlertController = UIAlertController(
+            title: "",
+            message: """
+            全てのアイテムを完了にします。よろしいですか？
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{ [weak self]
+            (action: UIAlertAction!) -> Void in
+
+            try! self?.realm.write {
+                self?.checkItemDataSource.item.map{$0.isDone = true}
+                print(self?.checkItemDataSource.item)
+            }
+            self?.tableView.reloadData()
+            self?.checkItemViewModel.setAllItemSelect()
+
+
+
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+
     }
 
     // MARK: - Setups
@@ -223,7 +263,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     private func setupNavigationbar() {
         navigationItem.title = categoryObject.name
-        self.navigationItem.rightBarButtonItem = editBarButtonItem
+        self.navigationItem.rightBarButtonItems = [editBarButtonItem, allCheckBarButtonItem]
         updateNavigationbar()
     }
 
@@ -231,9 +271,11 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     private func updateNavigationbar() {
         // アイテムが１つ以下だったら並べ替えボタンタップできなくする
         if checkItemDataSource.item.isEmpty {
-            navigationItem.rightBarButtonItem?.isEnabled = false
+            navigationItem.rightBarButtonItems?[0].isEnabled = false
+            navigationItem.rightBarButtonItems?[1].isEnabled = false
         } else {
-            navigationItem.rightBarButtonItem?.isEnabled = true
+            navigationItem.rightBarButtonItems?[0].isEnabled = true
+            navigationItem.rightBarButtonItems?[1].isEnabled = true
         }
     }
 
