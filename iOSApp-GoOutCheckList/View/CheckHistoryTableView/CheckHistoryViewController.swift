@@ -42,8 +42,13 @@ class CheckHistoryViewController: UIViewController {
 
         checkHistoryViewModel.updateCheckHistoryList()
         displaynothingTableViewData()
-        updateTabBarItem()
-        tableView.reloadData()
+
+        UIView.animate(withDuration: 0.0) {
+            self.tableView.reloadData()
+        } completion: { _ in
+            self.updateTabBarItem()
+        }
+
     }
 
     override func viewDidLoad() {
