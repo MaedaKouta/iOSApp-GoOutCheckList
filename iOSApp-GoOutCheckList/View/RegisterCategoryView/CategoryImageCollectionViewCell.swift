@@ -42,7 +42,7 @@ class CategoryImageCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupLayout() {
-        self.categoryImage.layer.cornerRadius = 10
+        self.categoryImage.layer.cornerRadius = 22.5
         self.categoryImage.layer.masksToBounds = true
         self.categoryImage.layer.borderColor = noneSelectLayerColor
         self.categoryImage.layer.borderWidth = 2
