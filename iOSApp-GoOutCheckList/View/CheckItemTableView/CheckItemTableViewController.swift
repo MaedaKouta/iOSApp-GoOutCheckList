@@ -139,7 +139,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             self?.checkItemViewModel.setAllItemSelect()
 
         })
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
         })
         alert.addAction(cancelAction)
@@ -368,13 +368,15 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func updateTabBarItem() {
-        let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
-        let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
-        if noneWatchHistoryCount == 0 {return}
+        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+            let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
+            let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
+            if noneWatchHistoryCount == 0 {return}
 
-        if let tabItem = self.tabBarController?.tabBar.items?[1] {
-            tabItem.badgeColor = UIColor.darkGray
-            tabItem.badgeValue = "\(noneWatchHistoryCount)"
+            if let tabItem = self.tabBarController?.tabBar.items?[1] {
+                tabItem.badgeColor = UIColor.darkGray
+                tabItem.badgeValue = "\(noneWatchHistoryCount)"
+            }
         }
     }
 

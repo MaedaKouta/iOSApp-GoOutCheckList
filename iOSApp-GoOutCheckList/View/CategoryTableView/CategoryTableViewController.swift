@@ -46,8 +46,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        setupNavigationbar()
         categoryTableViewModel.updateCategoryList()
         displaynothingTableViewData()
+        updateTabBarItem()
     }
 
     override func viewDidLoad() {
@@ -58,7 +61,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
 
         setupAddCategoryButton()
-        setupNavigationbar()
         setupTableView()
         setupBindings()
         setupFloatingPanel()
@@ -180,6 +182,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     private func setupNavigationbar() {
+        self.parent?.navigationController?.setNavigationBarHidden(true, animated: true)
         navigationItem.title = "カテゴリー"
         navigationItem.rightBarButtonItem = editBarButtonItem
 
@@ -206,6 +209,19 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     // MARK: Method
+    private func updateTabBarItem() {
+        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+            let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
+            let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
+            if noneWatchHistoryCount == 0 {return}
+
+            if let tabItem = self.tabBarController?.tabBar.items?[1] {
+                tabItem.badgeColor = UIColor.darkGray
+                tabItem.badgeValue = "\(noneWatchHistoryCount)"
+            }
+        }
+    }
+
     private func displaynothingTableViewData() {
         if categoryDataSource.item.isEmpty {
             nothingTableViewDataImageView.image = UIImage(named: "day_off")

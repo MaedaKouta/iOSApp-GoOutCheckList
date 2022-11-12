@@ -14,64 +14,91 @@ import PKHUD
 class SettingTableViewController: UITableViewController {
 
     @IBOutlet private weak var versionLabel: UILabel!
+    @IBOutlet private weak var isDisplayHistoryNumberSwitch: UISwitch!
 
     private let reviewUrl = ""
-    private let feedbackUrl = "https://forms.gle/dkDVq2x3QpDEYmPm6"
+    private let feedbackUrl = "https://forms.gle/3T3eNwuggnUvUd9t5"
     private let privacyUrl = "https://local-tumbleweed-7ea.notion.site/407c8f689ad24676ae4fecb76abe39d9"
     private let ruleUrl = "https://local-tumbleweed-7ea.notion.site/570ea223dce3463b9b42a3528b516603"
     private let twitterUrl = "https://twitter.com/kota_org"
 
     private lazy var realm = try! Realm()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationbar()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
+
         // NavigationBarの背景色の設定
         appearance.backgroundColor = UIColor.white
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        //self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
-        setupNavigationbar()
+        isDisplayHistoryNumberSwitch.setOn(UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber"), animated: false)
 
         versionLabel.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 
+    @IBAction func isChangedDisplayHistoryNumberSwitch(_ sender: Any) {
+        UserDefaults.standard.set(isDisplayHistoryNumberSwitch.isOn, forKey: "isDisplayHistoryNumber")
+    }
+
     // MARK: Actions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         if indexPath == [0, 0] {
+            // 履歴の保存件数
+
+        } else if indexPath == [0, 1] {
+            // 履歴の通知表示
+        } else if indexPath == [0, 2] {
+            // 履歴の一括削除
+            deleteHistoryDataAlert()
+
+        } else if indexPath == [1, 0] {
+            // ウィジェット表示カテゴリ
+
+        } else if indexPath == [2, 0] {
+            // アプリを評価する
+            shareApp()
+
+        } else if indexPath == [2, 1] {
             // アプリをシェアする
             shareApp()
 
-        } else if indexPath == [0, 1] {
+        } else if indexPath == [2, 2] {
             // フィードバックを送る
             prepareWebView(url: feedbackUrl, title: "フィードバックを送る")
 
-
-        } else if indexPath == [1, 0] {
+        } else if indexPath == [3, 0] {
             // プライバシーポリシー
-            prepareWebView(url: privacyUrl, title: "プライバシー")
+            prepareWebView(url: privacyUrl, title: "プライバシーポリシー")
 
-        } else if indexPath == [1, 1] {
+        } else if indexPath == [3, 1] {
             // 利用規約
             prepareWebView(url: ruleUrl, title: "利用規約")
 
-        } else if indexPath == [1, 2] {
+        } else if indexPath == [3, 2] {
             // ライセンス
             guard #available(iOS 13.0.0, *) else { return }
             let vc = UIHostingController(rootView: LisenceSwiftUIView())
             vc.navigationItem.title = "ライセンス"
             self.navigationController?.pushViewController(vc, animated: true)
 
-        } else if indexPath == [1, 3] {
-            // バージョン
-
-        } else if indexPath == [2, 0] {
+        } else if indexPath == [3, 3] {
             // 開発者のTwitter
             openSafari(urlString: twitterUrl)
 
-        } else if indexPath == [3, 0] {
+        } else if indexPath == [3, 4] {
+            // バージョン
+
+
+        } else if indexPath == [4, 0] {
             // データの初期化
             deleteDataAlert()
         }
@@ -82,7 +109,8 @@ class SettingTableViewController: UITableViewController {
 
     // MARK: Setups
     private func setupNavigationbar() {
-        navigationItem.title = "設定"
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.title = "設定"
     }
 
     private func openSafari(urlString: String) {
@@ -126,6 +154,45 @@ class SettingTableViewController: UITableViewController {
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
         self.present(activityVC, animated: true)
+    }
+
+    private func deleteHistoryDataAlert() {
+        let alert: UIAlertController = UIAlertController(
+            title: "履歴の削除",
+            message: """
+            履歴を完全に削除してよろしいですか？
+            この操作は取り消せません。
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+
+            let checkHistoryListObject = self.realm.objects(CheckHistoryList.self)
+            let checkHistoryObject = self.realm.objects(CheckHistory.self)
+
+            try! self.realm.write {
+                if checkHistoryListObject.count != 0 {
+                    self.realm.delete(checkHistoryListObject)
+                }
+
+                if checkHistoryObject.count != 0 {
+                    self.realm.delete(checkHistoryObject)
+                }
+            }
+
+            HUD.flash(.progress, delay: 0.2) { _ in
+                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.4)
+            }
+
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+                (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
     private func deleteDataAlert() {

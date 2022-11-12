@@ -11,6 +11,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 全体のNavigationBarの色をグレーにする
         UINavigationBar.appearance().tintColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha:1)
 
+        // 初回起動時だけ呼ばれる処理で、設定の初期値をセット
+        if UserDefaults.standard.bool(forKey: "isSecondLaunch") == false {
+
+            UserDefaults.standard.set(true, forKey: "isDisplayHistoryNumber")
+            UserDefaults.standard.set(true, forKey: "isSecondLaunch")
+        }
+
         return true
     }
 
