@@ -40,38 +40,52 @@ class SettingTableViewController: UITableViewController {
 
     // MARK: Actions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         if indexPath == [0, 0] {
-            // アプリをシェアする
-            shareApp()
+            // 履歴の保存件数
 
         } else if indexPath == [0, 1] {
-            // フィードバックを送る
-            prepareWebView(url: feedbackUrl, title: "フィードバックを送る")
-
+            // 履歴の通知表示
+        } else if indexPath == [0, 2] {
+            // 履歴の一括削除
 
         } else if indexPath == [1, 0] {
-            // プライバシーポリシー
-            prepareWebView(url: privacyUrl, title: "プライバシー")
+            // ウィジェット表示カテゴリ
 
-        } else if indexPath == [1, 1] {
+        } else if indexPath == [2, 0] {
+            // アプリを評価する
+            shareApp()
+
+        } else if indexPath == [2, 1] {
+            // アプリをシェアする
+            prepareWebView(url: feedbackUrl, title: "フィードバックを送る")
+        } else if indexPath == [2, 2] {
+            // フィードバックを送る
+
+        } else if indexPath == [3, 0] {
+            // プライバシーポリシー
+            prepareWebView(url: privacyUrl, title: "プライバシーポリシー")
+
+        } else if indexPath == [3, 1] {
             // 利用規約
             prepareWebView(url: ruleUrl, title: "利用規約")
 
-        } else if indexPath == [1, 2] {
+        } else if indexPath == [3, 2] {
             // ライセンス
             guard #available(iOS 13.0.0, *) else { return }
             let vc = UIHostingController(rootView: LisenceSwiftUIView())
             vc.navigationItem.title = "ライセンス"
             self.navigationController?.pushViewController(vc, animated: true)
 
-        } else if indexPath == [1, 3] {
-            // バージョン
-
-        } else if indexPath == [2, 0] {
+        } else if indexPath == [3, 3] {
             // 開発者のTwitter
             openSafari(urlString: twitterUrl)
 
-        } else if indexPath == [3, 0] {
+        } else if indexPath == [3, 4] {
+            // バージョン
+
+
+        } else if indexPath == [4, 0] {
             // データの初期化
             deleteDataAlert()
         }
