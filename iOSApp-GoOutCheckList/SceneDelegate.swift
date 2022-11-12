@@ -27,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /* 初期画面をNavigationControllerにしたい場合 */
          //let navigationController = UINavigationController(rootViewController: MainTabBarController())
          //self.window?.rootViewController = navigationController
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

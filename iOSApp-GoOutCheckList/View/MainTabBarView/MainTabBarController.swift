@@ -22,6 +22,7 @@ class MainTabBarController: UITabBarController {
         secondViewController.tabBarItem = UITabBarItem(title: "履歴", image: UIImage(systemName: "clock.arrow.circlepath"), tag: 0)
 
         viewControllers = [firstViewController, secondViewController]
+
     }
 
 }

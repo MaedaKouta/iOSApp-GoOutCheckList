@@ -189,6 +189,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                         }
                     }
                 }
+
             }.disposed(by: disposeBag)
     }
 
