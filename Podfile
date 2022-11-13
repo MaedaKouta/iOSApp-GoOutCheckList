@@ -13,8 +13,6 @@ target 'iOSApp-GoOutCheckList' do
         pod 'RealmSwift'
         pod "RxRealm"
         pod 'FloatingPanel'
-        pod 'SwiftEntryKit', '2.0.0'
-
 
   # Pods for iOSApp-GoOutCheckList
 

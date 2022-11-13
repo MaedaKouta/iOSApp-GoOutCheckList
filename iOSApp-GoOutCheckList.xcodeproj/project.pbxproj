@@ -185,6 +185,7 @@
 		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
 		87E7536E2920BDE600C4ECF7 /* CheckItemsMiddleWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckItemsMiddleWidgetExtension.entitlements; sourceTree = "<group>"; };
 		87E7536F2920C31300C4ECF7 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		87E753712920C44900C4ECF7 /* iOSApp-GoOutCheckList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOSApp-GoOutCheckList.entitlements"; sourceTree = "<group>"; };
 		88F52D017C5797685D117751 /* Pods-iOSApp-GoOutCheckList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.release.xcconfig"; sourceTree = "<group>"; };
 		951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC804F6D57454BBF63A43E0 /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -403,6 +404,7 @@
 		87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */ = {
 			isa = PBXGroup;
 			children = (
+				87E753712920C44900C4ECF7 /* iOSApp-GoOutCheckList.entitlements */,
 				87B41BA428EAC387009F1046 /* Models */,
 				87A2663128EB27AC0091C282 /* DataSource */,
 				87B41BA528EAC38E009F1046 /* View */,
@@ -1106,6 +1108,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOSApp-GoOutCheckList/iOSApp-GoOutCheckList.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
@@ -1137,6 +1140,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOSApp-GoOutCheckList/iOSApp-GoOutCheckList.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
