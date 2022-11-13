@@ -72,24 +72,24 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                 Spacer()
                 Text("カテゴリー名")
-                    .font(.caption2)
+                    .font(.system(size: 11))
                     .padding(.horizontal, 8)
                     .padding(.bottom, 5)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 VStack(alignment: .leading, spacing: 5.0) {
                     Text("タスク１")
-                        .font(.caption2)
+                        .font(.system(size: 11))
 
                     Divider()
 
                     Text("タスク１")
-                        .font(.caption2)
+                        .font(.system(size: 11))
 
                     Divider()
 
                     Text("タスク１")
-                        .font(.caption2)
+                        .font(.system(size: 11))
                 }.padding(.horizontal, 8)
 
                 Spacer()
@@ -97,8 +97,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
             }
 
         } else if widgetFamily == .systemMedium {
-            HStack(spacing: 0.0) {
-
+            HStack() {
                 Spacer()
 
                 VStack(alignment: .leading) {
@@ -117,41 +116,42 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .font(Font.futuraMedium(size: 25))
 
                     Text("カテゴリー名")
-                        .font(.caption2)
+                        .font(.system(size: 11))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                }
+                }.frame(width: 120)
 
 
                 Spacer()
 
-                VStack(alignment: .leading, spacing: 5.0) {
-                    Text("タスク1")
-                        .font(.caption2)
+                VStack(alignment: .leading) {
+                    Text("タスク１")
+                        .font(.system(size: 11))
 
                     Divider()
 
                     Text("タスク２")
-                        .font(.caption2)
+                        .font(.system(size: 11))
 
                     Divider()
 
                     Text("タスク３")
-                        .font(.caption2)
+                        .font(.system(size: 11))
 
                     Divider()
 
                     Text("タスク４")
-                        .font(.caption2)
+                        .font(.system(size: 11))
 
                     Divider()
 
                     Text("タスク５")
-                        .font(.caption2)
+                        .font(.system(size: 11))
                 }
 
                 Spacer()
 
-            }.padding(.vertical, 15)
+            }
+            .padding(12)
 
         } else if widgetFamily == .systemLarge {
             HStack {
