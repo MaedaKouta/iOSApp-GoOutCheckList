@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import RealmSwift
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -42,7 +43,6 @@ struct SimpleEntry: TimelineEntry {
 
 struct CheckItemsMiddleWidgetEntryView : View {
     var entry: Provider.Entry
-
     // Widgetの小・中・大の取得
     @Environment(\.widgetFamily) var widgetFamily
 
@@ -154,9 +154,111 @@ struct CheckItemsMiddleWidgetEntryView : View {
             .padding(12)
 
         } else if widgetFamily == .systemLarge {
-            HStack {
+            VStack(spacing: 0.0) {
 
-            }
+                Spacer()
+
+                // 上半分
+                HStack{
+
+                    VStack(alignment: .leading) {
+                        Text("8")
+                            .font(Font.futuraMedium(size: 25))
+
+                        Text("カテゴリー名")
+                            .font(.system(size: 11))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                    }
+
+                    Spacer()
+                    Image("car_small")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .overlay(
+                            Circle()
+                                .stroke(.black, lineWidth: 1)
+                        )
+                        .padding(.leading, 15)
+
+                    Spacer()
+
+                } // 上半分ここまで
+
+                Divider()
+                    .bold()
+                    .padding(.vertical)
+
+                Spacer()
+
+
+                // 下半分
+                VStack(alignment: .leading, spacing: 5.0) {
+
+                    Group {
+                        Text("タスク１")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク２")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク３")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク４")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク５")
+                            .font(.system(size: 11))
+
+                        Divider()
+                    }
+
+                    Group {
+                        Text("タスク６")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク７")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク８")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク９")
+                            .font(.system(size: 11))
+
+                        Divider()
+
+                        Text("タスク１０")
+                            .font(.system(size: 11))
+                    }
+
+
+
+
+
+                }.padding(.horizontal, 8)
+                // 下半分ここまで
+
+                Spacer()
+
+            }.padding(12)
+
 
         }
 

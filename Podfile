@@ -30,4 +30,10 @@ target 'iOSApp-GoOutCheckList' do
         pod 'RxTest'
   end
 
+  target 'CheckItemsMiddleWidgetExtension' do
+    use_frameworks!
+    # Pods for CheckItemsMiddleWidgetExtension
+        pod 'RealmSwift'
+  end
+
 end

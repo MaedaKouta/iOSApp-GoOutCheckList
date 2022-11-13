@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0DD380804DEDFBADFB26A5 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED2A92CC6505416760DE6F1 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework */; };
 		87202B7529091C950036692B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
 		872CEEF6290FF308006340E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CEEF5290FF308006340E7 /* WebViewController.swift */; };
 		872CEEF8291006BA006340E7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872CEEF7291006BA006340E7 /* WebKit.framework */; };
@@ -68,6 +69,7 @@
 		87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */; };
 		87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */; };
 		87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */; };
+		87E753702920C31300C4ECF7 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E7536F2920C31300C4ECF7 /* RealmManager.swift */; };
 		E6B9AF617A86399A182521FF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */; };
 		F2C93797B916B0E3EBB5EF70 /* Pods_iOSApp_GoOutCheckListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F834723A44CA72B233D147D9 /* Pods_iOSApp_GoOutCheckList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -133,6 +135,8 @@
 		874602D32909FB5B009D1D50 /* CheckHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		874602D42909FB5B009D1D50 /* CheckHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		874602D7290A0068009D1D50 /* CheckHistoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryTableViewModel.swift; sourceTree = "<group>"; };
+		8752F3E22920BC0D00633CA8 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8752F3E42920BC3F00633CA8 /* realm-monorepo.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "realm-monorepo.xcframework"; path = "Pods/Realm/core/realm-monorepo.xcframework"; sourceTree = "<group>"; };
 		8757681528FA155000EB4E79 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		8761619B290B622700F81DE2 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewModel.swift; sourceTree = "<group>"; };
@@ -179,12 +183,17 @@
 		87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
+		87E7536E2920BDE600C4ECF7 /* CheckItemsMiddleWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckItemsMiddleWidgetExtension.entitlements; sourceTree = "<group>"; };
+		87E7536F2920C31300C4ECF7 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		88F52D017C5797685D117751 /* Pods-iOSApp-GoOutCheckList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.release.xcconfig"; sourceTree = "<group>"; };
 		951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC804F6D57454BBF63A43E0 /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB00ED0FAD7E5DCED4FD3B2A /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ADA8528B60CC60A49D46D6BC /* Pods-iOSApp-GoOutCheckListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListTests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListTests/Pods-iOSApp-GoOutCheckListTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3078789B27808750F20CDD7 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		C7B7F83AA719D42AF15FD542 /* Pods-iOSApp-GoOutCheckListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListTests/Pods-iOSApp-GoOutCheckListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CED2A92CC6505416760DE6F1 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D118A8FCECBCD2A33BB91598 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D419496B92DE86E296024D17 /* Pods-iOSApp-GoOutCheckList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.debug.xcconfig"; sourceTree = "<group>"; };
 		DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F09ADA5B37089804CA2901 /* Pods-iOSApp-GoOutCheckListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +206,7 @@
 			files = (
 				87834AE6291FBB7800B073E2 /* SwiftUI.framework in Frameworks */,
 				87834AE4291FBB7800B073E2 /* WidgetKit.framework in Frameworks */,
+				0C0DD380804DEDFBADFB26A5 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,12 +241,15 @@
 		19CC481A46BBF481C09D3E63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8752F3E42920BC3F00633CA8 /* realm-monorepo.xcframework */,
+				8752F3E22920BC0D00633CA8 /* RealmSwift.framework */,
 				872CEEF7291006BA006340E7 /* WebKit.framework */,
 				DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */,
 				951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */,
 				162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */,
 				87834AE3291FBB7800B073E2 /* WidgetKit.framework */,
 				87834AE5291FBB7800B073E2 /* SwiftUI.framework */,
+				CED2A92CC6505416760DE6F1 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -365,6 +378,7 @@
 		87B41B1428EAA1C1009F1046 = {
 			isa = PBXGroup;
 			children = (
+				87E7536E2920BDE600C4ECF7 /* CheckItemsMiddleWidgetExtension.entitlements */,
 				87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */,
 				87B41B3628EAA1C2009F1046 /* iOSApp-GoOutCheckListTests */,
 				87B41B4028EAA1C2009F1046 /* iOSApp-GoOutCheckListUITests */,
@@ -424,6 +438,7 @@
 		87B41BA428EAC387009F1046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				87E7536F2920C31300C4ECF7 /* RealmManager.swift */,
 				8757681528FA155000EB4E79 /* CategoryList.swift */,
 				8743CC1928F0F8F20082C27C /* Category.swift */,
 				8743CC1B28F0F92E0082C27C /* CheckItem.swift */,
@@ -483,6 +498,8 @@
 				E6F09ADA5B37089804CA2901 /* Pods-iOSApp-GoOutCheckListUITests.release.xcconfig */,
 				9FC804F6D57454BBF63A43E0 /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig */,
 				AB00ED0FAD7E5DCED4FD3B2A /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig */,
+				D118A8FCECBCD2A33BB91598 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig */,
+				C3078789B27808750F20CDD7 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -494,6 +511,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87834AFA291FBB7A00B073E2 /* Build configuration list for PBXNativeTarget "CheckItemsMiddleWidgetExtension" */;
 			buildPhases = (
+				5EA0D3D5B77AFDF2B01C7D63 /* [CP] Check Pods Manifest.lock */,
 				87834ADE291FBB7800B073E2 /* Sources */,
 				87834ADF291FBB7800B073E2 /* Frameworks */,
 				87834AE0291FBB7800B073E2 /* Resources */,
@@ -728,6 +746,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5EA0D3D5B77AFDF2B01C7D63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6EDA9F29EE5DEF98134EF735 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -809,6 +849,7 @@
 				874602D52909FB5B009D1D50 /* CheckHistoryTableViewCell.swift in Sources */,
 				87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
+				87E753702920C31300C4ECF7 /* RealmManager.swift in Sources */,
 				8761619C290B622700F81DE2 /* DateUtils.swift in Sources */,
 				8782387E28F280E300804538 /* MainTabBarController.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
@@ -886,9 +927,11 @@
 /* Begin XCBuildConfiguration section */
 		87834AF8291FBB7A00B073E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D118A8FCECBCD2A33BB91598 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CheckItemsMiddleWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
@@ -914,9 +957,11 @@
 		};
 		87834AF9291FBB7A00B073E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3078789B27808750F20CDD7 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CheckItemsMiddleWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
