@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 import RealmSwift
 import PKHUD
+import WidgetKit
 
 class SettingTableViewController: UITableViewController {
 
@@ -60,6 +61,9 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [1, 0] {
             // ウィジェット表示カテゴリ
+            if #available(iOS 14.0, *) {
+                WidgetCenter.shared.reloadAllTimelines()
+            }
 
         } else if indexPath == [2, 0] {
             // アプリを評価する

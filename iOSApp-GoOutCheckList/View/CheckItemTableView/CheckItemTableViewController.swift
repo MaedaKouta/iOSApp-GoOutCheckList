@@ -238,7 +238,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         fpc.surfaceView.appearance = appearance
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
-        // fpc.surfaceView.grabberHandle.isHidden = true
     }
 
     private func setupAddItemButton() {

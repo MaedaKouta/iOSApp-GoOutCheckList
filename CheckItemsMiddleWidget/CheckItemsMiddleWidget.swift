@@ -43,11 +43,162 @@ struct SimpleEntry: TimelineEntry {
 struct CheckItemsMiddleWidgetEntryView : View {
     var entry: Provider.Entry
 
+    // Widgetの小・中・大の取得
+    @Environment(\.widgetFamily) var widgetFamily
+
     var body: some View {
-        Text(entry.date, style: .time)
+        if widgetFamily == .systemSmall {
+            VStack(spacing: 0.0) {
+
+                Spacer()
+
+                HStack{
+                    Image("car_small")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .overlay(
+                            Circle()
+                                .stroke(.black, lineWidth: 1)
+                        )
+                        .padding(.leading, 15)
+
+                    Spacer()
+                    Text("8")
+                        //.font(.title)
+                        .font(Font.futuraMedium(size: 25))
+                        .padding(.trailing, 15)
+                }
+
+                Spacer()
+                Text("カテゴリー名")
+                    .font(.caption2)
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 5)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                VStack(alignment: .leading, spacing: 5.0) {
+                    Text("タスク１")
+                        .font(.caption2)
+
+                    Divider()
+
+                    Text("タスク１")
+                        .font(.caption2)
+
+                    Divider()
+
+                    Text("タスク１")
+                        .font(.caption2)
+                }.padding(.horizontal, 8)
+
+                Spacer()
+
+            }
+
+        } else if widgetFamily == .systemMedium {
+            HStack(spacing: 0.0) {
+
+                Spacer()
+
+                VStack(alignment: .leading) {
+                    Image("car_small")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .overlay(
+                            Circle()
+                                .stroke(.black, lineWidth: 1)
+                        )
+
+                    Spacer()
+
+                    Text("8")
+                        .font(Font.futuraMedium(size: 25))
+
+                    Text("カテゴリー名")
+                        .font(.caption2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+
+
+                Spacer()
+
+                VStack(alignment: .leading, spacing: 5.0) {
+                    Text("タスク1")
+                        .font(.caption2)
+
+                    Divider()
+
+                    Text("タスク２")
+                        .font(.caption2)
+
+                    Divider()
+
+                    Text("タスク３")
+                        .font(.caption2)
+
+                    Divider()
+
+                    Text("タスク４")
+                        .font(.caption2)
+
+                    Divider()
+
+                    Text("タスク５")
+                        .font(.caption2)
+                }
+
+                Spacer()
+
+            }.padding(.vertical, 15)
+
+        } else if widgetFamily == .systemLarge {
+            HStack {
+
+            }
+
+        }
+
     }
 }
 
+//struct ListCellLabelStyle: LabelStyle {
+//    func makeBody(configuration: Configuration) -> some View {
+//        HStack() {
+//            configuration.icon
+//                .scaledToFit()
+//                .scaledToFill()
+//                .frame(width: 12.0, height: 12.0)
+//            configuration.title
+//                .font(.caption2)
+//                .frame(width: .infinity)
+//        }
+//        .padding(.horizontal, 10)
+//        .frame(maxWidth: .infinity, alignment: .leading)
+//    }
+//}
+//
+//extension LabelStyle where Self == ListCellLabelStyle {
+//    static var listCell: ListCellLabelStyle {
+//        .init()
+//    }
+//}
+
+extension Font {
+    static func futuraMedium(size: CGFloat) -> Font {
+        //return Font.custom("Courier-Bold", size: size)
+        return Font.custom("DamascusSemiBold", size: size)
+        //return Font.custom("Courier-Bold", size: size)
+        //return Font.custom("AppleColorEmoji", size: size)
+    }
+}
+
+// ここがウィジェットの心臓部分
+// provider: 表示させるための時間
+// entry: 表示させるView
+// configurationDisplayName:
+// description:
 struct CheckItemsMiddleWidget: Widget {
     let kind: String = "CheckItemsMiddleWidget"
 
@@ -55,8 +206,9 @@ struct CheckItemsMiddleWidget: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             CheckItemsMiddleWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("外出チェッカー")
+        .description("登録したカテゴリーのタスクを一覧で表示できます。")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 
