@@ -68,9 +68,6 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [1, 0] {
             // ウィジェット表示カテゴリ
-            if #available(iOS 14.0, *) {
-                WidgetCenter.shared.reloadAllTimelines()
-            }
 
         } else if indexPath == [2, 0] {
             // アプリを評価する
@@ -122,13 +119,29 @@ class SettingTableViewController: UITableViewController {
         self.navigationItem.title = "設定"
     }
 
+    // Buttonを左右反転させる
     private func setupWidgetCategoryButton() {
-        // Buttonを左右反転させる
         widgetCategoryButton.transform = CGAffineTransform(scaleX: -1, y: 1)
         widgetCategoryButton.titleLabel?.transform = CGAffineTransform(scaleX: -1, y: 1)
         widgetCategoryButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
-
     }
+
+    private func setupWidgetCategoryPullDownItems() {
+        guard let categoryObjects = categoyListObject.first?.list else {
+            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
+            return
+        }
+        if categoryObjects.count == 0 {
+            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
+            return
+        }
+
+        var widgetCategoryIndex = findWidgetCategoryIdIndex()
+        self.widgetCategoryButton.setTitle(categoryObjects.elements[widgetCategoryIndex].name, for: .normal)
+
+        updateWidgetCategoryPullDownItems()
+    }
+
 
     private func openSafari(urlString: String) {
         let url = NSURL(string: urlString)
@@ -174,13 +187,13 @@ class SettingTableViewController: UITableViewController {
     }
 
     // Widgets
-    private func setupWidgetCategoryPullDownItems() {
+    private func updateWidgetCategoryPullDownItems() {
         guard let categoryObjects = categoyListObject.first?.list else {
-            self.widgetCategoryButton.setTitle("", for: .normal)
+            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
             return
         }
         if categoryObjects.count == 0 {
-            self.widgetCategoryButton.setTitle("", for: .normal)
+            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
             return
         }
 
@@ -194,7 +207,10 @@ class SettingTableViewController: UITableViewController {
                     print("\(categoryObjects.elements[i].name)が押されました")
                     UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
                     self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
-                    self?.setupWidgetCategoryPullDownItems()
+                    self?.updateWidgetCategoryPullDownItems()
+                    if #available(iOS 14.0, *) {
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
                 }))
             } else {
                 pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, handler: { [weak self] _ in
@@ -202,8 +218,10 @@ class SettingTableViewController: UITableViewController {
                     print("\(categoryObjects.elements[i].name)が押されました")
                     UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
                     self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
-                    self?.setupWidgetCategoryPullDownItems()
-
+                    self?.updateWidgetCategoryPullDownItems()
+                    if #available(iOS 14.0, *) {
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
                 }))
             }
 
