@@ -285,7 +285,7 @@ class SettingTableViewController: UITableViewController {
 
     private func deleteDataAlert() {
         let alert: UIAlertController = UIAlertController(
-            title: "データの削除",
+            title: "データの初期化",
             message: """
             データを完全に削除してよろしいですか？
             この操作は取り消せません。
