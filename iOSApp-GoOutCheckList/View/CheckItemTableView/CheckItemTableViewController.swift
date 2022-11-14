@@ -66,6 +66,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         displaynothingTableViewData()
         updateNavigationbar()
         updateProgressView()

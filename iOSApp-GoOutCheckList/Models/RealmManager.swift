@@ -17,7 +17,7 @@ public class RealmManager {
     }
 
     var fileUrl: URL {
-        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.realmWithWidget")!
+        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.org.tetoblog.iOSApp-GoOutCheckList.realm")!
         return url.appendingPathComponent("db.realm")
     }
 }

@@ -135,7 +135,7 @@ class SettingTableViewController: UITableViewController {
             return
         }
 
-        var widgetCategoryIndex = findWidgetCategoryIdIndex()
+        let widgetCategoryIndex = findWidgetCategoryIdIndex()
         self.widgetCategoryButton.setTitle(categoryObjects.elements[widgetCategoryIndex].name, for: .normal)
 
         updateWidgetCategoryPullDownItems()
@@ -191,7 +191,7 @@ class SettingTableViewController: UITableViewController {
         }
 
         var pullDowunChildren: [UIAction] = []
-        var widgetCategoryIndex = findWidgetCategoryIdIndex()
+        let widgetCategoryIndex = findWidgetCategoryIdIndex()
 
         for i in 0..<categoryObjects.elements.count {
 
@@ -296,18 +296,11 @@ class SettingTableViewController: UITableViewController {
         let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{ [weak self]
                 (action: UIAlertAction!) -> Void in
 
-            let categoryListObject = self?.realm.objects(CategoryList.self)
             let categoryObject = self?.realm.objects(Category.self)
             let checkItemObject = self?.realm.objects(CheckItem.self)
-            let checkHistoryListObject = self?.realm.objects(CheckHistoryList.self)
             let checkHistoryObject = self?.realm.objects(CheckHistory.self)
 
             try! self?.realm.write {
-                if let categoryListObject = categoryListObject,
-                   categoryListObject.count != 0 {
-                    self?.realm.delete(categoryListObject)
-                }
-
                 if let categoryObject = categoryObject,
                    categoryObject.count != 0 {
                     self?.realm.delete(categoryObject)
@@ -316,11 +309,6 @@ class SettingTableViewController: UITableViewController {
                 if let checkItemObject = checkItemObject,
                    checkItemObject.count != 0 {
                     self?.realm.delete(checkItemObject)
-                }
-
-                if let checkHistoryListObject = checkHistoryListObject,
-                   checkHistoryListObject.count != 0 {
-                    self?.realm.delete(checkHistoryListObject)
                 }
 
                 if let checkHistoryObject = checkHistoryObject,
