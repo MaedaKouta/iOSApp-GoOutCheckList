@@ -125,12 +125,9 @@ class SettingTableViewController: UITableViewController {
     private func setupWidgetCategoryButton() {
         // Buttonを左右反転させる
         widgetCategoryButton.transform = CGAffineTransform(scaleX: -1, y: 1)
-//        // 文字が反転するため、titleLabelを左右反転させ元に戻す
         widgetCategoryButton.titleLabel?.transform = CGAffineTransform(scaleX: -1, y: 1)
-//        // imageが反転するため、imageViewを左右反転させ元に戻す
         widgetCategoryButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
-//        widgetCategoryButton.setBackgroundImage(backgroundImage, for: .normal)
-        //self.widgetCategoryButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+
     }
 
     private func openSafari(urlString: String) {

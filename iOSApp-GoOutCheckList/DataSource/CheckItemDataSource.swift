@@ -19,7 +19,7 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
 
     typealias Element = List<CheckItem>
     var item = List<CheckItem>()
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
