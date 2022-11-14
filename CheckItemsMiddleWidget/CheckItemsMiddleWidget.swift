@@ -197,7 +197,6 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                 Spacer()
 
-
                 // 下半分
                 VStack(alignment: .leading, spacing: 5.0) {
                     ForEach(0..<10) { i in
@@ -216,7 +215,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         }
                     }
 
-                    
+
                 }.padding(.horizontal, 8)
                 // 下半分ここまで
 
