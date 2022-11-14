@@ -127,16 +127,16 @@ class SettingTableViewController: UITableViewController {
 
     private func setupWidgetCategoryPullDownItems() {
         guard let categoryObjects = categoyListObject.first?.list else {
-            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
+            self.widgetCategoryButton.setTitle("カテゴリー無し ", for: .normal)
             return
         }
         if categoryObjects.count == 0 {
-            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
+            self.widgetCategoryButton.setTitle("カテゴリー無し ", for: .normal)
             return
         }
 
         let widgetCategoryIndex = findWidgetCategoryIdIndex()
-        self.widgetCategoryButton.setTitle(categoryObjects.elements[widgetCategoryIndex].name, for: .normal)
+        self.widgetCategoryButton.setTitle("\(categoryObjects.elements[widgetCategoryIndex].name) ", for: .normal)
 
         updateWidgetCategoryPullDownItems()
     }
@@ -182,11 +182,12 @@ class SettingTableViewController: UITableViewController {
     // Widgets
     private func updateWidgetCategoryPullDownItems() {
         guard let categoryObjects = categoyListObject.first?.list else {
-            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
+            self.widgetCategoryButton.setTitle("カテゴリー無し ", for: .normal)
             return
         }
         if categoryObjects.count == 0 {
-            self.widgetCategoryButton.setTitle("カテゴリー無し", for: .normal)
+            self.widgetCategoryButton.setTitle("カテゴリー無し ", for: .normal)
+            self.widgetCategoryButton.imageView?.isHidden = true
             return
         }
 
@@ -197,18 +198,15 @@ class SettingTableViewController: UITableViewController {
 
             if i == widgetCategoryIndex {
                 pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, image: UIImage(systemName: "checkmark"), handler: { [weak self] _ in
-                    print("\(categoryObjects.elements[i].name)が押されました")
                     UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
-                    self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
+                    self?.widgetCategoryButton.setTitle("\(categoryObjects.elements[i].name) ", for: .normal)
                     self?.updateWidgetCategoryPullDownItems()
                     WidgetCenter.shared.reloadAllTimelines()
                 }))
             } else {
                 pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, handler: { [weak self] _ in
-
-                    print("\(categoryObjects.elements[i].name)が押されました")
                     UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
-                    self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
+                    self?.widgetCategoryButton.setTitle("\(categoryObjects.elements[i].name) ", for: .normal)
                     self?.updateWidgetCategoryPullDownItems()
                     WidgetCenter.shared.reloadAllTimelines()
                 }))
@@ -270,9 +268,7 @@ class SettingTableViewController: UITableViewController {
                 }
             }
 
-            HUD.flash(.progress, delay: 0.2) { _ in
-                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.4)
-            }
+            HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 1.0)
 
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.default, handler:{
@@ -317,10 +313,8 @@ class SettingTableViewController: UITableViewController {
                 }
             }
 
-            HUD.flash(.progress, delay: 0.4) { _ in
-                HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.6) { _ in
-                    self?.navigationController?.popViewController(animated: true)
-                }
+            HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 1.0) { _ in
+                self?.navigationController?.popViewController(animated: true)
             }
 
         })

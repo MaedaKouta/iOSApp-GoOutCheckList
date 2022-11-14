@@ -89,7 +89,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="ウィジェット" footerTitle="選択したカテゴリー１つを、ウィジェットに表示させることが出来ます。" id="9bu-I8-DjW">
+                            <tableViewSection headerTitle="ウィジェット" footerTitle="選択した１つのカテゴリーを、ウィジェットに表示させることが出来ます。" id="9bu-I8-DjW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="XxO-Ik-oWE">
                                         <rect key="frame" x="20" y="205.99999809265137" width="350" height="43.666667938232422"/>
@@ -98,17 +98,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="表示カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXX-sK-ZVq">
-                                                    <rect key="frame" x="20" y="11.333333333333336" width="173.33333333333334" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="表示カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXX-sK-ZVq">
+                                                    <rect key="frame" x="19.999999999999993" y="11.333333333333336" width="121.33333333333331" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="173.33000000000001" id="Fbu-zH-jxu"/>
+                                                        <constraint firstAttribute="width" constant="121.33" id="wFY-yN-7JE"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aic-KG-zPw">
-                                                    <rect key="frame" x="203.33333333333334" y="11" width="126.66666666666666" height="22"/>
+                                                    <rect key="frame" x="151.33333333333337" y="11" width="178.66666666666663" height="22"/>
                                                     <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <menu key="menu" id="il3-7e-jJG">
                                                         <children>
