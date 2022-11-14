@@ -23,7 +23,7 @@ class SettingTableViewController: UITableViewController {
     private let ruleUrl = "https://local-tumbleweed-7ea.notion.site/570ea223dce3463b9b42a3528b516603"
     private let twitterUrl = "https://twitter.com/kota_org"
 
-    private lazy var realm = try! Realm()
+    private var realm = RealmManager().realm
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -168,19 +168,21 @@ class SettingTableViewController: UITableViewController {
             preferredStyle:  UIAlertController.Style.alert
         )
 
-        let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+        let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{ [weak self]
                 (action: UIAlertAction!) -> Void in
 
-            let checkHistoryListObject = self.realm.objects(CheckHistoryList.self)
-            let checkHistoryObject = self.realm.objects(CheckHistory.self)
+            let checkHistoryListObject = self?.realm.objects(CheckHistoryList.self)
+            let checkHistoryObject = self?.realm.objects(CheckHistory.self)
 
-            try! self.realm.write {
-                if checkHistoryListObject.count != 0 {
-                    self.realm.delete(checkHistoryListObject)
+            try! self?.realm.write {
+                if let checkHistoryListObject = checkHistoryListObject,
+                   checkHistoryListObject.count != 0  {
+                    self?.realm.delete(checkHistoryListObject)
                 }
 
-                if checkHistoryObject.count != 0 {
-                    self.realm.delete(checkHistoryObject)
+                if let checkHistoryObject = checkHistoryObject,
+                   checkHistoryObject.count != 0 {
+                    self?.realm.delete(checkHistoryObject)
                 }
             }
 
@@ -207,40 +209,45 @@ class SettingTableViewController: UITableViewController {
             preferredStyle:  UIAlertController.Style.alert
         )
 
-        let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{
+        let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertAction.Style.destructive, handler:{ [weak self]
                 (action: UIAlertAction!) -> Void in
 
-            let categoryListObject = self.realm.objects(CategoryList.self)
-            let categoryObject = self.realm.objects(Category.self)
-            let checkItemObject = self.realm.objects(CheckItem.self)
-            let checkHistoryListObject = self.realm.objects(CheckHistoryList.self)
-            let checkHistoryObject = self.realm.objects(CheckHistory.self)
+            let categoryListObject = self?.realm.objects(CategoryList.self)
+            let categoryObject = self?.realm.objects(Category.self)
+            let checkItemObject = self?.realm.objects(CheckItem.self)
+            let checkHistoryListObject = self?.realm.objects(CheckHistoryList.self)
+            let checkHistoryObject = self?.realm.objects(CheckHistory.self)
 
-            try! self.realm.write {
-                if categoryListObject.count != 0 {
-                    self.realm.delete(categoryListObject)
+            try! self?.realm.write {
+                if let categoryListObject = categoryListObject,
+                   categoryListObject.count != 0 {
+                    self?.realm.delete(categoryListObject)
                 }
 
-                if categoryObject.count != 0 {
-                    self.realm.delete(categoryObject)
+                if let categoryObject = categoryObject,
+                   categoryObject.count != 0 {
+                    self?.realm.delete(categoryObject)
                 }
 
-                if checkItemObject.count != 0 {
-                    self.realm.delete(checkItemObject)
+                if let checkItemObject = checkItemObject,
+                   checkItemObject.count != 0 {
+                    self?.realm.delete(checkItemObject)
                 }
 
-                if checkHistoryListObject.count != 0 {
-                    self.realm.delete(checkHistoryListObject)
+                if let checkHistoryListObject = checkHistoryListObject,
+                   checkHistoryListObject.count != 0 {
+                    self?.realm.delete(checkHistoryListObject)
                 }
 
-                if checkHistoryObject.count != 0 {
-                    self.realm.delete(checkHistoryObject)
+                if let checkHistoryObject = checkHistoryObject,
+                   checkHistoryObject.count != 0 {
+                    self?.realm.delete(checkHistoryObject)
                 }
             }
 
             HUD.flash(.progress, delay: 0.4) { _ in
                 HUD.flash(.labeledSuccess(title: "削除完了", subtitle: nil), delay: 0.6) { _ in
-                    self.navigationController?.popViewController(animated: true)
+                    self?.navigationController?.popViewController(animated: true)
                 }
             }
 

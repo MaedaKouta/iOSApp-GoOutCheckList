@@ -49,9 +49,9 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
     public var outputs: CategoryTableViewModelOutputs { return self }
 
     // MARK: Libraries&Propaties
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
     private let disposeBag = DisposeBag()
-    private var categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
+    private var categoryListObjext = RealmManager().realm.objects(CategoryList.self).first?.list
 
     // MARK: - Initialize
     /*
@@ -74,7 +74,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
     // MARK: Updatas
     func updateCategoryList() {
-        categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
+        categoryListObjext = realm.objects(CategoryList.self).first?.list
         self.categoryDataBehaviorRelay
             .accept(categoryListObjext ?? List<Category>())
         self.addCategoryPublishRelay.accept(())
@@ -111,7 +111,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
      */
     @objc private func fromRegisteCategoryViewCall(notification: Notification) {
         if let categoryItem = notification.object as? Category {
-            categoryListObjext = try! Realm().objects(CategoryList.self).first?.list
+            categoryListObjext = realm.objects(CategoryList.self).first?.list
 
             // RealmのcategoryListObjextが空だった場合に追加もさせる
             try! self.realm.write() {
@@ -135,7 +135,7 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
 
     @objc private func fromEditViewCall(notification: Notification) {
         guard let index = notification.userInfo!["index"] as? Int,
-              let categoryListObjext = try! Realm().objects(CategoryList.self).first?.list,
+              let categoryListObjext = realm.objects(CategoryList.self).first?.list,
               let categoryItem = notification.object as? Category else {
             return
         }

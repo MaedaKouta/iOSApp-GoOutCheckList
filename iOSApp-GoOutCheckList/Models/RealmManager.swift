@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 // Realmの保存先をWidgetと同じ保存先にする
-class RealmManager {
+public class RealmManager {
     var realm:Realm {
         var config = Realm.Configuration()
         config.fileURL = fileUrl

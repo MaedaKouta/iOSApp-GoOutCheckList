@@ -50,7 +50,7 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
     public var outputs: CheckItemViewModelOutputs { return self }
 
     // MARK: Libraries&Propaties
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
     private let disposeBag = DisposeBag()
 
     // MARK: - Initialize

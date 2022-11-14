@@ -47,7 +47,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     )
     private let navigationBarButtonSize: CGFloat = 22.5
     private var isSelectedEditingBarButton = false
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
     private let disposeBag = DisposeBag()
     private var categoryObject: Category
     private lazy var checkHistoryListObject = realm.objects(CheckHistoryList.self).first

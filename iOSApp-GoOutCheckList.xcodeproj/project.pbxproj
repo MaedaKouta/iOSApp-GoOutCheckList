@@ -267,8 +267,8 @@
 		873E87C0291B6356001DFD8D /* CheckItemEditView */ = {
 			isa = PBXGroup;
 			children = (
-				873E87C1291B6356001DFD8D /* CheckItemEditViewController.xib */,
 				873E87C2291B6356001DFD8D /* CheckItemEditViewController.swift */,
+				873E87C1291B6356001DFD8D /* CheckItemEditViewController.xib */,
 			);
 			name = CheckItemEditView;
 			path = "iOSApp-GoOutCheckList/View/CheckItemEditView";

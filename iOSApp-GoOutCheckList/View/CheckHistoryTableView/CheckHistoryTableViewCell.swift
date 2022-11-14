@@ -17,8 +17,7 @@ class CheckHistoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var newBackGroundView: UIView!
     @IBOutlet private weak var newTextLabel: UILabel!
 
-    private let realm = try! Realm()
-    private let categoryObject = try! Realm().objects(Category.self)
+    private let categoryObject = RealmManager().realm.objects(Category.self)
 
     func setConfigure(dateText: String, categoryId: String, isWatched: Bool) {
 

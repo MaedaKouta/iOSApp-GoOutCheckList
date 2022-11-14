@@ -45,7 +45,7 @@ class CheckHistoryViewModel: CheckHistoryViewModelInputs, CheckHistoryViewModelO
     public var outputs: CheckHistoryViewModelOutputs { return self }
 
     // MARK: Libraries&Propaties
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
     private let disposeBag = DisposeBag()
     private lazy var checkHistoryListObject = realm.objects(CheckHistoryList.self).first?.checkHistoryList
 
@@ -75,7 +75,7 @@ class CheckHistoryViewModel: CheckHistoryViewModelInputs, CheckHistoryViewModelO
 
     // MARK: Updatas
     func updateCheckHistoryList() {
-        checkHistoryListObject = try! Realm().objects(CheckHistoryList.self).first?.checkHistoryList
+        checkHistoryListObject = realm.objects(CheckHistoryList.self).first?.checkHistoryList
         self.checkHistoryDataBehaviorRelay
             .accept(checkHistoryListObject ?? List<CheckHistory>())
     }
