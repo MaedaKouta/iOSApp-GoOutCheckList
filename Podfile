@@ -13,8 +13,6 @@ target 'iOSApp-GoOutCheckList' do
         pod 'RealmSwift'
         pod "RxRealm"
         pod 'FloatingPanel'
-        pod 'SwiftEntryKit', '2.0.0'
-
 
   # Pods for iOSApp-GoOutCheckList
 
@@ -28,6 +26,12 @@ target 'iOSApp-GoOutCheckList' do
     inherit! :search_paths
     # Pods for testing
         pod 'RxTest'
+  end
+
+  target 'CheckItemsMiddleWidgetExtension' do
+    use_frameworks!
+    # Pods for CheckItemsMiddleWidgetExtension
+        pod 'RealmSwift'
   end
 
 end

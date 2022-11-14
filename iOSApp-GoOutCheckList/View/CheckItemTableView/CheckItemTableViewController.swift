@@ -22,6 +22,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
     @IBOutlet private weak var checkedProgressView: UIProgressView!
     private let feedbackGenerator = UINotificationFeedbackGenerator()
+    private let userdefaultManager = UserdefaultsManager()
+
 
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -47,7 +49,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     )
     private let navigationBarButtonSize: CGFloat = 22.5
     private var isSelectedEditingBarButton = false
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
     private let disposeBag = DisposeBag()
     private var categoryObject: Category
     private lazy var checkHistoryListObject = realm.objects(CheckHistoryList.self).first
@@ -66,6 +68,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         displaynothingTableViewData()
         updateNavigationbar()
         updateProgressView()
@@ -155,7 +158,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         NotificationCenter.default.addObserver(self, selector: #selector(selectedCellOverwrite(notification:)), name: .CheckItemViewFromDataSourceOverwriteNotification, object: nil)
     }
 
-    private func setupTableView() {
+    private func setupTableView(){
+        tableView.rowHeight = 47.5
         tableView.delegate = checkItemDataSource
         tableView.register(UINib(nibName: "CheckItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckItemTableViewCell")
     }
@@ -208,7 +212,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                             self?.realm.add(checkHistoryList)
                             self?.checkHistoryListObject = self?.realm.objects(CheckHistoryList.self).first
                         } else {
-                            if 50 <= self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
+                            if 100 < self?.checkHistoryListObject!.checkHistoryList.count ?? 0 {
                                 // 先頭のCheckHistoryを取得して、削除する
                                 let checkHistory = self?.realm.objects(CheckHistory.self)
                                 let id = self?.checkHistoryListObject?.checkHistoryList.last?.id ?? ""
@@ -237,7 +241,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         fpc.surfaceView.appearance = appearance
         fpc.isRemovalInteractionEnabled = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
-        // fpc.surfaceView.grabberHandle.isHidden = true
     }
 
     private func setupAddItemButton() {
@@ -368,7 +371,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func updateTabBarItem() {
-        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+        if userdefaultManager.getIsDisplayHistoryNumber() == true {
             let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
             let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
             if noneWatchHistoryCount == 0 {return}

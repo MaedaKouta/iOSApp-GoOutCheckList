@@ -19,6 +19,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
     @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
+    private let userdefaultManager = UserdefaultsManager()
+
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -30,11 +32,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Propaties
     private let disposeBag = DisposeBag()
+    private let realm = RealmManager().realm
     private var categoryDataSource = CategoryDataSource()
     private var isSelectedHistoryBarButton = false
     private var isSelectedEditingBarButton = false
     private let navigationBarButtonSize: CGFloat = 22.5
-    private let categoryListObject = try! Realm().objects(CategoryList.self)
+    private let categoryListObject = RealmManager().realm.objects(CategoryList.self)
 
     private lazy var categoryTableViewModel = CategoryTableViewModel(
         tableViewItemSeletedObservable: tableView.rx.itemSelected.asObservable()
@@ -42,7 +45,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Libraries
     private var fpc: FloatingPanelController!
-    private let realm = try! Realm()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -210,7 +212,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Method
     private func updateTabBarItem() {
-        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+        if userdefaultManager.getIsDisplayHistoryNumber() {
             let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
             let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
             if noneWatchHistoryCount == 0 {return}
@@ -280,7 +282,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
                 (action: UIAlertAction!) -> Void in
 
             // 削除するCheckHistoryを複数取得
-            let categoryObject = try! Realm().objects(CheckHistory.self)
+            let categoryObject = self.realm.objects(CheckHistory.self)
             let predicate = NSPredicate(format: "categoryID == %@", self.categoryDataSource.item[indexPath.row].id)
             let deleteCheckHistoryList = categoryObject.filter(predicate)
 

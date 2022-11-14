@@ -16,8 +16,6 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var checkedCountLabel: UILabel!
     @IBOutlet private weak var checkedCountProgressView: UIProgressView!
 
-    private let realm = try! Realm()
-
     func configure(category: Category) {
 
         setupLayout()
@@ -59,7 +57,7 @@ class CategoryTableViewCell: UITableViewCell {
     }
 
     private func findLatestHistory(category: Category) -> Date? {
-        let checkHistoryListObject = try! Realm().objects(CheckHistoryList.self)
+        let checkHistoryListObject = RealmManager().realm.objects(CheckHistoryList.self)
 
         let predicateCategoryId = NSPredicate(format: "categoryID == %@", category.id)
         let filterCheckHistoryListObject = checkHistoryListObject.first?.checkHistoryList.filter(predicateCategoryId).first?.date

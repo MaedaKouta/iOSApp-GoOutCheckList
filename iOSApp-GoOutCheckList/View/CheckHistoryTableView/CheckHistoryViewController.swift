@@ -21,7 +21,7 @@ class CheckHistoryViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     private var checkHistoryDataSource = CheckHistoryDataSource()
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
     private let navigationBarButtonSize: CGFloat = 22.5
 
     // NavigationBarButtonを宣言
@@ -183,7 +183,7 @@ class CheckHistoryViewController: UIViewController {
             return nil
         }
 
-        let categoryObject = try! Realm().objects(Category.self)
+        let categoryObject = realm.objects(Category.self)
         let predicate = NSPredicate(format: "id == %@", categoryId)
         let category = categoryObject.filter(predicate).first
 

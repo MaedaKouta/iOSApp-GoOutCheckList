@@ -19,7 +19,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
 
     typealias Element = List<CheckHistory>
     var item = List<CheckHistory>()
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count
@@ -29,7 +29,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         if item.isEmpty {
             return nil
         } else {
-            return "履歴が50件表示されます"
+            return "履歴が100件表示されます"
         }
     }
 
@@ -40,7 +40,7 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            let checkHistoryObject = try! Realm().objects(CheckHistory.self)
+            let checkHistoryObject = realm.objects(CheckHistory.self)
             let predicate = NSPredicate(format: "id == %@", item[indexPath.row].id)
             let deleteCheckHistory = checkHistoryObject.filter(predicate).first
 

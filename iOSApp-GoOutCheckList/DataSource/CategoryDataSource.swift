@@ -19,7 +19,7 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
 
     typealias Element = List<Category>
     var item = List<Category>()
-    private let realm = try! Realm()
+    private let realm = RealmManager().realm
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count

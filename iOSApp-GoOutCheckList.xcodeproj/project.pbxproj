@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0DD380804DEDFBADFB26A5 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED2A92CC6505416760DE6F1 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework */; };
 		87202B7529091C950036692B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
 		872CEEF6290FF308006340E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CEEF5290FF308006340E7 /* WebViewController.swift */; };
 		872CEEF8291006BA006340E7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872CEEF7291006BA006340E7 /* WebKit.framework */; };
@@ -34,7 +35,26 @@
 		8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */; };
 		8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */; };
 		8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */; };
+		87787FD229221D490059685B /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E7536F2920C31300C4ECF7 /* RealmManager.swift */; };
+		87787FD329221D600059685B /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757681528FA155000EB4E79 /* CategoryList.swift */; };
+		87787FD429221D620059685B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
+		87787FD529221D650059685B /* CheckItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1B28F0F92E0082C27C /* CheckItem.swift */; };
+		87787FD629221D670059685B /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
+		87787FD729221D6A0059685B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
+		87787FD9292222AE0059685B /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787FD8292222AE0059685B /* UserdefaultsManager.swift */; };
+		87787FDA292247240059685B /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787FD8292222AE0059685B /* UserdefaultsManager.swift */; };
+		87787FDC292248260059685B /* FindRealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787FDB292248260059685B /* FindRealmData.swift */; };
+		87787FDE2922497F0059685B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
 		8782387E28F280E300804538 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782387C28F280E200804538 /* MainTabBarController.swift */; };
+		87834AE4291FBB7800B073E2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87834AE3291FBB7800B073E2 /* WidgetKit.framework */; };
+		87834AE6291FBB7800B073E2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87834AE5291FBB7800B073E2 /* SwiftUI.framework */; };
+		87834AE9291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87834AE8291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift */; };
+		87834AEB291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87834AEA291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift */; };
+		87834AED291FBB7800B073E2 /* CheckItemsMiddleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87834AEC291FBB7800B073E2 /* CheckItemsMiddleWidget.swift */; };
+		87834AF0291FBB7A00B073E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87834AEF291FBB7A00B073E2 /* Assets.xcassets */; };
+		87834AF2291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */; };
+		87834AF3291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */; };
+		87834AF6291FBB7A00B073E2 /* CheckItemsMiddleWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8784708029133CD5000E4DAD /* LisenceSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */; };
 		8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
@@ -59,12 +79,20 @@
 		87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */; };
 		87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */; };
 		87E52BE628EFE8F500B42937 /* CategoryTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */; };
+		87E753702920C31300C4ECF7 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E7536F2920C31300C4ECF7 /* RealmManager.swift */; };
 		E6B9AF617A86399A182521FF /* Pods_iOSApp_GoOutCheckListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */; };
 		F2C93797B916B0E3EBB5EF70 /* Pods_iOSApp_GoOutCheckListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F834723A44CA72B233D147D9 /* Pods_iOSApp_GoOutCheckList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		87834AF4291FBB7A00B073E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87B41B1528EAA1C1009F1046 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87834AE1291FBB7800B073E2;
+			remoteInfo = CheckItemsMiddleWidgetExtension;
+		};
 		87B41B3428EAA1C2009F1046 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 87B41B1528EAA1C1009F1046 /* Project object */;
@@ -80,6 +108,20 @@
 			remoteInfo = "iOSApp-GoOutCheckList";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		87834AF7291FBB7A00B073E2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				87834AF6291FBB7A00B073E2 /* CheckItemsMiddleWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +145,8 @@
 		874602D32909FB5B009D1D50 /* CheckHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		874602D42909FB5B009D1D50 /* CheckHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		874602D7290A0068009D1D50 /* CheckHistoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryTableViewModel.swift; sourceTree = "<group>"; };
+		8752F3E22920BC0D00633CA8 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8752F3E42920BC3F00633CA8 /* realm-monorepo.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "realm-monorepo.xcframework"; path = "Pods/Realm/core/realm-monorepo.xcframework"; sourceTree = "<group>"; };
 		8757681528FA155000EB4E79 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		8761619B290B622700F81DE2 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		8766154428F012C300F0A8C1 /* CheckItemTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewModel.swift; sourceTree = "<group>"; };
@@ -111,7 +155,18 @@
 		8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewCell.swift; sourceTree = "<group>"; };
 		8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemTableViewCell.xib; sourceTree = "<group>"; };
 		8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemDataSource.swift; sourceTree = "<group>"; };
+		87787FD8292222AE0059685B /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
+		87787FDB292248260059685B /* FindRealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRealmData.swift; sourceTree = "<group>"; };
 		8782387C28F280E200804538 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CheckItemsMiddleWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		87834AE3291FBB7800B073E2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		87834AE5291FBB7800B073E2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		87834AE8291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemsMiddleWidgetBundle.swift; sourceTree = "<group>"; };
+		87834AEA291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemsMiddleWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		87834AEC291FBB7800B073E2 /* CheckItemsMiddleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemsMiddleWidget.swift; sourceTree = "<group>"; };
+		87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CheckItemsMiddleWidget.intentdefinition; sourceTree = "<group>"; };
+		87834AEF291FBB7A00B073E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87834AF1291FBB7A00B073E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisenceSwiftUIView.swift; sourceTree = "<group>"; };
 		8795B5C3290657F800AAF894 /* CheckHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryList.swift; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -140,18 +195,34 @@
 		87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		87D4BA3B28F250780059F7FC /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		87E52BE528EFE8F500B42937 /* CategoryTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewTests.swift; sourceTree = "<group>"; };
+		87E7536E2920BDE600C4ECF7 /* CheckItemsMiddleWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckItemsMiddleWidgetExtension.entitlements; sourceTree = "<group>"; };
+		87E7536F2920C31300C4ECF7 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		87E753712920C44900C4ECF7 /* iOSApp-GoOutCheckList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOSApp-GoOutCheckList.entitlements"; sourceTree = "<group>"; };
 		88F52D017C5797685D117751 /* Pods-iOSApp-GoOutCheckList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.release.xcconfig"; sourceTree = "<group>"; };
 		951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC804F6D57454BBF63A43E0 /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB00ED0FAD7E5DCED4FD3B2A /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ADA8528B60CC60A49D46D6BC /* Pods-iOSApp-GoOutCheckListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListTests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListTests/Pods-iOSApp-GoOutCheckListTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3078789B27808750F20CDD7 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		C7B7F83AA719D42AF15FD542 /* Pods-iOSApp-GoOutCheckListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListTests/Pods-iOSApp-GoOutCheckListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CED2A92CC6505416760DE6F1 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D118A8FCECBCD2A33BB91598 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D419496B92DE86E296024D17 /* Pods-iOSApp-GoOutCheckList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckList.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList.debug.xcconfig"; sourceTree = "<group>"; };
 		DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F09ADA5B37089804CA2901 /* Pods-iOSApp-GoOutCheckListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		87834ADF291FBB7800B073E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87834AE6291FBB7800B073E2 /* SwiftUI.framework in Frameworks */,
+				87834AE4291FBB7800B073E2 /* WidgetKit.framework in Frameworks */,
+				0C0DD380804DEDFBADFB26A5 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		87B41B1A28EAA1C1009F1046 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,10 +254,15 @@
 		19CC481A46BBF481C09D3E63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8752F3E42920BC3F00633CA8 /* realm-monorepo.xcframework */,
+				8752F3E22920BC0D00633CA8 /* RealmSwift.framework */,
 				872CEEF7291006BA006340E7 /* WebKit.framework */,
 				DCF0207705D31C01C5C2A152 /* Pods_iOSApp_GoOutCheckList.framework */,
 				951D456C83C6206D5BBA761C /* Pods_iOSApp_GoOutCheckListTests.framework */,
 				162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */,
+				87834AE3291FBB7800B073E2 /* WidgetKit.framework */,
+				87834AE5291FBB7800B073E2 /* SwiftUI.framework */,
+				CED2A92CC6505416760DE6F1 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,8 +279,8 @@
 		873E87C0291B6356001DFD8D /* CheckItemEditView */ = {
 			isa = PBXGroup;
 			children = (
-				873E87C1291B6356001DFD8D /* CheckItemEditViewController.xib */,
 				873E87C2291B6356001DFD8D /* CheckItemEditViewController.swift */,
+				873E87C1291B6356001DFD8D /* CheckItemEditViewController.xib */,
 			);
 			name = CheckItemEditView;
 			path = "iOSApp-GoOutCheckList/View/CheckItemEditView";
@@ -270,6 +346,20 @@
 			path = CategoryTableView;
 			sourceTree = "<group>";
 		};
+		87834AE7291FBB7800B073E2 /* CheckItemsMiddleWidget */ = {
+			isa = PBXGroup;
+			children = (
+				87787FDB292248260059685B /* FindRealmData.swift */,
+				87834AEC291FBB7800B073E2 /* CheckItemsMiddleWidget.swift */,
+				87834AE8291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift */,
+				87834AEA291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift */,
+				87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */,
+				87834AEF291FBB7A00B073E2 /* Assets.xcassets */,
+				87834AF1291FBB7A00B073E2 /* Info.plist */,
+			);
+			path = CheckItemsMiddleWidget;
+			sourceTree = "<group>";
+		};
 		87A2663128EB27AC0091C282 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,9 +392,11 @@
 		87B41B1428EAA1C1009F1046 = {
 			isa = PBXGroup;
 			children = (
+				87E7536E2920BDE600C4ECF7 /* CheckItemsMiddleWidgetExtension.entitlements */,
 				87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */,
 				87B41B3628EAA1C2009F1046 /* iOSApp-GoOutCheckListTests */,
 				87B41B4028EAA1C2009F1046 /* iOSApp-GoOutCheckListUITests */,
+				87834AE7291FBB7800B073E2 /* CheckItemsMiddleWidget */,
 				87B41B1E28EAA1C1009F1046 /* Products */,
 				C9E198960E2D818CF5C0DA96 /* Pods */,
 				19CC481A46BBF481C09D3E63 /* Frameworks */,
@@ -317,6 +409,7 @@
 				87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */,
 				87B41B3328EAA1C2009F1046 /* iOSApp-GoOutCheckListTests.xctest */,
 				87B41B3D28EAA1C2009F1046 /* iOSApp-GoOutCheckListUITests.xctest */,
+				87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,6 +417,7 @@
 		87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */ = {
 			isa = PBXGroup;
 			children = (
+				87E753712920C44900C4ECF7 /* iOSApp-GoOutCheckList.entitlements */,
 				87B41BA428EAC387009F1046 /* Models */,
 				87A2663128EB27AC0091C282 /* DataSource */,
 				87B41BA528EAC38E009F1046 /* View */,
@@ -359,6 +453,8 @@
 		87B41BA428EAC387009F1046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				87E7536F2920C31300C4ECF7 /* RealmManager.swift */,
+				87787FD8292222AE0059685B /* UserdefaultsManager.swift */,
 				8757681528FA155000EB4E79 /* CategoryList.swift */,
 				8743CC1928F0F8F20082C27C /* Category.swift */,
 				8743CC1B28F0F92E0082C27C /* CheckItem.swift */,
@@ -418,6 +514,8 @@
 				E6F09ADA5B37089804CA2901 /* Pods-iOSApp-GoOutCheckListUITests.release.xcconfig */,
 				9FC804F6D57454BBF63A43E0 /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.debug.xcconfig */,
 				AB00ED0FAD7E5DCED4FD3B2A /* Pods-iOSApp-GoOutCheckList-iOSApp-GoOutCheckListUITests.release.xcconfig */,
+				D118A8FCECBCD2A33BB91598 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig */,
+				C3078789B27808750F20CDD7 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -425,6 +523,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		87834AE1291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87834AFA291FBB7A00B073E2 /* Build configuration list for PBXNativeTarget "CheckItemsMiddleWidgetExtension" */;
+			buildPhases = (
+				5EA0D3D5B77AFDF2B01C7D63 /* [CP] Check Pods Manifest.lock */,
+				87834ADE291FBB7800B073E2 /* Sources */,
+				87834ADF291FBB7800B073E2 /* Frameworks */,
+				87834AE0291FBB7800B073E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CheckItemsMiddleWidgetExtension;
+			productName = CheckItemsMiddleWidgetExtension;
+			productReference = 87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		87B41B1C28EAA1C1009F1046 /* iOSApp-GoOutCheckList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87B41B4728EAA1C2009F1046 /* Build configuration list for PBXNativeTarget "iOSApp-GoOutCheckList" */;
@@ -434,10 +550,12 @@
 				87B41B1A28EAA1C1009F1046 /* Frameworks */,
 				87B41B1B28EAA1C1009F1046 /* Resources */,
 				6EDA9F29EE5DEF98134EF735 /* [CP] Embed Pods Frameworks */,
+				87834AF7291FBB7A00B073E2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				87834AF5291FBB7A00B073E2 /* PBXTargetDependency */,
 			);
 			name = "iOSApp-GoOutCheckList";
 			productName = "iOSApp-GoOutCheckList";
@@ -491,9 +609,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					87834AE1291FBB7800B073E2 = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					87B41B1C28EAA1C1009F1046 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -523,11 +644,21 @@
 				87B41B1C28EAA1C1009F1046 /* iOSApp-GoOutCheckList */,
 				87B41B3228EAA1C2009F1046 /* iOSApp-GoOutCheckListTests */,
 				87B41B3C28EAA1C2009F1046 /* iOSApp-GoOutCheckListUITests */,
+				87834AE1291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		87834AE0291FBB7800B073E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87787FDE2922497F0059685B /* Assets.xcassets in Resources */,
+				87834AF0291FBB7A00B073E2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		87B41B1B28EAA1C1009F1046 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,6 +763,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5EA0D3D5B77AFDF2B01C7D63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6EDA9F29EE5DEF98134EF735 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -686,6 +839,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		87834ADE291FBB7800B073E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87834AE9291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift in Sources */,
+				87834AEB291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift in Sources */,
+				87787FDC292248260059685B /* FindRealmData.swift in Sources */,
+				87787FD629221D670059685B /* CheckHistoryList.swift in Sources */,
+				87787FD729221D6A0059685B /* CheckHistory.swift in Sources */,
+				87787FD229221D490059685B /* RealmManager.swift in Sources */,
+				87834AED291FBB7800B073E2 /* CheckItemsMiddleWidget.swift in Sources */,
+				87834AF2291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */,
+				87787FDA292247240059685B /* UserdefaultsManager.swift in Sources */,
+				87787FD329221D600059685B /* CategoryList.swift in Sources */,
+				87787FD429221D620059685B /* Category.swift in Sources */,
+				87787FD529221D650059685B /* CheckItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		87B41B1928EAA1C1009F1046 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -702,11 +874,13 @@
 				874602D52909FB5B009D1D50 /* CheckHistoryTableViewCell.swift in Sources */,
 				87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */,
 				87B41B2128EAA1C1009F1046 /* AppDelegate.swift in Sources */,
+				87E753702920C31300C4ECF7 /* RealmManager.swift in Sources */,
 				8761619C290B622700F81DE2 /* DateUtils.swift in Sources */,
 				8782387E28F280E300804538 /* MainTabBarController.swift in Sources */,
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				874602D8290A0068009D1D50 /* CheckHistoryTableViewModel.swift in Sources */,
 				8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */,
+				87787FD9292222AE0059685B /* UserdefaultsManager.swift in Sources */,
 				87C7CFE429162E1D00C4F451 /* DoneTextField.swift in Sources */,
 				8730C40E290CEC420020629C /* TouchFeedbackView.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,
@@ -721,6 +895,7 @@
 				873E87BE291B6329001DFD8D /* CategoryEditViewController.swift in Sources */,
 				8757681628FA155000EB4E79 /* CategoryList.swift in Sources */,
 				873E87C4291B6356001DFD8D /* CheckItemEditViewController.swift in Sources */,
+				87834AF3291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */,
 				87B358B1290B9725006A28AE /* CategoryImageCollectionViewCell.swift in Sources */,
 				8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */,
 			);
@@ -747,6 +922,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		87834AF5291FBB7A00B073E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87834AE1291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension */;
+			targetProxy = 87834AF4291FBB7A00B073E2 /* PBXContainerItemProxy */;
+		};
 		87B41B3528EAA1C2009F1046 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 87B41B1C28EAA1C1009F1046 /* iOSApp-GoOutCheckList */;
@@ -771,6 +951,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		87834AF8291FBB7A00B073E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D118A8FCECBCD2A33BB91598 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CheckItemsMiddleWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 558ZJSQN67;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CheckItemsMiddleWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CheckItemsMiddleWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tetoblog.iOSApp-GoOutCheckList.CheckItemsMiddleWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		87834AF9291FBB7A00B073E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3078789B27808750F20CDD7 /* Pods-iOSApp-GoOutCheckList-CheckItemsMiddleWidgetExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CheckItemsMiddleWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 558ZJSQN67;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CheckItemsMiddleWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CheckItemsMiddleWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tetoblog.iOSApp-GoOutCheckList.CheckItemsMiddleWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		87B41B4528EAA1C2009F1046 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -821,7 +1061,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -875,7 +1115,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -889,8 +1129,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D419496B92DE86E296024D17 /* Pods-iOSApp-GoOutCheckList.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOSApp-GoOutCheckList/iOSApp-GoOutCheckList.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
@@ -901,7 +1143,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -919,8 +1161,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88F52D017C5797685D117751 /* Pods-iOSApp-GoOutCheckList.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOSApp-GoOutCheckList/iOSApp-GoOutCheckList.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
@@ -931,7 +1175,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1028,6 +1272,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		87834AFA291FBB7A00B073E2 /* Build configuration list for PBXNativeTarget "CheckItemsMiddleWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87834AF8291FBB7A00B073E2 /* Debug */,
+				87834AF9291FBB7A00B073E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		87B41B1828EAA1C1009F1046 /* Build configuration list for PBXProject "iOSApp-GoOutCheckList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
