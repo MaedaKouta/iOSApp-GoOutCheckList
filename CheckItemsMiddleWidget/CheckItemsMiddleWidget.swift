@@ -63,7 +63,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 Spacer()
 
                 HStack{
-                    Image(categoryImageNamge)
+                    Image("\(categoryImageNamge)")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 30, height: 30)
@@ -80,7 +80,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 }
 
                 Spacer()
-                Text("\(findRealmData.getWidgetCategory()?.name ?? "") ")
+                Text("\(categoryName)")
                     .font(.system(size: 11))
                     .padding(.horizontal, 8)
                     .padding(.bottom, 5)
@@ -114,7 +114,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 Spacer()
 
                 VStack(alignment: .leading) {
-                    Image("car_small")
+                    Image("\(categoryImageNamge)")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 30, height: 30)
@@ -125,40 +125,32 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                     Spacer()
 
-                    Text("8")
+                    Text("\(categoryListCount)")
                         .font(Font.futuraMedium(size: 25))
 
-                    Text("カテゴリー名")
+                    Text("\(categoryName)")
                         .font(.system(size: 11))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }.frame(width: 120)
 
-
                 Spacer()
 
                 VStack(alignment: .leading) {
-                    Text("タスク１")
-                        .font(.system(size: 11))
+                    ForEach(0..<5) { i in
 
-                    Divider()
+                        if i < categoryListCount {
+                            Text("\(categoryList?[i].name ?? "")")
+                                .font(.system(size: 11))
+                        } else {
+                            Text("")
+                                .font(.system(size: 11))
+                        }
 
-                    Text("タスク２")
-                        .font(.system(size: 11))
-
-                    Divider()
-
-                    Text("タスク３")
-                        .font(.system(size: 11))
-
-                    Divider()
-
-                    Text("タスク４")
-                        .font(.system(size: 11))
-
-                    Divider()
-
-                    Text("タスク５")
-                        .font(.system(size: 11))
+                        // 最後の行には線を引かない
+                        if i < categoryListCount && i != 4 {
+                            Divider()
+                        }
+                    }
                 }
 
                 Spacer()
@@ -175,17 +167,17 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 HStack{
 
                     VStack(alignment: .leading) {
-                        Text("8")
+                        Text("\(categoryListCount)")
                             .font(Font.futuraMedium(size: 25))
 
-                        Text("カテゴリー名")
+                        Text("\(categoryName)")
                             .font(.system(size: 11))
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                     }
 
                     Spacer()
-                    Image("car_small")
+                    Image("\(categoryImageNamge)")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 30, height: 30)
@@ -260,10 +252,6 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         Text("タスク１０")
                             .font(.system(size: 11))
                     }
-
-
-
-
 
                 }.padding(.horizontal, 8)
                 // 下半分ここまで
