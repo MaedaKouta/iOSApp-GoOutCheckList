@@ -91,7 +91,6 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [3, 2] {
             // ライセンス
-            guard #available(iOS 13.0.0, *) else { return }
             let vc = UIHostingController(rootView: LisenceSwiftUIView())
             vc.navigationItem.title = "ライセンス"
             self.navigationController?.pushViewController(vc, animated: true)
@@ -142,18 +141,12 @@ class SettingTableViewController: UITableViewController {
         updateWidgetCategoryPullDownItems()
     }
 
-
     private func openSafari(urlString: String) {
         let url = NSURL(string: urlString)
         // 外部ブラウザ（Safari）で開く
         if UIApplication.shared.canOpenURL(url! as URL){
             UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
         }
-    }
-
-    private func openTwitter() {
-        //guard let twitterUrl = URL(string: "twitter://") else { return }
-        //UIApplication.shared.openURL(twitterUrl)
     }
 
     private func prepareWebView(url: String, title: String) {
@@ -208,9 +201,7 @@ class SettingTableViewController: UITableViewController {
                     UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
                     self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
                     self?.updateWidgetCategoryPullDownItems()
-                    if #available(iOS 14.0, *) {
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
+                    WidgetCenter.shared.reloadAllTimelines()
                 }))
             } else {
                 pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, handler: { [weak self] _ in
@@ -219,22 +210,15 @@ class SettingTableViewController: UITableViewController {
                     UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
                     self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
                     self?.updateWidgetCategoryPullDownItems()
-                    if #available(iOS 14.0, *) {
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
+                    WidgetCenter.shared.reloadAllTimelines()
                 }))
             }
-
         }
 
         widgetCategoryPullDownItems = UIMenu(options: .displayInline, children: pullDowunChildren)
 
-        if #available(iOS 14.0, *) {
-            widgetCategoryButton.menu = widgetCategoryPullDownItems
-            widgetCategoryButton.showsMenuAsPrimaryAction = true
-        } else {
-            // Fallback on earlier versions
-        }
+        widgetCategoryButton.menu = widgetCategoryPullDownItems
+        widgetCategoryButton.showsMenuAsPrimaryAction = true
 
     }
 
