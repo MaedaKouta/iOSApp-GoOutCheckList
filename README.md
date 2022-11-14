@@ -1,10 +1,10 @@
 # iOSApp-GoOutCheckList
 忘れ物を防ぐ、外出チャックリストアプリ（iOS）
 
-## アーキテクチャ・開発方法
+## アーキテクチャ・技術
 - MVVM
-- チケット駆動開発
 - Unitテスト, UIテスト
+- WidgetKit
 
 ## ライブラリ
 - RxSwift
