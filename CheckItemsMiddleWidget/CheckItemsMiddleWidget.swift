@@ -200,59 +200,23 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                 // 下半分
                 VStack(alignment: .leading, spacing: 5.0) {
+                    ForEach(0..<10) { i in
 
-                    Group {
-                        Text("タスク１")
-                            .font(.system(size: 11))
+                        if i < categoryListCount {
+                            Text("\(categoryList?[i].name ?? "")")
+                                .font(.system(size: 11))
+                        } else {
+                            Text("")
+                                .font(.system(size: 11))
+                        }
 
-                        Divider()
-
-                        Text("タスク２")
-                            .font(.system(size: 11))
-
-                        Divider()
-
-                        Text("タスク３")
-                            .font(.system(size: 11))
-
-                        Divider()
-
-                        Text("タスク４")
-                            .font(.system(size: 11))
-
-                        Divider()
-
-                        Text("タスク５")
-                            .font(.system(size: 11))
-
-                        Divider()
+                        // 最後の行には線を引かない
+                        if i < categoryListCount && i != 9 {
+                            Divider()
+                        }
                     }
 
-                    Group {
-                        Text("タスク６")
-                            .font(.system(size: 11))
-
-                        Divider()
-
-                        Text("タスク７")
-                            .font(.system(size: 11))
-
-                        Divider()
-
-                        Text("タスク８")
-                            .font(.system(size: 11))
-
-                        Divider()
-
-                        Text("タスク９")
-                            .font(.system(size: 11))
-
-                        Divider()
-
-                        Text("タスク１０")
-                            .font(.system(size: 11))
-                    }
-
+                    
                 }.padding(.horizontal, 8)
                 // 下半分ここまで
 
