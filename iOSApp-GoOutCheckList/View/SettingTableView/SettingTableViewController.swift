@@ -27,6 +27,7 @@ class SettingTableViewController: UITableViewController {
     private let twitterUrl = "https://twitter.com/kota_org"
 
     private var realm = RealmManager().realm
+    private let userdefaultManager = UserdefaultsManager()
     let categoyListObject =  RealmManager().realm.objects(CategoryList.self)
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +45,7 @@ class SettingTableViewController: UITableViewController {
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
-        isDisplayHistoryNumberSwitch.setOn(UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber"), animated: false)
+        isDisplayHistoryNumberSwitch.setOn(userdefaultManager.getIsDisplayHistoryNumber(), animated: false)
 
         versionLabel.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
 
@@ -53,7 +54,7 @@ class SettingTableViewController: UITableViewController {
     }
 
     @IBAction func isChangedDisplayHistoryNumberSwitch(_ sender: Any) {
-        UserDefaults.standard.set(isDisplayHistoryNumberSwitch.isOn, forKey: "isDisplayHistoryNumber")
+        userdefaultManager.setIsDisplayHistoryNumber(isDisplay: isDisplayHistoryNumberSwitch.isOn)
     }
 
     // MARK: Actions
@@ -198,14 +199,14 @@ class SettingTableViewController: UITableViewController {
 
             if i == widgetCategoryIndex {
                 pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, image: UIImage(systemName: "checkmark"), handler: { [weak self] _ in
-                    UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
+                    self?.userdefaultManager.setWidgetCategoryId(id: categoryObjects.elements[i].id)
                     self?.widgetCategoryButton.setTitle("\(categoryObjects.elements[i].name) ", for: .normal)
                     self?.updateWidgetCategoryPullDownItems()
                     WidgetCenter.shared.reloadAllTimelines()
                 }))
             } else {
                 pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, handler: { [weak self] _ in
-                    UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
+                    self?.userdefaultManager.setWidgetCategoryId(id: categoryObjects.elements[i].id)
                     self?.widgetCategoryButton.setTitle("\(categoryObjects.elements[i].name) ", for: .normal)
                     self?.updateWidgetCategoryPullDownItems()
                     WidgetCenter.shared.reloadAllTimelines()
@@ -231,7 +232,7 @@ class SettingTableViewController: UITableViewController {
 
         var widgetCategoryIndex = 0
         for i in 0..<categoryObjects.elements.count {
-            if categoryObjects.elements[i].id == UserDefaults.standard.string(forKey: "widgetCategoryId") {
+            if categoryObjects.elements[i].id == userdefaultManager.getWidgetCategoryId() {
                 widgetCategoryIndex = i
             }
         }

@@ -35,6 +35,13 @@
 		8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */; };
 		8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */; };
 		8766155728F016B600F0A8C1 /* CheckItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */; };
+		87787FD229221D490059685B /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E7536F2920C31300C4ECF7 /* RealmManager.swift */; };
+		87787FD329221D600059685B /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8757681528FA155000EB4E79 /* CategoryList.swift */; };
+		87787FD429221D620059685B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1928F0F8F20082C27C /* Category.swift */; };
+		87787FD529221D650059685B /* CheckItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743CC1B28F0F92E0082C27C /* CheckItem.swift */; };
+		87787FD629221D670059685B /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
+		87787FD729221D6A0059685B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
+		87787FD9292222AE0059685B /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787FD8292222AE0059685B /* UserdefaultsManager.swift */; };
 		8782387E28F280E300804538 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782387C28F280E200804538 /* MainTabBarController.swift */; };
 		87834AE4291FBB7800B073E2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87834AE3291FBB7800B073E2 /* WidgetKit.framework */; };
 		87834AE6291FBB7800B073E2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87834AE5291FBB7800B073E2 /* SwiftUI.framework */; };
@@ -145,6 +152,7 @@
 		8766155228F015B800F0A8C1 /* CheckItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemTableViewCell.swift; sourceTree = "<group>"; };
 		8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemTableViewCell.xib; sourceTree = "<group>"; };
 		8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemDataSource.swift; sourceTree = "<group>"; };
+		87787FD8292222AE0059685B /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
 		8782387C28F280E200804538 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CheckItemsMiddleWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		87834AE3291FBB7800B073E2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -441,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				87E7536F2920C31300C4ECF7 /* RealmManager.swift */,
+				87787FD8292222AE0059685B /* UserdefaultsManager.swift */,
 				8757681528FA155000EB4E79 /* CategoryList.swift */,
 				8743CC1928F0F8F20082C27C /* Category.swift */,
 				8743CC1B28F0F92E0082C27C /* CheckItem.swift */,
@@ -830,8 +839,14 @@
 			files = (
 				87834AE9291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift in Sources */,
 				87834AEB291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift in Sources */,
+				87787FD629221D670059685B /* CheckHistoryList.swift in Sources */,
+				87787FD729221D6A0059685B /* CheckHistory.swift in Sources */,
+				87787FD229221D490059685B /* RealmManager.swift in Sources */,
 				87834AED291FBB7800B073E2 /* CheckItemsMiddleWidget.swift in Sources */,
 				87834AF2291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */,
+				87787FD329221D600059685B /* CategoryList.swift in Sources */,
+				87787FD429221D620059685B /* Category.swift in Sources */,
+				87787FD529221D650059685B /* CheckItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +872,7 @@
 				87B41B2328EAA1C1009F1046 /* SceneDelegate.swift in Sources */,
 				874602D8290A0068009D1D50 /* CheckHistoryTableViewModel.swift in Sources */,
 				8766155028F0153D00F0A8C1 /* CheckItemTableViewController.swift in Sources */,
+				87787FD9292222AE0059685B /* UserdefaultsManager.swift in Sources */,
 				87C7CFE429162E1D00C4F451 /* DoneTextField.swift in Sources */,
 				8730C40E290CEC420020629C /* TouchFeedbackView.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,

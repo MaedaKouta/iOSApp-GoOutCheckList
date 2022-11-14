@@ -5,6 +5,7 @@
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.org.tetoblog.iOSApp-GoOutCheckList.realm</string>
+		<string>group.org.tetoblog.iOSApp-GoOutCheckList.userdefault</string>
 	</array>
 </dict>
 </plist>

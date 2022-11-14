@@ -42,12 +42,15 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct CheckItemsMiddleWidgetEntryView : View {
+
+
     var entry: Provider.Entry
     // Widgetの小・中・大の取得
     @Environment(\.widgetFamily) var widgetFamily
-    private let realm = RealmManagerOfWidget().realm
+    private let realm = RealmManager().realm
 
     var body: some View {
+
         if widgetFamily == .systemSmall {
             VStack(spacing: 0.0) {
 
@@ -262,7 +265,6 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
 
         }
-
     }
 }
 
@@ -322,16 +324,31 @@ struct CheckItemsMiddleWidget_Previews: PreviewProvider {
     }
 }
 
-// realmManager
-private class RealmManagerOfWidget {
-    var realm:Realm {
-        var config = Realm.Configuration()
-        config.fileURL = fileUrl
-        return try! Realm(configuration: config)
+struct FindRealmdata {
+    let categoryListObject = RealmManager().realm.objects(CategoryList.self)
+    let userdefault = UserDefaults(suiteName: "group.org.tetoblog.iOSApp-GoOutCheckList.userdefault")
+
+    func getCategory() -> Category? {
+        let index = findWidgetCategoryIdIndex()
+
+        return nil
     }
 
-    var fileUrl: URL {
-        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.org.tetoblog.iOSApp-GoOutCheckList.realm")!
-        return url.appendingPathComponent("db.realm")
+    private func findWidgetCategoryIdIndex() -> Int {
+        guard let categoryObjects = categoryListObject.first?.list else {
+            return 0
+        }
+        if categoryObjects.count == 0 {
+            return 0
+        }
+
+        var widgetCategoryIndex = 0
+        for i in 0..<categoryObjects.elements.count {
+            if categoryObjects.elements[i].id == UserDefaults.standard.string(forKey: "widgetCategoryId") {
+                widgetCategoryIndex = i
+            }
+        }
+        return widgetCategoryIndex
     }
+
 }

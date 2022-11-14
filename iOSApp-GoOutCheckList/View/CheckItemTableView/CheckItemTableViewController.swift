@@ -22,6 +22,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
     @IBOutlet private weak var checkedProgressView: UIProgressView!
     private let feedbackGenerator = UINotificationFeedbackGenerator()
+    private let userdefaultManager = UserdefaultsManager()
+
 
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -369,7 +371,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func updateTabBarItem() {
-        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+        print(userdefaultManager.getIsDisplayHistoryNumber())
+        if userdefaultManager.getIsDisplayHistoryNumber() == true {
             let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
             let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
             if noneWatchHistoryCount == 0 {return}

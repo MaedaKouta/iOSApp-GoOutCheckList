@@ -19,6 +19,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
     @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
+    private let userdefaultManager = UserdefaultsManager()
+
     // NavigationBarButtonを宣言
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -210,7 +212,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     // MARK: Method
     private func updateTabBarItem() {
-        if UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber") {
+        if userdefaultManager.getIsDisplayHistoryNumber() {
             let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
             let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
             if noneWatchHistoryCount == 0 {return}
