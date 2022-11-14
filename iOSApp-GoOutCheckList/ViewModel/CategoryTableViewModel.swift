@@ -71,20 +71,9 @@ class CategoryTableViewModel: CategoryTableViewModelInputs, CategoryTableViewMod
         setupNotifications()
     }
 
-
     // MARK: Updatas
     func updateCategoryList() {
         categoryListObjext = realm.objects(CategoryList.self).first?.list
-
-//        // 値が空のときになんとかする
-//        if self.categoryListObjext == nil {
-//            try! self.realm.write() {
-//                let categoryList = CategoryList()
-//                categoryList.list.append(Category())
-//                self.realm.add(categoryList)
-//                self.categoryListObjext = self.realm.objects(CategoryList.self).first?.list
-//            }
-//        }
 
         self.categoryDataBehaviorRelay
             .accept(categoryListObjext ?? List<Category>())
