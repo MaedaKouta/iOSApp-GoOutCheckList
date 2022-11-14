@@ -42,6 +42,9 @@
 		87787FD629221D670059685B /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
 		87787FD729221D6A0059685B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
 		87787FD9292222AE0059685B /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787FD8292222AE0059685B /* UserdefaultsManager.swift */; };
+		87787FDA292247240059685B /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787FD8292222AE0059685B /* UserdefaultsManager.swift */; };
+		87787FDC292248260059685B /* FindRealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787FDB292248260059685B /* FindRealmData.swift */; };
+		87787FDE2922497F0059685B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B41B2928EAA1C2009F1046 /* Assets.xcassets */; };
 		8782387E28F280E300804538 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782387C28F280E200804538 /* MainTabBarController.swift */; };
 		87834AE4291FBB7800B073E2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87834AE3291FBB7800B073E2 /* WidgetKit.framework */; };
 		87834AE6291FBB7800B073E2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87834AE5291FBB7800B073E2 /* SwiftUI.framework */; };
@@ -153,6 +156,7 @@
 		8766155328F015B800F0A8C1 /* CheckItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckItemTableViewCell.xib; sourceTree = "<group>"; };
 		8766155628F016B600F0A8C1 /* CheckItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemDataSource.swift; sourceTree = "<group>"; };
 		87787FD8292222AE0059685B /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
+		87787FDB292248260059685B /* FindRealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRealmData.swift; sourceTree = "<group>"; };
 		8782387C28F280E200804538 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CheckItemsMiddleWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		87834AE3291FBB7800B073E2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -345,9 +349,10 @@
 		87834AE7291FBB7800B073E2 /* CheckItemsMiddleWidget */ = {
 			isa = PBXGroup;
 			children = (
+				87787FDB292248260059685B /* FindRealmData.swift */,
+				87834AEC291FBB7800B073E2 /* CheckItemsMiddleWidget.swift */,
 				87834AE8291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift */,
 				87834AEA291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift */,
-				87834AEC291FBB7800B073E2 /* CheckItemsMiddleWidget.swift */,
 				87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */,
 				87834AEF291FBB7A00B073E2 /* Assets.xcassets */,
 				87834AF1291FBB7A00B073E2 /* Info.plist */,
@@ -649,6 +654,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87787FDE2922497F0059685B /* Assets.xcassets in Resources */,
 				87834AF0291FBB7A00B073E2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -839,11 +845,13 @@
 			files = (
 				87834AE9291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift in Sources */,
 				87834AEB291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift in Sources */,
+				87787FDC292248260059685B /* FindRealmData.swift in Sources */,
 				87787FD629221D670059685B /* CheckHistoryList.swift in Sources */,
 				87787FD729221D6A0059685B /* CheckHistory.swift in Sources */,
 				87787FD229221D490059685B /* RealmManager.swift in Sources */,
 				87834AED291FBB7800B073E2 /* CheckItemsMiddleWidget.swift in Sources */,
 				87834AF2291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */,
+				87787FDA292247240059685B /* UserdefaultsManager.swift in Sources */,
 				87787FD329221D600059685B /* CategoryList.swift in Sources */,
 				87787FD429221D620059685B /* Category.swift in Sources */,
 				87787FD529221D650059685B /* CheckItem.swift in Sources */,

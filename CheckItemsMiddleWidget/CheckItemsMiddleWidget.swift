@@ -49,6 +49,12 @@ struct CheckItemsMiddleWidgetEntryView : View {
     @Environment(\.widgetFamily) var widgetFamily
     private let realm = RealmManager().realm
 
+    private let findRealmData = FindRealmData()
+    private let categoryName = FindRealmData().getWidgetCategory()?.name ?? ""
+    private let categoryImageNamge =  FindRealmData().getWidgetCategory()?.assetsImageName ?? "question_small"
+    private let categoryList = FindRealmData().getWidgetCategory()?.checkItems.elements
+    private let categoryListCount = FindRealmData().getWidgetCategory()?.checkItems.elements.count ?? 0
+
     var body: some View {
 
         if widgetFamily == .systemSmall {
@@ -57,7 +63,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 Spacer()
 
                 HStack{
-                    Image("car_small")
+                    Image(categoryImageNamge)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 30, height: 30)
@@ -68,14 +74,13 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .padding(.leading, 15)
 
                     Spacer()
-                    Text("8")
-                        //.font(.title)
+                    Text("\(categoryListCount)")
                         .font(Font.futuraMedium(size: 25))
                         .padding(.trailing, 15)
                 }
 
                 Spacer()
-                Text("カテゴリー名")
+                Text("\(findRealmData.getWidgetCategory()?.name ?? "") ")
                     .font(.system(size: 11))
                     .padding(.horizontal, 8)
                     .padding(.bottom, 5)
@@ -322,33 +327,4 @@ struct CheckItemsMiddleWidget_Previews: PreviewProvider {
         CheckItemsMiddleWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
-}
-
-struct FindRealmdata {
-    let categoryListObject = RealmManager().realm.objects(CategoryList.self)
-    let userdefault = UserDefaults(suiteName: "group.org.tetoblog.iOSApp-GoOutCheckList.userdefault")
-
-    func getCategory() -> Category? {
-        let index = findWidgetCategoryIdIndex()
-
-        return nil
-    }
-
-    private func findWidgetCategoryIdIndex() -> Int {
-        guard let categoryObjects = categoryListObject.first?.list else {
-            return 0
-        }
-        if categoryObjects.count == 0 {
-            return 0
-        }
-
-        var widgetCategoryIndex = 0
-        for i in 0..<categoryObjects.elements.count {
-            if categoryObjects.elements[i].id == UserDefaults.standard.string(forKey: "widgetCategoryId") {
-                widgetCategoryIndex = i
-            }
-        }
-        return widgetCategoryIndex
-    }
-
 }

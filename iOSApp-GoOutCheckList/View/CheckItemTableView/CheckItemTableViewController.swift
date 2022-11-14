@@ -371,7 +371,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     }
 
     private func updateTabBarItem() {
-        print(userdefaultManager.getIsDisplayHistoryNumber())
         if userdefaultManager.getIsDisplayHistoryNumber() == true {
             let checkHistoryListObject = realm.objects(CheckHistoryList.self).first
             let noneWatchHistoryCount = checkHistoryListObject?.checkHistoryList.filter{$0.isWatched == false}.count ?? 0
