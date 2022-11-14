@@ -45,6 +45,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
     var entry: Provider.Entry
     // Widgetの小・中・大の取得
     @Environment(\.widgetFamily) var widgetFamily
+    private let realm = RealmManagerOfWidget().realm
 
     var body: some View {
         if widgetFamily == .systemSmall {
@@ -318,5 +319,19 @@ struct CheckItemsMiddleWidget_Previews: PreviewProvider {
     static var previews: some View {
         CheckItemsMiddleWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+}
+
+// realmManager
+private class RealmManagerOfWidget {
+    var realm:Realm {
+        var config = Realm.Configuration()
+        config.fileURL = fileUrl
+        return try! Realm(configuration: config)
+    }
+
+    var fileUrl: URL {
+        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.realmWithWidget")!
+        return url.appendingPathComponent("db.realm")
     }
 }
