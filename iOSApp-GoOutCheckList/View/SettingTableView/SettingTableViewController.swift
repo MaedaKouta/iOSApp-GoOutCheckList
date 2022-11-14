@@ -16,6 +16,9 @@ class SettingTableViewController: UITableViewController {
 
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var isDisplayHistoryNumberSwitch: UISwitch!
+    @IBOutlet private weak var widgetCategoryButton: UIButton!
+
+    private var widgetCategoryPullDownItems = UIMenu(options: .displayInline, children: [])
 
     private let reviewUrl = ""
     private let feedbackUrl = "https://forms.gle/3T3eNwuggnUvUd9t5"
@@ -24,6 +27,7 @@ class SettingTableViewController: UITableViewController {
     private let twitterUrl = "https://twitter.com/kota_org"
 
     private var realm = RealmManager().realm
+    let categoyListObject =  RealmManager().realm.objects(CategoryList.self)
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,6 +47,9 @@ class SettingTableViewController: UITableViewController {
         isDisplayHistoryNumberSwitch.setOn(UserDefaults.standard.bool(forKey: "isDisplayHistoryNumber"), animated: false)
 
         versionLabel.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+
+        setupWidgetCategoryButton()
+        setupWidgetCategoryPullDownItems()
     }
 
     @IBAction func isChangedDisplayHistoryNumberSwitch(_ sender: Any) {
@@ -115,6 +122,17 @@ class SettingTableViewController: UITableViewController {
         self.navigationItem.title = "設定"
     }
 
+    private func setupWidgetCategoryButton() {
+        // Buttonを左右反転させる
+        widgetCategoryButton.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        // 文字が反転するため、titleLabelを左右反転させ元に戻す
+        widgetCategoryButton.titleLabel?.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        // imageが反転するため、imageViewを左右反転させ元に戻す
+        widgetCategoryButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        widgetCategoryButton.setBackgroundImage(backgroundImage, for: .normal)
+        //self.widgetCategoryButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+    }
+
     private func openSafari(urlString: String) {
         let url = NSURL(string: urlString)
         // 外部ブラウザ（Safari）で開く
@@ -156,6 +174,73 @@ class SettingTableViewController: UITableViewController {
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
         self.present(activityVC, animated: true)
+    }
+
+    // Widgets
+    private func setupWidgetCategoryPullDownItems() {
+        guard let categoryObjects = categoyListObject.first?.list else {
+            self.widgetCategoryButton.setTitle("", for: .normal)
+            return
+        }
+        if categoryObjects.count == 0 {
+            self.widgetCategoryButton.setTitle("", for: .normal)
+            return
+        }
+
+        var pullDowunChildren: [UIAction] = []
+        var widgetCategoryIndex = findWidgetCategoryIdIndex()
+
+        for i in 0..<categoryObjects.elements.count {
+
+            if i == widgetCategoryIndex {
+                pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, image: UIImage(systemName: "checkmark"), handler: { [weak self] _ in
+                    print("\(categoryObjects.elements[i].name)が押されました")
+                    UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
+                    self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
+                    self?.setupWidgetCategoryPullDownItems()
+                }))
+            } else {
+                pullDowunChildren.append(UIAction(title: categoryObjects.elements[i].name, handler: { [weak self] _ in
+
+                    print("\(categoryObjects.elements[i].name)が押されました")
+                    UserDefaults.standard.set(categoryObjects.elements[i].id, forKey: "widgetCategoryId")
+                    self?.widgetCategoryButton.setTitle(categoryObjects.elements[i].name, for: .normal)
+                    self?.setupWidgetCategoryPullDownItems()
+
+                }))
+            }
+
+        }
+
+        widgetCategoryPullDownItems = UIMenu(options: .displayInline, children: pullDowunChildren)
+
+        if #available(iOS 14.0, *) {
+            widgetCategoryButton.menu = widgetCategoryPullDownItems
+            widgetCategoryButton.showsMenuAsPrimaryAction = true
+        } else {
+            // Fallback on earlier versions
+        }
+
+    }
+
+    // MARK: Alerts
+    private func findWidgetCategoryIdIndex() -> Int {
+        guard let categoryObjects = categoyListObject.first?.list else {
+            return 0
+        }
+        if categoryObjects.count == 0 {
+            return 0
+        }
+
+        var widgetCategoryIndex = 0
+        for i in 0..<categoryObjects.elements.count {
+            if categoryObjects.elements[i].id == UserDefaults.standard.string(forKey: "widgetCategoryId") {
+                widgetCategoryIndex = i
+            }
+        }
+
+        return widgetCategoryIndex
+
     }
 
     private func deleteHistoryDataAlert() {
@@ -257,6 +342,22 @@ class SettingTableViewController: UITableViewController {
         })
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    private func noneCategoryAlert() {
+        let alert: UIAlertController = UIAlertController(
+            title: "",
+            message: """
+            カテゴリーが何もありません。
+            """,
+            preferredStyle:  UIAlertController.Style.alert
+        )
+
+        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
 
