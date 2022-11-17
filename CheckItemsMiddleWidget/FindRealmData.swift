@@ -14,8 +14,12 @@ struct FindRealmData {
 
     func getWidgetCategory() -> Category? {
         let index = findWidgetCategoryIdIndex()
-        let category = categoryListObject.elements.first?.list[index]
 
+        if let categoryListCount = categoryListObject.elements.first?.list, categoryListCount.isEmpty {
+            return nil
+        }
+
+        let category = categoryListObject.elements.first?.list[index]
         return category
     }
 
