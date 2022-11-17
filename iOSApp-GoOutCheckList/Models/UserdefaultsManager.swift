@@ -29,4 +29,22 @@ public class UserdefaultsManager {
         return userdefault!.string(forKey: "widgetCategoryId") ?? ""
     }
 
+    // isFromWidget
+    func setIsDisplayFromWidget(isTrue: Bool) {
+        userdefault!.set(isTrue, forKey: "isDisplayFromWidget")
+    }
+
+    func getIsDisplayFromWidget() -> Bool {
+        return userdefault!.bool(forKey: "isDisplayFromWidget")
+    }
+
+    // indexFromWidget
+    func setIndexFromWidget(index: Int) {
+        userdefault!.set(index, forKey: "indexFromWidget")
+    }
+
+    func getIsFromWidget() -> Int {
+        return userdefault!.integer(forKey: "indexFromWidget")
+    }
+
 }
