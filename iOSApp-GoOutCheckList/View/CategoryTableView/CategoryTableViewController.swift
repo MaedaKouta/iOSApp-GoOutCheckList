@@ -131,9 +131,22 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     // MARK: - Setups
     private func setDisplayFromWidget() {
         if userdefaultManager.getIsDisplayFromWidget() {
+
+            guard let topCategory = realm.objects(CategoryList.self).first?.list.first else {
+                userdefaultManager.setIsDisplayFromWidget(isTrue: false)
+                return
+            }
+
             // カテゴリーIDからTableViewのインデックスを調べる
-            let categoryID = userdefaultManager.getWidgetCategoryId()
+            let categoryId = userdefaultManager.getWidgetCategoryId()
+            print(categoryId)
+            let categoryObject = realm.objects(Category.self)
+            let predicate = NSPredicate(format: "id == %@", categoryId)
+            let category = categoryObject.filter(predicate).first ?? topCategory
+
             // 調べたカテゴリーIDでセルをタップさせて画面遷移する
+            let checkItemTableVC = CheckItemTableViewController(categoryItemObject: category)
+            self.navigationController?.pushViewController(checkItemTableVC, animated: true)
         }
 
         userdefaultManager.setIsDisplayFromWidget(isTrue: false)
