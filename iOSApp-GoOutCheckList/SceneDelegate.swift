@@ -11,6 +11,7 @@ import WidgetKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private let userdefaultManager = UserdefaultsManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
@@ -34,6 +35,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // アプリスリープ
     func sceneDidEnterBackground(_ scene: UIScene) {
         WidgetCenter.shared.reloadAllTimelines()
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let urlString = URLContexts.first?.url.absoluteString else {
+            return
+        }
+
+        if urlString == "GoOutCheckList://deeplink?from=widget" {
+
+            userdefaultManager.setIsDisplayFromWidget(isTrue: true)
+
+            let navigationController = UINavigationController(rootViewController: MainTabBarController())
+            navigationController.isNavigationBarHidden = true
+            self.window?.rootViewController = navigationController
+            self.window?.rootViewController?.tabBarController?.selectedIndex = 0
+
+        }
+
     }
 
 }

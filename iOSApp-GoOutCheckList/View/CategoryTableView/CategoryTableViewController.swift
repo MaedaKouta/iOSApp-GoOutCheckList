@@ -49,6 +49,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+
+
         setupNavigationbar()
         categoryTableViewModel.updateCategoryList()
         displaynothingTableViewData()
@@ -62,6 +64,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
 
+        setDisplayFromWidget()
         setupAddCategoryButton()
         setupTableView()
         setupBindings()
@@ -126,6 +129,29 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     // MARK: - Setups
+    private func setDisplayFromWidget() {
+        if userdefaultManager.getIsDisplayFromWidget() {
+
+            guard let topCategory = realm.objects(CategoryList.self).first?.list.first else {
+                userdefaultManager.setIsDisplayFromWidget(isTrue: false)
+                return
+            }
+
+            // カテゴリーIDからTableViewのインデックスを調べる
+            let categoryId = userdefaultManager.getWidgetCategoryId()
+            print(categoryId)
+            let categoryObject = realm.objects(Category.self)
+            let predicate = NSPredicate(format: "id == %@", categoryId)
+            let category = categoryObject.filter(predicate).first ?? topCategory
+
+            // 調べたカテゴリーIDでセルをタップさせて画面遷移する
+            let checkItemTableVC = CheckItemTableViewController(categoryItemObject: category)
+            self.navigationController?.pushViewController(checkItemTableVC, animated: true)
+        }
+
+        userdefaultManager.setIsDisplayFromWidget(isTrue: false)
+    }
+
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CategoryViewFromDataSourceDeleteNotification, object: nil)
 

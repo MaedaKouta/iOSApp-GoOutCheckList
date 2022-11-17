@@ -43,14 +43,13 @@ struct SimpleEntry: TimelineEntry {
 
 struct CheckItemsMiddleWidgetEntryView : View {
 
-
     var entry: Provider.Entry
     // Widgetの小・中・大の取得
     @Environment(\.widgetFamily) var widgetFamily
     private let realm = RealmManager().realm
 
     private let findRealmData = FindRealmData()
-    private let categoryName = FindRealmData().getWidgetCategory()?.name ?? ""
+    private let categoryName = FindRealmData().getWidgetCategory()?.name ?? "カテゴリー無し"
     private let categoryImageNamge =  FindRealmData().getWidgetCategory()?.assetsImageName ?? "question_small"
     private let categoryList = FindRealmData().getWidgetCategory()?.checkItems.elements
     private let categoryListCount = FindRealmData().getWidgetCategory()?.checkItems.elements.count ?? 0
@@ -80,6 +79,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 }
 
                 Spacer()
+                
                 Text("\(categoryName)")
                     .font(.system(size: 11))
                     .padding(.horizontal, 8)
@@ -107,7 +107,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                 Spacer()
 
-            }
+            }.widgetURL(URL(string: "GoOutCheckList://deeplink?from=widget"))
 
         } else if widgetFamily == .systemMedium {
             HStack() {
@@ -156,6 +156,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 Spacer()
 
             }
+            .widgetURL(URL(string: "GoOutCheckList://deeplink?from=widget"))
             .padding(12)
 
         } else if widgetFamily == .systemLarge {
@@ -221,8 +222,8 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                 Spacer()
 
-            }.padding(12)
-
+            }.widgetURL(URL(string: "GoOutCheckList://deeplink?from=widget"))
+                .padding(12)
 
         }
     }
