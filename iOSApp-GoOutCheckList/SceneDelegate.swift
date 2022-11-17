@@ -37,8 +37,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        print("here")
-        print(URLContexts.first?.url)
+        guard let urlString = URLContexts.first?.url.absoluteString else {
+            return
+        }
+
+        if urlString == "GoOutCheckList://deeplink?from=widget" {
+
+            // TODO: UserdefaultにisFromWidget=trueをセット
+            let navigationController = UINavigationController(rootViewController: MainTabBarController())
+            navigationController.isNavigationBarHidden = true
+            self.window?.rootViewController = navigationController
+            self.window?.rootViewController?.tabBarController?.selectedIndex = 0
+
+            print("yeeeah")
+        }
+
     }
 
 }

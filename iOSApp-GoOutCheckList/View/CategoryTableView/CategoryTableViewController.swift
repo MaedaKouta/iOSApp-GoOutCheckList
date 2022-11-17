@@ -58,6 +58,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // TODO: isFromWidget==trueなら、専用のインデックスの画面へ遷移
+
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
