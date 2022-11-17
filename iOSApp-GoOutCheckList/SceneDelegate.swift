@@ -36,5 +36,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         WidgetCenter.shared.reloadAllTimelines()
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        print("here")
+        print(URLContexts.first?.url)
+    }
+
 }
 

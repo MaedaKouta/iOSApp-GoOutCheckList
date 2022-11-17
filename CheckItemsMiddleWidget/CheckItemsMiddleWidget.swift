@@ -107,7 +107,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                 Spacer()
 
-            }
+            }.widgetURL(URL(string: "GoOutCheckList://deeplink?from=widget"))
 
         } else if widgetFamily == .systemMedium {
             HStack() {
@@ -156,6 +156,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 Spacer()
 
             }
+            .widgetURL(URL(string: "GoOutCheckList://deeplink?from=widget"))
             .padding(12)
 
         } else if widgetFamily == .systemLarge {
@@ -221,8 +222,8 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                 Spacer()
 
-            }.padding(12)
-
+            }.widgetURL(URL(string: "GoOutCheckList://deeplink?from=widget"))
+                .padding(12)
 
         }
     }
