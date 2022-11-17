@@ -38,13 +38,4 @@ public class UserdefaultsManager {
         return userdefault!.bool(forKey: "isDisplayFromWidget")
     }
 
-    // indexFromWidget
-    func setIndexFromWidget(index: Int) {
-        userdefault!.set(index, forKey: "indexFromWidget")
-    }
-
-    func getIsFromWidget() -> Int {
-        return userdefault!.integer(forKey: "indexFromWidget")
-    }
-
 }

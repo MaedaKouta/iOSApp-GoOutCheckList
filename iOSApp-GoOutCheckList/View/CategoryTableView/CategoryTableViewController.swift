@@ -49,6 +49,8 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+
+
         setupNavigationbar()
         categoryTableViewModel.updateCategoryList()
         displaynothingTableViewData()
@@ -58,12 +60,11 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: isFromWidget==trueなら、専用のインデックスの画面へ遷移
-
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         addCategoryButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterCategoryButton(_:))))
 
+        setDisplayFromWidget()
         setupAddCategoryButton()
         setupTableView()
         setupBindings()
@@ -128,6 +129,16 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     }
 
     // MARK: - Setups
+    private func setDisplayFromWidget() {
+        if userdefaultManager.getIsDisplayFromWidget() {
+            // カテゴリーIDからTableViewのインデックスを調べる
+            let categoryID = userdefaultManager.getWidgetCategoryId()
+            // 調べたカテゴリーIDでセルをタップさせて画面遷移する
+        }
+
+        userdefaultManager.setIsDisplayFromWidget(isTrue: false)
+    }
+
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(selectedCellDelete(notification:)), name: .CategoryViewFromDataSourceDeleteNotification, object: nil)
 

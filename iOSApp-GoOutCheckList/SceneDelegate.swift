@@ -11,6 +11,7 @@ import WidgetKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private let userdefaultManager = UserdefaultsManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
@@ -43,13 +44,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         if urlString == "GoOutCheckList://deeplink?from=widget" {
 
-            // TODO: UserdefaultにisFromWidget=trueをセット
+            userdefaultManager.setIsDisplayFromWidget(isTrue: true)
+
             let navigationController = UINavigationController(rootViewController: MainTabBarController())
             navigationController.isNavigationBarHidden = true
             self.window?.rootViewController = navigationController
             self.window?.rootViewController?.tabBarController?.selectedIndex = 0
 
-            print("yeeeah")
         }
 
     }
