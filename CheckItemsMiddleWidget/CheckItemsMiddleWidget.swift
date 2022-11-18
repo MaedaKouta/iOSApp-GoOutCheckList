@@ -21,18 +21,8 @@ struct Provider: IntentTimelineProvider {
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        //let timeline = Timeline(entries: [], policy: .never)
+        let entries: [SimpleEntry] = [SimpleEntry(date: Date(), configuration: configuration)]
+        let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
 }
@@ -69,7 +59,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .frame(width: 30, height: 30)
                         .overlay(
                             Circle()
-                                .stroke(.black, lineWidth: 1)
+                                .stroke(Color(UIColor.gray), lineWidth: 1)
                         )
                         .padding(.leading, 15)
 
@@ -83,6 +73,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 
                 Text("\(categoryName)")
                     .font(.system(size: 11))
+                    .foregroundColor(Color(UIColor.gray))
                     .padding(.horizontal, 8)
                     .padding(.bottom, 5)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -121,8 +112,9 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .frame(width: 30, height: 30)
                         .overlay(
                             Circle()
-                                .stroke(.black, lineWidth: 1)
+                                .stroke(Color(UIColor.gray), lineWidth: 1)
                         )
+                        .padding(.top, 5)
 
                     Spacer()
 
@@ -131,10 +123,9 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                     Text("\(categoryName)")
                         .font(.system(size: 11))
+                        .foregroundColor(Color(UIColor.gray))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                }.frame(width: 120)
-
-                Spacer()
+                }.frame(width: 85)
 
                 VStack(alignment: .leading) {
                     ForEach(0..<5) { i in
@@ -174,6 +165,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                         Text("\(categoryName)")
                             .font(.system(size: 11))
+                            .foregroundColor(Color(UIColor.gray))
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                     }
@@ -185,7 +177,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .frame(width: 30, height: 30)
                         .overlay(
                             Circle()
-                                .stroke(.black, lineWidth: 1)
+                                .stroke(Color(UIColor.gray), lineWidth: 1)
                         )
                         .padding(.leading, 15)
 
@@ -274,7 +266,7 @@ struct CheckItemsMiddleWidget: Widget {
             CheckItemsMiddleWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("外出チェッカー")
-        .description("登録したカテゴリーのタスクを一覧で表示できます。")
+        .description("登録したタスクを一覧表示できます。")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
