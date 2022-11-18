@@ -12,6 +12,8 @@ class CheckItemEditViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var itemNameTextField: UITextField!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
+    private let softFeedbackGenerator = UIImpactFeedbackGenerator(style: .rigid)
+
     private let oldItemName: String!
     private let index: Int!
 
@@ -68,6 +70,7 @@ class CheckItemEditViewController: UIViewController, UITextFieldDelegate {
      */
     @objc private func didTapRegisterButtonView(_ sender: UIBarButtonItem) {
         guard let text = itemNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        softFeedbackGenerator.impactOccurred()
 
         NotificationCenter.default.post(
             name: Notification.Name.CheckItemViewFromEditOverwriteNotification,

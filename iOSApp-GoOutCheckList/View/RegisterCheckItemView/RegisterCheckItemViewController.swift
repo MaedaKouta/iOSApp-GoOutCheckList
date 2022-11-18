@@ -12,7 +12,7 @@ class RegisterCheckItemViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var itemNameTextField: UITextField!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
+    private let softFeedbackGenerator = UIImpactFeedbackGenerator(style: .rigid)
 
     private lazy var registerLabel: UILabel = {
         let label = UILabel()
@@ -52,7 +52,7 @@ class RegisterCheckItemViewController: UIViewController, UITextFieldDelegate {
         guard let text = itemNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         let checkItem = CheckItem()
         checkItem.name = text
-        feedbackGenerator.notificationOccurred(.success)
+        softFeedbackGenerator.impactOccurred()
 
         NotificationCenter.default.post(
             name: Notification.Name.CheckItemViewFromRegisterViewNotification,

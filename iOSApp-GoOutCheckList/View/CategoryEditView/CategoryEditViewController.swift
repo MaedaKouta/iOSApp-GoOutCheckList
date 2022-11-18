@@ -13,6 +13,7 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
+    private let softFeedbackGenerator = UIImpactFeedbackGenerator(style: .rigid)
 
     private let oldCategoryName: String!
     private let oldCategoryImageName: String!
@@ -107,6 +108,7 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
         let image: CategoryImage? = categoryImages.filter{ $0.isSelected == true }.first
         categoryItem.name = text
         categoryItem.assetsImageName = image?.assetsImageName ?? "question_small"
+        softFeedbackGenerator.impactOccurred()
 
         NotificationCenter.default.post(
             name: Notification.Name.CategoryViewFromEditOverwriteNotification,

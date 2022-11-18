@@ -18,7 +18,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
-    private let feedbackGenerator = UINotificationFeedbackGenerator()
+    private let softFeedbackGenerator = UIImpactFeedbackGenerator(style: .rigid)
 
     private lazy var registerLabel: UILabel = {
         let label = UILabel()
@@ -88,7 +88,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         let image: CategoryImage? = categoryImages.filter{ $0.isSelected == true }.first
         categoryItem.name = text
         categoryItem.assetsImageName = image?.assetsImageName ?? "question_small"
-        feedbackGenerator.notificationOccurred(.success)
+        softFeedbackGenerator.impactOccurred()
 
         NotificationCenter.default.post(
             name: Notification.Name.CategoryViewFromRegisterViewNotification,
