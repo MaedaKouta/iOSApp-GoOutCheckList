@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2j-mo-goZ">
-                        <rect key="frame" x="76" y="15" width="184" height="20"/>
+                        <rect key="frame" x="76" y="15" width="164" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="6uC-r3-4Ti"/>
                         </constraints>
@@ -33,9 +33,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-pK-PxO">
-                        <rect key="frame" x="275" y="15" width="30" height="15"/>
+                        <rect key="frame" x="255" y="15" width="50" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="RCv-XA-E8Z"/>
+                            <constraint firstAttribute="width" constant="50" id="RCv-XA-E8Z"/>
                             <constraint firstAttribute="height" constant="15" id="gzk-7v-QEe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
