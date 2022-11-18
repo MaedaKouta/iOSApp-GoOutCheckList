@@ -22,8 +22,8 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
     @IBOutlet private weak var checkedProgressView: UIProgressView!
     private let feedbackGenerator = UINotificationFeedbackGenerator()
+    private let softFeedbackGenerator = UIImpactFeedbackGenerator(style: .rigid)
     private let userdefaultManager = UserdefaultsManager()
-
 
     private lazy var editBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
@@ -172,6 +172,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
         checkItemViewModel.outputs.tableViewItemSeletedPublishRelay
             .subscribe { [weak self] indexPath in
+                self?.softFeedbackGenerator.impactOccurred()
                 self?.tableView.reloadRows(at: [indexPath], with: .automatic)
                 self?.updateProgressView()
             }.disposed(by: disposeBag)
