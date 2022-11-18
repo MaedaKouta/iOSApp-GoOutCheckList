@@ -32,6 +32,7 @@ struct Provider: IntentTimelineProvider {
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
+        //let timeline = Timeline(entries: [], policy: .never)
         completion(timeline)
     }
 }
