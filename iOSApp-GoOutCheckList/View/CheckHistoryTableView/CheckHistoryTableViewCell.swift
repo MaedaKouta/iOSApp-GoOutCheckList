@@ -51,25 +51,25 @@ class CheckHistoryTableViewCell: UITableViewCell {
         dateTextLabel.adjustsFontSizeToFitWidth = true
         categoryTextLabel.adjustsFontSizeToFitWidth = true
 
-        dateBackgroundView.backgroundColor = UIColor.white
+        dateBackgroundView.backgroundColor = UIColor.systemBackground
         dateBackgroundView.tintColor = .darkGray
         dateBackgroundView.layer.cornerRadius = 5
-        dateBackgroundView.layer.shadowColor = UIColor.black.cgColor
-        dateBackgroundView.layer.shadowRadius = 1
+        dateBackgroundView.layer.shadowColor = UIColor.label.cgColor
+        dateBackgroundView.layer.shadowRadius = 2
         dateBackgroundView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
         dateBackgroundView.layer.shadowOpacity = 0.25
 
-        newBackGroundView.backgroundColor = UIColor.white
+        newBackGroundView.backgroundColor = UIColor.systemBackground
         newBackGroundView.tintColor = .darkGray
         newBackGroundView.layer.cornerRadius = 5
-        newBackGroundView.layer.shadowColor = UIColor.black.cgColor
+        newBackGroundView.layer.shadowColor = UIColor.label.cgColor
         newBackGroundView.layer.shadowRadius = 1
         newBackGroundView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
-        newBackGroundView.layer.shadowOpacity = 0.50
+        newBackGroundView.layer.shadowOpacity = 0.25
 
         categoryImageView.layer.cornerRadius = 13
         categoryImageView.layer.masksToBounds = true
-        categoryImageView.layer.borderColor = CGColor.init(red: 90/256, green: 90/256, blue: 90/256, alpha: 1.0)
+        categoryImageView.layer.borderColor = UIColor.customSubColor?.cgColor
         categoryImageView.layer.borderWidth = 1
     }
 }
