@@ -12,6 +12,7 @@ extension UIColor {
 
     static var customMainColor = UIColor(named: "mainColor")
     static var customSubColor = UIColor(named: "subColor")
+    static var customAccentColor = UIColor(named: "accentColor")
     static var customButtonBackGroundColor = UIColor(named: "buttonBackgroundColor")
 
 }
