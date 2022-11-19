@@ -39,7 +39,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
         CategoryImage(assetsImageName: "brain_small", isSelected: false),
         CategoryImage(assetsImageName: "building_small", isSelected: false),
         CategoryImage(assetsImageName: "car_small", isSelected: false),
-        CategoryImage(assetsImageName: "cherry_small", isSelected: false),
+        CategoryImage(assetsImageName: "bag_small", isSelected: false),
         CategoryImage(assetsImageName: "cupple_small", isSelected: false),
         CategoryImage(assetsImageName: "deskwork_small", isSelected: false),
         CategoryImage(assetsImageName: "dog_small", isSelected: false),

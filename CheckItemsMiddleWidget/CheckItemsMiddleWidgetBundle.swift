@@ -12,6 +12,6 @@ import SwiftUI
 struct CheckItemsMiddleWidgetBundle: WidgetBundle {
     var body: some Widget {
         CheckItemsMiddleWidget()
-        CheckItemsMiddleWidgetLiveActivity()
+        //CheckItemsMiddleWidgetLiveActivity()
     }
 }

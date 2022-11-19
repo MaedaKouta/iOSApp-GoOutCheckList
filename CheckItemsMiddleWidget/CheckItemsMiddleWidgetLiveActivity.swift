@@ -19,6 +19,7 @@ struct CheckItemsMiddleWidgetAttributes: ActivityAttributes {
     var name: String
 }
 
+/*
 struct CheckItemsMiddleWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: CheckItemsMiddleWidgetAttributes.self) { context in
@@ -55,3 +56,4 @@ struct CheckItemsMiddleWidgetLiveActivity: Widget {
         }
     }
 }
+*/
