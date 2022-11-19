@@ -17,5 +17,6 @@ extension UIColor {
     static var customButtonBackGroundFalseColor = UIColor(named: "buttonBackgroundFalseColor")
     static var customButtonTextColor = UIColor(named: "buttonTextColor")
     static var customButtonTextFalseColor = UIColor(named: "buttonTextFalseColor")
+    static var customIconCircleColor = UIColor(named: "iconCircleColor")
 
 }
