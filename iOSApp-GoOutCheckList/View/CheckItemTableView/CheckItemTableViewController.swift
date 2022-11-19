@@ -248,11 +248,12 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         addItemButtonView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterItemButton(_:))))
         let image = UIImageView(image: UIImage(systemName: "plus"))
         image.frame = CGRect(x: 22, y: 22, width: 31, height: 31)
-        addItemButtonView.backgroundColor = UIColor.white
-        addItemButtonView.tintColor = .darkGray
+        image.tintColor = UIColor.label
+
+        addItemButtonView.backgroundColor = UIColor.customButtonBackGroundColor
         addItemButtonView.addSubview(image)
         addItemButtonView.layer.cornerRadius = 37.5
-        addItemButtonView.layer.shadowColor = UIColor.black.cgColor
+        addItemButtonView.layer.shadowColor = UIColor.label.cgColor
         addItemButtonView.layer.shadowRadius = 10
         addItemButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         addItemButtonView.layer.shadowOpacity = 0.35
