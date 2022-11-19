@@ -34,11 +34,11 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-Kc-M8V" customClass="TouchFeedbackView" customModule="iOSApp_GoOutCheckList" customModuleProvider="target">
-                    <rect key="frame" x="280" y="685" width="75" height="75"/>
+                    <rect key="frame" x="295" y="710" width="60" height="60"/>
                     <color key="backgroundColor" systemColor="systemPinkColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="75" id="np8-vw-pph"/>
-                        <constraint firstAttribute="width" constant="75" id="xEx-rA-HVK"/>
+                        <constraint firstAttribute="height" constant="60" id="np8-vw-pph"/>
+                        <constraint firstAttribute="width" constant="60" id="xEx-rA-HVK"/>
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VL5-9Y-vX2">
@@ -65,7 +65,7 @@
                 <constraint firstItem="FqI-Vf-9Cc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FOA-Ci-n6w"/>
                 <constraint firstItem="VL5-9Y-vX2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="GJl-Vl-sf5"/>
                 <constraint firstItem="FqI-Vf-9Cc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GfM-LP-bKa"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eeZ-Kc-M8V" secondAttribute="bottom" constant="50" id="H3z-f9-8Lz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eeZ-Kc-M8V" secondAttribute="bottom" constant="40" id="H3z-f9-8Lz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FqI-Vf-9Cc" secondAttribute="trailing" id="IUb-as-72P"/>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VS2-nK-knS"/>
                 <constraint firstItem="SXI-8M-3Lx" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="X0u-u1-nfd"/>

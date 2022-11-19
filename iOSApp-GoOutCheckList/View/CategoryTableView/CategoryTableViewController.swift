@@ -224,12 +224,12 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
 
     private func setupAddCategoryButton() {
         let image = UIImageView(image: UIImage(systemName: "plus"))
-        image.frame = CGRect(x: 22, y: 22, width: 31, height: 31)
+        image.frame = CGRect(x: 17, y: 17, width: 26, height: 26)
         image.tintColor = UIColor.customButtonTextColor
 
         addCategoryButtonView.backgroundColor = UIColor.customButtonBackGroundColor
         addCategoryButtonView.addSubview(image)
-        addCategoryButtonView.layer.cornerRadius = 37.5
+        addCategoryButtonView.layer.cornerRadius = 30
         addCategoryButtonView.layer.shadowColor = UIColor.label.cgColor
         addCategoryButtonView.layer.shadowRadius = 10
         addCategoryButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
