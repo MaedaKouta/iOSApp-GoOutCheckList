@@ -9,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 全体のNavigationBarの色をグレーにする
         UINavigationBar.appearance().tintColor = UIColor.customMainColor
+
         UITabBar.appearance().tintColor = UIColor.customAccentColor
         UIView.appearance().tintColor = UIColor.label
 
