@@ -23,8 +23,7 @@ class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
     private lazy var registerLabel: UILabel = {
         let label = UILabel()
         label.text = "登録"
-        label.textColor = UIColor.customMainColor
-        //label.textColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+        label.textColor = UIColor.customButtonTextColor
         label.frame = CGRect(x: 0, y: 0, width: 160, height: 50)
         label.font =  UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center

@@ -23,7 +23,7 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
     private lazy var registerLabel: UILabel = {
         let label = UILabel()
         label.text = "上書き"
-        label.textColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+        label.textColor = UIColor.customButtonTextColor
         label.frame = CGRect(x: 0, y: 0, width: 160, height: 50)
         label.font =  UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
@@ -170,21 +170,21 @@ class CategoryEditViewController: UIViewController , UITextFieldDelegate {
     // MARK: Methods
     private func isAvailableRegisterButton(isAvailable: Bool) {
         if isAvailable {
-            registerLabel.textColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
-            registerButtonView.backgroundColor = UIColor.white
+            registerLabel.textColor = UIColor.customButtonTextColor
+            registerButtonView.backgroundColor = UIColor.customButtonBackGroundColor
             registerButtonView.tintColor = .darkGray
             registerButtonView.layer.cornerRadius = 25.0
-            registerButtonView.layer.shadowColor = UIColor.black.cgColor
+            registerButtonView.layer.shadowColor = UIColor.label.cgColor
             registerButtonView.layer.shadowRadius = 10
             registerButtonView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
             registerButtonView.layer.shadowOpacity = 0.35
             registerButtonView.isUserInteractionEnabled = true
         } else {
-            registerLabel.textColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
-            registerButtonView.backgroundColor = UIColor.white
+            registerLabel.textColor = UIColor.customButtonTextFalseColor
+            registerButtonView.backgroundColor = UIColor.customButtonBackGroundFalseColor
             registerButtonView.tintColor = .darkGray
             registerButtonView.layer.cornerRadius = 25.0
-            registerButtonView.layer.shadowColor = UIColor.black.cgColor
+            registerButtonView.layer.shadowColor = UIColor.label.cgColor
             registerButtonView.layer.shadowRadius = 10
             registerButtonView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
             registerButtonView.layer.shadowOpacity = 0.15
