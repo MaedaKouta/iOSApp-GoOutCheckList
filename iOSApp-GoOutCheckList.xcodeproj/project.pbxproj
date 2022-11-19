@@ -56,6 +56,8 @@
 		87834AF3291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */; };
 		87834AF6291FBB7A00B073E2 /* CheckItemsMiddleWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8784708029133CD5000E4DAD /* LisenceSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */; };
+		878C644329286A020079000B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C644229286A020079000B /* CustomColor.swift */; };
+		878C644429286A060079000B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C644229286A020079000B /* CustomColor.swift */; };
 		8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
 		87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2662B28EB14270091C282 /* CategoryTableViewController.swift */; };
 		87A2662E28EB14270091C282 /* CategoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A2662C28EB14270091C282 /* CategoryTableViewController.xib */; };
@@ -168,6 +170,7 @@
 		87834AEF291FBB7A00B073E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87834AF1291FBB7A00B073E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisenceSwiftUIView.swift; sourceTree = "<group>"; };
+		878C644229286A020079000B /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		8795B5C3290657F800AAF894 /* CheckHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryList.swift; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		87A2662C28EB14270091C282 /* CategoryTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewController.xib; sourceTree = "<group>"; };
@@ -385,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				87A2664828EFC2F80091C282 /* NSNotification.swift */,
+				878C644229286A020079000B /* CustomColor.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -846,6 +850,7 @@
 				87834AE9291FBB7800B073E2 /* CheckItemsMiddleWidgetBundle.swift in Sources */,
 				87834AEB291FBB7800B073E2 /* CheckItemsMiddleWidgetLiveActivity.swift in Sources */,
 				87787FDC292248260059685B /* FindRealmData.swift in Sources */,
+				878C644429286A060079000B /* CustomColor.swift in Sources */,
 				87787FD629221D670059685B /* CheckHistoryList.swift in Sources */,
 				87787FD729221D6A0059685B /* CheckHistory.swift in Sources */,
 				87787FD229221D490059685B /* RealmManager.swift in Sources */,
@@ -883,6 +888,7 @@
 				87787FD9292222AE0059685B /* UserdefaultsManager.swift in Sources */,
 				87C7CFE429162E1D00C4F451 /* DoneTextField.swift in Sources */,
 				8730C40E290CEC420020629C /* TouchFeedbackView.swift in Sources */,
+				878C644329286A020079000B /* CustomColor.swift in Sources */,
 				87A2663F28EE60490091C282 /* RegisterCategoryViewController.swift in Sources */,
 				87C268D7290F6F50000319E5 /* SettingTableViewController.swift in Sources */,
 				872CEEF6290FF308006340E7 /* WebViewController.swift in Sources */,
