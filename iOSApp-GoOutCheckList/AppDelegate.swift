@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 全体のNavigationBarの色をグレーにする
         UINavigationBar.appearance().tintColor = UIColor.customMainColor
         UITabBar.appearance().tintColor = UIColor.customAccentColor
+        UIView.appearance().tintColor = UIColor.label
 
         // 初回起動時だけ呼ばれる処理で、設定の初期値をセット
         if UserDefaults.standard.bool(forKey: "isSecondLaunch") == false {
