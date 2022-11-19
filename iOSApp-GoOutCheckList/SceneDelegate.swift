@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene as! UIWindowScene)
         self.window = window
         window.makeKeyAndVisible()
-        window.tintColor = .black
+        window.tintColor = UIColor.customAccentColor
 
         /* 初期画面をViewControllerにしたい場合 */
         //let viewController = MainTabBarController()
@@ -28,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /* 初期画面をNavigationControllerにしたい場合 */
          let navigationController = UINavigationController(rootViewController: MainTabBarController())
          navigationController.isNavigationBarHidden = true
+
          self.window?.rootViewController = navigationController
 
     }

@@ -68,7 +68,7 @@ class CheckHistoryViewController: UIViewController {
         guard let nc: UINavigationController = storyboard.instantiateInitialViewController(), let settingVC = nc.topViewController as? SettingTableViewController  else {
             return
         }
-
+    
         self.parent?.navigationController?.pushViewController(settingVC, animated: true)
 
     }

@@ -17,6 +17,8 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var isDisplayHistoryNumberSwitch: UISwitch!
     @IBOutlet private weak var widgetCategoryButton: UIButton!
+    @IBOutlet private weak var arrowShapeImage1: UIImageView!
+    @IBOutlet private weak var arrowShapeImage2: UIImageView!
 
     private var widgetCategoryPullDownItems = UIMenu(options: .displayInline, children: [])
 
@@ -37,13 +39,10 @@ class SettingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
 
-        // NavigationBarの背景色の設定
-        appearance.backgroundColor = UIColor.white
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        arrowShapeImage1.tintColor = UIColor.placeholderText
+        arrowShapeImage2.tintColor = UIColor.placeholderText
+        widgetCategoryButton.imageView?.tintColor = UIColor.placeholderText
 
         isDisplayHistoryNumberSwitch.setOn(userdefaultManager.getIsDisplayHistoryNumber(), animated: false)
 
