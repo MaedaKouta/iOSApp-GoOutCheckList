@@ -264,7 +264,7 @@ struct CheckItemsMiddleWidget: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             CheckItemsMiddleWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("持ち物管理")
+        .configurationDisplayName("忘れ物チェッカー")
         .description("登録した持ち物を一覧表示できます。")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
