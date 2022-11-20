@@ -7,6 +7,8 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    private let userdefaultManager = UserdefaultsManager()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 全体のNavigationBarの色をグレーにする
         UINavigationBar.appearance().tintColor = UIColor.customMainColor
@@ -15,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIView.appearance().tintColor = UIColor.label
 
         // 初回起動時だけ呼ばれる処理で、設定の初期値をセット
-        if UserDefaults.standard.bool(forKey: "isSecondLaunch") == false {
-            UserDefaults.standard.set(true, forKey: "isDisplayHistoryNumber")
-            UserDefaults.standard.set(true, forKey: "isSecondLaunch")
+        if userdefaultManager.getIsSecondLaunch() == false {
+            userdefaultManager.setIsDisplayFromWidget(isTrue: true)
+            userdefaultManager.setIsSecondLaunch(isTrue: true)
+            userdefaultManager.setIsDisplayHistoryNumber(isDisplay: true)
 
             let realm = RealmManager().realm
             let categoryListObjext = realm.objects(CategoryList.self).first?.list
@@ -103,11 +106,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-
-        print(RealmManager().realm.objects(Category.self))
-        print(RealmManager().realm.objects(CategoryList.self))
-        print(RealmManager().realm.objects(CheckItem.self))
-        print(RealmManager().realm.objects(CheckHistory.self))
 
         return true
     }

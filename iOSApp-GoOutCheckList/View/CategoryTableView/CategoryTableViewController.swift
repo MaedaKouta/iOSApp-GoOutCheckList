@@ -49,8 +49,6 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-
-
         setupNavigationbar()
         categoryTableViewModel.updateCategoryList()
         displaynothingTableViewData()
