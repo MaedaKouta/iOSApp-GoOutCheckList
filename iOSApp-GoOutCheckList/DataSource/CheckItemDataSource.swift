@@ -28,6 +28,7 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckItemTableViewCell", for: indexPath) as! CheckItemTableViewCell
         let element = item[indexPath.row]
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.configure(name: element.name, isDone: element.isDone)
         return cell
     }

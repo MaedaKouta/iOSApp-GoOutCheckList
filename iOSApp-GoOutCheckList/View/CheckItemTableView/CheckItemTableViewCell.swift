@@ -24,20 +24,4 @@ class CheckItemTableViewCell: UITableViewCell {
         }
     }
 
-    // 挙動がバグるから使用していない
-    private func animateImageView(toImage: UIImage?) {
-        if self.checkImage != toImage {
-            CATransaction.begin()
-            CATransaction.setAnimationDuration(0.1)
-
-            let transition = CATransition()
-            transition.type = CATransitionType.fade
-
-            checkImage.layer.add(transition, forKey: kCATransition)
-            checkImage.image = toImage
-            CATransaction.commit()
-        }
-
-    }
-
 }
