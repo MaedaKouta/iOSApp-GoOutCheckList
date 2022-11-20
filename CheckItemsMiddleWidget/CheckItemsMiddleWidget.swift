@@ -59,7 +59,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .frame(width: 30, height: 30)
                         .overlay(
                             Circle()
-                                .stroke(Color(UIColor.gray), lineWidth: 1)
+                                .stroke(Color(UIColor.customIconCircleColor ?? UIColor.gray), lineWidth: 1)
                         )
                         .padding(.leading, 15)
 
@@ -73,7 +73,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 
                 Text("\(categoryName)")
                     .font(.system(size: 11))
-                    .foregroundColor(Color(UIColor.gray))
+                    .foregroundColor(Color(UIColor.customMainColor ?? UIColor.gray))
                     .padding(.horizontal, 8)
                     .padding(.bottom, 5)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -112,7 +112,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .frame(width: 30, height: 30)
                         .overlay(
                             Circle()
-                                .stroke(Color(UIColor.gray), lineWidth: 1)
+                                .stroke(Color(UIColor.customMainColor ?? UIColor.gray), lineWidth: 1)
                         )
                         .padding(.top, 5)
 
@@ -123,7 +123,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                     Text("\(categoryName)")
                         .font(.system(size: 11))
-                        .foregroundColor(Color(UIColor.gray))
+                        .foregroundColor(Color(UIColor.customMainColor ?? UIColor.gray))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }.frame(width: 85)
 
@@ -165,7 +165,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
 
                         Text("\(categoryName)")
                             .font(.system(size: 11))
-                            .foregroundColor(Color(UIColor.gray))
+                            .foregroundColor(Color(UIColor.customMainColor ?? UIColor.gray))
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                     }
@@ -177,7 +177,7 @@ struct CheckItemsMiddleWidgetEntryView : View {
                         .frame(width: 30, height: 30)
                         .overlay(
                             Circle()
-                                .stroke(Color(UIColor.gray), lineWidth: 1)
+                                .stroke(Color(UIColor.customMainColor ?? UIColor.gray), lineWidth: 1)
                         )
                         .padding(.leading, 15)
 
@@ -186,7 +186,6 @@ struct CheckItemsMiddleWidgetEntryView : View {
                 } // 上半分ここまで
 
                 Divider()
-                    .bold()
                     .padding(.vertical)
 
                 Spacer()

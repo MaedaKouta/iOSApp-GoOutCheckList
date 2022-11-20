@@ -38,4 +38,13 @@ public class UserdefaultsManager {
         return userdefault!.bool(forKey: "isDisplayFromWidget")
     }
 
+    // isSecondLaunch
+    func setIsSecondLaunch(isTrue: Bool) {
+        userdefault!.set(isTrue, forKey: "isSecondLaunch")
+    }
+
+    func getIsSecondLaunch() -> Bool {
+        return userdefault!.bool(forKey: "isSecondLaunch")
+    }
+
 }
