@@ -73,11 +73,11 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [2, 0] {
             // アプリをレビューする
-            openSafari(urlString: twitterUrl)
+            openSafari(urlString: feedbackUrl)
 
         } else if indexPath == [2, 1] {
             // アプリのフィードバック
-            openSafari(urlString: twitterUrl)
+            openSafari(urlString: feedbackUrl)
 
         } else if indexPath == [3, 0] {
             // プライバシーポリシー
