@@ -35,7 +35,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
 
     private lazy var allCheckBarButtonItem: UIBarButtonItem = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "text.badge.checkmark", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
+        button.setImage(UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: navigationBarButtonSize))), for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         button.addTarget(self, action: #selector(didTapAllCheckButton(_:)), for: .touchUpInside)
         return UIBarButtonItem(customView: button)

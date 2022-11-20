@@ -14,7 +14,7 @@ class CheckItemTableViewCell: UITableViewCell {
 
     func configure(name: String, isDone: Bool) {
         itemNameLabel.text = name
-        checkImage.tintColor = UIColor.label
+        checkImage.tintColor = UIColor.customIconCircleColor
         itemNameLabel.adjustsFontSizeToFitWidth = true
 
         if isDone {
