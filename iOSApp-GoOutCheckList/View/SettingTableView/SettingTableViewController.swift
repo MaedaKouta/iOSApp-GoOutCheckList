@@ -73,7 +73,7 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [2, 0] {
             // アプリをレビューする
-
+            openSafari(urlString: twitterUrl)
 
         } else if indexPath == [2, 1] {
             // アプリのフィードバック
