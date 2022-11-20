@@ -31,6 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
          self.window?.rootViewController = navigationController
 
+        userdefaultManager.setIsDisplayFromWidget(isTrue: false)
+
     }
 
     // アプリスリープ
