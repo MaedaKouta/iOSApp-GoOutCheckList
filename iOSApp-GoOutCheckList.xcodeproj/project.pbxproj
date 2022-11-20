@@ -114,14 +114,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		87834AF7291FBB7A00B073E2 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				87834AF6291FBB7A00B073E2 /* CheckItemsMiddleWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -978,7 +978,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tetoblog.iOSApp-GoOutCheckList.CheckItemsMiddleWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = org.tetoblog.inventoryList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1008,7 +1008,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tetoblog.iOSApp-GoOutCheckList.CheckItemsMiddleWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = org.tetoblog.inventoryList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1141,12 +1141,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOSApp-GoOutCheckList/iOSApp-GoOutCheckList.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOSApp-GoOutCheckList/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "外出チェッカー";
+				INFOPLIST_KEY_CFBundleDisplayName = "持ち物管理";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -1159,8 +1160,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tetoblog.iOSApp-GoOutCheckList";
+				PRODUCT_BUNDLE_IDENTIFIER = org.tetoblog.inventoryList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1175,12 +1177,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOSApp-GoOutCheckList/iOSApp-GoOutCheckList.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 558ZJSQN67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOSApp-GoOutCheckList/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "外出チェッカー";
+				INFOPLIST_KEY_CFBundleDisplayName = "持ち物管理";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -1193,8 +1196,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tetoblog.iOSApp-GoOutCheckList";
+				PRODUCT_BUNDLE_IDENTIFIER = org.tetoblog.inventoryList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
