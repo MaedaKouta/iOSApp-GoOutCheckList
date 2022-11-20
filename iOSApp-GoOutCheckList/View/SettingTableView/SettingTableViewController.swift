@@ -19,6 +19,7 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet private weak var widgetCategoryButton: UIButton!
     @IBOutlet private weak var arrowShapeImage1: UIImageView!
     @IBOutlet private weak var arrowShapeImage2: UIImageView!
+    @IBOutlet private weak var arrowShapeImage3: UIImageView!
 
     private var widgetCategoryPullDownItems = UIMenu(options: .displayInline, children: [])
 
@@ -42,6 +43,7 @@ class SettingTableViewController: UITableViewController {
 
         arrowShapeImage1.tintColor = UIColor.placeholderText
         arrowShapeImage2.tintColor = UIColor.placeholderText
+        arrowShapeImage3.tintColor = UIColor.placeholderText
         widgetCategoryButton.imageView?.tintColor = UIColor.placeholderText
 
         isDisplayHistoryNumberSwitch.setOn(userdefaultManager.getIsDisplayHistoryNumber(), animated: false)
@@ -70,16 +72,12 @@ class SettingTableViewController: UITableViewController {
             // ウィジェット表示カテゴリ
 
         } else if indexPath == [2, 0] {
-            // アプリを評価する
-            shareApp()
+            // アプリをレビューする
+
 
         } else if indexPath == [2, 1] {
-            // アプリをシェアする
-            shareApp()
-
-        } else if indexPath == [2, 2] {
-            // フィードバックを送る
-            prepareWebView(url: feedbackUrl, title: "フィードバックを送る")
+            // アプリのフィードバック
+            openSafari(urlString: twitterUrl)
 
         } else if indexPath == [3, 0] {
             // プライバシーポリシー
@@ -153,30 +151,6 @@ class SettingTableViewController: UITableViewController {
         let webVC = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
         webVC.configure(presentUrl: url, navigationTitle: title)
         self.navigationController?.pushViewController(webVC, animated: true)
-    }
-
-    private func shareApp() {
-        let shareText = """
-        「外出チェッカー」
-
-        外出の際、忘れ物に不安ではですか？
-        病院・仕事・趣味などなど
-        用途に合わせた持ち物を登録しておくことで、
-        忘れ物を防止できます。
-        """
-
-        let activityItems = [shareText] as [Any]
-
-        // 初期化処理
-        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-
-        // iPadでクラッシュするため、iPadのみレイアウトの変更
-        if let popoverController = activityVC.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-            popoverController.sourceView = self.view
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
-        self.present(activityVC, animated: true)
     }
 
     // Widgets
