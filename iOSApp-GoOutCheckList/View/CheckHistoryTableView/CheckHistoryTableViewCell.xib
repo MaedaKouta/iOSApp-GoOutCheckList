@@ -51,7 +51,7 @@
                         <rect key="frame" x="110" y="8" width="30" height="12"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="new" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajI-Yl-AGC">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="12"/>
+                                <rect key="frame" x="6" y="-0.33333333333333304" width="18" height="11"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,12 +59,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ajI-Yl-AGC" secondAttribute="bottom" id="0kG-Pi-5oX"/>
-                            <constraint firstItem="ajI-Yl-AGC" firstAttribute="top" secondItem="3Q5-j5-eHx" secondAttribute="top" id="7Es-CL-KRR"/>
+                            <constraint firstItem="ajI-Yl-AGC" firstAttribute="centerY" secondItem="3Q5-j5-eHx" secondAttribute="centerY" constant="-1" id="27n-2L-dgy"/>
+                            <constraint firstItem="ajI-Yl-AGC" firstAttribute="centerX" secondItem="3Q5-j5-eHx" secondAttribute="centerX" id="3jS-cT-gpW"/>
                             <constraint firstAttribute="width" constant="30" id="RT1-pQ-cjO"/>
                             <constraint firstAttribute="height" constant="12" id="SD2-QV-Sbl"/>
-                            <constraint firstAttribute="trailing" secondItem="ajI-Yl-AGC" secondAttribute="trailing" id="fgQ-aC-68t"/>
-                            <constraint firstItem="ajI-Yl-AGC" firstAttribute="leading" secondItem="3Q5-j5-eHx" secondAttribute="leading" id="qYH-rv-5Zu"/>
                         </constraints>
                     </view>
                 </subviews>
