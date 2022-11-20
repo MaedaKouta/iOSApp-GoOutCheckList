@@ -54,10 +54,8 @@ class CheckHistoryTableViewCell: UITableViewCell {
         dateBackgroundView.backgroundColor = UIColor.systemBackground
         dateBackgroundView.tintColor = .darkGray
         dateBackgroundView.layer.cornerRadius = 5
-        dateBackgroundView.layer.shadowColor = UIColor.label.cgColor
-        dateBackgroundView.layer.shadowRadius = 2
-        dateBackgroundView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
-        dateBackgroundView.layer.shadowOpacity = 0.25
+        dateBackgroundView.layer.borderColor = UIColor.label.cgColor
+        dateBackgroundView.layer.borderWidth = 0.50
 
         newBackGroundView.backgroundColor = UIColor.systemBackground
         newBackGroundView.tintColor = .darkGray
@@ -65,11 +63,13 @@ class CheckHistoryTableViewCell: UITableViewCell {
         newBackGroundView.layer.shadowColor = UIColor.label.cgColor
         newBackGroundView.layer.shadowRadius = 1
         newBackGroundView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
-        newBackGroundView.layer.shadowOpacity = 0.25
+        newBackGroundView.layer.shadowOpacity = 1.0
+        newBackGroundView.layer.borderColor = UIColor.label.cgColor
+        newBackGroundView.layer.borderWidth = 0.25
 
         categoryImageView.layer.cornerRadius = 13
         categoryImageView.layer.masksToBounds = true
-        categoryImageView.layer.borderColor = UIColor.customSubColor?.cgColor
+        categoryImageView.layer.borderColor = UIColor.customIconCircleColor?.cgColor
         categoryImageView.layer.borderWidth = 1
     }
 }
