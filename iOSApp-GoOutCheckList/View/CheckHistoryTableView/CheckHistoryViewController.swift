@@ -57,8 +57,8 @@ class CheckHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupTableView()
         setupBindings()
+        setupTableView()
     }
 
     // MARK: Actions
