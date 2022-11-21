@@ -23,7 +23,7 @@ class SettingTableViewController: UITableViewController {
 
     private var widgetCategoryPullDownItems = UIMenu(options: .displayInline, children: [])
 
-    private let reviewUrl = ""
+    private let reviewUrl = "https://apps.apple.com/app/%E5%BF%98%E3%82%8C%E7%89%A9%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC/id6444592575?action=write-review"
     private let feedbackUrl = "https://forms.gle/3T3eNwuggnUvUd9t5"
     private let privacyUrl = "https://local-tumbleweed-7ea.notion.site/407c8f689ad24676ae4fecb76abe39d9"
     private let ruleUrl = "https://local-tumbleweed-7ea.notion.site/570ea223dce3463b9b42a3528b516603"
@@ -73,7 +73,7 @@ class SettingTableViewController: UITableViewController {
 
         } else if indexPath == [2, 0] {
             // アプリをレビューする
-            openSafari(urlString: feedbackUrl)
+            openSafari(urlString: reviewUrl)
 
         } else if indexPath == [2, 1] {
             // アプリのフィードバック
