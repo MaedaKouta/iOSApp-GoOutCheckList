@@ -15,7 +15,7 @@ import RealmSwift
  CategoryTableViewControllerから呼ばれ、TableViewを管理するクラス
  RxSwiftでTableViewを監視するために必要
  */
-class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType, UITableViewDelegate {
+class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
 
     typealias Element = List<CheckHistory>
     var item = List<CheckHistory>()

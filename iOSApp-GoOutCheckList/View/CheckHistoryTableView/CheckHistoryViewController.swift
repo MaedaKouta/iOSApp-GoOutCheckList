@@ -44,9 +44,7 @@ class CheckHistoryViewController: UIViewController {
         checkHistoryViewModel.updateCheckHistoryList()
         displaynothingTableViewData()
         setupTabBarItem()
-
         tableView.reloadData()
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,8 +55,8 @@ class CheckHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupTableView()
         setupBindings()
+        setupTableView()
     }
 
     // MARK: Actions
@@ -82,7 +80,6 @@ class CheckHistoryViewController: UIViewController {
 
     private func setupTableView() {
         tableView.rowHeight = 50
-        tableView.delegate = checkHistoryDataSource
         tableView.register(UINib(nibName: "CheckHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckHistoryTableViewCell")
     }
 
