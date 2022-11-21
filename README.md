@@ -4,12 +4,12 @@
 忘れ物をチェックするアプリです。<br>
 外出用途に合わせて、忘れ物がないかチェックできます。
 
-# DEMO
+## DEMO
  <img width="600" src="https://user-images.githubusercontent.com/82198916/202949079-a8d27e5e-6428-44f9-976c-ed749ac6dc0b.png"> 
 下のリンクからインストールしてお試し下さい。<br>
 https://apps.apple.com/app/忘れ物チェッカー/id6444592575
 
-# Features
+## Features
 
 ### アプリの概要
 忘れ物をチェックするアプリです。<br>
@@ -34,7 +34,14 @@ https://apps.apple.com/app/忘れ物チェッカー/id6444592575
 - チェックした持ち物は、履歴画面から確認することが出来ます。
 - 設定画面から、ウィジェットに表示するカテゴリーを１つ選ぶことが出来ます。
 
-# Installation
+
+### その他
+- iPhone：iOS 14.0以降が必要です。<br><br>
+- 改善点やコメントなどがあれば、AppStoreレビューからフィードバックをいただければ幸いです。
+
+
+## Develop
+### Installation
 - RxSwift / RxCocoa / RxRelay / RxDataSources / RxReaalm
   - MVVMを実現するために使用
 - PKHUD
@@ -44,20 +51,11 @@ https://apps.apple.com/app/忘れ物チェッカー/id6444592575
 - FloatingPanel
   - ハーフモーダルに使用
 
-# Architecture　＆　Tech
+### Architecture＆Tech
 - MVVM
 - UnitTest（少し）
 - WidgetKit
 
-# Requirement
-
-iPhone：iOS 14.0以降が必要です。<br><br>
-
-# Note
-
-改善点やコメントなどがあれば、<br>
-AppStoreレビューからフィードバックをいただければ幸いです。
-
-# Author
+### Author
 * [MaedaKouta](https://github.com/MaedaKouta)
 * 公式サポートページ：[https://tetoblog.org/app-lostitem-checklist/](https://tetoblog.org/app-lostitem-checklist/)
