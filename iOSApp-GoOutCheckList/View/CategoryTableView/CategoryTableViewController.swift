@@ -319,6 +319,7 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
             self.tableView.deleteRows(at: [indexPath], with: .top)
             self.tableView.endUpdates()
 
+            self.updateTabBarItem()
             self.displaynothingTableViewData()
             self.setEditBarButtonItemIcon(isSelected: false)
         })
