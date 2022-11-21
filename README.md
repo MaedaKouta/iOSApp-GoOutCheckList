@@ -35,18 +35,17 @@ https://apps.apple.com/app/忘れ物チェッカー/id6444592575
 - 設定画面から、ウィジェットに表示するカテゴリーを１つ選ぶことが出来ます。
 
 # Installation
-- RxSwift/RxCocoa/RxRelay/RxDataSources/RxReaalm
- - MVVMを実現するために使用
+- RxSwift / RxCocoa / RxRelay / RxDataSources / RxReaalm
+  - MVVMを実現するために使用
 - PKHUD
- - 各種インジケータに使用
+  - 各種インジケータに使用
 - RealmSwift
- - アプリ内データ保存に使用
+  - アプリ内データ保存に使用
 - FloatingPanel
- - ハーフモーダルに使用
+  - ハーフモーダルに使用
 
 # Architecture　＆　Tech
 - MVVM
-- RxSwift
 - UnitTest（少し）
 - WidgetKit
 
