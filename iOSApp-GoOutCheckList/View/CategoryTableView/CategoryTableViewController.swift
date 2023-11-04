@@ -4,6 +4,7 @@ import RxSwift
 import RxRelay
 import FloatingPanel
 import RealmSwift
+import StoreKit
 
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate, UITableViewDelegate {
     // MARK: Outlets
@@ -45,6 +46,13 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
         categoryTableViewModel.updateCategoryList()
         displaynothingTableViewData()
         updateTabBarItem()
+        // チェックから戻ってきたとき&&指定した条件で、簡易レビュー画面を出す
+        if userdefaultManager.getBool(forKey: .shouldShowReview) {
+            if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
+            userdefaultManager.set(false, forKey: .shouldShowReview)
+        }
     }
 
     override func viewDidLoad() {

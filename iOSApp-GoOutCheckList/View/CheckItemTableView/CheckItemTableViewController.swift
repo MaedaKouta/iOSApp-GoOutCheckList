@@ -138,7 +138,6 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
-
     }
 
     // MARK: - Setups
@@ -183,6 +182,7 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                     return
                 }
 
+                self?.checkReviewDisplayConditions()
                 HUD.flash(.success, onView: self?.view, delay: 1.0)
                 self?.feedbackGenerator.notificationOccurred(.success)
 
@@ -283,7 +283,23 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
                 self.checkedProgressView.setProgress(chekedRatio, animated: true)
             }
         }
+    }
 
+    // レビュー表示させるかを判定する関数
+    private func checkReviewDisplayConditions() {
+        let count = userdefaultManager.getInteger(forKey: .conversionCount) + 1
+        let didReview = userdefaultManager.getBool(forKey: .didReviewed)
+        let sixMonthsAgo = Calendar.current.date(byAdding: .month, value: -6, to: Date()) ?? Date()
+        let lastRequestDate = userdefaultManager.getDate(forKey: .lastReviewRequestDate)
+        userdefaultManager.set(count, forKey: .conversionCount)
+
+        // 初回起動10回後、または、レビュー時たことがない、または、以前表示させてから半年後であれば表示
+        if (count >= 10) && (didReview == false) && (lastRequestDate == nil || lastRequestDate! < sixMonthsAgo) {
+            userdefaultManager.reset(forKey: .conversionCount)
+            userdefaultManager.set(Date(), forKey: .lastReviewRequestDate)
+            userdefaultManager.set(true, forKey: .didReviewed)
+            userdefaultManager.set(true, forKey: .shouldShowReview)
+        }
     }
 
     // MARK: Method

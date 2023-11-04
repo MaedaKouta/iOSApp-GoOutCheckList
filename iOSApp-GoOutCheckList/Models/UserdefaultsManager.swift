@@ -4,6 +4,38 @@ import Foundation
 public class UserdefaultsManager {
     let userdefault = UserDefaults(suiteName: "group.org.tetoblog.iOSApp-GoOutCheckList.userdefault")
 
+    enum Key: String {
+        case conversionCount
+        case lastReviewRequestDate
+        case didReviewed
+        case shouldShowReview // これでアイテムチェック画面から前画面に値渡している。こういう値の渡し方絶対だめだから要修正
+    }
+
+    func set<T>(_ value: T, forKey key: Key) {
+        UserDefaults.standard.set(value, forKey: key.rawValue)
+    }
+
+    func getInteger(forKey key: Key) -> Int {
+        return UserDefaults.standard.integer(forKey: key.rawValue)
+    }
+
+    func getDate(forKey key: Key) -> Date? {
+        return UserDefaults.standard.object(forKey: key.rawValue) as? Date
+    }
+
+    func getBool(forKey key: Key) -> Bool {
+        return UserDefaults.standard.bool(forKey: key.rawValue)
+    }
+
+    func setBool(_ value: Bool, forKey key: Key) {
+        UserDefaults.standard.set(value, forKey: key.rawValue)
+    }
+
+    func reset(forKey key: Key) {
+        UserDefaults.standard.removeObject(forKey: key.rawValue)
+    }
+
+    // MARK: 下記のuserDefaultsNameは上記に合わせていこう
     // isDisplayHistoryNumber
     func setIsDisplayHistoryNumber(isDisplay: Bool) {
         userdefault!.set(isDisplay, forKey: "isDisplayHistoryNumber")
@@ -39,4 +71,6 @@ public class UserdefaultsManager {
     func getIsSecondLaunch() -> Bool {
         return userdefault!.bool(forKey: "isSecondLaunch")
     }
+
+    
 }

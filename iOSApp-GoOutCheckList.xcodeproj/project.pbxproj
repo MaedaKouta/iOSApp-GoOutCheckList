@@ -58,7 +58,6 @@
 		87834AF2291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */; };
 		87834AF3291FBB7A00B073E2 /* CheckItemsMiddleWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */; };
 		87834AF6291FBB7A00B073E2 /* CheckItemsMiddleWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 87834AE2291FBB7800B073E2 /* CheckItemsMiddleWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8784708029133CD5000E4DAD /* LisenceSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */; };
 		878C644329286A020079000B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C644229286A020079000B /* CustomColor.swift */; };
 		878C644429286A060079000B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C644229286A020079000B /* CustomColor.swift */; };
 		8795B5C4290657F800AAF894 /* CheckHistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795B5C3290657F800AAF894 /* CheckHistoryList.swift */; };
@@ -174,7 +173,6 @@
 		87834AEE291FBB7800B073E2 /* CheckItemsMiddleWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CheckItemsMiddleWidget.intentdefinition; sourceTree = "<group>"; };
 		87834AEF291FBB7A00B073E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87834AF1291FBB7A00B073E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisenceSwiftUIView.swift; sourceTree = "<group>"; };
 		878C644229286A020079000B /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		8795B5C3290657F800AAF894 /* CheckHistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistoryList.swift; sourceTree = "<group>"; };
 		87A2662B28EB14270091C282 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -512,7 +510,6 @@
 				8737AA81290FA66600CEB416 /* SettingStoryboard.storyboard */,
 				87C268D5290F6F50000319E5 /* SettingTableViewController.swift */,
 				872CEEF5290FF308006340E7 /* WebViewController.swift */,
-				8784707F29133CD5000E4DAD /* LisenceSwiftUIView.swift */,
 			);
 			path = SettingTableView;
 			sourceTree = "<group>";
@@ -937,7 +934,6 @@
 				8766155428F015B800F0A8C1 /* CheckItemTableViewCell.swift in Sources */,
 				8743CC1A28F0F8F20082C27C /* Category.swift in Sources */,
 				87A2662D28EB14270091C282 /* CategoryTableViewController.swift in Sources */,
-				8784708029133CD5000E4DAD /* LisenceSwiftUIView.swift in Sources */,
 				873E87BE291B6329001DFD8D /* CategoryEditViewController.swift in Sources */,
 				8757681628FA155000EB4E79 /* CategoryList.swift in Sources */,
 				873E87C4291B6356001DFD8D /* CheckItemEditViewController.swift in Sources */,

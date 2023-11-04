@@ -28,7 +28,6 @@ public protocol CheckItemViewModelType {
 
 // MARK: - ViewModel
 class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, CheckItemViewModelType {
-
     // MARK: Inputs
     internal var tableViewItemSeletedObservable: Observable<IndexPath>
     internal var categoryObject: Category
@@ -90,7 +89,6 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
                 }
             }
         }
-
     }
 
     // MARK: - Setups

@@ -79,18 +79,11 @@ class SettingTableViewController: UITableViewController {
             prepareWebView(url: ruleUrl, title: "利用規約")
 
         } else if indexPath == [3, 2] {
-            // ライセンス
-            let vc = UIHostingController(rootView: LisenceSwiftUIView())
-            vc.navigationItem.title = "ライセンス"
-            self.navigationController?.pushViewController(vc, animated: true)
-
-        } else if indexPath == [3, 3] {
             // 開発者のTwitter
             openSafari(urlString: twitterUrl)
 
-        } else if indexPath == [3, 4] {
+        } else if indexPath == [3, 3] {
             // バージョン
-
 
         } else if indexPath == [4, 0] {
             // データの初期化
@@ -98,7 +91,6 @@ class SettingTableViewController: UITableViewController {
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
 
     // MARK: Setups
