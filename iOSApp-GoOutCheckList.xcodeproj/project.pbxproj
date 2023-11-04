@@ -79,6 +79,7 @@
 		87B41B4228EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */; };
 		87B41B4428EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */; };
 		87B41BB028EAC58C009F1046 /* CategoryTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */; };
+		87C1D7CD2AF64C67003582E5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 87C1D7CC2AF64C67003582E5 /* Settings.bundle */; };
 		87C268D7290F6F50000319E5 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C268D5290F6F50000319E5 /* SettingTableViewController.swift */; };
 		87C7CFE429162E1D00C4F451 /* DoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7CFE329162E1D00C4F451 /* DoneTextField.swift */; };
 		87D4BA3C28F250780059F7FC /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */; };
@@ -197,6 +198,7 @@
 		87B41B4128EAA1C2009F1046 /* iOSApp_GoOutCheckListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITests.swift; sourceTree = "<group>"; };
 		87B41B4328EAA1C2009F1046 /* iOSApp_GoOutCheckListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp_GoOutCheckListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		87B41BAF28EAC58C009F1046 /* CategoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewModel.swift; sourceTree = "<group>"; };
+		87C1D7CC2AF64C67003582E5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		87C268D5290F6F50000319E5 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		87C7CFE329162E1D00C4F451 /* DoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTextField.swift; sourceTree = "<group>"; };
 		87D4BA3A28F250780059F7FC /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				87E7536E2920BDE600C4ECF7 /* CheckItemsMiddleWidgetExtension.entitlements */,
+				87C1D7CC2AF64C67003582E5 /* Settings.bundle */,
 				87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */,
 				87B41B3628EAA1C2009F1046 /* iOSApp-GoOutCheckListTests */,
 				87B41B4028EAA1C2009F1046 /* iOSApp-GoOutCheckListUITests */,
@@ -690,6 +693,7 @@
 				8737AA82290FA66600CEB416 /* SettingStoryboard.storyboard in Resources */,
 				87B41B2A28EAA1C2009F1046 /* Assets.xcassets in Resources */,
 				87D4BA3D28F250780059F7FC /* CategoryTableViewCell.xib in Resources */,
+				87C1D7CD2AF64C67003582E5 /* Settings.bundle in Resources */,
 				8743CC1728F0F3D50082C27C /* RegisterCheckItemViewController.xib in Resources */,
 				8766155128F0153D00F0A8C1 /* CheckItemTableViewController.xib in Resources */,
 				873E87C3291B6356001DFD8D /* CheckItemEditViewController.xib in Resources */,
