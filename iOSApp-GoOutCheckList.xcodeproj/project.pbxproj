@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0C0DD380804DEDFBADFB26A5 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED2A92CC6505416760DE6F1 /* Pods_iOSApp_GoOutCheckList_CheckItemsMiddleWidgetExtension.framework */; };
 		87202B7529091C950036692B /* CheckHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87202B7429091C950036692B /* CheckHistory.swift */; };
+		872C8D2B2AF5D9CD00FC3954 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 872C8D2A2AF5D9CD00FC3954 /* GoogleService-Info.plist */; };
+		872C8D342AF613BB00FC3954 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 872C8D332AF613BB00FC3954 /* FirebaseAnalytics */; };
+		872C8D362AF613BB00FC3954 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 872C8D352AF613BB00FC3954 /* FirebaseCrashlytics */; };
 		872CEEF6290FF308006340E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872CEEF5290FF308006340E7 /* WebViewController.swift */; };
 		872CEEF8291006BA006340E7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872CEEF7291006BA006340E7 /* WebKit.framework */; };
 		8730C40E290CEC420020629C /* TouchFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730C40D290CEC420020629C /* TouchFeedbackView.swift */; };
@@ -129,6 +132,7 @@
 		162404F3B1DBC4A5F3B95394 /* Pods_iOSApp_GoOutCheckListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSApp_GoOutCheckListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3556AEDF41E75EDCD0CB8BD4 /* Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSApp-GoOutCheckListUITests/Pods-iOSApp-GoOutCheckListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		87202B7429091C950036692B /* CheckHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHistory.swift; sourceTree = "<group>"; };
+		872C8D2A2AF5D9CD00FC3954 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		872CEEF5290FF308006340E7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		872CEEF7291006BA006340E7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8730C40D290CEC420020629C /* TouchFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFeedbackView.swift; sourceTree = "<group>"; };
@@ -231,7 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				872CEEF8291006BA006340E7 /* WebKit.framework in Frameworks */,
+				872C8D362AF613BB00FC3954 /* FirebaseCrashlytics in Frameworks */,
 				F834723A44CA72B233D147D9 /* Pods_iOSApp_GoOutCheckList.framework in Frameworks */,
+				872C8D342AF613BB00FC3954 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +427,7 @@
 		87B41B1F28EAA1C1009F1046 /* iOSApp-GoOutCheckList */ = {
 			isa = PBXGroup;
 			children = (
+				872C8D2A2AF5D9CD00FC3954 /* GoogleService-Info.plist */,
 				87E753712920C44900C4ECF7 /* iOSApp-GoOutCheckList.entitlements */,
 				87B41BA428EAC387009F1046 /* Models */,
 				87A2663128EB27AC0091C282 /* DataSource */,
@@ -555,6 +562,7 @@
 				87B41B1B28EAA1C1009F1046 /* Resources */,
 				6EDA9F29EE5DEF98134EF735 /* [CP] Embed Pods Frameworks */,
 				87834AF7291FBB7A00B073E2 /* Embed Foundation Extensions */,
+				872C8D312AF5DBDE00FC3954 /* Firebase Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -562,6 +570,10 @@
 				87834AF5291FBB7A00B073E2 /* PBXTargetDependency */,
 			);
 			name = "iOSApp-GoOutCheckList";
+			packageProductDependencies = (
+				872C8D332AF613BB00FC3954 /* FirebaseAnalytics */,
+				872C8D352AF613BB00FC3954 /* FirebaseCrashlytics */,
+			);
 			productName = "iOSApp-GoOutCheckList";
 			productReference = 87B41B1D28EAA1C1009F1046 /* iOSApp-GoOutCheckList.app */;
 			productType = "com.apple.product-type.application";
@@ -641,6 +653,9 @@
 				Base,
 			);
 			mainGroup = 87B41B1428EAA1C1009F1046;
+			packageReferences = (
+				872C8D322AF613BB00FC3954 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 87B41B1E28EAA1C1009F1046 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -669,6 +684,7 @@
 			files = (
 				87B358B2290B9725006A28AE /* CategoryImageCollectionViewCell.xib in Resources */,
 				8766155528F015B800F0A8C1 /* CheckItemTableViewCell.xib in Resources */,
+				872C8D2B2AF5D9CD00FC3954 /* GoogleService-Info.plist in Resources */,
 				874602D62909FB5B009D1D50 /* CheckHistoryTableViewCell.xib in Resources */,
 				87B41B2D28EAA1C2009F1046 /* LaunchScreen.storyboard in Resources */,
 				8737AA82290FA66600CEB416 /* SettingStoryboard.storyboard in Resources */,
@@ -805,6 +821,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSApp-GoOutCheckList/Pods-iOSApp-GoOutCheckList-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		872C8D312AF5DBDE00FC3954 /* Firebase Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Firebase Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 		BF9DAF9F676E62E11042763E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1144,6 +1180,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 558ZJSQN67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOSApp-GoOutCheckList/Info.plist";
@@ -1340,6 +1377,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		872C8D322AF613BB00FC3954 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.16.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		872C8D332AF613BB00FC3954 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 872C8D322AF613BB00FC3954 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		872C8D352AF613BB00FC3954 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 872C8D322AF613BB00FC3954 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 87B41B1528EAA1C1009F1046 /* Project object */;
 }

@@ -1,6 +1,9 @@
 import UIKit
 import WidgetKit
 import RealmSwift
+import Firebase
+import FirebaseAnalytics
+import FirebaseCrashlytics
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -104,6 +107,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        Analytics.logEvent("AppDelegate", parameters: ["title": "app_open"])
+        FirebaseApp.configure()
         return true
     }
 
