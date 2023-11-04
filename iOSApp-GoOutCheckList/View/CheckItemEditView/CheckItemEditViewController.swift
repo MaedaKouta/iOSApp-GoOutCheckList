@@ -1,14 +1,6 @@
-//
-//  CheckItemEditViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/11/09.
-//
-
 import UIKit
 
 class CheckItemEditViewController: UIViewController, UITextFieldDelegate {
-
     @IBOutlet private weak var itemNameTextField: UITextField!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
@@ -143,6 +135,5 @@ class CheckItemEditViewController: UIViewController, UITextFieldDelegate {
 
         }
     }
-
 }
 

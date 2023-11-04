@@ -1,9 +1,3 @@
-//
-// LostCheckListViewModel.swift
-// iOSApp-GoOutCheckList
-//
-// Created by 前田航汰 on 2022/10/07.
-//
 import Foundation
 import RxCocoa
 import RxSwift
@@ -159,5 +153,4 @@ class CheckItemViewModel: CheckItemViewModelInputs, CheckItemViewModelOutputs, C
         }
         addItemPublishRelay.accept(())
     }
-
 }

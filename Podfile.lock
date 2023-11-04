@@ -1,16 +1,16 @@
 PODS:
   - Differentiator (5.0.0)
-  - FloatingPanel (2.5.5)
-  - lottie-ios (3.5.0)
+  - FloatingPanel (2.8.0)
+  - lottie-ios (4.3.3)
   - PKHUD (5.3.0)
-  - Realm (10.32.2):
-    - Realm/Headers (= 10.32.2)
-  - Realm/Headers (10.32.2)
-  - RealmSwift (10.32.2):
-    - Realm (= 10.32.2)
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
+  - Realm (10.44.0):
+    - Realm/Headers (= 10.44.0)
+  - Realm/Headers (10.44.0)
+  - RealmSwift (10.44.0):
+    - Realm (= 10.44.0)
+  - RxCocoa (6.6.0):
+    - RxRelay (= 6.6.0)
+    - RxSwift (= 6.6.0)
   - RxDataSources (5.0.0):
     - Differentiator (~> 5.0)
     - RxCocoa (~> 6.0)
@@ -20,11 +20,11 @@ PODS:
     - RealmSwift (~> 10.21)
     - RxCocoa (~> 6.1)
     - RxSwift (~> 6.1)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
-  - RxTest (6.5.0):
-    - RxSwift (= 6.5.0)
+  - RxRelay (6.6.0):
+    - RxSwift (= 6.6.0)
+  - RxSwift (6.6.0)
+  - RxTest (6.6.0):
+    - RxSwift (= 6.6.0)
 
 DEPENDENCIES:
   - FloatingPanel
@@ -55,18 +55,18 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  FloatingPanel: a27e7827e0f710fa6236fe2596dd1b5484cb4fc1
-  lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
+  FloatingPanel: f585be005983e66f8f4932f93ca46bf9f09dae3a
+  lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
-  Realm: a11d133606e898ee43ddd3c24050a382c8d3eab1
-  RealmSwift: f796f7701a5efa031554d5639ef5b2d4c850bc74
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  Realm: 0419a32457873acb720df25bf1d658df36967cf2
+  RealmSwift: 352f85c018b4d0efe961974bfa95bf7a30e079f6
+  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRealm: 666c8785327fe2fff972a3093b35dc7055c1ca38
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
+  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
+  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
+  RxTest: a23f26bb53a5e146a0a69db4f0fa0b69001ce7f4
 
-PODFILE CHECKSUM: 02f2ff3940c3afb55cc2f28172ccc15f649935f9
+PODFILE CHECKSUM: c9c12f531efc6f0c0a6c49fec7d54adb73e980cb
 
 COCOAPODS: 1.11.3

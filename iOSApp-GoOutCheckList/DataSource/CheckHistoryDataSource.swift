@@ -1,10 +1,3 @@
-//
-//  CheckHistoryDataSource.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/27.
-//
-
 import Foundation
 import RxSwift
 import RxCocoa
@@ -16,7 +9,6 @@ import RealmSwift
  RxSwiftでTableViewを監視するために必要
  */
 class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
-
     typealias Element = List<CheckHistory>
     var item = List<CheckHistory>()
     private let realm = RealmManager().realm
@@ -77,5 +69,4 @@ class CheckHistoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSo
         }
         .on(observedEvent)
     }
-
 }

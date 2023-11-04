@@ -1,10 +1,3 @@
-//
-//  CategoryDataSource.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/03.
-//
-
 import Foundation
 import RxSwift
 import RxCocoa
@@ -16,7 +9,6 @@ import RealmSwift
  RxSwiftでTableViewを監視するために必要
  */
 class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType, UITableViewDelegate {
-
     typealias Element = List<Category>
     var item = List<Category>()
     private let realm = RealmManager().realm
@@ -80,6 +72,5 @@ class CategoryDataSource: NSObject, UITableViewDataSource, RxTableViewDataSource
         }
         .on(observedEvent)
     }
-
 }
 

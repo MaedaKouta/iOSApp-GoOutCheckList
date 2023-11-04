@@ -1,11 +1,3 @@
-//
-//  SettingViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/31.
-//
-
-
 import UIKit
 import SwiftUI
 import RealmSwift
@@ -13,7 +5,6 @@ import PKHUD
 import WidgetKit
 
 class SettingTableViewController: UITableViewController {
-
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var isDisplayHistoryNumberSwitch: UISwitch!
     @IBOutlet private weak var widgetCategoryButton: UIButton!
@@ -315,6 +306,5 @@ class SettingTableViewController: UITableViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-
 }
 

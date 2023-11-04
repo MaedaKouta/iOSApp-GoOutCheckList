@@ -1,10 +1,3 @@
-//
-//  RegisterCategoryDetailViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/06.
-//
-
 import UIKit
 
 struct CategoryImage {
@@ -13,7 +6,6 @@ struct CategoryImage {
 }
 
 class RegisterCategoryViewController: UIViewController, UITextFieldDelegate {
-
     @IBOutlet private weak var categoryNameTextField: DoneTextField!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
@@ -209,5 +201,4 @@ extension RegisterCategoryViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-
 }

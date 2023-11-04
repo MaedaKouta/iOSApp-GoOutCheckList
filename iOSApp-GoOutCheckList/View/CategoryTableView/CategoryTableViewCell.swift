@@ -1,15 +1,7 @@
-//
-//  CategoryTableViewCell.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/09.
-//
-
 import UIKit
 import RealmSwift
 
 class CategoryTableViewCell: UITableViewCell {
-
     @IBOutlet private weak var categoryImage: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var latestHistoryTimeLabel: UILabel!
@@ -17,7 +9,6 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var checkedCountProgressView: UIProgressView!
 
     func configure(category: Category) {
-
         setupLayout()
 
         self.nameLabel.text = category.name
@@ -45,7 +36,6 @@ class CategoryTableViewCell: UITableViewCell {
             checkedCountLabel.text = "\(chekedItemCount)項目チェック済み/\(allItemCount)項目"
             checkedCountProgressView.setProgress(checkedRatio, animated: false)
         }
-
     }
 
     private func setupLayout() {
@@ -75,7 +65,5 @@ class CategoryTableViewCell: UITableViewCell {
             let dateStringDetail = DateUtils.stringFromDate(date: date, format: "MM/dd")
             return dateStringDetail
         }
-
     }
-
 }

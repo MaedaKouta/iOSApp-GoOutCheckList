@@ -1,14 +1,6 @@
-//
-//  ViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/09.
-//
-
 import UIKit
 
 class MainTabBarController: UITabBarController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTab()
@@ -24,5 +16,4 @@ class MainTabBarController: UITabBarController {
         viewControllers = [firstViewController, secondViewController]
 
     }
-
 }

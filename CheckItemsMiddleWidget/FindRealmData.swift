@@ -1,10 +1,3 @@
-//
-//  FindRealmData.swift
-//  CheckItemsMiddleWidgetExtension
-//
-//  Created by 前田航汰 on 2022/11/14.
-//
-
 import Foundation
 import RealmSwift
 
@@ -39,5 +32,4 @@ struct FindRealmData {
         }
         return widgetCategoryIndex
     }
-
 }

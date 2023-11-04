@@ -1,10 +1,3 @@
-//
-//  CategoryImageCollectionViewCell.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/28.
-//
-
 import UIKit
 
 class CategoryImageCollectionViewCell: UICollectionViewCell {
@@ -46,5 +39,4 @@ class CategoryImageCollectionViewCell: UICollectionViewCell {
         self.categoryImage.layer.borderColor = noneSelectLayerColor
         self.categoryImage.layer.borderWidth = 2
     }
-
 }

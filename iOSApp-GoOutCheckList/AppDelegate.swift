@@ -1,5 +1,3 @@
-
-
 import UIKit
 import WidgetKit
 import RealmSwift
@@ -106,7 +104,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-
         return true
     }
 

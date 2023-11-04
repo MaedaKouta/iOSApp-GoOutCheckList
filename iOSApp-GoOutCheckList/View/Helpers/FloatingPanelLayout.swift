@@ -1,18 +1,10 @@
-//
-//  RegisterCategoryDetailFloatingPanelLayout.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/07.
-//
+import Foundation
+import FloatingPanel
 
 /*
  カテゴリの登録の際に出現するセミモーダルのレイアウトファイル。
  FloatingPanelのレイアウトで、4/3と1/2の２種類のセミモーダルを実装している。
  */
-
-import Foundation
-import FloatingPanel
-
 class RegisterCategoryDetailFloatingPanelLayout: FloatingPanelLayout {
     let position: FloatingPanelPosition = .bottom
     let initialState: FloatingPanelState = .full
@@ -27,7 +19,6 @@ class RegisterCategoryDetailFloatingPanelLayout: FloatingPanelLayout {
         default: return 0.0
         }
     }
-
 }
 
 class RegisterCheckElementFloatingPanelLayout: FloatingPanelLayout {
@@ -44,5 +35,4 @@ class RegisterCheckElementFloatingPanelLayout: FloatingPanelLayout {
         default: return 0.0
         }
     }
-
 }

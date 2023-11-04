@@ -1,15 +1,7 @@
-//
-//  DoneTextField.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/11/05.
-//
-
 import Foundation
 import UIKit
 
 class DoneTextField: UITextField {
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

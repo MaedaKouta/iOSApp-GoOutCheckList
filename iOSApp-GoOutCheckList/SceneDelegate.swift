@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/03.
-//
-
 import UIKit
 import WidgetKit
 
@@ -14,8 +7,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let userdefaultManager = UserdefaultsManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
-        // ここから
         let window = UIWindow(windowScene: scene as! UIWindowScene)
         self.window = window
         window.makeKeyAndVisible()
@@ -26,13 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //self.window?.rootViewController = viewController
 
         /* 初期画面をNavigationControllerにしたい場合 */
-         let navigationController = UINavigationController(rootViewController: MainTabBarController())
-         navigationController.isNavigationBarHidden = true
+        let navigationController = UINavigationController(rootViewController: MainTabBarController())
+        navigationController.isNavigationBarHidden = true
 
-         self.window?.rootViewController = navigationController
+        self.window?.rootViewController = navigationController
 
         userdefaultManager.setIsDisplayFromWidget(isTrue: false)
-
     }
 
     // アプリスリープ
@@ -46,7 +36,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         if urlString == "GoOutCheckList://deeplink?from=widget" {
-
             userdefaultManager.setIsDisplayFromWidget(isTrue: true)
 
             let navigationController = UINavigationController(rootViewController: MainTabBarController())
@@ -55,8 +44,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController?.tabBarController?.selectedIndex = 0
 
         }
-
     }
-
 }
 

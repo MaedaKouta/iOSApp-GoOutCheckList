@@ -1,10 +1,3 @@
-//
-//  CheckItemsMiddleWidget.swift
-//  CheckItemsMiddleWidget
-//
-//  Created by 前田航汰 on 2022/11/12.
-//
-
 import WidgetKit
 import SwiftUI
 import Intents
@@ -220,28 +213,6 @@ struct CheckItemsMiddleWidgetEntryView : View {
         }
     }
 }
-
-//struct ListCellLabelStyle: LabelStyle {
-//    func makeBody(configuration: Configuration) -> some View {
-//        HStack() {
-//            configuration.icon
-//                .scaledToFit()
-//                .scaledToFill()
-//                .frame(width: 12.0, height: 12.0)
-//            configuration.title
-//                .font(.caption2)
-//                .frame(width: .infinity)
-//        }
-//        .padding(.horizontal, 10)
-//        .frame(maxWidth: .infinity, alignment: .leading)
-//    }
-//}
-//
-//extension LabelStyle where Self == ListCellLabelStyle {
-//    static var listCell: ListCellLabelStyle {
-//        .init()
-//    }
-//}
 
 extension Font {
     static func futuraMedium(size: CGFloat) -> Font {

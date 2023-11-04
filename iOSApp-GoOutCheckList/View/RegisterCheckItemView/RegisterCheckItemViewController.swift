@@ -1,14 +1,6 @@
-//
-//  RegisterCheckElementViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/08.
-//
-
 import UIKit
 
 class RegisterCheckItemViewController: UIViewController, UITextFieldDelegate {
-
     @IBOutlet private weak var itemNameTextField: UITextField!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
     @IBOutlet private weak var closeButton: UIButton!
@@ -121,5 +113,4 @@ class RegisterCheckItemViewController: UIViewController, UITextFieldDelegate {
             registerButtonView.isUserInteractionEnabled = false
         }
     }
-
 }

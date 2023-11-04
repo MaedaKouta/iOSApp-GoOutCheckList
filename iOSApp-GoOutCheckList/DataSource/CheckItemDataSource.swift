@@ -1,9 +1,3 @@
-//
-//  LostCheckDataSource.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/07.
-//
 import Foundation
 import RxSwift
 import RxCocoa
@@ -16,7 +10,6 @@ import RealmSwift
  RealmのデータでList<CheckItem>を使う必要があるため、ArrayではなくListが中心のコード
  */
 class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType, UITableViewDelegate {
-
     typealias Element = List<CheckItem>
     var item = List<CheckItem>()
     private let realm = RealmManager().realm
@@ -81,6 +74,5 @@ class CheckItemDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourc
         }
         .on(observedEvent)
     }
-
 }
 

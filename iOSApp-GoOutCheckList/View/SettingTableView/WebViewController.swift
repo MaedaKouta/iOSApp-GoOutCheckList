@@ -1,16 +1,8 @@
-//
-//  WebViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/31.
-//
-
 import UIKit
 import WebKit
 import PKHUD
 
 class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
-
     @IBOutlet weak var webView: WKWebView!
     private var presentUrl = ""
     private var progressView = UIProgressView(progressViewStyle: .bar)
@@ -50,5 +42,4 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         self.presentUrl = presentUrl
         self.navigationItem.title = navigationTitle
     }
-
 }

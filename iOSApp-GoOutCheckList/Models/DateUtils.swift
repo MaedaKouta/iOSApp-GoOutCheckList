@@ -1,10 +1,3 @@
-//
-//  DateUtils.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/28.
-//
-
 import UIKit
 
 public class DateUtils {
@@ -23,5 +16,4 @@ public class DateUtils {
         formatter.locale = NSLocale.system
         return formatter.string(from: date)
     }
-
 }

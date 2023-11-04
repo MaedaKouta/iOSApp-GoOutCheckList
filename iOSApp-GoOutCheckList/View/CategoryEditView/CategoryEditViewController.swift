@@ -1,14 +1,6 @@
-//
-//  CategoryEditViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/11/09.
-//
-
 import UIKit
 
 class CategoryEditViewController: UIViewController , UITextFieldDelegate {
-
     @IBOutlet private weak var categoryNameTextField: DoneTextField!
     @IBOutlet private weak var categoryImageCollectionView: UICollectionView!
     @IBOutlet private weak var registerButtonView: TouchFeedbackView!
@@ -243,6 +235,5 @@ extension CategoryEditViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-
 }
 

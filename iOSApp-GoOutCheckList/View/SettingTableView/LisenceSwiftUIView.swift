@@ -1,20 +1,10 @@
-//
-//  LisenceSwiftUIView.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/11/03.
-//
-
 import SwiftUI
 
 struct LisenceSwiftUIView: View {
     
     var body: some View {
-        
         VStack {
-            
             ScrollView {
-                
                 LisenceLabel(
                     title: "ライセンス",
                     bodyText: """

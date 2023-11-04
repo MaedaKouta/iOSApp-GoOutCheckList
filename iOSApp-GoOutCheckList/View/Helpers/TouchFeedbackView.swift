@@ -1,10 +1,3 @@
-//
-//  TouchFeedbackView.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/29.
-//
-
 import Foundation
 import UIKit
 

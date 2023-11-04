@@ -1,10 +1,3 @@
-//
-//  CheckHistoryTableViewModel.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/27.
-//
-
 import Foundation
 import RxCocoa
 import RxSwift
@@ -32,7 +25,6 @@ public protocol CheckHistoryViewModelType {
 
 // MARK: - ViewModel
 class CheckHistoryViewModel: CheckHistoryViewModelInputs, CheckHistoryViewModelOutputs, CheckHistoryViewModelType {
-
     // MARK: Inputs
     internal var tableViewItemSelectedObservable: Observable<IndexPath>
 
@@ -79,5 +71,4 @@ class CheckHistoryViewModel: CheckHistoryViewModelInputs, CheckHistoryViewModelO
         self.checkHistoryDataBehaviorRelay
             .accept(checkHistoryListObject ?? List<CheckHistory>())
     }
-
 }

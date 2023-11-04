@@ -1,10 +1,3 @@
-//
-//  UserdefaultsManager.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/11/14.
-//
-
 import Foundation
 
 // Realmの保存先をWidgetと同じ保存先にする
@@ -46,5 +39,4 @@ public class UserdefaultsManager {
     func getIsSecondLaunch() -> Bool {
         return userdefault!.bool(forKey: "isSecondLaunch")
     }
-
 }

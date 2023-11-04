@@ -1,10 +1,3 @@
-//
-// LostCheckTableViewController.swift
-// iOSApp-GoOutCheckList
-//
-// Created by 前田航汰 on 2022/10/07.
-//
-
 import UIKit
 import RxCocoa
 import RxSwift
@@ -14,7 +7,6 @@ import RealmSwift
 import FloatingPanel
 
 class CheckItemTableViewController: UIViewController, FloatingPanelControllerDelegate {
-
     // MARK: Actions
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var addItemButtonView: TouchFeedbackView!
@@ -384,5 +376,4 @@ class CheckItemTableViewController: UIViewController, FloatingPanelControllerDel
             }
         }
     }
-
 }

@@ -1,10 +1,3 @@
-//
-//  CheckItemsMiddleWidgetBundle.swift
-//  CheckItemsMiddleWidget
-//
-//  Created by 前田航汰 on 2022/11/12.
-//
-
 import WidgetKit
 import SwiftUI
 

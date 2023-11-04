@@ -1,10 +1,3 @@
-//
-//  CategoryTableViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/03.
-//
-
 import UIKit
 import RxCocoa
 import RxSwift
@@ -13,7 +6,6 @@ import FloatingPanel
 import RealmSwift
 
 class CategoryTableViewController: UIViewController, FloatingPanelControllerDelegate, UITableViewDelegate {
-
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addCategoryButtonView: TouchFeedbackView!
@@ -336,5 +328,4 @@ class CategoryTableViewController: UIViewController, FloatingPanelControllerDele
     public func checkCategoryDataSource() -> CategoryDataSource {
         return self.categoryDataSource
     }
-
 }

@@ -1,10 +1,3 @@
-//
-//  CheckHistoryViewController.swift
-//  iOSApp-GoOutCheckList
-//
-//  Created by 前田航汰 on 2022/10/27.
-//
-
 import UIKit
 import RxCocoa
 import RxSwift
@@ -14,7 +7,6 @@ import RealmSwift
 import FloatingPanel
 
 class CheckHistoryViewController: UIViewController {
-
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var nothingTableViewDataImageView: UIImageView!
     @IBOutlet private weak var nothingTableViewLabel: UILabel!
@@ -214,6 +206,5 @@ class CheckHistoryViewController: UIViewController {
             tabItem.badgeColor = UIColor.darkGray
             tabItem.badgeValue = nil
         }
-
     }
 }
